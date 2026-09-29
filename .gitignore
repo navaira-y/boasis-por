@@ -32,3 +32,6 @@ coverage/
 
 # Uploaded source docs live on main; working copies stay out of feature branches
 *.pdf
+
+# TypeScript build info
+*.tsbuildinfo
