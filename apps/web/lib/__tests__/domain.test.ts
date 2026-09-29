@@ -4,7 +4,15 @@ import {
   canTransitionStatus,
   formatAED,
   isPortalAccessible,
+  stripePriceLookupKey,
 } from "@/lib/domain";
+
+describe("stripePriceLookupKey", () => {
+  it("maps plans to stable lookup keys", () => {
+    expect(stripePriceLookupKey("solo")).toBe("solo_monthly");
+    expect(stripePriceLookupKey("trio")).toBe("trio_monthly");
+  });
+});
 
 describe("formatAED", () => {
   it("formats fils without float math", () => {

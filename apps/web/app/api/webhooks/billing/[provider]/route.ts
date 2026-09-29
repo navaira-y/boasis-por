@@ -3,13 +3,14 @@ import { createAdminSupabase } from "@/lib/supabase";
 import {
   activateSubscription,
   getBillingProvider,
+  markCanceled,
   markPastDue,
 } from "@/lib/billing";
 import { rateLimit } from "@/lib/ratelimit";
 
 /**
  * Billing webhooks — the ONLY path that activates subscriptions.
- * Real providers (M5) verify signatures inside parseWebhook; the stub
+ * Signature is verified inside the provider's parseWebhook; the stub
  * provider has no webhooks and 404s here by design.
  */
 export async function POST(
@@ -34,7 +35,8 @@ export async function POST(
 
   let events;
   try {
-    events = await getBillingProvider().parseWebhook(rawBody, signature);
+    const billing = await getBillingProvider();
+    events = await billing.parseWebhook(rawBody, signature);
   } catch {
     return NextResponse.json({ error: "invalid signature" }, { status: 400 });
   }
@@ -58,8 +60,13 @@ export async function POST(
         providerEventId: event.providerEventId,
         subscriptionId: event.subscriptionId,
       });
+    } else if (event.kind === "canceled") {
+      await markCanceled(admin, {
+        provider,
+        providerEventId: event.providerEventId,
+        subscriptionId: event.subscriptionId,
+      });
     }
-    // canceled → M5 (dunning + grace rules with client input)
   }
   return NextResponse.json({ received: true });
 }

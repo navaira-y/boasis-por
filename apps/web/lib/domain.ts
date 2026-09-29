@@ -37,6 +37,11 @@ export function canAddCompany(
   return companyCount < maxCompanies;
 }
 
+/** Stripe price lookup keys (same in test + live mode — no env juggling). */
+export function stripePriceLookupKey(planId: PlanId): string {
+  return planId === "solo" ? "solo_monthly" : "trio_monthly";
+}
+
 /** Legal state machine for subscription.status. */
 export function canTransitionStatus(
   from: SubscriptionStatus,

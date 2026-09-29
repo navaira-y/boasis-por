@@ -18,7 +18,25 @@ export default async function BillingSuccessPage() {
     .eq("profile_id", user.id)
     .maybeSingle<{ status: string; plans: { name: string } }>();
 
-  if (sub?.status !== "active") redirect("/billing/pending");
+  // Webhook usually lands within seconds of the redirect. If it hasn't yet,
+  // show a confirming state (with manual re-check) instead of bouncing back.
+  if (sub?.status !== "active") {
+    return (
+      <main className="wrap">
+        <div className="card">
+          <p className="muted small">BOASIS PORTAL · PAYMENT</p>
+          <h1>Confirming your payment…</h1>
+          <p className="muted">
+            This usually takes a few seconds. If this page doesn&apos;t change,
+            your payment may still be processing.
+          </p>
+          <Link className="btn secondary" href="/billing/success">
+            Check again
+          </Link>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="wrap">

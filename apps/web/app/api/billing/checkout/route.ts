@@ -44,7 +44,7 @@ export async function POST() {
     );
   }
 
-  const provider = getBillingProvider();
+  const provider = await getBillingProvider();
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
   const session = await provider.createCheckoutSession({
     profileId: user.id,

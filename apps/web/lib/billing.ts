@@ -74,12 +74,15 @@ class StubBillingProvider implements BillingProvider {
   }
 }
 
-export function getBillingProvider(): BillingProvider {
+export async function getBillingProvider(): Promise<BillingProvider> {
   const id = (process.env.BILLING_PROVIDER ?? "stub") as BillingProviderId;
   switch (id) {
     case "stub":
       return new StubBillingProvider();
-    // case "stripe": return new StripeBillingProvider(); // Phase 1 M5
+    case "stripe": {
+      const { StripeBillingProvider } = await import("@/lib/billing-stripe");
+      return new StripeBillingProvider();
+    }
     default:
       throw new Error(`billing provider "${id}" is not configured`);
   }
@@ -174,6 +177,40 @@ export async function activateSubscription(
     meta: { provider: args.provider, plan: args.planId },
   });
   return { applied: true };
+}
+
+/** canceled at period end / immediately (legal transition enforced). */
+export async function markCanceled(
+  admin: SupabaseClient,
+  args: { provider: string; providerEventId: string; subscriptionId: string }
+): Promise<void> {
+  const { error: ledgerError } = await admin.from("webhook_events").insert({
+    provider: args.provider,
+    provider_event_id: args.providerEventId,
+    type: "subscription.canceled",
+    payload: args as unknown as Record<string, unknown>,
+  });
+  if (ledgerError && ledgerError.code === "23505") return;
+  if (ledgerError) throw new Error(ledgerError.message);
+
+  const { data: current } = await admin
+    .from("subscriptions")
+    .select("status, profile_id")
+    .eq("id", args.subscriptionId)
+    .single<{ status: Parameters<typeof canTransitionStatus>[0]; profile_id: string }>();
+  if (!current || !canTransitionStatus(current.status, "canceled")) return;
+
+  await admin
+    .from("subscriptions")
+    .update({ status: "canceled", canceled_at: new Date().toISOString() })
+    .eq("id", args.subscriptionId);
+  await audit(admin, {
+    actor_profile_id: current.profile_id,
+    action: "subscription.canceled",
+    entity: "subscription",
+    entity_id: args.subscriptionId,
+    meta: { provider: args.provider },
+  });
 }
 
 /** past_due on failed recurring payment (legal transition enforced). */

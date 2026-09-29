@@ -7,7 +7,7 @@
 - [ ] M2 Signup (Step 0): name, email, password (+ breach check), plan picker, terms, email verify
 - [ ] M3 Pending → checkout (stub) → webhook → active; `/billing/pending` gate in middleware
 - [ ] M4 Entitlements enforced: plan company limits, upgrade prompt copy per spec
-- [ ] M5 Real billing provider plugged in (pending client decision) + invoice email
+- [~] M5 Stripe implemented (checkout + webhooks + cancel/past_due); needs keys + prices per docs/STRIPE.md. Invoice email still open
 - [ ] M6 Hardening pass: rate limits, RLS tests in CI, Sentry, audit review
 
 ## Entry contract (from boasis.ae plans buttons)
