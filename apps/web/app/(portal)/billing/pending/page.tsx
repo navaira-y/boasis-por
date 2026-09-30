@@ -1,46 +1,58 @@
-"use client";
+import { redirect } from "next/navigation";
+import { createAdminSupabase, createServerSupabase } from "@/lib/supabase";
+import { formatAED } from "@/lib/domain";
+import { CheckoutButton } from "./checkout-button";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+/** Step 2 of 2: payment. Shows the plan picked at signup. */
+export const dynamic = "force-dynamic";
 
-export default function BillingPendingPage() {
-  const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+export default async function BillingPendingPage() {
+  const supabase = await createServerSupabase();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect("/signup");
 
-  async function startCheckout() {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch("/api/billing/checkout", { method: "POST" });
-      const body = await res.json();
-      if (!res.ok) throw new Error(body.error ?? "Checkout failed.");
-      router.push(body.url);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Checkout failed.");
-      setLoading(false);
-    }
-  }
+  const admin = await createAdminSupabase();
+  const { data: sub } = await admin
+    .from("subscriptions")
+    .select("status, plans!inner(name, max_companies, price_fils, currency)")
+    .eq("profile_id", user.id)
+    .maybeSingle<{
+      status: string;
+      plans: { name: string; max_companies: number; price_fils: number; currency: string };
+    }>();
+  if (!sub) redirect("/signup");
+  if (sub.status === "active") redirect("/billing/success");
+
+  const plan = sub.plans;
 
   return (
     <main className="wrap">
       <div className="card">
-        <p className="muted small">BOASIS PORTAL · PAYMENT</p>
+        <p className="muted small">BOASIS PORTAL · STEP 2 OF 2 — PAYMENT</p>
         <h1>Activate your account</h1>
         <ol className="steps">
           <li className="done">1. Account</li>
-          <li className="done">2. Verify email</li>
-          <li className="done">3. Payment</li>
-          <li>4. Onboarding</li>
+          <li className="done">2. Payment</li>
         </ol>
+        <div className="plan selected" style={{ cursor: "default", marginBottom: 20 }}>
+          <h3>Your plan: {plan.name}</h3>
+          <div className="price">
+            {formatAED(plan.price_fils, plan.currency)}
+            <span className="muted small"> /month</span>
+          </div>
+          <p className="muted small">
+            {plan.max_companies === 1
+              ? "1 company file, reminders, guidance, vault."
+              : `Up to ${plan.max_companies} companies, one combined year, reminders, vault.`}
+          </p>
+        </div>
         <p className="muted">
-          Your account is created and your email is verified. One payment
-          activates everything — onboarding unlocks immediately after.
+          One payment activates everything — onboarding unlocks immediately
+          after.
         </p>
-        {error && <div className="error">{error}</div>}
-        <button className="btn" onClick={startCheckout} disabled={loading}>
-          {loading ? "Opening secure checkout…" : "Continue to secure checkout"}
-        </button>
+        <CheckoutButton />
       </div>
     </main>
   );

@@ -42,7 +42,14 @@ npm run dev        # http://localhost:3000
 - Site URL: `http://localhost:3000` (dev) / production URL (prod)
 - Redirect allow-list: add `{SITE_URL}/auth/callback`
 
-## 5. Billing (dev)
+## 5. OTP email template (Supabase dashboard → Auth → Email Templates → Magic Link)
+
+Signup sends a 6-digit code via `signInWithOtp`, which uses the Magic Link
+template. Confirm the template contains `{{ .Token }}` so the email shows the
+code (and keep the link — clicking it also verifies, and the signup page
+resumes where the user left off).
+
+## 6. Billing (dev)
 
 `BILLING_PROVIDER=stub` gives a fake checkout that activates the account —
 **it refuses to run when `NODE_ENV=production`**. Real providers are added under

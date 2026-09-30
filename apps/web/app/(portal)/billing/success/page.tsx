@@ -45,9 +45,7 @@ export default async function BillingSuccessPage() {
         <h1>Payment received — welcome in.</h1>
         <ol className="steps">
           <li className="done">1. Account</li>
-          <li className="done">2. Verify email</li>
-          <li className="done">3. Payment</li>
-          <li className="done">4. Onboarding</li>
+          <li className="done">2. Payment</li>
         </ol>
         <div className="notice">
           Your <strong>{sub.plans.name}</strong> plan is active. Let&apos;s set

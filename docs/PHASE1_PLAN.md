@@ -4,7 +4,7 @@
 
 - [x] M0 Repo scaffold, docs, content system skeleton, DB migration + RLS
 - [ ] M1 Supabase project wired (URL + anon key in `apps/web/.env.local`), migration applied
-- [ ] M2 Signup (Step 0): name, email, password (+ breach check), plan picker, terms, email verify
+- [x] M2 Signup: name + email + inline 6-digit code, password (+ breach check), plan picker, terms; 2-step flow (Account → Payment); payment page shows selected plan
 - [ ] M3 Pending → checkout (stub) → webhook → active; `/billing/pending` gate in middleware
 - [ ] M4 Entitlements enforced: plan company limits, upgrade prompt copy per spec
 - [~] M5 Stripe implemented (checkout + webhooks + cancel/past_due); needs keys + prices per docs/STRIPE.md. Invoice email still open

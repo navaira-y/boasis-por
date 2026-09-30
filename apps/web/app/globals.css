@@ -99,3 +99,19 @@ a { color: var(--brand-dark); }
   border-top: 3px solid var(--line); padding-top: 8px;
 }
 .steps li.done { color: var(--ok); border-color: var(--ok); font-weight: 700; }
+
+.code-boxes { display: flex; gap: 8px; margin-top: 6px; }
+.code-boxes input {
+  width: 48px;
+  height: 56px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.code-boxes input:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+@media (max-width: 480px) {
+  .code-boxes { gap: 6px; }
+  .code-boxes input { width: 44px; height: 52px; font-size: 20px; }
+}
