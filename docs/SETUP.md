@@ -27,7 +27,10 @@ Apply migrations (Supabase SQL editor, or CLI when linked):
 supabase db push
 ```
 
-`supabase/migrations/0001_phase1_core.sql` creates tables + RLS + seeds the two plans.
+Run migrations **in order**, once each (SQL editor: paste whole file → Run):
+1. `supabase/migrations/0001_phase1_core.sql` — tables + RLS + Solo/Trio seeds
+2. `supabase/migrations/0002_three_plans.sql` — Enterprise plan, free-year
+   column, plan choice at payment (`select * from plans` must show 3 rows)
 
 ## 3. Run
 

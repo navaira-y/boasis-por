@@ -18,7 +18,8 @@ export interface AuthState {
  * Inline 6-digit email verification (Supabase OTP):
  *  1. sendCodeAction   — email in, code out (no session yet)
  *  2. verifyCodeAction — code checked server-side, session + confirmed email
- *  3. completeSignupAction — password + plan + terms → profile + pending sub
+ *  3. completeSignupAction — password + terms → profile + pending sub
+ *     (plan is chosen on the payment step, nothing preselected)
  * Every failure returns an inline message (never a crash page). Raw detail is
  * appended in development only, so real causes stay debuggable.
  */
@@ -108,11 +109,10 @@ export async function verifyCodeAction(
 const completeSchema = z.object({
   fullName: z.string().trim().min(2, "Please enter your name.").max(100),
   password: z.string().min(12, "Password must be at least 12 characters.").max(128),
-  planId: z.enum(["solo", "trio"]),
   terms: z.literal("on", { errorMap: () => ({ message: "Please accept the terms to continue." }) }),
 });
 
-/** Step 3: verified session → password + profile + PENDING subscription. */
+/** Step 3: verified session → password + profile + PENDING subscription (no plan yet). */
 export async function completeSignupAction(
   _prev: AuthState,
   formData: FormData
@@ -125,7 +125,6 @@ export async function completeSignupAction(
   const parsed = completeSchema.safeParse({
     fullName: formData.get("fullName"),
     password: formData.get("password"),
-    planId: formData.get("planId"),
     terms: formData.get("terms"),
   });
   if (!parsed.success) {
@@ -169,7 +168,6 @@ export async function completeSignupAction(
     const { error: subError } = await admin.from("subscriptions").upsert(
       {
         profile_id: user.id,
-        plan_id: input.planId,
         status: "pending",
         provider: process.env.BILLING_PROVIDER ?? "stub",
       },
@@ -182,7 +180,7 @@ export async function completeSignupAction(
       action: "account.created",
       entity: "profile",
       entity_id: user.id,
-      meta: { plan: input.planId, terms: TERMS_VERSION },
+      meta: { terms: TERMS_VERSION },
     });
   } catch (e) {
     return fail("Could not create the account. Please try again.", e);

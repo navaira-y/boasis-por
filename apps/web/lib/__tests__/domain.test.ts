@@ -48,6 +48,10 @@ describe("canAddCompany", () => {
       expect(canAddCompany(s, 0, 3)).toBe(false);
     }
   });
+  it("allows unlimited companies when max is null (enterprise)", () => {
+    expect(canAddCompany("active", 25, null)).toBe(true);
+    expect(canAddCompany("pending", 0, null)).toBe(false);
+  });
 });
 
 describe("canTransitionStatus", () => {

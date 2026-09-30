@@ -7,22 +7,15 @@ import {
   verifyCodeAction,
   type AuthState,
 } from "./actions";
-import { formatAED, type PlanId } from "@/lib/domain";
-import type { Plan } from "@/lib/plans";
-
 const idle: AuthState = { ok: false };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Phase = "email" | "code" | "verified";
 
 export function SignupForm({
-  plans,
-  preselected,
   next,
   resumeEmail,
 }: {
-  plans: Plan[];
-  preselected: PlanId;
   next: string;
   resumeEmail: string | null;
 }) {
@@ -30,7 +23,6 @@ export function SignupForm({
   const [name, setName] = useState("");
   const [email, setEmail] = useState(resumeEmail ?? "");
   const [emailTouched, setEmailTouched] = useState(false);
-  const [plan, setPlan] = useState<PlanId>(preselected);
   const [cooldown, setCooldown] = useState(0);
 
   const nameValid = name.trim().length >= 2;
@@ -279,35 +271,10 @@ export function SignupForm({
             </p>
           </div>
 
-          <div className="field">
-            <label>Plan — sets how many companies you can add</label>
-            <div className="plans">
-              {plans.map((p) => (
-                <label
-                  key={p.id}
-                  className={`plan ${plan === p.id ? "selected" : ""}`}
-                >
-                  <input
-                    type="radio"
-                    name="planId"
-                    value={p.id}
-                    checked={plan === p.id}
-                    onChange={() => setPlan(p.id)}
-                  />
-                  <h3>{p.id === "solo" ? "Solo" : "Trio"}</h3>
-                  <div className="price">
-                    {formatAED(p.price_fils, p.currency)}
-                    <span className="muted small"> /month</span>
-                  </div>
-                  <p className="muted small">
-                    {p.max_companies === 1
-                      ? "1 company"
-                      : `Up to ${p.max_companies} companies`}
-                  </p>
-                </label>
-              ))}
-            </div>
-          </div>
+          <p className="small muted">
+            You&apos;ll choose your plan on the next step — nothing is
+            preselected.
+          </p>
 
           <label className="check">
             <input type="checkbox" name="terms" value="on" required />

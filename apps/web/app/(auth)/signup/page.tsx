@@ -1,20 +1,17 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createAdminSupabase, createServerSupabase } from "@/lib/supabase";
-import { isPlanId, listPlans } from "@/lib/plans";
 import { SignupForm } from "./form";
 
-/** Step 1 of 2: account with inline email-code check. Plan picked here. */
+/** Step 1 of 2: account with inline email-code check. Plan picked at payment. */
 export const dynamic = "force-dynamic";
 
 export default async function SignupPage({
   searchParams,
 }: {
-  searchParams: Promise<{ plan?: string; next?: string }>;
+  searchParams: Promise<{ next?: string }>;
 }) {
   const params = await searchParams;
-  const plans = await listPlans();
-  const preselected = isPlanId(params.plan) ? params.plan : "solo";
   const next = params.next ?? "/billing/pending";
 
   // Resume: verified session but no profile yet (abandoned halfway, or clicked
@@ -48,12 +45,7 @@ export default async function SignupPage({
           <li className="done">1. Account</li>
           <li>2. Payment</li>
         </ol>
-        <SignupForm
-          plans={plans}
-          preselected={preselected}
-          next={next}
-          resumeEmail={resumeEmail}
-        />
+        <SignupForm next={next} resumeEmail={resumeEmail} />
         <p className="small muted" style={{ marginTop: 16 }}>
           Two-step sign-in with an authenticator app can be turned on later in
           settings. <Link href="/">Back to plans</Link>

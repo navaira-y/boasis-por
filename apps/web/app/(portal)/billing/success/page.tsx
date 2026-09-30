@@ -14,9 +14,9 @@ export default async function BillingSuccessPage() {
   const admin = await createAdminSupabase();
   const { data: sub } = await admin
     .from("subscriptions")
-    .select("status, plans!inner(name)")
+    .select("status, provider, plans!inner(name)")
     .eq("profile_id", user.id)
-    .maybeSingle<{ status: string; plans: { name: string } }>();
+    .maybeSingle<{ status: string; provider: string; plans: { name: string } }>();
 
   // Webhook usually lands within seconds of the redirect. If it hasn't yet,
   // show a confirming state (with manual re-check) instead of bouncing back.
@@ -48,8 +48,10 @@ export default async function BillingSuccessPage() {
           <li className="done">2. Payment</li>
         </ol>
         <div className="notice">
-          Your <strong>{sub.plans.name}</strong> plan is active. Let&apos;s set
-          up your first company.
+          Your <strong>{sub.plans.name}</strong> plan is active.{" "}
+          {sub.provider === "free"
+            ? "No payment was taken — your first year is free."
+            : "Let's set up your first company."}
         </div>
         <Link className="btn secondary" href="/onboarding">
           Start onboarding →

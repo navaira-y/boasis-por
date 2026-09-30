@@ -4,7 +4,7 @@
  * the two must never disagree.
  */
 
-export type PlanId = "solo" | "trio";
+export type PlanId = "solo" | "trio" | "enterprise";
 export type SubscriptionStatus =
   | "pending"
   | "incomplete"
@@ -26,20 +26,24 @@ export function isPortalAccessible(status: SubscriptionStatus): boolean {
   return ACTIVE_STATUSES.includes(status);
 }
 
-/** Company limit from the plan. Mirrored by the DB trigger. */
+/** Company limit from the plan. NULL max = unlimited (enterprise). Mirrored by the DB trigger. */
 export function canAddCompany(
   status: SubscriptionStatus,
   companyCount: number,
-  maxCompanies: number
+  maxCompanies: number | null
 ): boolean {
   if (!isPortalAccessible(status)) return false;
-  if (companyCount < 0 || maxCompanies < 1) return false;
+  if (companyCount < 0) return false;
+  if (maxCompanies === null) return true;
+  if (maxCompanies < 1) return false;
   return companyCount < maxCompanies;
 }
 
 /** Stripe price lookup keys (same in test + live mode — no env juggling). */
 export function stripePriceLookupKey(planId: PlanId): string {
-  return planId === "solo" ? "solo_monthly" : "trio_monthly";
+  if (planId === "solo") return "solo_monthly";
+  if (planId === "trio") return "trio_monthly";
+  throw new Error("enterprise has no self-checkout price (contact-led)");
 }
 
 /** Legal state machine for subscription.status. */

@@ -10,7 +10,7 @@
    `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_APP_URL` (the Railway URL),
    `BILLING_PROVIDER=stub` (testing) or `stripe` + `STRIPE_SECRET_KEY` +
    `STRIPE_WEBHOOK_SECRET` (real payments).
-4. Deploy → open the URL → walk `/signup?plan=solo`.
+4. Deploy → open the URL → walk `/signup` (plan is chosen at payment).
 5. Trial = $5 credit (a few days of full-stack testing). Add a card to keep
    it running past the trial.
 

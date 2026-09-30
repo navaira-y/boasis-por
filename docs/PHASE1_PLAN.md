@@ -7,7 +7,7 @@
 - [x] M2 Signup: name + email + inline 6-digit code, password (+ breach check), plan picker, terms; 2-step flow (Account → Payment); payment page shows selected plan
 - [ ] M3 Pending → checkout (stub) → webhook → active; `/billing/pending` gate in middleware
 - [ ] M4 Entitlements enforced: plan company limits, upgrade prompt copy per spec
-- [~] M5 Stripe implemented (checkout + webhooks + cancel/past_due); needs keys + prices per docs/STRIPE.md. Invoice email still open
+- [~] M5 Stripe implemented (Trio checkout + webhooks + cancel/past_due); needs keys + `trio_monthly` price per docs/STRIPE.md. Solo free-year needs no gateway; Enterprise is manual. Invoice email + year-2 dunning still open
 - [ ] M6 Hardening pass: rate limits, RLS tests in CI, Sentry, audit review
 
 ## Entry contract (from boasis.ae plans buttons)
@@ -15,11 +15,12 @@
 Marketing buttons link to:
 
 ```
-/signup?plan=solo   (AED 30 — 1 company)
-/signup?plan=trio   (AED 90 — up to 3 companies)
+/signup
 ```
 
-The signup page preselects the plan from the query param; user can still switch before submitting.
+No plan is preselected anywhere. The plan is chosen on the payment step:
+Solo (free 12 months, then AED 30) activates immediately; Trio (AED 90)
+checks out online; Enterprise links to contact.
 
 ## Definition of done (Phase 1)
 

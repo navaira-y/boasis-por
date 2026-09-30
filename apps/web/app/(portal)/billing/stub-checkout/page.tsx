@@ -35,13 +35,20 @@ export default async function StubCheckoutPage({
     .maybeSingle<{
       id: string;
       status: string;
-      plan_id: string;
-      plans: { name: string; max_companies: number; price_fils: number; currency: string };
+      plan_id: string | null;
+      plans: { name: string; max_companies: number | null; price_fils: number | null; currency: string };
     }>();
   if (!sub) redirect("/billing/pending");
   if (sub.status === "active") redirect("/billing/success");
+  // Only Trio checks out (Solo is free-year activation, Enterprise is contact-led).
+  if (sub.plan_id !== "trio") {
+    redirect("/billing/pending");
+  }
 
   const plan = sub.plans;
+  if (plan.price_fils === null) {
+    redirect("/billing/pending");
+  }
 
   return (
     <main className="wrap">

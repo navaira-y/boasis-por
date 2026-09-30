@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export function CheckoutButton() {
+export function CheckoutButton({ planId }: { planId: "trio" }) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,11 @@ export function CheckoutButton() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/billing/checkout", { method: "POST" });
+      const res = await fetch("/api/billing/checkout", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ planId }),
+      });
       const body = await res.json();
       if (!res.ok) throw new Error(body.error ?? "Checkout failed.");
       router.push(body.url);

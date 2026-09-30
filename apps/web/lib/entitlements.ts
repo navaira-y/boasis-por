@@ -11,7 +11,7 @@ export interface Entitlements {
   profileId: string;
   status: SubscriptionStatus | null;
   planId: PlanId | null;
-  maxCompanies: number;
+  maxCompanies: number | null; // null = unlimited (enterprise)
   companyCount: number;
   canAccessPortal: boolean;
   canAddCompany: boolean;
@@ -28,12 +28,12 @@ export async function getEntitlements(
 ): Promise<Entitlements> {
   const { data: sub } = await admin
     .from("subscriptions")
-    .select("status, plan_id, plans!inner(max_companies)")
+    .select("status, plan_id, plans(max_companies)")
     .eq("profile_id", profileId)
     .maybeSingle<{
       status: SubscriptionStatus;
-      plan_id: PlanId;
-      plans: { max_companies: number };
+      plan_id: PlanId | null;
+      plans: { max_companies: number | null } | null;
     }>();
 
   const { count } = await admin
@@ -43,7 +43,9 @@ export async function getEntitlements(
 
   const companyCount = count ?? 0;
   const status = sub?.status ?? null;
-  const maxCompanies = sub?.plans?.max_companies ?? 0;
+  // No plan chosen yet = locked (0). Enterprise max = null = unlimited.
+  const maxCompanies =
+    sub?.plan_id && sub.plans ? sub.plans.max_companies : 0;
 
   return {
     profileId,
@@ -63,5 +65,8 @@ export function planLimitMessage(planId: PlanId | null): string {
   if (planId === "solo") {
     return "Your plan covers 1 company. Upgrade to up to 3 companies for AED 90 a month.";
   }
-  return "Your plan limit is reached. Upgrade your plan to add more companies.";
+  if (planId === "trio") {
+    return "Your plan covers up to 3 companies. Contact us for Enterprise.";
+  }
+  return "Select a plan to add companies.";
 }
