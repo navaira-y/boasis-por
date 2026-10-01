@@ -54,12 +54,19 @@ export interface BillingProvider {
   parseWebhook(rawBody: string, signature: string | null): Promise<BillingEvent[]>;
 }
 
-/** DEV ONLY fake gateway. Hard-refuses to run in production. */
+/**
+ * DEV ONLY fake gateway. Hard-refuses to run in production — except on an
+ * explicit demo deploy (DEMO_ALLOW_STUB=true), so the client demo can click
+ * end-to-end checkout without a real gateway. NEVER set on real production.
+ */
 class StubBillingProvider implements BillingProvider {
   readonly id = "stub" as const;
 
   async createCheckoutSession(args: CheckoutArgs): Promise<CheckoutSession> {
-    if (process.env.NODE_ENV === "production") {
+    if (
+      process.env.NODE_ENV === "production" &&
+      process.env.DEMO_ALLOW_STUB !== "true"
+    ) {
       throw new Error("stub billing is disabled in production");
     }
     const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
@@ -117,8 +124,11 @@ export async function audit(
 }
 
 /**
- * Flip pending/incomplete → active. Idempotent: the webhook_events ledger
- * guarantees a retried event can never double-activate.
+ * Flip pending/incomplete/past_due → active (first activation AND renewals).
+ * Idempotent: the webhook_events ledger guarantees a retried event can never
+ * double-activate. Renewal-safe: a late/out-of-order event must never rewind
+ * the period, and activated_at keeps the FIRST activation ever (the free-year
+ * guard depends on it).
  */
 export async function activateSubscription(
   admin: SupabaseClient,
@@ -147,14 +157,27 @@ export async function activateSubscription(
 
   const { data: current } = await admin
     .from("subscriptions")
-    .select("status")
+    .select("status, activated_at, current_period_end")
     .eq("id", args.subscriptionId)
-    .single<{ status: Parameters<typeof canTransitionStatus>[0] }>();
+    .single<{
+      status: Parameters<typeof canTransitionStatus>[0];
+      activated_at: string | null;
+      current_period_end: string | null;
+    }>();
 
   if (!current || !canTransitionStatus(current.status, "active")) {
     throw new Error(`illegal status transition ${current?.status} → active`);
   }
 
+  // Out-of-order event (older period arriving late): ledger-recorded, not applied.
+  if (
+    current.current_period_end &&
+    new Date(args.periodEnd).getTime() <= new Date(current.current_period_end).getTime()
+  ) {
+    return { applied: false };
+  }
+
+  const nowIso = new Date().toISOString();
   const { error } = await admin
     .from("subscriptions")
     .update({
@@ -164,7 +187,7 @@ export async function activateSubscription(
       provider_subscription_id: args.providerSubscriptionId,
       current_period_start: args.periodStart,
       current_period_end: args.periodEnd,
-      activated_at: new Date().toISOString(),
+      activated_at: current.activated_at ?? nowIso,
     })
     .eq("id", args.subscriptionId);
   if (error) throw new Error(`activation update failed: ${error.message}`);
@@ -174,7 +197,11 @@ export async function activateSubscription(
     action: "subscription.activated",
     entity: "subscription",
     entity_id: args.subscriptionId,
-    meta: { provider: args.provider, plan: args.planId },
+    meta: {
+      provider: args.provider,
+      plan: args.planId,
+      renewal: current.status === "past_due",
+    },
   });
   return { applied: true };
 }

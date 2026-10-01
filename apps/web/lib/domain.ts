@@ -46,6 +46,42 @@ export function stripePriceLookupKey(planId: PlanId): string {
   throw new Error("enterprise has no self-checkout price (contact-led)");
 }
 
+/** Days before period end when renewal reminders go out. */
+export const REMINDER_SCHEDULE = [30, 14, 7, 1] as const;
+
+/** YYYY-MM-DD of the instant in Asia/Dubai (formatToParts: deterministic). */
+export function dubaiDayKey(instant: Date): string {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Dubai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(instant);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? "";
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
+/** Whole calendar days from Dubai-today until the Dubai day of period end. */
+export function daysUntilDubaiDay(periodEndIso: string, now = new Date()): number {
+  const [y1, m1, d1] = dubaiDayKey(now).split("-").map(Number);
+  const [y2, m2, d2] = dubaiDayKey(new Date(periodEndIso)).split("-").map(Number);
+  return (
+    Math.round(
+      (Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86_400_000
+    )
+  );
+}
+
+/** "12 Oct 2026" in Asia/Dubai. */
+export function displayDubaiDate(periodEndIso: string): string {
+  return new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Dubai",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(periodEndIso));
+}
+
 /** Legal state machine for subscription.status. */
 export function canTransitionStatus(
   from: SubscriptionStatus,

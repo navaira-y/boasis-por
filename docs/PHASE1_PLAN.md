@@ -7,7 +7,7 @@
 - [x] M2 Signup: name + email + inline 6-digit code, password (+ breach check), plan picker, terms; 2-step flow (Account → Payment); payment page shows selected plan
 - [ ] M3 Pending → checkout (stub) → webhook → active; `/billing/pending` gate in middleware
 - [ ] M4 Entitlements enforced: plan company limits, upgrade prompt copy per spec
-- [~] M5 Stripe implemented (Trio checkout + webhooks + cancel/past_due); needs keys + `trio_monthly` price per docs/STRIPE.md. Solo free-year needs no gateway; Enterprise is manual. Invoice email + year-2 dunning still open
+- [~] M5 Stripe implemented (Trio checkout + webhooks + cancel/past_due); needs keys + `trio_monthly` price per docs/STRIPE.md. Solo free-year needs no gateway; Enterprise is manual. Invoice email still open; year-2 dunning DONE (cron + reminders + past_due lock + renewal checkout, needs CRON_SECRET + scheduler per docs/DEPLOY.md)
 - [ ] M6 Hardening pass: rate limits, RLS tests in CI, Sentry, audit review
 
 ## Entry contract (from boasis.ae plans buttons)

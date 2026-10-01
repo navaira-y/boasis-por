@@ -35,7 +35,7 @@ export default async function SignupPage({
   return (
     <main className="wrap">
       <div className="card">
-        <p className="muted small">BOASIS PORTAL · STEP 1 OF 2 — YOUR ACCOUNT</p>
+        <p className="eyebrow">Boasis portal · Step 1 of 2 — Your account</p>
         <h1>Create your account</h1>
         <p className="muted">
           Your account keeps your company file private to you and the people

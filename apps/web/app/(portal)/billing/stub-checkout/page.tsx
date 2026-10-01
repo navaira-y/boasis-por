@@ -4,8 +4,9 @@ import { formatAED } from "@/lib/domain";
 import { confirmStubPayment } from "./actions";
 
 /**
- * DEV ONLY fake checkout (BILLING_PROVIDER=stub). Never reachable in
- * production: the confirm action refuses, and the provider throws.
+ * Fake checkout (BILLING_PROVIDER=stub). Allowed in dev, plus explicit demo
+ * deploys (DEMO_ALLOW_STUB=true) so the client demo clicks end-to-end
+ * without a real gateway. Never reachable on real production.
  */
 export const dynamic = "force-dynamic";
 export default async function StubCheckoutPage({
@@ -13,7 +14,12 @@ export default async function StubCheckoutPage({
 }: {
   searchParams: Promise<{ sid?: string }>;
 }) {
-  if (process.env.NODE_ENV === "production") redirect("/billing/pending");
+  if (
+    process.env.NODE_ENV === "production" &&
+    process.env.DEMO_ALLOW_STUB !== "true"
+  ) {
+    redirect("/billing/pending");
+  }
   if ((process.env.BILLING_PROVIDER ?? "stub") !== "stub") {
     redirect("/billing/pending");
   }
@@ -40,8 +46,9 @@ export default async function StubCheckoutPage({
     }>();
   if (!sub) redirect("/billing/pending");
   if (sub.status === "active") redirect("/billing/success");
-  // Only Trio checks out (Solo is free-year activation, Enterprise is contact-led).
-  if (sub.plan_id !== "trio") {
+  // Trio checks out anytime; Solo only as a paid year-2+ renewal (past_due).
+  const isRenewal = sub.status === "past_due";
+  if (sub.plan_id !== "trio" && !(sub.plan_id === "solo" && isRenewal)) {
     redirect("/billing/pending");
   }
 
@@ -53,13 +60,18 @@ export default async function StubCheckoutPage({
   return (
     <main className="wrap">
       <div className="card">
-        <p className="muted small">DEV CHECKOUT — NO REAL MONEY</p>
+        <p className="eyebrow">Demo checkout — no real money</p>
         <h1>Order summary</h1>
+        {isRenewal && (
+          <div className="notice">
+            Renewal payment — the portal unlocks immediately after you pay.
+          </div>
+        )}
         <p>
           <strong>{plan.name}</strong>
           <br />
           {formatAED(plan.price_fils, plan.currency)} /month ·{" "}
-          {plan.max_companies === 1 ? "1 company" : `up to ${plan.max_companies} companies`}
+          {plan.max_companies === 1 ? "1 company" : plan.max_companies === null ? "unlimited companies" : `up to ${plan.max_companies} companies`}
         </p>
         <form action={confirmStubPayment}>
           <input type="hidden" name="subscriptionId" value={sub.id} />

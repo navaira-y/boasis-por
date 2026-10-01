@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import type { PlanId } from "@/lib/domain";
 
-export function CheckoutButton({ planId }: { planId: "trio" }) {
+export function CheckoutButton({ planId }: { planId: PlanId }) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);

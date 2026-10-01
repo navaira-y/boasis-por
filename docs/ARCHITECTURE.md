@@ -64,5 +64,5 @@ schema-checks everything and must pass in CI.
 
 - Timezone: **Asia/Dubai** everywhere (reminder math, "days left").
 - Money: integer **fils** in code/DB; formatted to AED only at render. No floats.
-- Mail: auth mails via Supabase now; reminder/product mail moves to Postmark/Resend in Phase 2
+- Mail: auth mails via Supabase; renewal reminders via the provider-agnostic mailer (`EMAIL_PROVIDER=log` default, `resend` for real sends)
   (deliverability is the product for "Tell").

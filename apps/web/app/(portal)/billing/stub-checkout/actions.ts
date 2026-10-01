@@ -5,9 +5,12 @@ import { createAdminSupabase, createServerSupabase } from "@/lib/supabase";
 import { activateSubscription } from "@/lib/billing";
 import type { PlanId } from "@/lib/domain";
 
-/** DEV ONLY. Production refuses before touching anything. */
+/** DEV ONLY (+ explicit demo deploys). Real production refuses before touching anything. */
 export async function confirmStubPayment(formData: FormData): Promise<void> {
-  if (process.env.NODE_ENV === "production") {
+  if (
+    process.env.NODE_ENV === "production" &&
+    process.env.DEMO_ALLOW_STUB !== "true"
+  ) {
     throw new Error("stub billing is disabled in production");
   }
   const subscriptionId = String(formData.get("subscriptionId") ?? "");

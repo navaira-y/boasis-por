@@ -24,7 +24,7 @@ export default async function BillingSuccessPage() {
     return (
       <main className="wrap">
         <div className="card">
-          <p className="muted small">BOASIS PORTAL · PAYMENT</p>
+          <p className="eyebrow">Boasis portal · Payment</p>
           <h1>Confirming your payment…</h1>
           <p className="muted">
             This usually takes a few seconds. If this page doesn&apos;t change,
@@ -41,7 +41,7 @@ export default async function BillingSuccessPage() {
   return (
     <main className="wrap">
       <div className="card">
-        <p className="muted small">BOASIS PORTAL · ACTIVATED</p>
+        <p className="eyebrow">Boasis portal · Activated</p>
         <h1>Payment received — welcome in.</h1>
         <ol className="steps">
           <li className="done">1. Account</li>

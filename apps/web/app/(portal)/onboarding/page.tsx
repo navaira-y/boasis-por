@@ -24,7 +24,7 @@ export default async function OnboardingPage() {
   return (
     <main className="wrap">
       <div className="card">
-        <p className="muted small">BOASIS PORTAL · ONBOARDING (PHASE 2 PREVIEW)</p>
+        <p className="eyebrow">Boasis portal · Onboarding (Phase 2 preview)</p>
         <h1>Your companies</h1>
         <div className="notice">
           Plan: <strong>{ent.planId}</strong> · Companies:{" "}

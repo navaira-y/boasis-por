@@ -25,19 +25,36 @@ function companiesLine(p: Plan): string {
   return p.max_companies === 1 ? "1 company" : `Up to ${p.max_companies} companies`;
 }
 
-/** Plan cards with nothing preselected; each plan reveals its own next step. */
-export function PlanSelector({ plans }: { plans: Plan[] }) {
-  const [selected, setSelected] = useState<PlanId | null>(null);
+/**
+ * Plan cards. Signup mode: nothing preselected, Solo = free-year activation.
+ * Renewal mode: current plan preselected, everything paid (no free copy).
+ */
+export function PlanSelector({
+  plans,
+  mode,
+  currentPlan,
+}: {
+  plans: Plan[];
+  mode: "signup" | "renewal";
+  currentPlan: PlanId | null;
+}) {
+  const shown =
+    mode === "renewal" ? plans.map((p) => ({ ...p, free_months: 0 })) : plans;
+  const [selected, setSelected] = useState<PlanId | null>(
+    mode === "renewal" && (currentPlan === "solo" || currentPlan === "trio")
+      ? currentPlan
+      : null
+  );
   const [freeState, freeAction, freePending] = useActionState(
     activateFreeYearAction,
     idle
   );
-  const plan = plans.find((p) => p.id === selected) ?? null;
+  const plan = shown.find((p) => p.id === selected) ?? null;
 
   return (
     <div>
       <div className="plans three" role="radiogroup" aria-label="Choose a plan">
-        {plans.map((p) => {
+        {shown.map((p) => {
           const price = priceLine(p);
           const isSelected = selected === p.id;
           return (
@@ -60,11 +77,11 @@ export function PlanSelector({ plans }: { plans: Plan[] }) {
         })}
       </div>
 
-      {!plan && (
+      {!plan && mode === "signup" && (
         <p className="small muted">Select a plan above to continue. (Required)</p>
       )}
 
-      {plan?.id === "solo" && (
+      {plan?.id === "solo" && mode === "signup" && (
         <form action={freeAction}>
           {!freeState.ok && freeState.error && (
             <div className="error">{freeState.error}</div>
@@ -77,6 +94,15 @@ export function PlanSelector({ plans }: { plans: Plan[] }) {
             we&apos;ll remind you before anything is charged.
           </p>
         </form>
+      )}
+
+      {plan?.id === "solo" && mode === "renewal" && (
+        <div>
+          <CheckoutButton planId="solo" />
+          <p className="small muted" style={{ marginTop: 10 }}>
+            Year 2 and after: AED 30/month. Access unlocks right after payment.
+          </p>
+        </div>
       )}
 
       {plan?.id === "trio" && <CheckoutButton planId="trio" />}

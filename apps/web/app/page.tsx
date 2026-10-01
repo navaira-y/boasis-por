@@ -45,7 +45,7 @@ export default async function Home() {
   return (
     <main className="wrap">
       <div className="card">
-        <p className="muted small">BOASIS PORTAL · MANAGE</p>
+        <p className="eyebrow">Boasis portal · Manage</p>
         <h1>Every date, rule and step for your UAE companies.</h1>
         <p className="muted">
           Your company file, email reminders to the right person, plain
