@@ -39,6 +39,9 @@ Run migrations **in order**, once each (SQL editor: paste whole file → Run):
    column, plan choice at payment (`select * from plans` must show 3 rows)
 3. `supabase/migrations/0003_renewals.sql` — renewal reminder ledger
    (`select * from subscription_reminders` must return 0 rows, no error)
+4. `supabase/migrations/0004_portal_core.sql` — portal interior real data:
+   company facts + people/offices/documents/cards/history/audit tables with
+   owner-only RLS (`select * from company_history` must return 0 rows, no error)
 
 ## 3. Run
 
