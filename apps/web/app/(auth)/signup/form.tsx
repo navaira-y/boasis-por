@@ -146,7 +146,7 @@ export function SignupForm({
               placeholder="you@company.com"
             />
             {emailTouched && email.length > 0 && !emailValid && (
-              <p className="small" style={{ color: "#dc2626" }}>
+              <p className="small" style={{ color: "#F2994A" }}>
                 That email format doesn&apos;t look right.
               </p>
             )}
@@ -233,7 +233,7 @@ export function SignupForm({
                       background: "none",
                       border: 0,
                       padding: 0,
-                      color: "#0284c7",
+                      color: "#5FD3E8",
                       cursor: "pointer",
                       fontSize: "inherit",
                     }}

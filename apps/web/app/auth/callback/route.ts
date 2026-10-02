@@ -5,10 +5,13 @@ import { createServerClient } from "@supabase/ssr";
 export async function GET(request: NextRequest) {
   const url = request.nextUrl.clone();
   const code = url.searchParams.get("code");
-  const next = url.searchParams.get("next") ?? "/billing/pending";
+  // Default to /signup: it already routes profile-holders to payment and
+  // profile-less link-clickers to the resume step. Defaulting to payment
+  // stranded link-clickers in a signup↔payment bounce.
+  const next = url.searchParams.get("next") ?? "/signup";
 
   // Only allow internal redirect targets (open-redirect guard).
-  const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/billing/pending";
+  const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/signup";
 
   if (!code) {
     url.pathname = "/signup";

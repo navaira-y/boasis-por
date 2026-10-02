@@ -24,7 +24,7 @@ function planBlurb(p: {
     return {
       price: `Free for ${p.free_months} months`,
       sub: ` then ${formatAED(p.price_fils, p.currency)}/month`,
-      detail: `${companies}: file, reminders, guidance, vault.`,
+      detail: `${companies}: every date, reminders, guidance, vault.`,
     };
   }
   return {
@@ -45,18 +45,19 @@ export default async function Home() {
   return (
     <main className="wrap">
       <div className="card">
-        <p className="eyebrow">Boasis portal · Manage</p>
-        <h1>Every date, rule and step for your UAE companies.</h1>
+        <p className="eyebrow">Boasis · Manage — for everyone who runs a company in the UAE</p>
+        <h1>
+          Manage <em>all your companies.</em>
+        </h1>
         <p className="muted">
-          Your company file, email reminders to the right person, plain
-          step-by-step guidance for your free zone, and a vault for every
-          document.
+          Every licence, visa, tax and bank date for every company you run,
+          and the right person reminded before it is due.
         </p>
         <div className="plans three">
           {(plans ?? []).map((p) => {
             const b = planBlurb(p);
             return (
-              <div className="plan" key={p.id}>
+              <div className={`plan${p.id === "enterprise" ? " ent" : ""}`} key={p.id}>
                 <h3>{p.name}</h3>
                 <div className="price">
                   {b.price}

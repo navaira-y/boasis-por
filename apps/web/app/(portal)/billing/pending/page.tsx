@@ -23,10 +23,26 @@ export default async function BillingPendingPage() {
     .select("status, plan_id")
     .eq("profile_id", user.id)
     .maybeSingle<{ status: string; plan_id: PlanId | null }>();
-  if (!sub) redirect("/signup");
-  if (sub.status === "active") redirect("/billing/success");
+  if (!sub) {
+    // Self-heal: profile exists (terms accepted) but the subscription row was
+    // never created (e.g. abandoned link-click signup) → create the pending
+    // row inline. Bouncing to /signup would bounce straight back here.
+    const { data: profile } = await admin
+      .from("profiles")
+      .select("id")
+      .eq("id", user.id)
+      .maybeSingle();
+    if (!profile) redirect("/signup");
+    const { error: healError } = await admin.from("subscriptions").insert({
+      profile_id: user.id,
+      status: "pending",
+      provider: process.env.BILLING_PROVIDER ?? "stub",
+    });
+    if (healError && healError.code !== "23505") redirect("/signup");
+  }
+  if (sub?.status === "active") redirect("/billing/success");
 
-  const isRenewal = sub.status === "past_due";
+  const isRenewal = sub?.status === "past_due";
   const plans = await listPlans();
 
   return (
@@ -56,7 +72,7 @@ export default async function BillingPendingPage() {
         <PlanSelector
           plans={plans}
           mode={isRenewal ? "renewal" : "signup"}
-          currentPlan={sub.plan_id}
+          currentPlan={sub?.plan_id ?? null}
         />
       </div>
     </main>

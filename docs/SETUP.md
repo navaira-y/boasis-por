@@ -53,12 +53,23 @@ npm run dev        # http://localhost:3000
 - Site URL: `http://localhost:3000` (dev) / production URL (prod)
 - Redirect allow-list: add `{SITE_URL}/auth/callback`
 
-## 5. OTP email template (Supabase dashboard → Auth → Email Templates → Magic Link)
+## 5. Auth email settings (Supabase dashboard → Auth)
 
-Signup sends a 6-digit code via `signInWithOtp`, which uses the Magic Link
-template. Confirm the template contains `{{ .Token }}` so the email shows the
-code (and keep the link — clicking it also verifies, and the signup page
-resumes where the user left off).
+**5a. Turn OFF "Confirm email"** (Auth → Sign In / Up → Email → Confirm
+email **OFF**). Our 6-digit code IS the confirmation. Leaving it ON makes
+Supabase send new users a link-only "Confirm your email address" email with
+no code — the signup cannot proceed.
+
+**5b. Magic Link template** (Auth → Email Templates → Magic Link): signup
+sends a 6-digit code via `signInWithOtp`, which uses this template. Replace
+its body with this (code first, link as backup — the link resumes signup):
+
+```html
+<h2>Your Boasis code: {{ .Token }}</h2>
+<p>Enter this 6-digit code to verify your email. It expires in a few minutes.</p>
+<p>Or verify on this device instead: <a href="{{ .ConfirmationURL }}">Verify my email</a></p>
+<p>If you didn't ask for this, just ignore this email.</p>
+```
 
 ## 6. Billing (dev)
 

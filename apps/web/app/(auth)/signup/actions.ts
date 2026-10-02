@@ -53,9 +53,15 @@ export async function sendCodeAction(
     }
 
     const supabase = await createServerSupabase();
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: { shouldCreateUser: true },
+      options: {
+        shouldCreateUser: true,
+        // Link-clickers get a real app session, then resume signup (code no
+        // longer required). Without this the link dumps them on the homepage.
+        emailRedirectTo: `${appUrl}/auth/callback?next=/signup`,
+      },
     });
     if (error) {
       if (error.message.toLowerCase().includes("rate limit")) {

@@ -1,10 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Boasis Portal",
   description:
-    "Know, Tell, Guide, Keep — company file, reminders, guidance and vault for UAE free-zone companies.",
+    "Manage all your companies. Every licence, visa, tax and bank date, and the right person reminded before it is due.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B0D12",
 };
 
 export default function RootLayout({
@@ -28,6 +32,12 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* the sky · the same drifting light as boasis.ae, behind everything */}
+        <div className="sky" aria-hidden="true">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
         <header className="portal-nav">
           <div className="portal-nav-bar">
             <span className="portal-brand">BOASIS</span>
