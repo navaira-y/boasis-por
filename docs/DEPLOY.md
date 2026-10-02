@@ -14,8 +14,9 @@
      checkout, no real money) — or `stripe` + `STRIPE_SECRET_KEY` +
      `STRIPE_WEBHOOK_SECRET` (real payments)
    - `CRON_SECRET` (long random string, e.g. `openssl rand -hex 32`)
-   - `EMAIL_PROVIDER=log` (demo: reminders print to logs) — or `resend` +
-     `RESEND_API_KEY` + `EMAIL_FROM` (real reminder emails)
+   - `EMAIL_PROVIDER=log` (demo: reminders print to logs) — or `smtp` +
+     `SMTP_USER` + `SMTP_PASS` (Google App Password, not login password) +
+     `EMAIL_FROM=support@boasis.ae` (send via Google Workspace, same as boasis.ae)
 4. Deploy → open the URL → walk `/signup` (plan is chosen at payment).
 5. Daily renewals: add a free schedule at cron-job.org (or any scheduler):
    `GET https://<your-app>.up.railway.app/api/cron/renewals` once a day

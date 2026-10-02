@@ -1,10 +1,13 @@
 import "server-only";
+import nodemailer, { type Transporter } from "nodemailer";
 
 /**
  * Outbound email, provider-agnostic like billing. Phase 1 only needs
  * renewal reminders, so the interface is deliberately small:
  *   EMAIL_PROVIDER=log    (default) print to server logs, send nothing
  *   EMAIL_PROVIDER=resend  send via Resend (needs RESEND_API_KEY + EMAIL_FROM)
+ *   EMAIL_PROVIDER=smtp    send via SMTP, e.g. Google Workspace
+ *                          (needs SMTP_USER + SMTP_PASS + EMAIL_FROM)
  */
 
 export interface RenewalMail {
@@ -101,9 +104,47 @@ class ResendMailer implements Mailer {
   }
 }
 
+/** Plain SMTP — used with Google Workspace (same setup as boasis.ae forms). */
+class SmtpMailer implements Mailer {
+  private readonly transporter: Transporter;
+  private readonly from: string;
+
+  constructor() {
+    const host = process.env.SMTP_HOST ?? "smtp.gmail.com";
+    const port = Number(process.env.SMTP_PORT ?? "587");
+    const user = process.env.SMTP_USER;
+    const pass = process.env.SMTP_PASS;
+    const from = process.env.EMAIL_FROM;
+    if (!user || !pass || !from) {
+      throw new Error("EMAIL_PROVIDER=smtp needs SMTP_USER, SMTP_PASS and EMAIL_FROM");
+    }
+    this.from = from;
+    this.transporter = nodemailer.createTransport({
+      host,
+      port,
+      secure: port === 465,
+      auth: { user, pass },
+    });
+  }
+
+  private async send(to: string, subject: string, text: string): Promise<void> {
+    await this.transporter.sendMail({ from: this.from, to, subject, text });
+  }
+
+  async sendRenewalReminder(mail: RenewalMail): Promise<void> {
+    const { subject, text } = reminderText(mail);
+    await this.send(mail.to, subject, text);
+  }
+  async sendAccessPaused(mail: RenewalMail): Promise<void> {
+    const { subject, text } = pausedText(mail);
+    await this.send(mail.to, subject, text);
+  }
+}
+
 export function getMailer(): Mailer {
   const id = process.env.EMAIL_PROVIDER ?? "log";
   if (id === "resend") return new ResendMailer();
+  if (id === "smtp") return new SmtpMailer();
   if (id === "log") return new LogMailer();
   throw new Error(`email provider "${id}" is not configured`);
 }

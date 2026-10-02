@@ -77,6 +77,8 @@ curl -H "Authorization: Bearer $CRON_SECRET" \
   http://localhost:3000/api/cron/renewals
 ```
 
-To really send mail, set `EMAIL_PROVIDER=resend` + `RESEND_API_KEY` +
-`EMAIL_FROM`. Days are counted in Asia/Dubai; the schedule is 30/14/7/1 days
+To really send mail via Google Workspace (same as the boasis.ae forms),
+set `EMAIL_PROVIDER=smtp` + `SMTP_USER` + `SMTP_PASS` (App Password, not the
+login password) + `EMAIL_FROM`. Resend works too (`EMAIL_PROVIDER=resend` +
+`RESEND_API_KEY` + `EMAIL_FROM`). Days are counted in Asia/Dubai; the schedule is 30/14/7/1 days
 before the period ends, then access pauses until the renewal is paid.
