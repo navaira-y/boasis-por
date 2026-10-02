@@ -110,7 +110,7 @@ export function SignupForm({
     <div>
       {/* ---------- Section A: name + email + code ---------- */}
       <div className="field">
-        <label htmlFor="fullName">Full name</label>
+        <label htmlFor="fullName">Account name</label>
         <input
           id="fullName"
           type="text"
@@ -124,7 +124,7 @@ export function SignupForm({
         />
         {phase === "verified" && name.trim().length < 2 && (
           <p className="small muted" style={{ marginTop: 8 }}>
-            The email link opened a fresh page, so please add your name to finish.
+            The email link opened a fresh page, so please add your account name to finish.
           </p>
         )}
       </div>

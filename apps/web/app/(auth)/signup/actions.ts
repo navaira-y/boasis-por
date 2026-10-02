@@ -113,7 +113,7 @@ export async function verifyCodeAction(
 }
 
 const completeSchema = z.object({
-  fullName: z.string().trim().min(2, "Please enter your name.").max(100),
+  fullName: z.string().trim().min(2, "Please enter your account name.").max(100),
   password: z.string().min(12, "Password must be at least 12 characters.").max(128),
   terms: z.literal("on", { errorMap: () => ({ message: "Please accept the terms to continue." }) }),
 });
@@ -157,7 +157,14 @@ export async function completeSignupAction(
       password: input.password,
       data: { full_name: input.fullName },
     });
-    if (pwError) return fail("Could not set the password. Please try again.", pwError);
+    if (pwError) {
+      // Server logs only — never shown to the user.
+      console.error("completeSignup: password update failed", {
+        userId: user.id,
+        message: pwError.message,
+      });
+      return fail("Could not set the password. Please try again.", pwError);
+    }
 
     const admin = await createAdminSupabase();
     const { error: profileError } = await admin.from("profiles").upsert(
@@ -169,7 +176,16 @@ export async function completeSignupAction(
       },
       { onConflict: "id" }
     );
-    if (profileError) return fail("Account hit a problem saving your profile. Please try again.", profileError);
+    if (profileError) {
+      // Server logs only — never shown to the user.
+      console.error("completeSignup: profile save failed", {
+        userId: user.id,
+        code: (profileError as { code?: string }).code,
+        message: profileError.message,
+        details: (profileError as { details?: string }).details,
+      });
+      return fail("Account hit a problem saving your profile. Please try again.", profileError);
+    }
 
     const { error: subError } = await admin.from("subscriptions").upsert(
       {
@@ -179,7 +195,16 @@ export async function completeSignupAction(
       },
       { onConflict: "profile_id", ignoreDuplicates: true }
     );
-    if (subError) return fail("Account hit a problem setting up billing. Please try again.", subError);
+    if (subError) {
+      // Server logs only — never shown to the user.
+      console.error("completeSignup: subscription save failed", {
+        userId: user.id,
+        code: (subError as { code?: string }).code,
+        message: subError.message,
+        details: (subError as { details?: string }).details,
+      });
+      return fail("Account hit a problem setting up billing. Please try again.", subError);
+    }
 
     await audit(admin, {
       actor_profile_id: user.id,
