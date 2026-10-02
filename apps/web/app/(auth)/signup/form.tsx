@@ -116,12 +116,17 @@ export function SignupForm({
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          disabled={phase === "verified"}
+          disabled={phase === "verified" && name.trim().length >= 2}
           minLength={2}
           maxLength={100}
           autoComplete="name"
-          placeholder="Your name on the account"
+          placeholder="e.g. Ahmed Khan"
         />
+        {phase === "verified" && name.trim().length < 2 && (
+          <p className="small muted" style={{ marginTop: 8 }}>
+            The email link opened a fresh page, so please add your name to finish.
+          </p>
+        )}
       </div>
 
       {phase === "verified" ? (

@@ -50,6 +50,9 @@ export default async function SignupPage({
           Two-step sign-in with an authenticator app can be turned on later in
           settings. <Link href="/">Back to plans</Link>
         </p>
+        <p className="small muted" style={{ marginTop: 8 }}>
+          Already have an account? <Link href="/signin">Sign in</Link>
+        </p>
       </div>
     </main>
   );
