@@ -1,0 +1,72 @@
+/* The office tab: one of lite's cards per premises, a flexi-desk as one of lite's file rows. */
+.offices .ocard {
+  margin-block-end: 12px;
+}
+
+.offices .ocard .sh h3 {
+  font-size: var(--text-lg);
+}
+
+.offices .ocard .sh .due span {
+  color: var(--rose);
+  font-weight: var(--weight-semibold);
+}
+
+.offices .ocard .sb {
+  padding-block-end: 12px;
+}
+
+.offices .ocard__acts {
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.offices .btn3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-2);
+  padding-block: 9px;
+  padding-inline: 15px;
+}
+
+.offices .btn3:hover {
+  border-color: var(--teal);
+  color: var(--teal-strong);
+  background: var(--teal-soft);
+}
+
+.offices .ofrow {
+  cursor: pointer;
+}
+
+.offices .ofrow:hover {
+  border-color: var(--ink-4);
+}
+
+.offices .ofrow__go {
+  flex-shrink: 0;
+  color: var(--ink-4);
+}
+
+.offices .pairs li b {
+  max-inline-size: 60%;
+}
+
+@media (max-width: 820px) {
+  .offices .pairs li {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .offices .pairs li b {
+    max-inline-size: none;
+    text-align: start;
+  }
+}

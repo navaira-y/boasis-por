@@ -14,6 +14,7 @@ export interface SigninState {
 const signinSchema = z.object({
   email: z.string().trim().toLowerCase().email(),
   password: z.string().min(1),
+  next: z.string().optional(),
 });
 
 /**
@@ -27,6 +28,7 @@ export async function signinAction(
   const parsed = signinSchema.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
+    next: formData.get("next") ?? undefined,
   });
   if (!parsed.success) {
     return { ok: false, error: "Enter your email and password." };
@@ -59,5 +61,11 @@ export async function signinAction(
     .eq("profile_id", user.id)
     .maybeSingle<{ status: string }>();
 
-  redirect(sub?.status === "active" ? "/onboarding" : "/billing/pending");
+  const fallback = sub?.status === "active" ? "/onboarding" : "/billing/pending";
+  // Honor the requested page when it is a safe internal path; the gates
+  // (middleware + page checks) re-enforce paid/unpaid routing regardless.
+  const want = parsed.data.next ?? "";
+  const safeNext =
+    want.startsWith("/") && !want.startsWith("//") ? want : fallback;
+  redirect(safeNext);
 }

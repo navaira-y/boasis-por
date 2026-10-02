@@ -1,0 +1,444 @@
+/* Lite's ring: a dark disc on the page in either theme (a watch does not repaint its dial white
+   because the room is light), the face drawn inside it, the hub text on top. Sizes and radii are
+   lite's; every colour is a token. */
+.dial {
+  --dial-bleed-now: var(--dial-bleed);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dial-face-ink);
+}
+
+.dial--phone {
+  --dial-bleed-now: var(--dial-bleed-phone);
+}
+
+.dial__case {
+  position: relative;
+  inline-size: var(--dial-size);
+  block-size: var(--dial-size);
+  flex-shrink: 0;
+  margin-block: 18px 20px;
+  margin-inline: 18px;
+}
+
+.dial--phone .dial__case {
+  inline-size: var(--dial-size-phone);
+  block-size: var(--dial-size-phone);
+  margin-block: 6px 10px;
+  margin-inline: auto;
+}
+
+/* The disc. A little larger than the bezel so the month names breathe on it. */
+.dial__case::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--dial-bleed-now) * -1);
+  border-radius: 50%;
+  z-index: 0;
+  background: radial-gradient(
+    circle at 50% 42%,
+    var(--dial-face-1) 0%,
+    var(--dial-face-2) 62%,
+    var(--dial-face-3) 100%
+  );
+  box-shadow: var(--dial-face-shadow);
+}
+
+.dial__face {
+  position: relative;
+  z-index: 2;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  /* The month names sit outside the case and depend on this. */
+  overflow: visible;
+  font-family: var(--font-sans);
+  /* A clock does not run backwards in a right-to-left document. */
+  direction: ltr;
+}
+
+.dial__bezel {
+  fill: none;
+  stroke: var(--dial-face-rail);
+  stroke-width: 1;
+}
+
+.dial__tick {
+  stroke: var(--dial-face-mark);
+  stroke-width: 0.9;
+  opacity: 0.5;
+}
+
+.dial__tick--major {
+  stroke: var(--dial-face-mark-strong);
+  stroke-width: 1.5;
+  opacity: 0.9;
+}
+
+.dial__pip {
+  fill: var(--dial-face-mark-strong);
+}
+
+/* The month names and the word of the day: a light blue, not the grey of secondary text. They
+   carry the scale of the dial, they have the right to be read. */
+.dial__month {
+  fill: var(--dial-month);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 1.1px;
+}
+
+.dial__today {
+  stroke: var(--dial-face-ink-2);
+  stroke-width: 2.6;
+}
+
+.dial__today-label {
+  fill: var(--dial-today);
+  font-size: 0.92em;
+  font-weight: var(--weight-bold);
+  letter-spacing: 1.4px;
+}
+
+/* The four orbits, each in its family's colour. */
+.dial__orbit {
+  fill: none;
+  stroke-width: 1.1;
+  opacity: 0.75;
+}
+
+.dial__orbit--tax {
+  stroke: var(--family-tax);
+}
+
+.dial__orbit--visa {
+  stroke: var(--family-visa);
+}
+
+.dial__orbit--licence {
+  stroke: var(--family-licence);
+}
+
+.dial__orbit--other {
+  stroke: var(--family-other);
+}
+
+/* A mark: a small solid dot in the company's colour on its family's orbit, with a thin dark
+   outline so it reads on the rings. No text. The nearest one is a little larger. */
+.dial__mark {
+  --mark-colour: var(--family-other);
+  outline: none;
+}
+
+.dial__mark--tappable {
+  cursor: pointer;
+}
+
+.dial__mark-hit {
+  fill: transparent;
+}
+
+.dial__mark-dot {
+  fill: var(--mark-colour);
+  stroke: var(--dial-face-stage);
+  stroke-width: 1.2;
+  filter: drop-shadow(0 0 4px var(--dial-face-dot-shadow));
+  transition: r var(--motion-fast) ease;
+}
+
+.dial__mark--nearest .dial__mark-dot {
+  stroke-width: 1.4;
+}
+
+/* The hue says which family, the brightness says how close. */
+.dial__mark--far {
+  opacity: 0.55;
+}
+
+.dial__mark--tappable:hover .dial__mark-dot,
+.dial__mark--tappable:focus-visible .dial__mark-dot {
+  stroke: var(--dial-face-ink);
+}
+
+.dial__hub-fill {
+  fill: var(--dial-face-surface);
+  opacity: 0.4;
+}
+
+.dial__hub-line {
+  fill: none;
+  stroke: var(--dial-face-rail);
+  stroke-width: 1;
+  opacity: 0.8;
+}
+
+.dial__thread-glow {
+  fill: none;
+  stroke: var(--dial-face-thread-glow);
+  stroke-width: 4.5;
+  filter: blur(3.5px);
+  opacity: 0.7;
+  animation: dial-breathe 9s ease-in-out infinite;
+}
+
+.dial__thread-core {
+  fill: none;
+  stroke: var(--dial-face-thread-core);
+  stroke-width: 1.4;
+  opacity: 0.9;
+}
+
+/* The crest: masked to the hub's annulus (82 of 170 is 48.2% of the box). */
+.dial__crest {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.dial__crest i {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--dial-face-crest) 78deg,
+    transparent 160deg,
+    transparent 360deg
+  );
+  filter: blur(2px);
+  -webkit-mask: radial-gradient(
+    closest-side,
+    transparent 0 46.4%,
+    #000 47.6%,
+    #000 49.2%,
+    transparent 50.4%
+  );
+  mask: radial-gradient(
+    closest-side,
+    transparent 0 46.4%,
+    #000 47.6%,
+    #000 49.2%,
+    transparent 50.4%
+  );
+  animation: dial-drift 88s linear infinite;
+}
+
+/* The case rim. The child is 116% of the disc so the disc edge always falls at 86.2% of its
+   nearest edge, whatever the size. */
+.dial__rim {
+  position: absolute;
+  inset: calc(var(--dial-bleed-now) * -1);
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow:
+    0 0 0 1.2px var(--dial-face-rim-line),
+    0 0 20px -3px var(--dial-face-rim-glow);
+  animation: dial-breathe 9s ease-in-out infinite;
+}
+
+.dial__rim i {
+  position: absolute;
+  inset: -8%;
+  display: block;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--dial-face-rim-crest) 62deg,
+    transparent 132deg,
+    transparent 360deg
+  );
+  filter: blur(1.4px);
+  -webkit-mask: radial-gradient(
+    closest-side,
+    transparent 0 85.2%,
+    #000 85.8%,
+    #000 86.7%,
+    transparent 87.3%
+  );
+  mask: radial-gradient(
+    closest-side,
+    transparent 0 85.2%,
+    #000 85.8%,
+    #000 86.7%,
+    transparent 87.3%
+  );
+  animation: dial-drift 88s linear infinite;
+}
+
+.dial__hub {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-inline: 90px;
+  pointer-events: none;
+  color: var(--dial-face-ink);
+}
+
+.dial--phone .dial__hub {
+  padding-inline: 58px;
+}
+
+/* The hub's own type steps: the number, the unit, a two line word, the company. */
+.dial__number {
+  font-size: 40px;
+  font-weight: var(--weight-bold);
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.dial__unit {
+  margin-block-start: 3px;
+  font-size: 10px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--dial-face-ink-4);
+}
+
+/* Two lines at most, cut beyond: text spilling out of a dial makes you doubt everything in it. */
+.dial__word {
+  margin-block-start: 8px;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  line-height: 1.35;
+  color: var(--dial-face-ink-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dial__company {
+  margin-block-start: 3px;
+  font-size: 9.5px;
+  font-weight: var(--weight-medium);
+  color: var(--dial-face-ink-4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-inline-size: 100%;
+}
+
+.dial--phone .dial__number {
+  font-size: 31px;
+  letter-spacing: -1.4px;
+}
+
+.dial--phone .dial__unit {
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  margin-block-start: 2px;
+}
+
+.dial--phone .dial__word {
+  font-size: 9.5px;
+  margin-block-start: 5px;
+}
+
+/* The legend under the dial, small so it blends with the design: the families as a short dash
+   then the word in the smallest capitals, then the companies, smaller still, a dot and a name. */
+.dial-legend {
+  --dial-legend-ink: var(--ink-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.dial-legend__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px 11px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dial-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dial-legend__line {
+  inline-size: 9px;
+  block-size: 2px;
+  border-radius: 2px;
+  margin: 0;
+  background: var(--family-other);
+}
+
+.dial-legend__line--tax {
+  background: var(--family-tax);
+}
+
+.dial-legend__line--visa {
+  background: var(--family-visa);
+}
+
+.dial-legend__line--licence {
+  background: var(--family-licence);
+}
+
+.dial-legend__label {
+  margin: 0;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: 1.2px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--dial-legend-ink);
+}
+
+.dial-legend__company {
+  --company-colour: var(--ink-3);
+  font-size: calc(var(--text-2xs) - 1px);
+  font-weight: var(--weight-regular);
+  line-height: 1.4;
+  color: var(--dial-legend-ink);
+}
+
+.dial-legend__dot {
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--company-colour);
+}
+
+@keyframes dial-drift {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dial-breathe {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* A watch that keeps moving behind a text is a watch you switch off. */
+@media (prefers-reduced-motion: reduce) {
+  .dial__thread-glow,
+  .dial__crest i,
+  .dial__rim,
+  .dial__rim i {
+    animation: none;
+  }
+}

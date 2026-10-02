@@ -213,9 +213,14 @@ export async function completeSignupAction(
       entity_id: user.id,
       meta: { terms: TERMS_VERSION },
     });
+
+    // Standard flow: account created → sign out → sign in with the new
+    // password. (If sign-out ever fails silently, /signin routes logged-in
+    // users correctly anyway, so this degrades gracefully.)
+    await supabase.auth.signOut();
   } catch (e) {
     return fail("Could not create the account. Please try again.", e);
   }
 
-  redirect("/billing/pending");
+  redirect("/signin?next=/billing/pending");
 }

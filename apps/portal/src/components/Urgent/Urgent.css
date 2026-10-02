@@ -1,0 +1,86 @@
+/* Lite's "needs attention" card: surface, page radius, a head line, then the items. */
+.urgent {
+  display: block;
+  inline-size: 100%;
+  min-inline-size: 0;
+  padding-block: var(--row-pad-block) var(--urgent-pad-bottom);
+  padding-inline: var(--row-pad-inline);
+  text-align: start;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  color: var(--ink-1);
+  font: inherit;
+  box-shadow: var(--shadow-urgent);
+  transition: border-color var(--motion-fast) ease;
+}
+
+.urgent:hover {
+  border-color: var(--ink-4);
+}
+
+.urgent__head {
+  display: flex;
+  align-items: center;
+  gap: var(--urgent-head-gap);
+  margin-block-end: var(--space-2);
+}
+
+.urgent__icon {
+  display: inline-flex;
+  color: var(--badge);
+}
+
+.urgent__title {
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.2px;
+}
+
+.urgent__count {
+  margin-inline-start: auto;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-4);
+}
+
+.urgent__item {
+  display: flex;
+  align-items: center;
+  gap: var(--urgent-item-gap);
+  padding-block: var(--urgent-item-pad-block);
+  padding-inline: 2px;
+  border-block-start: 1px solid var(--line-1);
+}
+
+.urgent__dot {
+  inline-size: var(--urgent-dot);
+  block-size: var(--urgent-dot);
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--badge);
+}
+
+.urgent__line {
+  flex: 1;
+  min-inline-size: 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.urgent__chevron {
+  flex-shrink: 0;
+  color: var(--ink-4);
+}
+
+.urgent:hover .urgent__chevron {
+  color: var(--ink-2);
+}
+
+:dir(rtl) .urgent__chevron {
+  transform: scaleX(-1);
+}

@@ -1,0 +1,54 @@
+/* The password form inside lite's account box: three fields, lite's form foot. */
+.sec .pwform {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-block: 16px 18px;
+  padding-inline: 20px;
+}
+
+.sec .pwform__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-label-gap);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+.sec .pwform__field input {
+  font-family: inherit;
+  font-size: var(--text-md);
+  color: var(--ink-1);
+  background: var(--bg);
+  border: 1px solid var(--line-1);
+  border-radius: var(--field-radius);
+  padding-block: var(--field-pad-block);
+  padding-inline: var(--field-pad-inline);
+}
+
+.sec .pwform__field input:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: var(--focus-ring);
+}
+
+/* The row already names the switch; its own label stays for readers only. */
+.sec .arow .toggle__text {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.sec .arow .toggle {
+  position: relative;
+  flex-shrink: 0;
+}
+
+@media (max-width: 820px) {
+  .sec .pwform {
+    padding-inline: 17px;
+  }
+}

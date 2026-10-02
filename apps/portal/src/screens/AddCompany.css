@@ -1,0 +1,226 @@
+/* The two doors of Add a company: lite's file rows, one per way in. */
+.addco .door {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  padding-block: 20px;
+  padding-inline: 20px;
+  margin-block-end: 10px;
+  color: var(--ink-1);
+  text-decoration: none;
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease;
+}
+
+.addco .door:hover {
+  border-color: var(--ink-4);
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+}
+
+.addco .door__ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: 46px;
+  block-size: 46px;
+  border-radius: 15px;
+  background: var(--line-2);
+  color: var(--teal-strong);
+}
+
+.addco .door__bd {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.addco .door__t {
+  display: block;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.3px;
+}
+
+.addco .door__s {
+  display: block;
+  margin-block-start: 3px;
+  font-size: var(--text-body);
+  color: var(--ink-3);
+}
+
+.addco .door__go {
+  flex-shrink: 0;
+  color: var(--ink-4);
+}
+
+.addco .door:hover .door__go {
+  color: var(--teal);
+}
+
+:dir(rtl) .addco .door__go {
+  transform: scaleX(-1);
+}
+
+/* The reader confirmation: the file beside the fields on a wide screen, above them on a phone. */
+.addex .reader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.addex .reader__file {
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  position: sticky;
+  inset-block-start: 26px;
+}
+
+.addex .reader__file img {
+  display: block;
+  inline-size: 100%;
+  border-radius: 12px;
+}
+
+.addex .reader__name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block-start: 10px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+.addex .reader__name svg {
+  flex-shrink: 0;
+  color: var(--ink-4);
+}
+
+.addex .reader__fields {
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  padding-block: 20px 8px;
+  padding-inline: 20px;
+}
+
+.addex .reader__fields .form {
+  padding-block-end: 0;
+}
+
+.addex .reader__foot {
+  display: flex;
+  gap: 9px;
+  padding-block: 16px 14px;
+}
+
+@media (min-width: 821px) {
+  .addex .reader {
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
+}
+
+/* The already-done list: lite's rows with a tick each. */
+.addex .donerow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  inline-size: 100%;
+  text-align: start;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: 16px;
+  padding-block: 13px;
+  padding-inline: 16px;
+  margin-block-end: 8px;
+  color: var(--ink-1);
+}
+
+.addex .donerow--on {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.addex .donerow__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: 24px;
+  block-size: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-1);
+  background: var(--surface);
+  color: transparent;
+}
+
+.addex .donerow--on .donerow__mark {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #fff;
+}
+
+.addex .donerow__bd {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.addex .donerow__t {
+  display: block;
+  font-size: var(--text-field);
+  font-weight: var(--weight-semibold);
+}
+
+.addex .donerow__s {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-note);
+  color: var(--ink-3);
+}
+
+.addex .qbox {
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  padding-block: 4px;
+  padding-inline: 20px;
+}
+
+.addex .donefoot {
+  display: flex;
+  gap: 9px;
+  margin-block-start: 22px;
+}
+
+/* The coming-soon of the new company. */
+.addnew .soon2 {
+  padding-block: 56px 24px;
+}
+
+.addnew .back2 {
+  display: flex;
+  justify-content: center;
+}
+
+/* The way back from the existing-company door: a text link, not a button. */
+.addex .plink {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--teal-strong);
+}
+
+.addex .plink:hover {
+  text-decoration: underline;
+}

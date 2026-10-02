@@ -1,0 +1,123 @@
+/* The menu panel under the avatar: lite's floating menu (the picker's), one line per screen. */
+.pmenu {
+  position: absolute;
+  inset-block-start: calc(100% + var(--menu-gap));
+  inset-inline-end: 0;
+  z-index: var(--layer-menu);
+  inline-size: 264px;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--menu-radius);
+  box-shadow: var(--shadow-menu);
+  padding: var(--menu-pad);
+  color: var(--ink-1);
+  text-align: start;
+}
+
+.pmenu__who {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 10px 12px;
+  padding-inline: 11px;
+  border-block-end: 1px solid var(--line-2);
+  margin-block-end: 4px;
+}
+
+.pmenu__big {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: 40px;
+  block-size: 40px;
+  border-radius: var(--radius-pill);
+  background: var(--ink-1);
+  color: var(--surface);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.3px;
+}
+
+.pmenu__text {
+  min-inline-size: 0;
+}
+
+.pmenu__name {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pmenu__email {
+  display: block;
+  margin-block-start: 1px;
+  font-size: var(--text-note);
+  color: var(--ink-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pmenu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.pmenu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--menu-item-gap);
+  inline-size: 100%;
+  padding-block: 9px;
+  padding-inline: 11px;
+  border: none;
+  border-radius: var(--menu-item-radius);
+  background: none;
+  color: var(--ink-2);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  text-align: start;
+}
+
+.pmenu__item svg {
+  flex-shrink: 0;
+  color: var(--ink-4);
+}
+
+.pmenu__item:hover {
+  background: var(--line-2);
+  color: var(--ink-1);
+}
+
+.pmenu__item:hover svg {
+  color: var(--teal);
+}
+
+.pmenu__item--out {
+  margin-block-start: 4px;
+  border-block-start: 1px solid var(--line-2);
+  border-radius: 0 0 var(--menu-item-radius) var(--menu-item-radius);
+  color: var(--teal);
+  font-weight: var(--weight-semibold);
+}
+
+.pmenu__item--out svg {
+  color: var(--teal);
+}
+
+/* On a phone the same list sits in the sheet, in lite's row size. */
+.pmenu-sheet .pmenu__item {
+  padding-block: 13px;
+  padding-inline: 8px;
+  font-size: var(--text-field);
+}
+
+.pmenu-sheet .pmenu__list {
+  padding-block-end: 8px;
+}

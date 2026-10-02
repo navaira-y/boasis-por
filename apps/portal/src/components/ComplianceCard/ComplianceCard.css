@@ -1,0 +1,74 @@
+/* Spec 7.2 has no card in lite; this one is lite's company card stood upright: the same
+   radius, border, padding and hover, the icon box of lite's company mark, the state at the end. */
+.compliance-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  inline-size: 100%;
+  min-inline-size: 0;
+  padding: var(--card-pad);
+  text-align: start;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  color: var(--ink-1);
+  font: inherit;
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease;
+}
+
+.compliance-card--tappable:hover {
+  border-color: var(--ink-4);
+  box-shadow: var(--shadow-card);
+}
+
+.compliance-card--overdue {
+  border-color: var(--rose-line);
+}
+
+.compliance-card--expiring {
+  border-color: var(--sand-line);
+  background: var(--sand-soft);
+}
+
+.compliance-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-block-end: var(--row-gap);
+}
+
+.compliance-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--mark-size);
+  block-size: var(--mark-size);
+  border-radius: var(--radius-mark);
+  background: var(--line-2);
+  color: var(--ink-2);
+}
+
+.compliance-card__title {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.2px;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compliance-card__line {
+  display: block;
+  margin-block-start: 3px;
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

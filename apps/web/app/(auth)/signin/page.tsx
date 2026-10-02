@@ -5,7 +5,12 @@ import { SigninForm } from "./form";
 /** Returning users: paid accounts land in the portal, unpaid in payment. */
 export const dynamic = "force-dynamic";
 
-export default async function SigninPage() {
+export default async function SigninPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
+  const { next } = await searchParams;
   const supabase = await createServerSupabase();
   const {
     data: { user },
@@ -28,7 +33,7 @@ export default async function SigninPage() {
         <p className="muted">
           Sign in to your portal. Unpaid accounts continue to payment.
         </p>
-        <SigninForm />
+        <SigninForm next={next ?? null} />
       </div>
     </main>
   );

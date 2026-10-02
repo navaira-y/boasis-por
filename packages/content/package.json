@@ -1,0 +1,21 @@
+{
+  "name": "@boasis/content",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Loads and validates the authority files and the federal rules in content/. Node only.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@boasis/schema": "0.1.0",
+    "zod": "^3.25.76",
+    "zod-to-json-schema": "^3.25.2"
+  }
+}

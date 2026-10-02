@@ -6,11 +6,12 @@ import { signinAction, type SigninState } from "./actions";
 
 const idle: SigninState = { ok: false };
 
-export function SigninForm() {
+export function SigninForm({ next }: { next: string | null }) {
   const [state, action, pending] = useActionState(signinAction, idle);
 
   return (
     <form action={action}>
+      {next && <input type="hidden" name="next" value={next} />}
       {!state.ok && state.error && <div className="error">{state.error}</div>}
       <div className="field">
         <label htmlFor="email">Email</label>

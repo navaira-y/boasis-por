@@ -1,0 +1,77 @@
+/* Lite's notifications list (src/sheets/NotifSheet.jsx): one line per thing waiting. */
+.pg .nlist {
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.pg .nlist .n {
+  display: flex;
+  gap: 13px;
+  padding-block: 15px;
+  padding-inline: 20px;
+  border-block-end: 1px solid var(--line-2);
+}
+
+.pg .nlist .n:last-child {
+  border-block-end: none;
+}
+
+.pg .nlist .n.new {
+  background: var(--sand-soft);
+}
+
+.pg .nlist .n.bad .dot2 {
+  background: var(--rose);
+}
+
+.pg .nlist .dot2 {
+  inline-size: 7px;
+  block-size: 7px;
+  border-radius: 50%;
+  background: var(--sand);
+  flex-shrink: 0;
+  margin-block-start: 6px;
+}
+
+.pg .nlist .dot2.old {
+  background: transparent;
+}
+
+.pg .nlist .t {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  line-height: 1.4;
+}
+
+.pg .nlist .s {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  margin-block-start: 3px;
+  line-height: 1.5;
+}
+
+.pg .nempty {
+  padding-block: 26px;
+  padding-inline: 22px;
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--ink-3);
+}
+
+/* Every line opens its card: a button that keeps the row's look. */
+.pg .nlist button.n {
+  inline-size: 100%;
+  text-align: start;
+  background: var(--sand-soft);
+  border: none;
+  border-block-end: 1px solid var(--line-2);
+  color: var(--ink-1);
+  font: inherit;
+  cursor: pointer;
+}
+
+.pg .nlist button.n:hover {
+  background: var(--line-2);
+}

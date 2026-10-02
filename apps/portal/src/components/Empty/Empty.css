@@ -1,0 +1,27 @@
+/* Lite's empty state: centred, quiet, no box around it. */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: var(--empty-pad-block);
+  padding-inline: var(--space-5);
+  text-align: center;
+  color: var(--ink-3);
+}
+
+.empty__title {
+  margin-block-end: 6px;
+  font-size: var(--text-lead);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-2);
+}
+
+.empty__line {
+  font-size: var(--text-body);
+  line-height: 1.6;
+  max-inline-size: 34ch;
+}
+
+.empty__action {
+  margin-block-start: var(--space-5);
+}

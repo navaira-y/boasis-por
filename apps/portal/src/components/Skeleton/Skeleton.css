@@ -1,0 +1,45 @@
+.skeleton {
+  display: block;
+  background: var(--line-2);
+  border-radius: var(--radius-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--line-1), transparent);
+  transform: translateX(-100%);
+  animation: skeleton-sweep 1.4s ease-in-out infinite;
+}
+
+.skeleton--line {
+  inline-size: 100%;
+  block-size: var(--text-base);
+}
+
+.skeleton--circle {
+  inline-size: var(--avatar-md);
+  block-size: var(--avatar-md);
+  border-radius: 50%;
+}
+
+.skeleton--card {
+  inline-size: 100%;
+  block-size: calc(var(--space-10) * 3);
+  border-radius: var(--radius-lg);
+}
+
+@keyframes skeleton-sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after {
+    animation: none;
+  }
+}

@@ -1,0 +1,169 @@
+.gallery {
+  min-block-size: 100%;
+  background: var(--bg);
+  color: var(--ink-1);
+}
+
+.gallery__top {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-6);
+  background: var(--surface);
+  border-block-end: 1px solid var(--line-1);
+}
+
+.gallery__title {
+  font-size: var(--text-lg);
+}
+
+.gallery__controls {
+  margin-inline-start: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.gallery__content {
+  max-inline-size: var(--content-max);
+  margin-inline: auto;
+  padding-block: var(--space-6) var(--space-10);
+  padding-inline: var(--space-6);
+  display: grid;
+  gap: var(--space-8);
+}
+
+.gallery__stage {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-6);
+}
+
+/* The phone frame contains its fixed descendants (contain: paint), so a Sheet portalled into
+   it covers the frame and not the page. The inner box scrolls; the frame itself does not. */
+.gallery__frame {
+  position: relative;
+  inline-size: var(--phone-frame);
+  block-size: 760px;
+  contain: paint;
+  background: var(--bg);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+}
+
+.gallery__frame-scroll {
+  block-size: 100%;
+  overflow-y: auto;
+}
+
+.gallery__frame .gallery__content {
+  padding-inline: var(--space-4);
+}
+
+.gallery__section {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.gallery__heading {
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.gallery__note {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  line-height: var(--leading-normal);
+}
+
+.gallery__body {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.gallery__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.gallery__stack {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.gallery__stack--tight {
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.gallery__list {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.gallery__grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.gallery__grid--two {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.gallery__grid--cards {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.gallery__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+}
+
+.gallery__bar-title {
+  font-weight: var(--weight-semibold);
+}
+
+.gallery__skeleton-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.gallery__filler {
+  font-size: var(--text-body);
+  line-height: 1.65;
+  color: var(--ink-2);
+  padding-block: var(--space-10);
+}
+
+.gallery__dial {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+.gallery__dial .hero {
+  align-self: stretch;
+}
+
+.gallery__dial .gallery__note {
+  text-align: center;
+}

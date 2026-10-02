@@ -1,0 +1,20 @@
+{
+  "name": "@boasis/assistant",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Brain seam: the interfaces every screen talks to, with plain implementations for MVP 1.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@boasis/schema": "0.1.0",
+    "@boasis/rules": "0.1.0"
+  }
+}

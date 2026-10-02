@@ -1,0 +1,213 @@
+/* Lite's picker: a page-coloured button with a chevron, a floating white menu with a tick. */
+.picker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--picker-gap);
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  padding-block: var(--picker-pad-block);
+  padding-inline: var(--picker-pad-inline);
+  border: 1px solid var(--line-1);
+  border-radius: var(--field-radius);
+  background: var(--bg);
+  color: var(--ink-1);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-normal);
+  text-align: start;
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease;
+}
+
+.picker--sm {
+  padding-block: 6px;
+  font-size: var(--text-note);
+}
+
+.picker--lg {
+  padding-block: var(--field-pad-block);
+  font-size: var(--text-field);
+}
+
+.picker:hover {
+  border-color: var(--ink-4);
+}
+
+.picker--open,
+.picker:focus-visible {
+  border-color: var(--teal);
+  box-shadow: var(--focus-ring);
+}
+
+.picker:disabled {
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+.picker__value {
+  flex: 1;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.picker__value--placeholder {
+  color: var(--ink-4);
+  font-weight: var(--weight-regular);
+}
+
+.picker__note {
+  flex-shrink: 1;
+  min-inline-size: 0;
+  font-size: var(--text-xs);
+  color: var(--ink-4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.picker__chevron {
+  flex-shrink: 0;
+  inline-size: var(--icon-sm);
+  block-size: var(--icon-sm);
+  color: var(--ink-4);
+  transform: rotate(90deg);
+  transition: transform var(--motion-normal) ease;
+}
+
+.picker--open .picker__chevron {
+  transform: rotate(-90deg);
+}
+
+:dir(rtl) .picker__chevron {
+  transform: rotate(90deg) scaleX(-1);
+}
+
+:dir(rtl) .picker--open .picker__chevron {
+  transform: rotate(-90deg) scaleX(-1);
+}
+
+/* The anchored menu lives in a portal at the menu layer: above every sheet and its veil. */
+.picker-layer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--layer-menu);
+}
+
+.picker__backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.picker__menu {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  visibility: hidden;
+  margin: 0;
+  padding: var(--menu-pad);
+  list-style: none;
+  max-block-size: var(--menu-max-block);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--menu-radius);
+  box-shadow: var(--shadow-menu);
+  outline: none;
+  animation: picker-menu-in var(--motion-fast) ease-out both;
+}
+
+.picker__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.picker__option {
+  display: flex;
+  align-items: center;
+  gap: var(--menu-item-gap);
+  padding-block: var(--picker-pad-block);
+  padding-inline: var(--picker-pad-inline);
+  border-radius: var(--menu-item-radius);
+  color: var(--ink-2);
+  font-size: var(--text-md);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--motion-fast) ease;
+}
+
+/* Inside the phone sheet the options are lite's pick rows: full width, a hairline between. */
+.picker__list .picker__option {
+  gap: var(--space-4);
+  padding-block: var(--row-pad-block);
+  padding-inline: var(--space-1);
+  border-radius: 0;
+  border-block-end: 1px solid var(--line-2);
+  white-space: normal;
+}
+
+.picker__list .picker__option:last-child {
+  border-block-end: none;
+}
+
+.picker__option--active,
+.picker__list .picker__option:hover {
+  background: var(--line-2);
+  color: var(--ink-1);
+}
+
+.picker__option--selected {
+  color: var(--ink-1);
+  font-weight: var(--weight-semibold);
+}
+
+.picker__option-text {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  overflow: hidden;
+}
+
+.picker__option-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.picker__option-note {
+  margin-inline-start: 2px;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  color: var(--ink-4);
+  white-space: nowrap;
+}
+
+.picker__check {
+  flex-shrink: 0;
+  margin-inline-start: auto;
+  inline-size: var(--icon-sm);
+  block-size: var(--icon-sm);
+  color: var(--teal);
+}
+
+@keyframes picker-menu-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .picker__menu {
+    animation: none;
+  }
+}

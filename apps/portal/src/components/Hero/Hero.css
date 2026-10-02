@@ -1,0 +1,97 @@
+/* The stage: lite's hero card, dark in both themes, the film behind, a veil over it so the
+   text keeps its contrast without putting the gradient out. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--hero-bg);
+  border-radius: var(--hero-radius);
+  box-shadow: var(--shadow-hero);
+  color: var(--hero-ink);
+  transform: translateZ(0);
+}
+
+.hero__film {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__film video,
+.hero__film img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.hero__film::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    var(--hero-veil-1) 0%,
+    var(--hero-veil-2) 46%,
+    var(--hero-veil-3) 100%
+  );
+}
+
+/* Lite's year block (the dial and the summary beside it) and, on a wide screen, the side
+   section to its right. The paddings are lite's .athome .year: 22px 32px 26px. */
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding-block: 22px 26px;
+  padding-inline: 32px;
+}
+
+.hero--desktop .hero__inner:has(.hero__side) {
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.hero__year {
+  min-inline-size: 0;
+}
+
+.hero__side {
+  min-inline-size: 0;
+}
+
+/* The legend's words go light on the stage, quiet enough to blend with it. */
+.hero .dial-legend {
+  --dial-legend-ink: rgba(255, 255, 255, 0.55);
+}
+
+/* On a phone the stage stacks: the dial, then its legend, then the panel. */
+.hero--phone .hero__inner {
+  gap: 14px;
+  padding-block: 0 16px;
+  padding-inline: 17px;
+  text-align: center;
+}
+
+/* From the top edge of the screen, under the header, edge to edge, and closed at the bottom
+   with the two veils: one so the name and the bell keep their contrast, one so the blue does
+   not meet the page in a hard line. */
+.hero--bleed {
+  margin-inline: -17px;
+  margin-block-start: calc((var(--hdr-h, 66px) + 18px) * -1);
+  padding-block-start: calc(var(--hdr-h, 66px) + 18px);
+  border-radius: 0 0 30px 30px;
+  box-shadow: none;
+}
+
+.hero--bleed .hero__film::after {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 13, 24, 0.2) 0%,
+    rgba(4, 13, 24, 0.03) 20%,
+    rgba(4, 13, 24, 0) 64%,
+    rgba(4, 13, 24, 0.18) 100%
+  );
+}

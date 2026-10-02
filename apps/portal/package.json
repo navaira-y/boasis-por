@@ -1,0 +1,33 @@
+{
+  "name": "@boasis/portal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Boasis Portal web app: Vite, React 18, TypeScript strict, hash routing, installable.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5191",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@boasis/assistant": "0.1.0",
+    "@boasis/rules": "0.1.0",
+    "@boasis/schema": "0.1.0",
+    "@tanstack/react-query": "^5.102.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.0",
+    "vite-plugin-pwa": "^1.3.0"
+  }
+}
