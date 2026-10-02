@@ -1,0 +1,291 @@
+{
+  "id": "dubai-auto-zone",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Dubai Auto Zone",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"JAFZA\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"JAFZA\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"JAFZA\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, JAFZA, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "portalAddress": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": "WPS mandated (administered with JAFZA)",
+      "source": "Boasis research, free zones per authority, Dubai zones, JAFZA, item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": true,
+      "source": "Boasis research, free zones per authority, Dubai zones, JAFZA, item 3 (CONFIRMED, WPS also mandated in Dubai Auto Zone)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Auto Zone, lease (applies only if Jafza rules apply to Dubai Auto Zone: consultancies say Jafza supervises and licenses DAZ (formerly DUCAMZ), not confirmed on an official page, REPORTED; the Jafza rule is that the lease must be valid to renew); https://www.jafza.ae/resource-centre/guides/renew-license/ ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone?start=5",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Auto Zone, lease (unknown); https://www.jafza.ae/resource-centre/guides/renew-license/ ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone?start=5",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Within three months before expiry, if Jafza rules apply.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Auto Zone, renewal window (Jafza official renew licence page; the page does not say it applies to Dubai Auto Zone, REPORTED); https://www.jafza.ae/resource-centre/guides/renew-license/",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.renewsTogether": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Auto Zone, renews together (unknown); https://www.jafza.ae/resource-centre/guides/renew-license/ ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone?start=5",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiry": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Auto Zone, late renewal (unknown); https://www.jafza.ae/resource-centre/guides/renew-license/ ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone?start=5",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Auto Zone, late renewal (unknown); https://www.jafza.ae/resource-centre/guides/renew-license/ ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone?start=5",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Auto Zone, late renewal (unknown); https://www.jafza.ae/resource-centre/guides/renew-license/ ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone ; https://www.dubaitrade.ae/en/news-announcements/dubai-auto-zone?start=5",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

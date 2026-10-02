@@ -1,0 +1,600 @@
+/* Lite's access page (src/pages/AccessPage.jsx): a table when it fits, a list when it does
+   not, the invite box in teal, and the role pills. Role tones are lite's, light and dark. */
+.pg.acc {
+  --ro-owner: #6a47d8;
+  --ro-owner-s: #f1ecff;
+  --ro-role: #1d6bd0;
+  --ro-role-s: #e7f0fd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .pg.acc {
+    --ro-owner: #bba7ff;
+    --ro-owner-s: rgba(187, 167, 255, 0.15);
+    --ro-role: #8fbaff;
+    --ro-role-s: rgba(143, 186, 255, 0.14);
+  }
+}
+
+:root[data-theme='dark'] .pg.acc {
+  --ro-owner: #bba7ff;
+  --ro-owner-s: rgba(187, 167, 255, 0.15);
+  --ro-role: #8fbaff;
+  --ro-role-s: rgba(143, 186, 255, 0.14);
+}
+
+.acc .invite {
+  background: var(--surface);
+  border: 1px solid var(--teal);
+  border-radius: var(--radius-lg);
+  padding-block: 17px;
+  padding-inline: 19px;
+  margin-block-end: 14px;
+  box-shadow: 0 0 0 3px var(--teal-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.acc .ivh {
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.acc .acpick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.acc .acpick label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-pill);
+  padding-block: 7px;
+  padding-inline: 12px;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  background: var(--surface);
+}
+
+.acc .acpick label.on {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.acc .acpick input {
+  margin: 0;
+  accent-color: var(--teal);
+}
+
+.acc .ivr {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.acc .ivr .go {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: var(--field-radius);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  padding-block: 10px;
+  padding-inline: 18px;
+}
+
+.acc .ivr .go:hover {
+  background: var(--teal-strong);
+}
+
+.acc .ivr .go:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.acc .ivr .cx {
+  background: none;
+  border: none;
+  color: var(--ink-3);
+  font-size: var(--text-body);
+  padding-block: 10px;
+  padding-inline: 6px;
+}
+
+.acc .ivn {
+  font-size: var(--text-note);
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+/* Spec 4.1: per company, the areas with view, edit or nothing, and who is responsible. */
+.acc .agrid {
+  border: 1px solid var(--line-1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.acc .agrid .ah {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-block: 10px;
+  padding-inline: 14px;
+  background: var(--surface-tint);
+  border-block-end: 1px solid var(--line-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-2);
+}
+
+.acc .arow2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 9px;
+  padding-inline: 14px;
+  border-block-end: 1px solid var(--line-2);
+}
+
+.acc .arow2:last-child {
+  border-block-end: none;
+}
+
+.acc .arow2 .an {
+  flex: 1;
+  min-inline-size: 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+}
+
+.acc .arow2 .picker {
+  inline-size: 112px;
+  flex-shrink: 0;
+}
+
+.acc .arow2 .checkbox {
+  flex-shrink: 0;
+}
+
+.acc .arow2 .checkbox__label {
+  font-size: var(--text-note);
+  font-weight: var(--weight-medium);
+  color: var(--ink-3);
+}
+
+/* The table. */
+.acc .atable {
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-block-end: var(--space-4);
+}
+
+.acc .ascroll {
+  overflow-x: auto;
+}
+
+.acc table {
+  border-collapse: separate;
+  border-spacing: 0;
+  inline-size: 100%;
+  table-layout: fixed;
+}
+
+.acc th,
+.acc td {
+  padding-block: 12px;
+  padding-inline: 16px;
+  border-block-end: 1px solid var(--line-2);
+  text-align: start;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.acc tbody tr:last-child td {
+  border-block-end: none;
+}
+
+.acc thead th {
+  background: var(--surface-tint);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.acc tbody td {
+  background: var(--surface);
+  transition: background 0.12s;
+}
+
+.acc tbody tr:hover td {
+  background: var(--line-2);
+}
+
+.acc tr.selfrow td {
+  background: var(--surface-tint);
+}
+
+.acc .tperson {
+  inline-size: 250px;
+  border-inline-end: 1px solid var(--line-2);
+}
+
+.acc .tact {
+  inline-size: 64px;
+  padding-inline: 8px 16px;
+  text-align: end;
+  text-overflow: clip;
+}
+
+.acc .colhd {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-2);
+}
+
+.acc .codot {
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px var(--surface);
+}
+
+.acc .sr {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.acc .who2 {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.acc .ava {
+  inline-size: 32px;
+  block-size: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+  background: var(--ava, var(--avatar-7));
+}
+
+.acc .pname {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.acc .pname b {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-1);
+}
+
+.acc .pname > span {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-inline-size: 200px;
+}
+
+.acc .youtag {
+  font-style: normal;
+  font-size: 9.5px;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--teal-strong);
+  background: var(--teal-soft);
+  border-radius: var(--radius-pill);
+  padding-block: 2px;
+  padding-inline: 7px;
+}
+
+.acc .cellx {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.acc .nocell {
+  color: var(--ink-4);
+}
+
+.acc .pillx {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding-block: 5px;
+  padding-inline: 11px;
+  font-size: var(--text-note);
+  font-weight: var(--weight-semibold);
+  line-height: 1.25;
+  font-family: inherit;
+  max-inline-size: 100%;
+}
+
+.acc .pillx .lbl {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.acc .pillx.r-owner {
+  background: var(--ro-owner-s);
+  color: var(--ro-owner);
+}
+
+.acc .pillx.r-role {
+  background: var(--ro-role-s);
+  color: var(--ro-role);
+}
+
+.acc button.pillx:hover {
+  filter: brightness(0.97);
+  box-shadow: 0 0 0 1px currentColor inset;
+}
+
+.acc .pillx .nt {
+  font-weight: var(--weight-medium);
+  opacity: 0.7;
+}
+
+.acc .ghostadd {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px dashed var(--line-1);
+  background: none;
+  border-radius: var(--radius-pill);
+  padding-block: 5px;
+  padding-inline: 11px;
+  font-size: var(--text-note);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-4);
+}
+
+.acc .ghostadd:hover {
+  border-color: var(--teal);
+  color: var(--teal-strong);
+  background: var(--teal-soft);
+}
+
+.acc .rowdel {
+  inline-size: 30px;
+  block-size: 30px;
+  border-radius: 9px;
+  border: none;
+  background: none;
+  color: var(--ink-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+}
+
+.acc tr:hover .rowdel,
+.acc .rowdel:focus-visible {
+  opacity: 1;
+}
+
+.acc .rowdel:hover {
+  background: var(--rose-soft);
+  color: var(--rose);
+}
+
+.acc .aempty {
+  padding-block: 14px;
+  padding-inline: 18px;
+  border-block-start: 1px solid var(--line-2);
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+/* The list, on a phone. */
+.acc .plist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block-end: var(--space-4);
+}
+
+.acc .pcard2 {
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.acc .pcard2.self {
+  background: var(--surface-tint);
+}
+
+.acc .phead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  inline-size: 100%;
+  padding-block: 13px;
+  padding-inline: 15px;
+  background: none;
+  border: none;
+  text-align: start;
+  color: inherit;
+}
+
+.acc .phead .pname {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.acc .phead .pname > span {
+  max-inline-size: none;
+}
+
+.acc .pdots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.acc .pdots .codot {
+  inline-size: 9px;
+  block-size: 9px;
+  box-shadow: none;
+}
+
+.acc .pchev {
+  flex-shrink: 0;
+  color: var(--ink-4);
+  transform: rotate(90deg);
+  transition: transform var(--motion-normal) ease;
+}
+
+.acc .pcard2.open .pchev {
+  transform: rotate(-90deg);
+}
+
+.acc .pbody {
+  border-block-start: 1px solid var(--line-2);
+  padding-block: 4px 12px;
+  padding-inline: 15px;
+}
+
+.acc .prow2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 10px;
+  border-block-end: 1px solid var(--line-2);
+  flex-wrap: wrap;
+}
+
+.acc .prow2:last-of-type {
+  border-block-end: none;
+}
+
+.acc .pco2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-inline-size: 0;
+  flex: 1;
+}
+
+.acc .pco2 .cn {
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  color: var(--ink-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.acc .pval {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.acc .plink {
+  background: none;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-note);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-2);
+  padding-block: 6px;
+  padding-inline: 12px;
+  white-space: nowrap;
+}
+
+.acc .plink:hover {
+  background: var(--line-2);
+}
+
+.acc .plink.danger {
+  color: var(--rose);
+}
+
+.acc .plink.danger:hover {
+  background: var(--rose-soft);
+  border-color: var(--rose-line);
+}
+
+.acc .premove {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-block-start: 10px;
+}
+
+.acc .alegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  font-size: var(--text-note);
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.acc .alegend .lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-inline-size: 440px;
+}
+
+.acc .alegend .pillx {
+  flex-shrink: 0;
+}
+
+.acc .alegend b {
+  color: var(--ink-2);
+}
+
+@media (max-width: 820px) {
+  .acc .ava {
+    inline-size: 28px;
+    block-size: 28px;
+    font-size: var(--text-2xs);
+  }
+}

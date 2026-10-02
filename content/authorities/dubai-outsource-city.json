@@ -1,0 +1,313 @@
+{
+  "id": "dubai-outsource-city",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Dubai Outsource City",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "portalAddress": {
+      "value": null,
+      "source": "not in research; the u.ae list links the zone website https://dubaioutsourcecity.ae/ but names no submission portal",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Outsource City, lease (the in5 (TECOM) renewal note says the lease and the licence must both be valid at all times, lease renewed first; in5 is an operator document, REPORTED. Official: a registered office in the zone is required at all times, DDA Private Companies Regulations 2016 reg 51.2); https://infive.ae/setup/wp-content/uploads/2020/08/Renewal-Process-Notes.pdf ; https://dda.gov.ae/-/media/67662280247F46F2B94A853943F014C4.pdf ; https://dda.gov.ae/-/media/07DE5215EC064FC990A6D5965955BD79.pdf ; https://dda.gov.ae/-/media/7342AF827E3643E68CAE10D72C883146.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Outsource City, lease (unknown: no official DDA or TECOM source sets a minimum lease period remaining at renewal; no 90 day rule found); https://dda.gov.ae/-/media/67662280247F46F2B94A853943F014C4.pdf ; https://dda.gov.ae/-/media/07DE5215EC064FC990A6D5965955BD79.pdf ; https://dda.gov.ae/-/media/7342AF827E3643E68CAE10D72C883146.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Renew online through the AXS portal before expiry. No rule on how early renewal may start (unknown).",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Outsource City, renewal window (DDA renewal page, CONFIRMED. Not a rule, REPORTED only: the in5 (TECOM) note dated 2020 says DDA emails reminders 45, 30, 15 and 0 days before licence expiry and the leasing team sends lease notices 60, 30 and 0 days before lease expiry); https://dda.gov.ae/en/registration-licensing/existing-businesses/license-renewal/commercial-license-renewal ; https://dda.gov.ae/en/registration-licensing/existing-businesses/license-renewal ; https://infive.ae/setup/wp-content/uploads/2020/08/Renewal-Process-Notes.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "Lease or occupation licence agreement, renewed with TECOM leasing before the licence. The Establishment Card from GDRFA Dubai has the same expiry as the licence and is renewed after it; GDRFA sends no reminder. Third party liability and workmen's compensation insurance for visa employees at lease renewal. TECOM leasing starts lease termination if the lease is not renewed.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Outsource City, renews together (in5 (TECOM) renewal note dated 2020, an operator document, REPORTED); https://infive.ae/setup/wp-content/uploads/2020/08/Renewal-Process-Notes.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.afterExpiry": {
+      "value": "If the licence is not renewed on or before expiry, a late renewal penalty is added to the next year's fee and rises in steps after more than 30, 60 and 90 days. No grace period is stated. DDA may refuse to renew the licence and may refuse government services, including visa sponsorship. DDA may suspend, revoke or cancel a licence by written notice if renewal fees or late renewal penalties are unpaid, with no fixed day count. A company in breach, including by ceasing business in the zone, can be deregistered and struck off three months after a written notice unless it gives a reasonable justification. No automatic termination at a fixed number of days after expiry was found.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Outsource City, late renewal (DDA Decision No. 1 of 2021 Schedule 4; Licensing Regulations 2003 reg 10.1.5; Private Companies Regulations 2016 reg 100 (companies; branches follow a separate process); CONFIRMED. Decision 1/2021 is the latest listed on the DDA legal database; a later amendment could not be ruled out); https://dda.gov.ae/-/media/67662280247F46F2B94A853943F014C4.pdf ; https://dda.gov.ae/-/media/07DE5215EC064FC990A6D5965955BD79.pdf ; https://dda.gov.ae/-/media/7342AF827E3643E68CAE10D72C883146.pdf ; https://dda.gov.ae/en/legal-database/laws-and-regulations",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Outsource City, late renewal (no grace period is stated in DDA Decision 1/2021); https://dda.gov.ae/-/media/67662280247F46F2B94A853943F014C4.pdf ; https://dda.gov.ae/-/media/07DE5215EC064FC990A6D5965955BD79.pdf ; https://dda.gov.ae/-/media/7342AF827E3643E68CAE10D72C883146.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": [
+        {
+          "after": {
+            "amount": 30,
+            "unit": "days"
+          },
+          "consequence": "More than 30 days after expiry: the late renewal penalty rises a step."
+        },
+        {
+          "after": {
+            "amount": 60,
+            "unit": "days"
+          },
+          "consequence": "More than 60 days after expiry: the late renewal penalty rises a step."
+        },
+        {
+          "after": {
+            "amount": 90,
+            "unit": "days"
+          },
+          "consequence": "More than 90 days after expiry: the late renewal penalty rises a step. This is a penalty step only, not a termination date."
+        }
+      ],
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Outsource City, late renewal (DDA Decision No. 1 of 2021 Schedule 4, CONFIRMED; amounts left out); https://dda.gov.ae/-/media/67662280247F46F2B94A853943F014C4.pdf ; https://dda.gov.ae/-/media/07DE5215EC064FC990A6D5965955BD79.pdf ; https://dda.gov.ae/-/media/7342AF827E3643E68CAE10D72C883146.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "boasis-portal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22 <23",
+    "npm": ">=10"
+  },
+  "workspaces": [
+    "apps/portal",
+    "apps/server",
+    "packages/schema",
+    "packages/rules",
+    "packages/content",
+    "packages/assistant"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @boasis/portal",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:e2e": "npm run test:e2e --workspace @boasis/portal",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/node": "^22.20.2",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "jiti": "^2.6.1",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.70.0",
+    "vitest": "^5.0.0"
+  }
+}

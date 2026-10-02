@@ -1,0 +1,109 @@
+.shell {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+.shell__body {
+  position: relative;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Room for the rail, and only where the rail exists: above 1120 the centred content clears it
+   on its own, and below 821 there is no rail at all. */
+@media (min-width: 821px) and (max-width: 1120px) {
+  .shell__body {
+    padding-inline-start: 196px;
+  }
+}
+
+.shell__content {
+  position: relative;
+  z-index: 1;
+  max-inline-size: var(--content-max);
+  margin-inline: auto;
+  padding-block: 26px 60px;
+  padding-inline: 26px;
+}
+
+/* The home carries a column beside the dial, when the window can hold it: the rail (196), the
+   page (1044) and their margins. */
+@media (min-width: 1100px) {
+  .shell__body--wide {
+    padding-inline-start: 196px;
+  }
+
+  .shell__content--wide {
+    max-inline-size: 1044px;
+  }
+}
+
+@media (max-width: 820px) {
+  .shell__content {
+    padding-block: 18px calc(102px + var(--safe-bottom));
+    padding-inline: 17px;
+  }
+
+  /* The home of a phone: the stage carries the watch and passes under the header, which leaves
+     the flow and floats over it, transparent until the stage has gone by. Its height is measured
+     by the Hero (it depends on the text size and the safe area) and written to --hdr-h. */
+  .shell--athome .top-bar {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 20;
+    transition:
+      background var(--motion-sheet) ease,
+      color var(--motion-sheet) ease,
+      border-color var(--motion-sheet) ease;
+  }
+
+  .shell--athome .shell__content {
+    padding-block-start: calc(var(--hdr-h, 66px) + 18px);
+  }
+
+  .shell--athome:not(.shell--past) .top-bar {
+    border-block-end-color: transparent;
+    color: #fff;
+    background: linear-gradient(180deg, rgba(4, 13, 24, 0.46) 0%, rgba(4, 13, 24, 0.2) 100%);
+    background-origin: border-box;
+  }
+
+  /* The veil continues under the header rather than stopping at its edge. */
+  .shell--athome:not(.shell--past) .top-bar::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: calc(100% + 1px);
+    block-size: 38px;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(4, 13, 24, 0.2) 0%, rgba(4, 13, 24, 0) 100%);
+  }
+
+  .shell--athome:not(.shell--past) .top-bar__mark {
+    color: #fff;
+  }
+
+  /* Two glass buttons: a white button put two opaque blots on the gradient. */
+  .shell--athome:not(.shell--past) .top-bar__icon-button {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.22);
+    color: #fff;
+    backdrop-filter: blur(10px) saturate(1.4);
+  }
+
+  .shell--athome:not(.shell--past) .top-bar__me {
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    backdrop-filter: blur(10px) saturate(1.4);
+  }
+
+  .shell--athome:not(.shell--past) .top-bar__badge {
+    border-color: rgba(255, 255, 255, 0.34);
+  }
+}

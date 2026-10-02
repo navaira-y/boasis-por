@@ -1,0 +1,22 @@
+/* The company palette as round swatches; the chosen one ringed in ink. */
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.swatch {
+  --company-colour: var(--ink-3);
+  inline-size: 30px;
+  block-size: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: var(--company-colour);
+  padding: 0;
+  box-shadow: 0 0 0 1px var(--line-1);
+}
+
+.swatch--on {
+  border-color: var(--surface);
+  box-shadow: 0 0 0 2.5px var(--ink-1);
+}

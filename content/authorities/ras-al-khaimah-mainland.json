@@ -1,0 +1,247 @@
+{
+  "id": "ras-al-khaimah-mainland",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Ras Al Khaimah mainland (Department of Economic Development, Ras Al Khaimah)",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Ras Al Khaimah",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "mainland",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404) (listed as the local economic authority issuing the licence)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "mohre",
+      "source": "Boasis research, mainland employee lifecycle, section 2 (Job offer and work permit (MOHRE), federal, CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae mainland list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "portalAddress": {
+      "value": null,
+      "source": "not in research; the u.ae mainland list links the authority website but names no submission portal",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": []
+}

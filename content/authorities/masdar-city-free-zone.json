@@ -1,0 +1,291 @@
+{
+  "id": "masdar-city-free-zone",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Masdar City Free Zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Abu Dhabi",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Zone sponsors under a Personnel Sponsorship Agreement; the Government Services Entity procures permits; ICP/GDRFA Abu Dhabi issue; Free Zone Portal (Salesforce) plus a Channel Partner portal; the appointed Manager represents the licensee",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "Free Zone Portal (masdarcityfreezone.com)",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": ["Startup", "Business One", "Innovation", "Enterprise"],
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "By package: Startup 0, Business One 1, Innovation 2, Enterprise 3 visas; increase not published",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 7 (CONFIRMED, 2 years)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Employer obtains a DoH health card for every sponsored employee; no residence without medical fitness; costs not recoverable (Employment Regulations 2026, Reg 9.2, 13.1, 13.2)",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 3 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Masdar City Free Zone, lease (consultancy sources (search summaries only) say each licence must be linked to a valid office lease in the free zone, REPORTED; consultancy URLs not recorded in the research); https://masdarcityfreezone.com/explore/license-and-registration",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Masdar City Free Zone, lease (unknown: no minimum remaining term found); https://masdarcityfreezone.com/explore/license-and-registration",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Masdar City Free Zone, renewal window (unknown as an official rule. Advice, not a rule: a masdarcityfreezone.com blog post, written as general Abu Dhabi guidance, recommends preparing renewal documents 30 to 45 days before expiry); https://masdarcityfreezone.com/resources/blog/abu-dhabi-free-zone-license-renewal-process",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewsTogether": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Masdar City Free Zone, renews together (unknown: no official renewal rules found); https://masdarcityfreezone.com/explore/legal-and-regulation",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiry": {
+      "value": "An expired licence leaves the company not fully active until renewed, which can cause administrative, visa and banking problems. No grace period, suspension or deregistration thresholds were found.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Masdar City Free Zone, late renewal (masdarcityfreezone.com blog written as general Abu Dhabi guidance, not a zone regulation, REPORTED); https://masdarcityfreezone.com/resources/blog/abu-dhabi-free-zone-license-renewal-process",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Masdar City Free Zone, late renewal (no grace period found); https://masdarcityfreezone.com/resources/blog/abu-dhabi-free-zone-license-renewal-process",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Masdar City Free Zone, late renewal (no thresholds found); https://masdarcityfreezone.com/resources/blog/abu-dhabi-free-zone-license-renewal-process",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

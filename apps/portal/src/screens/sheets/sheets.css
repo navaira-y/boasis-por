@@ -1,0 +1,696 @@
+/* Lite's sheet insides: blocks with a small capital, notes, the licence form, the pick rows. */
+.sheet-blk {
+  margin-block-end: 20px;
+}
+
+.sheet-blk:last-child {
+  margin-block-end: 8px;
+}
+
+.sheet-k {
+  margin-block-end: 7px;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.sheet-p {
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.sheet-p + .sheet-p {
+  margin-block-start: 4px;
+}
+
+.sheet-quiet {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+
+.sheet-note {
+  background: var(--sand-soft);
+  border: 1px solid var(--sand-line);
+  border-radius: 16px;
+  padding-block: 15px;
+  padding-inline: 17px;
+}
+
+.sheet-note p {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--sand);
+}
+
+.sheet-note--bad {
+  background: var(--rose-soft);
+  border-color: var(--rose-line);
+}
+
+.sheet-note--bad p {
+  color: var(--rose);
+}
+
+.sheet-ferr {
+  background: var(--rose-soft);
+  color: var(--rose);
+  border-radius: 12px;
+  padding-block: 11px;
+  padding-inline: 14px;
+  font-size: var(--text-sm);
+  line-height: 1.55;
+}
+
+.sheet-fnote {
+  background: var(--teal-soft);
+  color: var(--teal-strong);
+  border-radius: 13px;
+  padding-block: 12px;
+  padding-inline: 15px;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.sheet-fnote--warn {
+  background: var(--sand-soft);
+  color: var(--sand);
+  border: 1px solid var(--sand-line);
+}
+
+/* The licence, what is printed on it. */
+.prow {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding-block: 14px;
+  padding-inline: 0;
+  border-block-end: 1px solid var(--line-2);
+}
+
+.prow:first-child {
+  padding-block-start: 0;
+}
+
+.prow:last-child {
+  border-block-end: none;
+}
+
+.prow__k {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+  inline-size: 150px;
+  flex-shrink: 0;
+}
+
+.prow__v {
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  flex: 1;
+}
+
+/* Registering a licence: grouped by where the information comes from on the paper. */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-block-end: 8px;
+}
+
+.fgrp {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.fk {
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.fpair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  align-items: end;
+}
+
+.kinds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+  padding-block: 14px;
+  padding-inline: 16px;
+  background: var(--line-2);
+  border-radius: 16px;
+}
+
+.kind {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: start;
+  background: var(--bg);
+  border: 1px solid var(--line-1);
+  border-radius: 14px;
+  padding-block: 13px;
+  padding-inline: 14px;
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast);
+}
+
+.kind:hover {
+  border-color: var(--ink-4);
+}
+
+.kind--on {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+  box-shadow: 0 0 0 2px var(--teal-soft);
+}
+
+.kind__t {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.2px;
+}
+
+.kind--on .kind__t {
+  color: var(--teal-strong);
+}
+
+.kind__s {
+  font-size: var(--text-caption);
+  color: var(--ink-3);
+  line-height: 1.45;
+}
+
+.vat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  inline-size: 100%;
+  text-align: start;
+  background: var(--bg);
+  border: 1px solid var(--line-1);
+  border-radius: 14px;
+  padding-block: 13px;
+  padding-inline: 15px;
+}
+
+.vat--on {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.vat__bd {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.vat__t {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+
+.vat__s {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+}
+
+.vat__sw {
+  position: relative;
+  flex-shrink: 0;
+  inline-size: var(--toggle-inline);
+  block-size: var(--toggle-block);
+  border-radius: var(--radius-pill);
+  background: var(--line-1);
+}
+
+.vat__sw::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 3px;
+  inset-inline-start: 3px;
+  inline-size: 19px;
+  block-size: 19px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgba(20, 40, 70, 0.3);
+  transition: inset-inline-start var(--motion-normal);
+}
+
+.vat--on .vat__sw {
+  background: var(--teal);
+}
+
+.vat--on .vat__sw::after {
+  inset-inline-start: 20px;
+}
+
+/* Adding a licence: how. */
+.src2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.src2__btn {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px 15px;
+  align-items: center;
+  text-align: start;
+  inline-size: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: 16px;
+  padding-block: 16px;
+  padding-inline: 18px;
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast);
+}
+
+.src2__btn:hover {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.src2__ic {
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 44px;
+  block-size: 44px;
+  border-radius: 14px;
+  background: var(--line-2);
+  color: var(--ink-2);
+}
+
+.src2__btn:hover .src2__ic {
+  background: var(--surface);
+  color: var(--teal);
+}
+
+.src2__t {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.2px;
+}
+
+.src2__s {
+  font-size: var(--text-sm);
+  color: var(--ink-3);
+}
+
+/* Attaching the document a date produces. */
+.drop {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  inline-size: 100%;
+  text-align: start;
+  background: var(--bg);
+  border: 1px dashed var(--line-1);
+  border-radius: 14px;
+  padding-block: 14px;
+  padding-inline: 16px;
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast);
+}
+
+.drop:hover {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.drop--has {
+  border-style: solid;
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.drop__ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: 38px;
+  block-size: 38px;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink-3);
+}
+
+.drop--has .drop__ic {
+  color: var(--teal);
+}
+
+.drop__bd {
+  min-inline-size: 0;
+}
+
+.drop__t {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drop__s {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+/* A question of "complete your calendar": a sentence, not a small capital. */
+.qgrp {
+  padding-block: 20px 22px;
+  border-block-end: 1px solid var(--line-2);
+}
+
+.qgrp:first-child {
+  padding-block-start: 4px;
+}
+
+.qgrp:last-of-type {
+  border-block-end: none;
+}
+
+.qgrp__q {
+  margin-block: 0 6px;
+  font-size: var(--text-lead);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.25px;
+  line-height: 1.4;
+}
+
+.fq {
+  margin-block: 0 11px;
+  font-size: var(--text-note);
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+
+/* A choice with its consequence written under it. */
+.pickrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  inline-size: 100%;
+  text-align: start;
+  background: none;
+  border: none;
+  border-block-end: 1px solid var(--line-2);
+  padding-block: 15px;
+  padding-inline: 4px;
+}
+
+.pickrow:hover {
+  background: var(--line-2);
+}
+
+.pickrow__bd {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.pickrow__t {
+  display: block;
+  font-size: var(--text-field);
+  font-weight: var(--weight-semibold);
+}
+
+.pickrow__s {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-note);
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.pickrow__mark {
+  flex-shrink: 0;
+  inline-size: 18px;
+  block-size: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-1);
+}
+
+.pickrow--on .pickrow__mark {
+  border-color: var(--teal);
+  background: var(--teal);
+  box-shadow: inset 0 0 0 3px var(--surface);
+}
+
+/* The archive rows. */
+.arch__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  inline-size: 100%;
+  text-align: start;
+  background: none;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-lg);
+  padding-block: 13px;
+  padding-inline: 15px;
+  margin-block-end: 8px;
+}
+
+.arch__row:hover {
+  border-color: var(--ink-4);
+  background: var(--surface-tint);
+}
+
+.arch__ic {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--teal);
+}
+
+.arch__bd {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.arch__t {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arch__c {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-note);
+  color: var(--ink-4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arch__s {
+  font-size: var(--text-note);
+  color: var(--ink-4);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Deleting: the lists of what goes. */
+.sheet-ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sheet-ul li {
+  position: relative;
+  padding-block: 7px;
+  padding-inline-start: 24px;
+  font-size: var(--text-md);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.sheet-ul li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 5px;
+  inset-block-start: 14px;
+  inline-size: 5px;
+  block-size: 5px;
+  border-radius: 50%;
+  background: var(--ink-4);
+}
+
+.pairs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pairs li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 8px;
+  border-block-end: 1px solid var(--line-1);
+  font-size: var(--text-md);
+}
+
+.pairs li:last-child {
+  border-block-end: none;
+}
+
+.pairs li span {
+  color: var(--ink-3);
+}
+
+.pairs li b {
+  font-weight: var(--weight-semibold);
+  text-align: end;
+}
+
+/* The wait. */
+.reading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: 64px;
+  padding-inline: 26px;
+  gap: 6px;
+  min-block-size: 250px;
+}
+
+.reading__pulse {
+  inline-size: 44px;
+  block-size: 44px;
+  border-radius: 50%;
+  margin-block-end: 16px;
+  background: var(--teal-soft);
+  border: 2px solid var(--teal);
+  animation: sheet-breathe 1.5s ease-in-out infinite;
+}
+
+.reading__t {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.3px;
+}
+
+.reading__s {
+  font-size: var(--text-body);
+  color: var(--ink-3);
+  line-height: 1.6;
+  max-inline-size: 32ch;
+}
+
+.hintline {
+  margin-block: 9px 0;
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--ink-4);
+}
+
+.notebox {
+  inline-size: 100%;
+  resize: vertical;
+  min-block-size: 96px;
+  font: inherit;
+  font-size: var(--text-md);
+  line-height: 1.6;
+  color: var(--ink-1);
+  background: var(--surface-tint);
+  border: 1px solid var(--line-1);
+  border-radius: 14px;
+  padding-block: 12px;
+  padding-inline: 14px;
+}
+
+.notebox:focus {
+  outline: none;
+  border-color: var(--teal);
+  background: var(--surface);
+}
+
+@keyframes sheet-breathe {
+  0%,
+  100% {
+    transform: scale(0.86);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 820px) {
+  .kinds {
+    grid-template-columns: 1fr;
+  }
+
+  .kind {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .kind__s {
+    display: none;
+  }
+
+  .fpair {
+    grid-template-columns: 1fr;
+  }
+
+  .prow {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .prow__k {
+    inline-size: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading__pulse {
+    animation: none;
+  }
+}
+
+/* Lite's footer: the one action that matters takes the width, the quiet one keeps its own. */
+.sheet__footer .button--primary,
+.sheet__footer .button--danger {
+  flex: 1;
+}

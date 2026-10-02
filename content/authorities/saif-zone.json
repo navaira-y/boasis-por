@@ -1,0 +1,291 @@
+{
+  "id": "saif-zone",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Sharjah Airport International Free Zone (SAIF Zone)",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Sharjah",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Zone immigration desk to ICP Sharjah; own portal and app with CIS services; PRO card AED 500 per year (temporary AED 300), one PRO for up to 4 companies",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "SAIF Zone portal and app (saif-zone.com)",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": ["SAIF Office", "Executive Office", "Suite"],
+      "source": "Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "SAIF Office 3 visas; Executive Office 5; Suite 8",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 7 (CONFIRMED, 2 years employee (3 years investor))",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 5 (Northern Emirates rule; zone silent)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 3 (CONTESTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SAIF Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SAIF Zone, lease (not stated; the official renewal form renews the lease and licence together and asks the applicant to have signed and collected the tenancy contract); https://www.saif-zone.com/media/g4jdbl4i/renewal_form.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SAIF Zone, lease (unknown; no 90 day lease rule found); https://www.saif-zone.com/media/g4jdbl4i/renewal_form.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SAIF Zone, renewal window (unknown); https://www.saif-zone.com/media/g4jdbl4i/renewal_form.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewsTogether": {
+      "value": "Lease and licence are renewed together in one application and paid on one renewal invoice. The P.O. Box renewal receipt is also required. Other items: audited financial statements (FZE or FZC), a certificate of good standing for branches, sector approvals, and building and safety certificates for land tenants. The applicant must have signed and collected the tenancy contract.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SAIF Zone, renews together (official SAIF Zone Application for Lease and License Renewal (Feb 2019), CONFIRMED. Official FAQ: facilities are on long term leases, renewable, with yearly payment); https://www.saif-zone.com/media/g4jdbl4i/renewal_form.pdf ; https://www.saif-zone.com/en/faq/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "A cancelled company can be restored by paying the required amounts. No grace period or day thresholds are stated.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SAIF Zone, late renewal (official SAIF Zone FAQ, CONFIRMED); https://www.saif-zone.com/en/faq/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SAIF Zone, late renewal (no grace period stated); https://www.saif-zone.com/en/faq/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SAIF Zone, late renewal (no day thresholds stated); https://www.saif-zone.com/en/faq/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.vite/
+test-results/
+playwright-report/
+apps/portal/dev-dist/
+*.tsbuildinfo
+
+# Role worktrees (CLAUDE.md rule 14) live inside the repo folder but are never committed.
+.claude/worktrees/
+
+# Review captures and all documents stay on local machines, never in the repository.
+apps/portal/e2e/fidelity/**/*.png
+docs/

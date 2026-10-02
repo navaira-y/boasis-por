@@ -1,0 +1,299 @@
+{
+  "id": "difc",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Dubai International Financial Centre (DIFC)",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, DIFC, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "DIFC Government Services Office submits to GDRFA; Client Portal, Employee Services; a super user adds users; PRO card for submit and collect; external PRO firm access not published",
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "DIFC Client Portal (difc.com)",
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Business centre 1 per desk; kiosks 3; dining 60 sq ft per person; hotel 200; others 80 sq ft per person; increase not published",
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 7 (CONFIRMED, 2 years)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": 30,
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 7 (CONFIRMED, renew or cancel within 30 days of expiry or fine up to USD 2,000)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Employer must obtain and maintain cover (Art 56); DHA-approved insurer step before EID and stamping",
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": "ILOE not mandatory (EY citing DIFC notice of 19 May 2023)",
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 4 (REPORTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "wagesRule": {
+      "value": "Pay within 7 days of period end (DIFC Employment Law 2/2019, Art 18)",
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": false,
+      "source": "Boasis research, free zones per authority, Dubai zones, DIFC, item 3 (REPORTED, no WPS)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DIFC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai International Financial Centre (DIFC), lease (a consultancy (Atlas) says lapsed lease or registered address arrangements hold up renewal, REPORTED; consultancy URL not recorded in the research. Official: Operating Regulations 5.1.1 require the registered office to be a location in the DIFC); https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/difc_docs/annex-b_operating-regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai International Financial Centre (DIFC), lease (no minimum remaining lease period in the DIFC Operating Law or Operating Regulations); https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/difc_docs/annex-b_operating-regulations.pdf ; https://edge.sitecorecloud.io/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/operating_-law_no_7_of_2018_updated_2024.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Renew before expiry. No official earliest window found. A licence runs 12 months from issue.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai International Financial Centre (DIFC), renewal window (DIFC Operating Regulations 2.9.1 and Operating Law Art. 9(9), CONFIRMED. Advice, not a rule: consultancies say renew at least 30 days before expiry); https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/difc_docs/annex-b_operating-regulations.pdf ; https://edge.sitecorecloud.io/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/operating_-law_no_7_of_2018_updated_2024.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "A Confirmation Statement must be delivered at the same time as the licence renewal application, confirming filed information and whether Ultimate Beneficial Owners or Nominee Directors changed. Lease and establishment card renewal alongside: unknown.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai International Financial Centre (DIFC), renews together (DIFC Operating Regulations 5.2.1, CONFIRMED); https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/difc_docs/annex-b_operating-regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "A late renewal application can be made. Within 30 days of expiry, if granted, the licence is deemed to have continued and no fine applies. After 30 days, if granted, it is deemed continued but an automatic fine applies, which the Registrar may waive. A licensee not renewing must notify the Registrar before expiry of its intention and wind-down steps. The Registrar may strike a Registered Person off the Public Register if it is not carrying on business or is in contravention of the Law or Regulations, after publishing a notice of intention. No fixed day count after expiry at which strike-off happens was found.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai International Financial Centre (DIFC), late renewal (DIFC Operating Regulations 2.9.3 and 2.9.4; Operating Law Art. 9(11), 9(12), 32(1) and 32(2); CONFIRMED; amounts left out); https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/difc_docs/annex-b_operating-regulations.pdf ; https://www.difc.com/business/laws-and-regulations/legal-database/difc-laws/operating-law-difc-law-no-7-2018 ; https://edge.sitecorecloud.io/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/operating_-law_no_7_of_2018_updated_2024.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": 30,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai International Financial Centre (DIFC), late renewal (DIFC Operating Regulations 2.9.3 and Operating Law Art. 9(11): a late renewal granted within 30 days of expiry is deemed continued with no fine, CONFIRMED); https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/difc_docs/annex-b_operating-regulations.pdf ; https://edge.sitecorecloud.io/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/operating_-law_no_7_of_2018_updated_2024.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": [
+        {
+          "after": {
+            "amount": 30,
+            "unit": "days"
+          },
+          "consequence": "After 30 days, a late renewal if granted is still deemed continued, but an automatic fine applies unless the Registrar waives it."
+        }
+      ],
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai International Financial Centre (DIFC), late renewal (DIFC Operating Regulations 2.9.3 and Operating Law Art. 9(12), CONFIRMED; amounts left out); https://assets.difc.com/v1/media/edge/images/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/difc_docs/annex-b_operating-regulations.pdf ; https://edge.sitecorecloud.io/dubaiintern0078-difcexperie96c5-production-3253/media/project/difcexperiences/difc/difcwebsite/documents/laws--regulations/operating_-law_no_7_of_2018_updated_2024.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  }
+}

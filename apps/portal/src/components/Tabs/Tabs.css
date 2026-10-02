@@ -1,0 +1,51 @@
+/* Lite's segmented control: a grey pill, the chosen tab raised on it. */
+.tabs {
+  display: inline-flex;
+  max-inline-size: 100%;
+  gap: var(--seg-gap);
+  padding: var(--seg-pad);
+  background: var(--line-2);
+  border-radius: var(--radius-pill);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding-block: var(--seg-tab-pad-block);
+  padding-inline: var(--seg-tab-pad-inline);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--ink-3);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+  transition:
+    background var(--motion-normal) ease,
+    color var(--motion-normal) ease;
+}
+
+.tabs__tab:hover {
+  color: var(--ink-1);
+}
+
+.tabs__tab--on {
+  background: var(--surface-raised);
+  color: var(--ink-1);
+  font-weight: var(--weight-semibold);
+  box-shadow: var(--shadow-raised);
+}
+
+.tabs__dot {
+  inline-size: var(--seg-dot);
+  block-size: var(--seg-dot);
+  border-radius: 50%;
+  background: var(--sand);
+}

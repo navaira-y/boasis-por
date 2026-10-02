@@ -1,0 +1,107 @@
+/* Lite's three buttons: the black pill, the bordered pill, and the quiet text button. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding-block: var(--button-pad-block-md);
+  padding-inline: var(--button-pad-inline-md);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  white-space: nowrap;
+  transition:
+    background var(--motion-fast) ease,
+    color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease;
+}
+
+.button--sm {
+  padding-block: var(--button-pad-block-sm);
+  padding-inline: var(--button-pad-inline-sm);
+  font-size: var(--text-sm);
+}
+
+.button--lg {
+  padding-block: var(--button-pad-block-lg);
+  padding-inline: var(--button-pad-inline-lg);
+  font-size: var(--text-md);
+}
+
+.button--primary {
+  background: var(--ink-1);
+  color: var(--surface);
+}
+
+.button--primary:hover {
+  background: var(--ink-2);
+}
+
+.button--secondary {
+  background: var(--surface);
+  color: var(--ink-2);
+  border-color: var(--line-1);
+}
+
+.button--secondary:hover {
+  background: var(--line-2);
+}
+
+.button--quiet {
+  background: transparent;
+  color: var(--ink-3);
+}
+
+.button--quiet:hover {
+  background: var(--line-2);
+  color: var(--ink-1);
+}
+
+.button--danger {
+  background: var(--rose-soft);
+  color: var(--rose);
+  border-color: var(--rose-line);
+}
+
+.button--danger:hover {
+  background: var(--rose);
+  color: var(--surface);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.button--loading:disabled {
+  opacity: 0.8;
+}
+
+.button__icon {
+  display: inline-flex;
+  margin-inline-start: calc(var(--space-1) * -1);
+}
+
+.button__icon > svg,
+.button__spinner {
+  inline-size: var(--icon-sm);
+  block-size: var(--icon-sm);
+}
+
+.button__spinner {
+  animation: button-spin 0.9s linear infinite;
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button__spinner {
+    animation: none;
+  }
+}

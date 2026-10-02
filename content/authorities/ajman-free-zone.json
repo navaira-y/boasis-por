@@ -1,0 +1,297 @@
+{
+  "id": "ajman-free-zone",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Ajman Free Zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Ajman",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "One Click customer portal and customer app; issuing authority not named; no UAE Pass mentioned",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 1 and 9 (CONFIRMED portal)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "One Click customer portal (afz.gov.ae)",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 1 (CONFIRMED portal)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Offices 2; executive 2; warehouses minimum 14; freelancer hub 2",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 7 (CONTESTED, 2 or 3 years)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": "Medical only at Al Hamidiya Health Center",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "insuranceRule": {
+      "value": "Employees’ insurance fee AED 265 (FAQ, 2019)",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": "Salaries via banks or exchange houses; payroll statement by the 15th monthly (zone rule; MOHRE-WPS linkage not stated)",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 3 (own rule, MOHRE-WPS linkage not stated)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "establishmentCardNeededForVisas": {
+      "value": true,
+      "source": "Ajman Free Zone, residency visa services renewal, https://afz.gov.ae/services/service/residency-visa-services-renewal : the establishment card, E-Channel, ICP licence activation, visa quota and applicant status must be valid where required (Boasis onboarding review, 28 Sep 2026, item 7, confirmed for Ajman Free Zone only)",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ajman Free Zone (AFZ), lease (unknown from an official source; no 90 day lease rule found); https://afz.gov.ae/en/help-and-support/faqs.html ; https://afz.gov.ae/en/start-your-business/product/offices.html",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ajman Free Zone (AFZ), lease (unknown; no 90 day lease rule found); https://afz.gov.ae/en/help-and-support/faqs.html ; https://afz.gov.ae/en/start-your-business/product/offices.html",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ajman Free Zone (AFZ), renewal window (unknown for the licence; the official FAQ gives an early window for the establishment card only); https://afz.gov.ae/en/help-and-support/faqs.html",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewsTogether": {
+      "value": "The establishment card expiry is not linked to the trade licence expiry; they renew separately, and the card can be renewed within 2 months before its own expiry. Renewed documents (trade licence, establishment card, COC certificate) appear in the service request, and E-channel must be updated to renew the establishment card. Lease renewal together with the licence: unknown.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ajman Free Zone (AFZ), renews together (official AFZ FAQ, CONFIRMED); https://afz.gov.ae/en/help-and-support/faqs.html",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "A grace period of one month after licence expiry, within which renewal is possible. What happens after that is unknown from an official source.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ajman Free Zone (AFZ), late renewal (official AFZ FAQ, CONFIRMED. REPORTED only: consultancies mention suspension of activity); https://afz.gov.ae/en/help-and-support/faqs.html",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ajman Free Zone (AFZ), late renewal (official AFZ FAQ gives a grace period of one month, stated in months, not converted to days); https://afz.gov.ae/en/help-and-support/faqs.html",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ajman Free Zone (AFZ), late renewal (unknown from an official source after the one month grace period); https://afz.gov.ae/en/help-and-support/faqs.html",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

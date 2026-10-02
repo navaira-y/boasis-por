@@ -1,0 +1,9 @@
+.top-bar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1);
+  margin-inline-start: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+}

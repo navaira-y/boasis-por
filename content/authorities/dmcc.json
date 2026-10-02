@@ -1,0 +1,314 @@
+{
+  "id": "dmcc",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Dubai Multi Commodities Centre (DMCC)",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, DMCC, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Company applies on the DMCC Member Portal (UAE Pass or portal user); DMCC types and submits to ICP/FAIC (2024 guideline) or GDRFA (older FAQ); DMCC is the exclusive channel for Emirates ID and medical typing since 12 Sep 2023; the HR signatory e-signs; a Company Representative (PRO) can be appointed, an employee or a consultant from DMCC’s list",
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "DMCC Member Portal (dmcc.ae)",
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "Boasis research, licence lifecycle, section 5 (1, 2, 3 or 5 years for service and trading licences; not written as one number)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": [
+        "Licence, lease and establishment card renewed as one annual package",
+        "Renew on or before expiry",
+        "Lease renewed if less than 90 days remain",
+        "Insurance",
+        "NOCs"
+      ],
+      "source": "Boasis research, licence lifecycle, section 5 (Free zone pattern, Renewal, CONFIRMED (DMCC))",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": "0 to 30 days AED 0; 31 to 60 days AED 2,500; 61 to 90 days AED 5,000; over 90 days termination",
+      "source": "Boasis research, licence lifecycle, section 5 (Free zone pattern, Late ladder, CONFIRMED). CONFLICT (Boasis research, free zone licence renewal, 2026-09-28): the DMCC Licensing Rules 3.3.4 and Rule 5 give a discretionary grace period of unstated length and no fixed day threshold for suspension or strike-off; see proposedFields licence.afterExpiry; https://dmcc.ae/hubfs/Compliance%20Documents%202024/Licensing%20Rules-%20Final.pdf?hsLang=ar",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "Boasis research, licence lifecycle, section 5 (Cancellation notice DMCC 14 to 45 days, conflict, REPORTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [
+    {
+      "id": "immigration-establishment-card",
+      "name": "Immigration establishment card (through DMCC)",
+      "validityMonths": {
+        "value": 36,
+        "source": "Boasis research, licence lifecycle, section 5 (Immigration card: DMCC sells 3-year cards, REPORTED); fees issue AED 1,805 / renew 2,205 per Boasis research, free zones per authority, Dubai zones, DMCC, item 8 (CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    }
+  ],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Flexi desk up to 3; serviced office 4 to 5; 1 per 9 sqm; paid Increase/Exceptional Visa Quota (AED 250 + 500 per visa), physical unit required",
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "flexiDeskVisaQuota": {
+      "value": 3,
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 6 (CONFIRMED); onboarding v2 step 5 prefill (Flexi desk up to 3)",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 7 (CONFIRMED but two values, 1 or 2 years; not written as one number)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 7 (renewal up to 6 months early, CONFIRMED; stated in months, not converted to days)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Employer procures and pays (DMCC Employment Rules 12.1 and 12.3); DHA-approved local insurer; stamping document; renewal impossible with expired insurance",
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 4 (CONTESTED: awareness webinar only, not stated as mandatory)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": "DMCC-run WPS mandatory since 15 Feb 2023 for all employees with an active or expired visa; shareholders exempt; AED only; monthly WPS report from the portal",
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": true,
+      "source": "Boasis research, free zones per authority, Dubai zones, DMCC, item 3 (CONFIRMED, guideline v4 of 22 May 2025)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DMCC does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DMCC, lease (not stated as a rule: an expired lease or one with under 90 days left can be renewed in the same service request as the licence; Licensing Rule 3.3.3(c) requires no arrears on the lease; leased units need an Ejari number, or a tenancy contract and title deed where Ejari does not apply); https://dmcc.ae/members/support/knowledge-bank/licence-renewal-guidelines ; https://dmcc.ae/hubfs/Compliance%20Documents%202024/Licensing%20Rules-%20Final.pdf?hsLang=ar",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": 90,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DMCC, lease (DMCC Licence Renewal Guidelines: select Renew Lease if the lease is valid for less than 90 days, renewed in the same service request, CONFIRMED. Stated for DMCC Business Centre units; the source does not say it applies to every property type); https://dmcc.ae/members/support/knowledge-bank/licence-renewal-guidelines",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewalWindow": {
+      "value": "On or before the expiry date on the licence. No advance window found (unknown).",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DMCC, renewal window (DMCC Licensing Rules Version 3 (10 October 2024), Rule 3.3.1, CONFIRMED); https://dmcc.ae/hubfs/Compliance%20Documents%202024/Licensing%20Rules-%20Final.pdf?hsLang=ar",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "The lease can be renewed in the same service request when it has under 90 days left or has expired. Needed to renew: audited financial statements, valid licences, permits, visas and approvals, no arrears on the lease, workmen's compensation insurance for active employees, third party liability insurance for physical units, and operational fitness certificates. Whether the establishment card renews in the same step is unknown.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DMCC, renews together (DMCC Licence Renewal Guidelines; Licensing Rules 3.3.3(a), (b) and (c); CONFIRMED); https://dmcc.ae/members/support/knowledge-bank/licence-renewal-guidelines ; https://dmcc.ae/hubfs/Compliance%20Documents%202024/Licensing%20Rules-%20Final.pdf?hsLang=ar",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "No business may be carried on without a valid licence. If the licence is not renewed by expiry, the Registrar may at its discretion allow a limited grace period to finish renewal; its length is not stated. If renewal is not done within that period, the licence may be suspended or terminated by written notice, effective on the date in the notice, and a sanction or strike-off is possible. A sanction goes on the member account and penalties apply. The lease late renewal penalty starts from the lease expiry date. No fixed day threshold for suspension or strike-off was found.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DMCC, late renewal (DMCC Licensing Rules 3.3.2, 3.3.4, Rule 5 and 5.4, and the Licence Renewal Guidelines, CONFIRMED. CONFLICT: the existing licence.lateRenewalFine value (Boasis research, licence lifecycle, section 5) gives a day ladder ending in termination after 90 days; the DMCC rules read on 2026-09-28 state no fixed day threshold. Both kept; verify with DMCC); https://dmcc.ae/members/support/knowledge-bank/licence-renewal-guidelines ; https://dmcc.ae/hubfs/Compliance%20Documents%202024/Licensing%20Rules-%20Final.pdf?hsLang=ar",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DMCC, late renewal (DMCC Licensing Rule 3.3.4: a limited grace period at the Registrar's discretion, length not stated); https://dmcc.ae/hubfs/Compliance%20Documents%202024/Licensing%20Rules-%20Final.pdf?hsLang=ar",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DMCC, late renewal (no fixed day threshold for suspension or strike-off found in the DMCC rules; see the conflict noted on licence.lateRenewalFine); https://dmcc.ae/members/support/knowledge-bank/licence-renewal-guidelines ; https://dmcc.ae/hubfs/Compliance%20Documents%202024/Licensing%20Rules-%20Final.pdf?hsLang=ar",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

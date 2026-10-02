@@ -1,0 +1,291 @@
+{
+  "id": "spc-free-zone",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "SPC Free Zone",
+      "source": "Boasis research, free zones per authority, Sharjah zones, section \"SPC Free Zone\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "emirate": {
+      "value": "Sharjah",
+      "source": "Boasis research, free zones per authority, Sharjah zones, section \"SPC Free Zone\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "Boasis research, free zones per authority, Sharjah zones, section \"SPC Free Zone\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Zone processes; ICP centres for biometrics; customer and channel-partner portals; company login; separate consultant portal",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "SPC Free Zone customer portal",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Unlimited visas including on a flexi desk; bought as allocations at AED 1,600 each",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 7 (REPORTED 2 years)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 5 (Northern Emirates rule; zone silent)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 3 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SPC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SPC Free Zone, lease (a consultancy says renewal covers the licence and the office lease, and an SPC blog says you sign the renewed lease agreement, REPORTED; the 2016 SPC Licensing Regulations text was not accessible); https://www.spcfz.ae/blogs/trade-license-renewal-in-dubai-uae/ ; https://www.spcfz.ae/blogs/all-you-need-to-know-about-free-zone-license-renewal-fees-in-2026/ ; https://www.lexismiddleeast.com/regulatory/Sharjah/SharjahFreezonePublishing_Sharjah_Publishing_City__SPC__Free_Zone_Licensing_Regulations/en",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SPC Free Zone, lease (unknown; no 90 day lease rule found); https://www.lexismiddleeast.com/regulatory/Sharjah/SharjahFreezonePublishing_Sharjah_Publishing_City__SPC__Free_Zone_Licensing_Regulations/en",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SPC Free Zone, renewal window (unknown); https://www.spcfz.ae/faqs/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewsTogether": {
+      "value": "Licence and office lease renewed together; KYC details confirmed at renewal.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SPC Free Zone, renews together (consultancy and SPC blog, REPORTED); https://www.spcfz.ae/blogs/trade-license-renewal-in-dubai-uae/ ; https://www.spcfz.ae/blogs/all-you-need-to-know-about-free-zone-license-renewal-fees-in-2026/",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.afterExpiry": {
+      "value": "Late renewal can lead to fines and possible suspension of business activities. No day thresholds given.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SPC Free Zone, late renewal (SPC official FAQ, CONFIRMED. The SPC blog mentions a 30 day grace period after expiry, but it describes Dubai trade licences in general and does not state it as an SPC rule); https://www.spcfz.ae/faqs/ ; https://www.spcfz.ae/blogs/trade-license-renewal-in-dubai-uae/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SPC Free Zone, late renewal (no SPC grace period confirmed; the SPC blog 30 day figure is about Dubai trade licences in general); https://www.spcfz.ae/blogs/trade-license-renewal-in-dubai-uae/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SPC Free Zone, late renewal (no SPC day thresholds confirmed); https://www.spcfz.ae/faqs/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

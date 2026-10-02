@@ -1,0 +1,177 @@
+/* Lite's form field: a small label, a page-coloured input that turns white on focus. */
+.field {
+  display: block;
+  min-inline-size: 0;
+}
+
+.field__label {
+  display: block;
+  margin-block-end: var(--field-label-gap);
+  font-size: var(--text-note);
+  font-weight: var(--weight-medium);
+  color: var(--ink-2);
+}
+
+.field__required {
+  color: var(--rose);
+  margin-inline-start: var(--space-1);
+}
+
+.field__input {
+  display: block;
+  inline-size: 100%;
+  min-inline-size: 0;
+  padding-block: var(--field-pad-block);
+  padding-inline: var(--field-pad-inline);
+  border: 1px solid var(--line-1);
+  border-radius: var(--field-radius);
+  background: var(--bg);
+  color: var(--ink-1);
+  font: inherit;
+  font-size: var(--text-field);
+  line-height: var(--leading-tight);
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    background var(--motion-fast) ease;
+}
+
+.field__input::placeholder {
+  color: var(--ink-4);
+}
+
+.field__input:hover {
+  border-color: var(--ink-4);
+}
+
+.field__input:focus-visible {
+  border-color: var(--teal);
+  box-shadow: var(--focus-ring);
+  background: var(--surface);
+}
+
+.field__input:disabled {
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+.field__input--area {
+  min-block-size: 96px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field__input--date {
+  color-scheme: light dark;
+}
+
+.field--error .field__input {
+  border-color: var(--rose);
+}
+
+.field__help,
+.field__error {
+  display: block;
+  margin-block-start: var(--field-label-gap);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+}
+
+.field__help {
+  color: var(--ink-4);
+}
+
+.field__error {
+  color: var(--rose);
+  font-weight: var(--weight-semibold);
+}
+
+.toggle,
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.toggle--disabled,
+.checkbox--disabled {
+  opacity: 0.55;
+}
+
+.toggle__text,
+.checkbox__text {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toggle__label,
+.checkbox__label {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-1);
+  cursor: pointer;
+}
+
+.toggle__help,
+.checkbox__help {
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+}
+
+/* Lite's switch: 42 by 25, the knob three pixels in, teal when on. */
+.toggle__switch {
+  position: relative;
+  flex-shrink: 0;
+  inline-size: var(--toggle-inline);
+  block-size: var(--toggle-block);
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--line-1);
+  transition: background var(--motion-fast) ease;
+}
+
+.toggle__switch--on {
+  background: var(--teal);
+}
+
+.toggle__switch:disabled {
+  cursor: not-allowed;
+}
+
+.toggle__knob {
+  position: absolute;
+  inset-block-start: var(--toggle-knob-inset);
+  inset-inline-start: var(--toggle-knob-inset);
+  inline-size: calc(var(--toggle-block) - var(--toggle-knob-inset) * 2);
+  block-size: calc(var(--toggle-block) - var(--toggle-knob-inset) * 2);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+  transition: transform var(--motion-fast) ease;
+}
+
+.toggle__switch--on .toggle__knob {
+  transform: translateX(calc(var(--toggle-inline) - var(--toggle-block)));
+}
+
+:dir(rtl) .toggle__switch--on .toggle__knob {
+  transform: translateX(calc((var(--toggle-inline) - var(--toggle-block)) * -1));
+}
+
+.checkbox__input {
+  flex-shrink: 0;
+  inline-size: var(--icon-md);
+  block-size: var(--icon-md);
+  margin: 0;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+.checkbox__input:disabled {
+  cursor: not-allowed;
+}

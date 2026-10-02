@@ -1,0 +1,137 @@
+/* Managed companies: lite's file rows with the company's mark, and the edit sheet. */
+.comark {
+  --company-colour: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: var(--mark-size);
+  block-size: var(--mark-size);
+  border-radius: var(--radius-mark);
+  background: var(--line-2);
+  color: var(--company-colour);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  overflow: hidden;
+}
+
+.comark img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.comark--big {
+  inline-size: 54px;
+  block-size: 54px;
+  border-radius: 19px;
+  font-size: 17px;
+}
+
+.mco .btn3 {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-2);
+  padding-block: 8px;
+  padding-inline: 14px;
+}
+
+.mco .btn3:hover {
+  border-color: var(--teal);
+  color: var(--teal-strong);
+  background: var(--teal-soft);
+}
+
+.mco__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-block-end: 8px;
+}
+
+.mco__preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mco__pname {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.3px;
+}
+
+.mco .drop {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  inline-size: 100%;
+  text-align: start;
+  background: var(--bg);
+  border: 1px dashed var(--line-1);
+  border-radius: var(--radius-md);
+  padding-block: 12px;
+  padding-inline: 14px;
+  color: var(--ink-1);
+}
+
+.mco .drop:hover {
+  border-color: var(--teal);
+  background: var(--teal-soft);
+}
+
+.mco .drop__ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: 40px;
+  block-size: 40px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  color: var(--ink-3);
+  overflow: hidden;
+}
+
+.mco .drop__ic img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.mco .drop__bd {
+  min-inline-size: 0;
+}
+
+.mco .drop__t {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+
+.mco .drop__s {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-xs);
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.mco__remove {
+  align-self: flex-start;
+  margin-block-start: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--rose);
+}

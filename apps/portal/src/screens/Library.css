@@ -1,0 +1,661 @@
+/* Lite's guides shelf and guide page (src/pages/LibraryPage.jsx), on the portal tokens. The
+   topic colours are lite's, light and dark, scoped here. */
+.pg.lib,
+.pg.libart-page {
+  --tp-licence: #0e8294;
+  --tp-licence-s: #e1f4f6;
+  --tp-tax: #2f6fd6;
+  --tp-tax-s: #e7effc;
+  --tp-people: #8350cc;
+  --tp-people-s: #f1eafb;
+  --tp-other: #b7791f;
+  --tp-other-s: #fbf1dd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .pg.lib,
+  :root:not([data-theme='light']) .pg.libart-page {
+    --tp-licence: #6fe0ef;
+    --tp-licence-s: rgba(111, 224, 239, 0.13);
+    --tp-tax: #8fb6ff;
+    --tp-tax-s: rgba(143, 182, 255, 0.14);
+    --tp-people: #c3a2ff;
+    --tp-people-s: rgba(195, 162, 255, 0.15);
+    --tp-other: #e6b45c;
+    --tp-other-s: rgba(230, 180, 92, 0.14);
+  }
+}
+
+:root[data-theme='dark'] .pg.lib,
+:root[data-theme='dark'] .pg.libart-page {
+  --tp-licence: #6fe0ef;
+  --tp-licence-s: rgba(111, 224, 239, 0.13);
+  --tp-tax: #8fb6ff;
+  --tp-tax-s: rgba(143, 182, 255, 0.14);
+  --tp-people: #c3a2ff;
+  --tp-people-s: rgba(195, 162, 255, 0.15);
+  --tp-other: #e6b45c;
+  --tp-other-s: rgba(230, 180, 92, 0.14);
+}
+
+.tp-licence {
+  --tp: var(--tp-licence);
+  --tp-s: var(--tp-licence-s);
+}
+
+.tp-tax {
+  --tp: var(--tp-tax);
+  --tp-s: var(--tp-tax-s);
+}
+
+.tp-people {
+  --tp: var(--tp-people);
+  --tp-s: var(--tp-people-s);
+}
+
+.tp-other {
+  --tp: var(--tp-other);
+  --tp-s: var(--tp-other-s);
+}
+
+.libbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-block: 2px 20px;
+}
+
+.libsearch {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-inline-size: 520px;
+  block-size: 44px;
+  padding-inline: 13px 8px;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+  color: var(--ink-3);
+  transition:
+    border-color var(--motion-fast),
+    box-shadow var(--motion-fast);
+}
+
+.libsearch:focus-within {
+  border-color: var(--teal);
+  box-shadow: var(--focus-ring);
+}
+
+.libsearch input {
+  flex: 1;
+  min-inline-size: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: var(--text-field);
+  color: var(--ink-1);
+  outline: none;
+}
+
+.libsearch input::placeholder {
+  color: var(--ink-4);
+}
+
+.libsearch button {
+  display: grid;
+  place-items: center;
+  inline-size: 28px;
+  block-size: 28px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--line-2);
+  color: var(--ink-3);
+}
+
+.libchips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.libchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  block-size: 34px;
+  padding-inline: 13px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-1);
+  background: var(--surface);
+  font: inherit;
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-2);
+  transition:
+    background var(--motion-fast),
+    border-color var(--motion-fast),
+    color var(--motion-fast);
+}
+
+.libchip .l-dot {
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: 50%;
+  background: var(--tp, var(--ink-3));
+}
+
+.libchip .l-n {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-4);
+  font-variant-numeric: tabular-nums;
+}
+
+.libchip:hover {
+  border-color: var(--tp, var(--teal));
+}
+
+.libchip.on {
+  background: var(--tp-s, var(--teal-soft));
+  border-color: var(--tp, var(--teal));
+  color: var(--tp, var(--teal-strong));
+}
+
+.libchip.on .l-n {
+  color: inherit;
+  opacity: 0.7;
+}
+
+.libgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin-block-end: 8px;
+}
+
+.libgrid.feat {
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+}
+
+.libcard {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  min-inline-size: 0;
+  text-align: start;
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  border-radius: 18px;
+  padding-block: 16px 15px;
+  padding-inline: 17px;
+  font: inherit;
+  color: inherit;
+  transition:
+    transform var(--motion-normal) ease,
+    border-color var(--motion-normal),
+    box-shadow var(--motion-normal);
+  animation: librise 0.32s ease both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+
+.libcard:hover {
+  transform: translateY(-2px);
+  border-color: var(--tp);
+  box-shadow: 0 12px 26px -16px var(--dial-dot-shadow);
+}
+
+.libcard .l-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.libic {
+  display: grid;
+  place-items: center;
+  inline-size: 38px;
+  block-size: 38px;
+  flex-shrink: 0;
+  border-radius: var(--field-radius);
+  background: var(--tp-s);
+  color: var(--tp);
+}
+
+.libeye {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--tp);
+}
+
+.libt {
+  font-size: var(--text-lead);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.25px;
+  line-height: 1.35;
+  color: var(--ink-1);
+  text-wrap: balance;
+}
+
+.libs {
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+
+.libm {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-block-start: auto;
+  padding-block-start: 4px;
+  font-size: var(--text-xs);
+  color: var(--ink-4);
+}
+
+.libm i {
+  inline-size: 3px;
+  block-size: 3px;
+  border-radius: 50%;
+  background: var(--ink-4);
+  margin-inline: 3px;
+}
+
+.libcard.big {
+  background: linear-gradient(165deg, var(--tp-s), var(--surface) 64%);
+  padding-block: 18px 16px;
+  padding-inline: 19px;
+}
+
+.libcard.big .libic {
+  background: var(--surface);
+}
+
+.libcard.big .libt {
+  font-size: var(--text-lg);
+}
+
+.libnone {
+  margin-block: 18px;
+  font-size: var(--text-base);
+  color: var(--ink-3);
+}
+
+@keyframes librise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The guide page. */
+.libart {
+  max-inline-size: 720px;
+  animation: librise 0.28s ease both;
+}
+
+.libread {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 5;
+  block-size: 3px;
+  margin-block: 0 8px;
+}
+
+.libread span {
+  display: block;
+  block-size: 100%;
+  border-start-end-radius: 3px;
+  border-end-end-radius: 3px;
+  background: var(--tp);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--read, 0));
+}
+
+:dir(rtl) .libread span {
+  transform-origin: 100% 50%;
+}
+
+.libhero {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-block: 12px 18px;
+  padding: 22px;
+  border-radius: 22px;
+  background: linear-gradient(160deg, var(--tp-s), var(--surface) 72%);
+  border: 1px solid var(--line-1);
+}
+
+.libhero .libic {
+  inline-size: 48px;
+  block-size: 48px;
+  border-radius: 15px;
+  background: var(--surface);
+}
+
+.libhd {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.libhero h2 {
+  margin-block: 6px 8px;
+  font-size: 24px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.6px;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.libhero .l-lede {
+  margin: 0;
+  font-size: var(--text-lead);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-inline-size: 56ch;
+}
+
+.libmeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block-start: 14px;
+}
+
+.libmeta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  block-size: 28px;
+  padding-inline: 11px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--line-1);
+  font-size: var(--text-note);
+  font-weight: var(--weight-medium);
+  color: var(--ink-2);
+}
+
+.libtoc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 0 10px;
+}
+
+.libtoc .l-label {
+  inline-size: 100%;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.libtoc button {
+  block-size: 30px;
+  padding-inline: 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-1);
+  background: var(--surface);
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+  transition:
+    border-color var(--motion-fast),
+    color var(--motion-fast);
+}
+
+.libtoc button:hover {
+  border-color: var(--tp);
+  color: var(--tp);
+}
+
+.libbody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.libh {
+  margin-block: 18px 0;
+  font-size: 17px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.3px;
+  line-height: 1.35;
+  scroll-margin-block-start: 16px;
+}
+
+.libp {
+  margin: 0;
+  max-inline-size: 65ch;
+  font-size: var(--text-base);
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.libp code {
+  font-family: inherit;
+  font-size: var(--text-sm);
+  background: var(--line-2);
+  border-radius: 6px;
+  padding-block: 1px;
+  padding-inline: 6px;
+}
+
+.libsteps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.libsteps li {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding-block: 0 18px;
+}
+
+.libsteps li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 15px;
+  inset-block: 34px 4px;
+  inline-size: 2px;
+  border-radius: 2px;
+  background: var(--line-1);
+}
+
+.libsteps .l-n {
+  display: grid;
+  place-items: center;
+  inline-size: 32px;
+  block-size: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--tp-s);
+  color: var(--tp);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+}
+
+.libsteps .l-bd {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-inline-size: 0;
+  padding-block-start: 5px;
+}
+
+.libsteps b {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-1);
+}
+
+.libsteps .l-bd span {
+  font-size: var(--text-md);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.liblist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.liblist li {
+  position: relative;
+  padding-inline-start: 20px;
+  font-size: var(--text-field);
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.liblist li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 4px;
+  inset-block-start: 0.68em;
+  inline-size: 7px;
+  block-size: 7px;
+  border-radius: 50%;
+  background: var(--tp);
+}
+
+.libsrcs {
+  margin-block-start: 30px;
+}
+
+.libsrcs h3 {
+  margin-block: 0 12px;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.libsrc {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-block-end: 8px;
+  padding-block: 13px;
+  padding-inline: 15px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color var(--motion-fast),
+    background var(--motion-fast);
+}
+
+.libsrc:hover {
+  border-color: var(--tp);
+  background: var(--tp-s);
+  text-decoration: none;
+}
+
+.libsrc .l-bd {
+  flex: 1;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.libsrc .l-pub {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--tp);
+}
+
+.libsrc .l-rt {
+  font-size: var(--text-field);
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
+  color: var(--ink-1);
+}
+
+.libsrc .l-host {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: var(--text-note);
+  color: var(--ink-4);
+}
+
+.libsrc .l-go {
+  flex-shrink: 0;
+  color: var(--ink-4);
+}
+
+.libsrc:hover .l-go {
+  color: var(--tp);
+}
+
+.libnote {
+  margin-block: 18px 0;
+  max-inline-size: 65ch;
+  font-size: var(--text-note);
+  line-height: 1.6;
+  color: var(--ink-4);
+}
+
+.libcardlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--tp);
+}
+
+@media (max-width: 820px) {
+  .libhero {
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .libhero h2 {
+    font-size: 21px;
+  }
+
+  .libgrid,
+  .libgrid.feat {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .libcard,
+  .libart {
+    animation: none;
+  }
+
+  .libcard {
+    transition: none;
+  }
+
+  .libcard:hover {
+    transform: none;
+  }
+}

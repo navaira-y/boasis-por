@@ -1,0 +1,617 @@
+{
+  "id": "srtip",
+  "version": "0.1.0",
+  "identity": {
+    "name": {
+      "value": "SRTIP / SPark",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Sharjah",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark (listed under Sharjah zones)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, u.ae CONFIRMED) and Sharjah zones, SRTIP / SPark, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "The Investor Services Department is the only authorised channel for immigration applications; counter-based; a PRO is named on the form and declarations are signed before a zone officer",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, items 1 and 9 (CONFIRMED, form)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": null,
+      "source": "not in research (portal identity unclear in the research)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "licence": {
+    "fees": {
+      "value": [
+        {
+          "name": "SPARK STARTER package (0 visas)",
+          "amountAed": 3999
+        },
+        {
+          "name": "SPARK GROWTH package (1 visa)",
+          "amountAed": 6499
+        },
+        {
+          "name": "SPARK ELITE package (2 visas)",
+          "amountAed": 8499
+        }
+      ],
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 6 (Packages CONFIRMED). The research does not say whether these are yearly",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "validityMonths": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (spec section 10 and 15 mention a lower fee inside 90 days as reported by the founder; it is not in the research)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [
+    {
+      "id": "icp-establishment-card",
+      "name": "Immigration establishment card (ICP, through the zone desk)",
+      "validityMonths": {
+        "value": 12,
+        "source": "Boasis research, licence lifecycle, section 2 (ICP immigration establishment card, all emirates except Dubai: annual, CONFIRMED) and section 5 (Immigration card via the zone desk, ICP outside Dubai). Applied to SRTIP by the research reader, not stated for SRTIP; https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e6e",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    }
+  ],
+  "premises": {
+    "packageTypes": {
+      "value": ["SPARK STARTER (0 visas)", "SPARK GROWTH (1 visa)", "SPARK ELITE (2 visas)"],
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaQuotaRule": {
+      "value": "By package: STARTER 0 visas, GROWTH 1 visa, ELITE 2 visas",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": false,
+      "source": "Boasis research, mainland employee lifecycle, section 1 (Visa quota: Ejari is the Dubai lease register; Sharjah uses the municipality lease). Not stated for SRTIP; https://www.creativezone.ae/dubai-visa-quota/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": 8,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 7 (passport at least 8 months for a new visa, CONFIRMED form)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "passportValidityRenewalMonths": {
+      "value": 6,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 7 (passport at least 6 months at renewal, CONFIRMED form)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 7 (validity REPORTED 2 years)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "entryToResidencyDays": {
+      "value": 55,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 7 (55 days to complete residence, CONFIRMED form)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "renewalWindowDays": {
+      "value": 20,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 7 (renewal before 20 days of expiry, CONFIRMED form). Meaning: the renewal must be filed before the last 20 days",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "medicalRequirement": {
+      "value": "The zone form requires a medical report; Northern Emirates: every applicant aged 18 or over for a new or renewed residence takes the medical fitness test at an EHS centre (Category A employees AED 250, result in 24 hours)",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 5 (form requires medical report, CONFIRMED) and Boasis research, mainland employee lifecycle, section 4 (Who / where CONFIRMED; EHS fees CONFIRMED); https://www.ehs.gov.ae/EN/services/services-directory/examination-of-medical-fitness-for-residency-visa",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "insuranceRule": {
+      "value": "Northern Emirates basic scheme from 1 January 2025: the employer pays on issuance or renewal of any residence permit; AED 320 a year; 2-year policy; pre-2025 permits at the next renewal; workers bear no cost; the employer is not obliged to cover dependants",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 5 (Northern Emirates rule) and Federal baseline; Boasis research, mainland employee lifecycle, section 7 (Northern Emirates CONFIRMED); https://mohre.gov.ae/en/guidance-and-awareness-portal-new/the-basic-health-insurance-scheme ; https://www.mohre.gov.ae/en/media-center/news/23/7/2026/mohre-issues-guide-on-existing-worker-health-insurance-procedures-with-no-new-obligations",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": "Not published by the zone. The federal position for free zones is contested: iloe.ae covers all private sector and free-zone workers register as Non-Registered in MOHRE; MOHRE said in October 2023 that free zones are optional; EY and Vialto say mandatory from 3 May 2023; owners and investors are exempt everywhere",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 4 (NOT PUBLISHED) and Federal baseline (ILOE CONTESTED for free zones); https://www.iloe.ae/",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": "WPS not published for SRTIP. MOHRE guidance under Ministerial Resolution 340/2026 (wages due on the 1st from 1 June 2026) has no free-zone wording; secondary sources conflict on which zones are inside",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 3 (NOT PUBLISHED) and Federal baseline (WPS, CONFIRMED silent); https://www.lexismiddleeast.com/law/UnitedArabEmirates/MinisterialDecision_340_2026/en",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (the research covers Emiratisation for MOHRE-licensed companies only)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "uboRoute": {
+      "value": "File the beneficial owner declaration within 60 days of licensing and update it within 15 days of any change (Cabinet Decision 109/2023, federal). Where an SRTIP company files is not in the research",
+      "source": "Boasis research, licence lifecycle, section 6 (UBO, CD 109/2023 CONFIRMED); https://www.uaelegislation.gov.ae/en/legislations/2314/download ; https://masdarcity.ae/docs/default-source/pdf-to-download/cd-132-2023---final-english-version-06062024-(1).pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "amlActivities": {
+      "value": [
+        "real estate",
+        "auditors and accountants",
+        "precious metals",
+        "trust and company service providers"
+      ],
+      "source": "Boasis research, licence lifecycle, section 6 (goAML (DNFBPs): register SACM then goAML; federal list); https://www.moet.gov.ae/en/registering-companies-in-goaml",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [
+    {
+      "requirementId": "licence-renewal",
+      "steps": {
+        "value": null,
+        "source": "Boasis research, licence lifecycle, section 5 gives only a DMCC-confirmed pattern; Boasis research, free zones per authority has no SRTIP renewal process. not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    {
+      "requirementId": "company-cancellation",
+      "steps": {
+        "value": [
+          "Owner: file the termination application with the zone",
+          "PRO: cancel every visa through the zone Investor Services Department, dependants first (or the AED 5,000 guarantee), settling employee entitlements first",
+          "Owner: collect the no-objection certificates the zone asks for",
+          "Owner: appoint a liquidator or auditor where the zone requires one",
+          "Accountant: apply for VAT deregistration within 20 business days and corporate tax deregistration within 3 months of cessation",
+          "Zone: deregister the company and issue the cancellation"
+        ],
+        "source": "Boasis research, licence lifecycle, section 5 (Free zone pattern, Cancellation REPORTED, general and not SRTIP-specific) and section 4 (VAT and CT deregistration REPORTED); Boasis research, mainland employee lifecycle, section 12 (Residency cancellation CONFIRMED); https://uaefreezonefinder.com/how-to-close-or-liquidate-your-free-zone-company-in-the-uae-the-2026-exit-guide/ ; https://taxready.ae/vat-deregistration-uae/ ; https://www.saifaudit.com/blog/2026/06/12/company-liquidation-dubai/",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    {
+      "requirementId": "licence-amendment",
+      "steps": {
+        "value": null,
+        "source": "Boasis research, licence lifecycle, section 5 gives only a RAKEZ-confirmed pattern (resolution plus form, zone attests); Boasis research, free zones per authority has no SRTIP amendment process. not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    {
+      "requirementId": "visa-stages",
+      "steps": {
+        "value": [
+          "Owner: check the package allows another visa (STARTER 0, GROWTH 1, ELITE 2)",
+          "Owner or PRO: file the application at the zone Investor Services Department, the only authorised channel; the PRO is named on the form and declarations are signed before a zone officer",
+          "Zone: obtains the entry permit, valid 60 days; the passport must have at least 8 months left",
+          "Person: enter the country or change status; residence must be completed within 55 days",
+          "Owner: buy the Northern Emirates basic health insurance (AED 320 a year, 2-year policy) before the residence is issued",
+          "Person, paid by the owner: medical fitness test at an EHS centre; the zone form requires the medical report",
+          "Zone: residence permit and Emirates ID through ICP (AED 100 application plus 100 a year plus 100 smart service; status adjustment AED 500)"
+        ],
+        "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, items 1, 5, 6, 7 and 9 (CONFIRMED form; order of stages read from the form facts, not stated as a sequence) and Federal baseline (ICP residence fees CONFIRMED); Boasis research, mainland employee lifecycle, section 4 (EHS CONFIRMED) and section 7 (Northern Emirates CONFIRMED); https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64 ; https://www.ehs.gov.ae/EN/services/services-directory/examination-of-medical-fitness-for-residency-visa ; https://mohre.gov.ae/en/guidance-and-awareness-portal-new/the-basic-health-insurance-scheme",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    },
+    {
+      "requirementId": "leaving",
+      "steps": {
+        "value": [
+          "Owner: give the notice in the contract; federal law applies (Federal Decree-Law 33/2021), 30 to 90 days after probation, 14 days from the employer during probation",
+          "Accountant: compute the final settlement; gratuity within 14 days, permitted deductions within 3 months (Cabinet Resolution 1/2022 Art 29)",
+          "PRO: cancel the residence through the zone Investor Services Department to ICP, dependants first or the AED 5,000 guarantee; 2 days; AED 50 plus 100",
+          "Person: leave or change status within the grace period after cancellation (30, 60, 90 or 180 days by category)"
+        ],
+        "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 2 (Federal law CONFIRMED) and item 1; Boasis research, mainland employee lifecycle, section 6 (Probation, Notice REPORTED) and section 12 (Residency cancellation CONFIRMED; Grace CONFIRMED; Gratuity REPORTED; Deductions CONFIRMED); https://www.morganlewis.com/pubs/2021/12/united-arab-emirates-updates-federal-labour-law ; https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx ; https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e68",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    }
+  ],
+  "library": [
+    {
+      "requirementId": "licence-renewal",
+      "entryPath": "content/library/srtip/your-licence.md"
+    },
+    {
+      "requirementId": "licence-renewal",
+      "entryPath": "content/library/srtip/annual-licence-renewal.md"
+    },
+    {
+      "requirementId": "company-cancellation",
+      "entryPath": "content/library/srtip/cancelling-or-closing.md"
+    },
+    {
+      "requirementId": "licence-amendment",
+      "entryPath": "content/library/srtip/amending-a-company.md"
+    },
+    {
+      "requirementId": "office-lease-and-ejari",
+      "entryPath": "content/library/srtip/your-office.md"
+    },
+    {
+      "requirementId": "visa-stages",
+      "entryPath": "content/library/srtip/visa-obligations.md"
+    },
+    {
+      "requirementId": "labour-contract-registered",
+      "entryPath": "content/library/srtip/employment-and-labour-law.md"
+    },
+    {
+      "requirementId": "health-insurance-policy",
+      "entryPath": "content/library/srtip/health-insurance.md"
+    },
+    {
+      "requirementId": "wages",
+      "entryPath": "content/library/srtip/wages-and-wps.md"
+    },
+    {
+      "requirementId": "emiratisation-targets",
+      "entryPath": "content/library/srtip/emiratisation.md"
+    },
+    {
+      "requirementId": "corporate-tax-registration",
+      "entryPath": "content/library/srtip/corporate-tax.md"
+    },
+    {
+      "requirementId": "vat-registration",
+      "entryPath": "content/library/srtip/vat.md"
+    },
+    {
+      "requirementId": "audited-accounts",
+      "entryPath": "content/library/srtip/audited-accounts.md"
+    },
+    {
+      "requirementId": "ubo-declaration",
+      "entryPath": "content/library/srtip/ubo.md"
+    },
+    {
+      "requirementId": "aml-registration",
+      "entryPath": "content/library/srtip/aml.md"
+    },
+    {
+      "requirementId": "general-assembly",
+      "entryPath": "content/library/srtip/company-records.md"
+    },
+    {
+      "requirementId": "bank-account",
+      "entryPath": "content/library/srtip/your-bank.md"
+    },
+    {
+      "requirementId": "data-and-documents",
+      "entryPath": "content/library/srtip/data-and-documents.md"
+    },
+    {
+      "requirementId": "working-with-a-pro",
+      "entryPath": "content/library/srtip/working-with-a-pro.md"
+    },
+    {
+      "requirementId": "e-invoicing",
+      "entryPath": "content/library/srtip/e-invoicing.md"
+    },
+    {
+      "requirementId": "setting-up",
+      "entryPath": "content/library/srtip/setting-up.md"
+    }
+  ],
+  "proposedFields": {
+    "cards.icp-establishment-card.feesAed": {
+      "value": {
+        "application": 100,
+        "issue": 100,
+        "subscription": 1000,
+        "smartService": 100,
+        "processingDays": 2
+      },
+      "source": "Boasis research, licence lifecycle, section 2 (ICP immigration establishment card CONFIRMED); https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e6e",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.entryPermitValidityDays": {
+      "value": 60,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 7 (Entry permit 60 days, CONFIRMED form)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.residenceFeesAed": {
+      "value": {
+        "application": 100,
+        "perYear": 100,
+        "smartService": 100,
+        "statusAdjustment": 500
+      },
+      "source": "Boasis research, free zones per authority, Federal baseline (ICP residence fees CONFIRMED); https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.medicalFeeAed": {
+      "value": 250,
+      "source": "Boasis research, mainland employee lifecycle, section 4 (EHS fees: Category A employees AED 250, CONFIRMED); https://www.ehs.gov.ae/EN/services/services-directory/examination-of-medical-fitness-for-residency-visa",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.insurancePremiumAedPerYear": {
+      "value": 320,
+      "source": "Boasis research, mainland employee lifecycle, section 7 (Northern Emirates basic scheme AED 320 a year, CONFIRMED); https://mohre.gov.ae/en/guidance-and-awareness-portal-new/the-basic-health-insurance-scheme",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.visaCostRangeAed": {
+      "value": {
+        "min": 2233,
+        "max": 3510
+      },
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 8 (NOT PUBLISHED; REPORTED range)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.employmentLaw": {
+      "value": "Federal Decree-Law 33/2021 and Cabinet Resolution 1/2022; no zone employment rules published",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 2 (Federal law CONFIRMED) and Federal baseline",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.corporateTaxRegistrationRule": {
+      "value": "Register within 3 months of incorporation, free zones included (FTA Decision 3/2024). Natural persons with business turnover above AED 1m register by 31 March of the following year. First-return waiver applies if the first return is filed within 7 months of the first period end.",
+      "source": "Boasis research, licence lifecycle, section 6 (CT registration); https://tax.gov.ae/Datafolder/Files/Legislation/FTA%20Decision%20No.%203%20of%202024%20on%20Registration%20Timeline%20for%20Corporate%20Tax%20-%20For%20publishing.pdf ; https://tax.gov.ae/en/services/corporate.tax.registration.aspx",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.corporateTaxReturnMonthsAfterPeriodEnd": {
+      "value": 9,
+      "source": "Boasis research, portal boundary and market, section 6 (Corporate tax return, FTA guide CTGTXR1 Nov 2024)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.corporateTaxSmallBusinessReliefRevenueCapAed": {
+      "value": 3000000,
+      "source": "Boasis research, portal boundary and market, section 6 (Corporate tax return, Small Business Relief up to AED 3m)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.auditedStatementsForCorporateTaxRule": {
+      "value": "Audited financial statements are required for corporate tax if revenue is above AED 50m or the company claims the qualifying free zone person regime.",
+      "source": "Boasis research, portal boundary and market, section 6 (Corporate tax return)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.vatRegistrationRule": {
+      "value": "Mandatory above AED 375,000 taxable turnover; voluntary above AED 187,500 (thresholds confirmed). Apply within 30 days of crossing (reported).",
+      "source": "Boasis research, licence lifecycle, section 6 (VAT registration); https://tax.gov.ae/Datafolder/Files/Pdf/2023/Knowledge%20Center%20Page/vat1-vat-registration-threshold-en.pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.vatRegistrationApplyWithinDays": {
+      "value": 30,
+      "source": "Boasis research, licence lifecycle, section 6 (VAT registration, 30 days REPORTED); https://tax.gov.ae/Datafolder/Files/Pdf/2023/Knowledge%20Center%20Page/vat1-vat-registration-threshold-en.pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "companyRequirements.vatDeregistrationBusinessDays": {
+      "value": 20,
+      "source": "Boasis research, licence lifecycle, section 4 (VAT deregistration); https://taxready.ae/vat-deregistration-uae/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "companyRequirements.corporateTaxDeregistrationMonths": {
+      "value": 3,
+      "source": "Boasis research, licence lifecycle, section 4 (CT deregistration); https://www.saifaudit.com/blog/2026/06/12/company-liquidation-dubai/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "companyRequirements.uboFilingDaysAfterLicensing": {
+      "value": 60,
+      "source": "Boasis research, licence lifecycle, section 6 (UBO, CD 109/2023); https://www.uaelegislation.gov.ae/en/legislations/2314/download",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.uboUpdateDaysAfterChange": {
+      "value": 15,
+      "source": "Boasis research, licence lifecycle, section 6 (UBO, CD 109/2023); https://www.uaelegislation.gov.ae/en/legislations/2314/download",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.eInvoicingRule": {
+      "value": "Go-live 1 January 2027 for revenue of AED 50m or more; an accredited service provider must be appointed by 30 October 2026.",
+      "source": "Boasis research, portal boundary and market, section 6 (E-invoicing ASPs, MoF list; dates REPORTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.absenceAbroadLapseDays": {
+      "value": 180,
+      "source": "Boasis research, mainland employee lifecycle, section 5 (180-day absence, u.ae)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.residencyGraceDaysByCategory": {
+      "value": "30, 60, 90 or 180 days after expiry or cancellation depending on category",
+      "source": "Boasis research, mainland employee lifecycle, section 11 (Renewals) and section 12 (Grace); https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e68",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.earlyRenewalRule": {
+      "value": "Renewing a residence 1 to 6 months ahead of expiry needs ICP permission.",
+      "source": "Boasis research, mainland employee lifecycle, section 5 (Renewal); https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e68",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.probationMaxMonths": {
+      "value": 6,
+      "source": "Boasis research, mainland employee lifecycle, section 6 (Probation, Cabinet Resolution 1/2022 Art 9); https://www.morganlewis.com/pubs/2021/12/united-arab-emirates-updates-federal-labour-law ; https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.gratuityRule": {
+      "value": "After 1 year of service: 21 days of basic wage per year for the first 5 years, 30 days after; on the last basic wage; capped at 2 years of wage; paid within 14 days of leaving.",
+      "source": "Boasis research, mainland employee lifecycle, section 12 (Gratuity, Art 51 and 53); https://www.morganlewis.com/pubs/2021/12/united-arab-emirates-updates-federal-labour-law",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.finalDeductionsWithinMonths": {
+      "value": 3,
+      "source": "Boasis research, mainland employee lifecycle, section 12 (Deductions, Cabinet Resolution 1/2022 Art 29); https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "licence.leaseMustBeValidToRenew": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SRTIP (SPark), lease (not stated; the official renewal form renews the lease and licence together in one application); https://srtip.ae/wp-content/uploads/2025/09/Renewal-Application-form.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SRTIP (SPark), lease (unknown; no 90 day lease rule found); https://srtip.ae/wp-content/uploads/2025/09/Renewal-Application-form.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SRTIP (SPark), renewal window (unknown); https://srtip.ae/wp-content/uploads/2025/09/Renewal-Application-form.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewsTogether": {
+      "value": "Lease and licence are renewed together in one application for a stated period, subject to SRTIP approval. Documents include renewal payment proof, an attested certificate of good standing for branches, shareholder passports, and, for plot or shell and core tenants, a building completion certificate or building permit, a safety fitness certificate and utility connection.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SRTIP (SPark), renews together (official SRTIP Application for Lease and License Renewal form, CONFIRMED); https://srtip.ae/wp-content/uploads/2025/09/Renewal-Application-form.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SRTIP (SPark), late renewal (unknown: the official site gives no grace period or deregistration thresholds); https://srtip.ae/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SRTIP (SPark), late renewal (unknown); https://srtip.ae/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), SRTIP (SPark), late renewal (unknown); https://srtip.ae/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

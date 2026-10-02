@@ -1,0 +1,291 @@
+{
+  "id": "national-industries-park",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "National Industries Park",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, JAFZA, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "portalAddress": {
+      "value": null,
+      "source": "not in research; the u.ae list links the zone website https://www.nip.ae/ but names no submission portal",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": "WPS mandated (administered with JAFZA)",
+      "source": "Boasis research, free zones per authority, Dubai zones, JAFZA, item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": true,
+      "source": "Boasis research, free zones per authority, Dubai zones, JAFZA, item 3 (CONFIRMED, WPS also mandated in National Industries Park)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, JAFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), National Industries Park, lease (NIP Rules and Regulations 2024 Rules 6.2 and 7.2(a): a valid Lease and License are needed to operate, and a valid Lease in NIP to qualify for and keep a License; workstation customers may differ, CONFIRMED); https://www.nip.ae/download/1101/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), National Industries Park, lease (no minimum remaining lease period stated in the NIP Rules 2024); https://www.nip.ae/download/1101/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "The Lease and License must be renewed within the time frame set by National Industries Park; no number of days is given.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), National Industries Park, renewal window (NIP Rules 2024 Rule 6.3, CONFIRMED. Jafza's three month window is not confirmed to apply to NIP); https://www.nip.ae/download/1101/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "Lease and License are renewed together. Conditions: a valid Fitness Certificate for the premises, except NIP provided offices and workstations; a commitment to submit audited annual financials; a valid registration or good standing certificate from the place of incorporation; all dues paid; any other requirement NIP sets. Third party liability and workmen's compensation insurance copies as renewed annually.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), National Industries Park, renews together (NIP Rules 2024 Rules 6.3, 7.3 and 10.2.4, CONFIRMED); https://www.nip.ae/download/1101/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "The tariff has a licence late payment fee. On termination or invalidity of the Lease or License, the customer must settle dues, cancel or transfer sponsored employees and vacate the premises. No grace period or day threshold for suspension or cancellation after expiry was found.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), National Industries Park, late renewal (NIP Rules 2024 Rule 19 and tariff, CONFIRMED; amounts left out. Check whether a company holds an NIP licence or a Dubai Unified License); https://www.nip.ae/download/1101/ ; https://nip.ae/business-setup/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), National Industries Park, late renewal (no grace period found); https://www.nip.ae/download/1101/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), National Industries Park, late renewal (no day threshold found); https://www.nip.ae/download/1101/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

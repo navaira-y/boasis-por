@@ -1,0 +1,375 @@
+/* Boasis Portal design tokens.
+   Rewritten from the boasis-lite design concept (colours, type, spacing, radii, shadows, dark
+   mode). Every component reads these; no component declares a colour of its own.
+   Light palette on :root; dark palette twice, once for the system preference and once for an
+   explicit data-theme="dark" on the root element, so a toggle wins in both directions. */
+
+:root {
+  /* Device safe areas, passed through a variable so a preview can simulate them. */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Ink: four steps of text colour, darkest first. */
+  --ink-1: #16243a;
+  --ink-2: #4a5a6e;
+  --ink-3: #8a99ab;
+  --ink-4: #afbbc9;
+
+  /* Surfaces and lines. */
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-tint: #fcfdfe;
+  --surface-raised: #ffffff;
+  --line-1: #e9eef4;
+  --line-2: #f2f5f9;
+  --glass: rgba(233, 238, 245, 0.82);
+  --glass-line: rgba(255, 255, 255, 0.75);
+
+  /* The three accent families. Teal says "in order", sand says "soon", rose says "late".
+     Company and role identities never borrow these. */
+  --teal: #15a6ba;
+  --teal-strong: #0e8294;
+  --teal-soft: #e9f7fa;
+  --sand: #c08a3e;
+  --sand-soft: #faf2e6;
+  --sand-line: #efe0c8;
+  --rose: #b4544a;
+  --rose-soft: #faedec;
+  --rose-line: #f0d6d3;
+  --badge: #d93b3b;
+
+  /* The four families of the dial (the CEO's orbit colours): tax, visa, licence, other. Three
+     reuse an accent; visa has its own purple. */
+  --family-tax: var(--sand);
+  --family-visa: #7c5cff;
+  --family-licence: var(--teal);
+  --family-other: var(--ink-3);
+
+  /* Compliance states (spec 7.1), mapped onto the accent families. */
+  --state-complete: var(--teal-strong);
+  --state-on-track: var(--teal);
+  --state-action-soon: var(--sand);
+  --state-expiring: var(--sand);
+  --state-overdue: var(--rose);
+  --state-unknown: var(--ink-3);
+  --state-decision-needed: var(--ink-1);
+
+  /* The dial: rail, marks, the far dot, the thread. */
+  --dial-rail: #e4ebf3;
+  --dial-mark: #c7d3e1;
+  --dial-mark-strong: #afbbc9;
+  --dial-dot-far: #9fd8e2;
+  --dial-thread-glow: rgba(21, 166, 186, 0.5);
+  --dial-thread-core: rgba(21, 166, 186, 0.85);
+  --dial-crest: rgba(14, 130, 148, 0.95);
+  --dial-dot-shadow: rgba(20, 45, 80, 0.22);
+  --stage: #e7ecf3;
+
+  /* The company palette (lib/companyColours.ts holds the same values and the rule): seven
+     colours none of which can be taken for an orbit, the late red or the soon amber. */
+  --company-0: #237fc8;
+  --company-1: #129253;
+  --company-2: #a646ad;
+  --company-3: #8b840b;
+  --company-4: #d24e93;
+  --company-5: #009581;
+  --company-6: #61911c;
+
+  /* Avatars. */
+  --avatar-0: #e07b34;
+  --avatar-1: #c4921b;
+  --avatar-2: #1f9db0;
+  --avatar-3: #3a78db;
+  --avatar-4: #5559d2;
+  --avatar-5: #8c52d2;
+  --avatar-6: #d2508f;
+  --avatar-7: #5a6e86;
+
+  /* Type. Poppins with a system fallback. Sizes are the steps the lite design actually used. */
+  --font-sans: 'Poppins', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --text-2xs: 10.5px;
+  --text-xs: 11.5px;
+  --text-sm: 12.5px;
+  --text-md: 13.5px;
+  --text-base: 14.5px;
+  --text-lg: 16.5px;
+  --text-xl: 21px;
+  --text-2xl: 28px;
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --tracking-tight: -0.3px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing, in a 4px rhythm. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Radii. */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Shadows. */
+  --shadow-raised: 0 1px 2px rgba(20, 40, 70, 0.1), 0 3px 8px -4px rgba(20, 40, 70, 0.22);
+  --shadow-float: 0 14px 34px -18px rgba(16, 36, 62, 0.3), 0 1px 3px -1px rgba(16, 36, 62, 0.1);
+  --shadow-card: 0 10px 24px -20px rgba(20, 40, 70, 0.55);
+  --shadow-sheet: 0 40px 90px -30px rgba(10, 25, 45, 0.75);
+  --focus-ring: 0 0 0 3px var(--teal-soft);
+
+  /* Layout. */
+  --content-max: 680px;
+  --phone-max: 820px;
+  --top-bar-height: 60px;
+  --bottom-tabs-height: 64px;
+  --motion-fast: 0.16s;
+  --motion-normal: 0.18s;
+  --motion-sheet: 0.22s;
+
+  /* Controls: the three heights every button, field and picker shares, and the icon steps. */
+  --control-sm: 32px;
+  --control-md: 40px;
+  --control-lg: 48px;
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --avatar-sm: 28px;
+  --avatar-md: 36px;
+  --avatar-lg: 48px;
+  --toggle-inline: 42px;
+  --toggle-block: 25px;
+  --control-border: 1.5px;
+
+  /* Layers: veil under sheet under menu. A picker menu always sits above the sheet it serves. */
+  --layer-veil: 50;
+  --layer-sheet: 60;
+  --layer-menu: 70;
+  --veil: rgba(14, 26, 44, 0.42);
+  --menu-max-inline: 420px;
+  --sheet-max-inline: 520px;
+  --phone-frame: 375px;
+
+  /* The dial: the rendered size of the ring, desktop and phone. */
+  --dial-size: 268px;
+  --dial-size-phone: 196px;
+  /* The face is dark in both themes, as lite draws it: a watch does not repaint its dial white
+     because the room is light. These do not change with the theme. */
+  --dial-face-1: #16243a;
+  --dial-face-2: #0c1521;
+  --dial-face-3: #080e17;
+  --dial-face-ink: #e4eef9;
+  --dial-face-ink-2: #b2c3d6;
+  --dial-face-ink-4: #64768c;
+  --dial-face-surface: #111c2b;
+  --dial-face-stage: #060b12;
+  --dial-face-rail: #22344a;
+  --dial-face-mark: #3a506b;
+  --dial-face-mark-strong: #54697f;
+  --dial-face-thread-glow: rgba(70, 195, 255, 0.6);
+  --dial-face-thread-core: rgba(120, 215, 245, 0.9);
+  --dial-face-crest: rgba(210, 250, 255, 1);
+  --dial-face-rim-line: rgba(155, 228, 255, 0.62);
+  --dial-face-rim-glow: rgba(70, 190, 245, 0.5);
+  --dial-face-rim-crest: rgba(210, 248, 255, 0.95);
+  --dial-face-shadow:
+    0 22px 50px -26px rgba(10, 25, 45, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --dial-face-dot-shadow: rgba(0, 0, 0, 0.5);
+  --dial-face-family: #7e98b4;
+  --dial-month: #9fc4e4;
+  --dial-today: #dcebf8;
+  --dial-bleed: 14px;
+  --dial-bleed-phone: 10px;
+
+  /* The hero: the deep blue stage that holds the dial on the home screen. Dark in both themes,
+     as lite paints it, with white text on it. */
+  --hero-bg: #061726;
+  --hero-glow-1: rgba(21, 166, 186, 0.55);
+  --hero-glow-2: rgba(14, 60, 110, 0.8);
+  --hero-veil-1: rgba(4, 13, 24, 0.34);
+  --hero-veil-2: rgba(4, 13, 24, 0.06);
+  --hero-veil-3: rgba(4, 13, 24, 0.22);
+  --hero-ink: #ffffff;
+  --hero-ink-soft: rgba(255, 255, 255, 0.68);
+  --hero-strip: rgba(255, 255, 255, 0.06);
+  --hero-strip-line: rgba(255, 255, 255, 0.16);
+  --hero-radius: 28px;
+  --shadow-hero: 0 26px 60px -34px rgba(10, 28, 50, 0.6);
+
+  /* Lite's metrics, kept exact so the portal reads as the same product. Named by where they
+     are used; a value that appears in two places has one name. */
+  --text-caption: 11px;
+  --text-note: 12px;
+  --text-body: 13px;
+  --text-field: 14px;
+  --text-lead: 15px;
+  --text-title: 20px;
+  --row-gap: 15px;
+  --row-pad-block: 15px;
+  --row-pad-inline: 17px;
+  --row-gap-phone: 12px;
+  --row-pad-block-phone: 14px;
+  --row-pad-inline-phone: 15px;
+  --row-radius-phone: 14px;
+  --card-pad: 17px;
+  --mark-size: 42px;
+  --mark-size-sm: 32px;
+  --radius-mark: 15px;
+  --radius-mark-sm: 11px;
+  --sheet-radius: 28px;
+  --sheet-radius-phone: 24px;
+  --sheet-gutter: 24px;
+  --sheet-max-block: 82%;
+  --sheet-max-block-phone: 92%;
+  --sheet-pad-inline: 26px;
+  --sheet-pad-inline-phone: 20px;
+  --sheet-head-pad-top: 24px;
+  --sheet-head-pad-bottom: 18px;
+  --sheet-head-pad-top-phone: 20px;
+  --sheet-head-pad-bottom-phone: 16px;
+  --sheet-head-pad-end: 60px;
+  --sheet-body-pad-top: 20px;
+  --sheet-body-pad-top-phone: 18px;
+  --sheet-foot-pad-top: 16px;
+  --sheet-foot-pad-bottom: 22px;
+  --sheet-foot-pad-top-phone: 14px;
+  --sheet-foot-pad-bottom-phone: 30px;
+  --sheet-foot-gap: 9px;
+  --sheet-close: 34px;
+  --sheet-close-offset: 14px;
+  --sheet-close-radius: 11px;
+  --sheet-handle-inline: 38px;
+  --sheet-handle-block: 4px;
+  --sheet-rise: 14px;
+  --field-radius: 12px;
+  --field-pad-block: 11px;
+  --field-pad-inline: 13px;
+  --field-label-gap: 6px;
+  --picker-pad-block: 9px;
+  --picker-pad-inline: 11px;
+  --picker-gap: 9px;
+  --menu-gap: 6px;
+  --menu-radius: 14px;
+  --menu-pad: 5px;
+  --menu-max-block: 264px;
+  --menu-item-radius: 10px;
+  --menu-item-gap: 10px;
+  --shadow-menu: 0 2px 6px rgba(20, 40, 70, 0.06), 0 22px 44px -22px rgba(16, 36, 62, 0.5);
+  --seg-gap: 3px;
+  --seg-pad: 4px;
+  --seg-tab-pad-block: 9px;
+  --seg-tab-pad-inline: 17px;
+  --seg-dot: 6px;
+  --button-pad-block-sm: 9px;
+  --button-pad-inline-sm: 13px;
+  --button-pad-block-md: 12px;
+  --button-pad-inline-md: 20px;
+  --button-pad-block-lg: 14px;
+  --button-pad-inline-lg: 22px;
+  --pill-pad-block: 2px;
+  --pill-pad-inline: 9px;
+  --pill-dot: 7px;
+  --urgent-pad-bottom: 8px;
+  --urgent-head-gap: 9px;
+  --urgent-item-gap: 11px;
+  --urgent-item-pad-block: 11px;
+  --urgent-dot: 8px;
+  --shadow-urgent: 0 10px 30px -24px rgba(20, 40, 70, 0.5);
+  --empty-pad-block: 50px;
+  --toggle-knob-inset: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ink-1: #e4eef9;
+    --ink-2: #b2c3d6;
+    --ink-3: #8092a8;
+    --ink-4: #64768c;
+    --bg: #0b1420;
+    --surface: #111c2b;
+    --surface-tint: #0e1826;
+    --surface-raised: #1d2c3f;
+    --line-1: #1e2e42;
+    --line-2: rgba(22, 36, 53, 0.31);
+    --glass: rgba(22, 35, 53, 0.8);
+    --glass-line: rgba(255, 255, 255, 0.09);
+    --teal: #35c8dc;
+    --teal-strong: #6fe0ef;
+    --teal-soft: rgba(53, 200, 220, 0.15);
+    --sand: #e0a85c;
+    --sand-soft: rgba(224, 168, 92, 0.12);
+    --sand-line: rgba(224, 168, 92, 0.26);
+    --rose: #e08a80;
+    --rose-soft: rgba(224, 138, 128, 0.13);
+    --rose-line: rgba(224, 138, 128, 0.28);
+    --badge: #e14b47;
+    --family-visa: #a48bff;
+    --dial-rail: #1e2e42;
+    --dial-mark: #33465e;
+    --dial-mark-strong: #4a5e78;
+    --dial-dot-far: #2b7c8b;
+    --dial-thread-glow: rgba(70, 195, 255, 0.6);
+    --dial-thread-core: rgba(120, 215, 245, 0.9);
+    --dial-crest: rgba(210, 250, 255, 1);
+    --dial-dot-shadow: rgba(0, 0, 0, 0.5);
+    --stage: #060b12;
+    --veil: rgba(0, 0, 0, 0.6);
+    --company-0: #6ab1f3;
+    --company-1: #5bd38b;
+    --company-2: #da87de;
+    --company-3: #ccc33c;
+    --company-4: #f38abc;
+    --company-5: #4cd0b8;
+    --company-6: #99d352;
+  }
+}
+
+:root[data-theme='dark'] {
+  --ink-1: #e4eef9;
+  --ink-2: #b2c3d6;
+  --ink-3: #8092a8;
+  --ink-4: #64768c;
+  --bg: #0b1420;
+  --surface: #111c2b;
+  --surface-tint: #0e1826;
+  --surface-raised: #1d2c3f;
+  --line-1: #1e2e42;
+  --line-2: rgba(22, 36, 53, 0.31);
+  --glass: rgba(22, 35, 53, 0.8);
+  --glass-line: rgba(255, 255, 255, 0.09);
+  --teal: #35c8dc;
+  --teal-strong: #6fe0ef;
+  --teal-soft: rgba(53, 200, 220, 0.15);
+  --sand: #e0a85c;
+  --sand-soft: rgba(224, 168, 92, 0.12);
+  --sand-line: rgba(224, 168, 92, 0.26);
+  --rose: #e08a80;
+  --rose-soft: rgba(224, 138, 128, 0.13);
+  --rose-line: rgba(224, 138, 128, 0.28);
+  --badge: #e14b47;
+  --family-visa: #a48bff;
+  --dial-rail: #1e2e42;
+  --dial-mark: #33465e;
+  --dial-mark-strong: #4a5e78;
+  --dial-dot-far: #2b7c8b;
+  --dial-thread-glow: rgba(70, 195, 255, 0.6);
+  --dial-thread-core: rgba(120, 215, 245, 0.9);
+  --dial-crest: rgba(210, 250, 255, 1);
+  --dial-dot-shadow: rgba(0, 0, 0, 0.5);
+  --stage: #060b12;
+  --veil: rgba(0, 0, 0, 0.6);
+  --company-0: #6ab1f3;
+  --company-1: #5bd38b;
+  --company-2: #da87de;
+  --company-3: #ccc33c;
+  --company-4: #f38abc;
+  --company-5: #4cd0b8;
+  --company-6: #99d352;
+}

@@ -1,0 +1,80 @@
+/* Lite's flag: a small pill in the accent family of what it says, with a dot for the state. */
+.state-pill {
+  --pill-colour: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--pill-pad-block);
+  padding-inline: var(--pill-pad-inline);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: var(--line-2);
+  color: var(--ink-2);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.3px;
+  line-height: var(--leading-normal);
+  white-space: nowrap;
+}
+
+.state-pill--sm {
+  font-size: var(--text-2xs);
+}
+
+.state-pill__dot {
+  inline-size: var(--pill-dot);
+  block-size: var(--pill-dot);
+  border-radius: 50%;
+  background: var(--pill-colour);
+  flex-shrink: 0;
+}
+
+.state-pill--complete {
+  --pill-colour: var(--state-complete);
+  background: var(--teal-soft);
+  color: var(--teal-strong);
+}
+
+.state-pill--on-track {
+  --pill-colour: var(--state-on-track);
+  background: var(--teal-soft);
+  color: var(--teal-strong);
+}
+
+.state-pill--action-soon {
+  --pill-colour: var(--state-action-soon);
+  background: var(--sand-soft);
+  border-color: var(--sand-line);
+  color: var(--sand);
+}
+
+.state-pill--expiring {
+  --pill-colour: var(--state-expiring);
+  background: var(--sand-soft);
+  border-color: var(--sand);
+  color: var(--sand);
+}
+
+.state-pill--overdue {
+  --pill-colour: var(--state-overdue);
+  background: var(--rose-soft);
+  border-color: var(--rose-line);
+  color: var(--rose);
+}
+
+.state-pill--unknown {
+  --pill-colour: var(--state-unknown);
+  background: var(--line-2);
+  border-color: var(--line-1);
+  color: var(--ink-3);
+}
+
+.state-pill--decision-needed {
+  --pill-colour: var(--state-decision-needed);
+  background: var(--ink-1);
+  color: var(--surface);
+}
+
+.state-pill--decision-needed .state-pill__dot {
+  background: var(--surface);
+}

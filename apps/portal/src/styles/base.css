@@ -1,0 +1,84 @@
+/* Base: reset and document defaults. Components get one CSS file each, next to the component. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink-1);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: var(--teal-strong);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  margin-block: 0;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+h1 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+}
+
+h2 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+p {
+  margin-block: 0;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+::-webkit-scrollbar {
+  inline-size: 9px;
+  block-size: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line-1);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

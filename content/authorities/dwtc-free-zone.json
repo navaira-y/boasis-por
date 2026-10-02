@@ -1,0 +1,299 @@
+{
+  "id": "dwtc-free-zone",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "DWTC Free Zone",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"DWTC Free Zone\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"DWTC Free Zone\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"DWTC Free Zone\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "DWTCA Regulatory Operations processes; establishment card from GDRFA; the zone ID card is the work permit; requests in writing by an authorised signatory",
+      "source": "Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 1 and 9 (CONFIRMED, Rules V8 2024)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "eservices.dwtcauthority.com",
+      "source": "Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "1 visa per 7.4 sqm; 2 per serviced desk; more at discretion",
+      "source": "Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 7 (validity NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Employer requirement under Dubai law; insurance copy before e-residence; workmen’s compensation and TPL also required",
+      "source": "Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": "WPS waived (Rule 11.8); keep certified evidence of salary payment, producible within 5 days",
+      "source": "Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": false,
+      "source": "Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 3 (CONFIRMED, WPS waived under Rule 11.8)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, DWTC Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DWTC Free Zone, lease (Free Zone Rules V10 and V12, licence rule 11.1: a valid Lease in the Free Zone is needed to retain and renew a licence; the renewal guide (August 2025) says the lease must be renewed and aligned with the licence dates. Applies to third party business centres, subleases and standard offices, not to business address, flexi desk, hot desk or executive office holders; CONFIRMED); https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V10.pdf ; https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V12.pdf ; https://media.dwtc.com/License-Renewal-August-2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DWTC Free Zone, lease (no minimum number of days in the Free Zone Rules; the lease must be renewed and aligned with the licence dates); https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V10.pdf ; https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V12.pdf ; https://media.dwtc.com/License-Renewal-August-2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Complete document submission and payment before the expiry date. Licences shall be renewed no later than 30 days after expiry. No advance window found.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DWTC Free Zone, renewal window (renewal guide (August 2025) and Free Zone Rules rule 12, CONFIRMED); https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V10.pdf ; https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V12.pdf ; https://media.dwtc.com/License-Renewal-August-2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "The lease is renewed first, where applicable. The establishment card is renewed after the renewed licence is issued. Also required: an FTA tax registration certificate or a declaration letter, and a UBO declaration if anything changed.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DWTC Free Zone, renews together (renewal guide (August 2025), CONFIRMED); https://media.dwtc.com/License-Renewal-August-2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "Renewal is due no later than 30 days after expiry, otherwise a penalty applies. Separate monthly penalties apply to the licence and to the establishment card. If the licence is not renewed, all employee and dependant visas must be cancelled or transferred and cards returned; anyone not cancelled or transferred is reported as absconding. Non-renewal also invalidates the Lease, and all dues and lease issues must be settled. The Authority may revoke, cancel or suspend a licence on 30 days' written notice for failing to submit renewal documents or pay fees.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DWTC Free Zone, late renewal (Free Zone Rules rule 12 and section 8, and the renewal guide (August 2025), CONFIRMED; amounts left out); https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V10.pdf ; https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V12.pdf ; https://media.dwtc.com/License-Renewal-August-2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": 30,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DWTC Free Zone, late renewal (Free Zone Rules rule 12: licences shall be renewed no later than 30 days after expiry, otherwise a penalty applies, CONFIRMED); https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V10.pdf ; https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V12.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": [
+        {
+          "after": {
+            "amount": 30,
+            "unit": "days"
+          },
+          "consequence": "Not renewed within 30 days of expiry: a penalty applies, with separate monthly penalties on the licence and the establishment card."
+        }
+      ],
+      "source": "Boasis research, free zone licence renewal (2026-09-28), DWTC Free Zone, late renewal (Free Zone Rules rule 12 and the renewal guide (August 2025), CONFIRMED; amounts left out); https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V10.pdf ; https://media.dwtc.com/Free-Zone-Rules-and-Regulations-V12.pdf ; https://media.dwtc.com/License-Renewal-August-2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  }
+}

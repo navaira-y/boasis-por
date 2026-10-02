@@ -1,0 +1,32 @@
+/* Lite's company mark: a rounded square with the initials, in the company's own hue. */
+.company-mark {
+  --company-colour: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: var(--mark-size);
+  block-size: var(--mark-size);
+  border-radius: var(--radius-mark);
+  background: color-mix(in srgb, var(--company-colour) 14%, var(--surface));
+  color: var(--company-colour);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.3px;
+  line-height: 1;
+  user-select: none;
+}
+
+.company-mark--sm {
+  inline-size: var(--mark-size-sm);
+  block-size: var(--mark-size-sm);
+  border-radius: var(--radius-mark-sm);
+  font-size: var(--text-2xs);
+}
+
+.company-mark--lg {
+  inline-size: var(--avatar-lg);
+  block-size: var(--avatar-lg);
+  border-radius: var(--radius-mark);
+  font-size: var(--text-lead);
+}

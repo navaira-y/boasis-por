@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+dev-dist
+docs/spec
+docs/research
+docs/audit
+package-lock.json
+test-results
+playwright-report

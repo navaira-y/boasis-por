@@ -1,0 +1,291 @@
+{
+  "id": "hamriyah-free-zone",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Hamriyah Free Zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Sharjah",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Investor services to ICP; e-portal (300+ services) with UAE Pass or manual login",
+      "source": "Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "https://eportal.hfza.ae/",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), Related eServices (\"Register for the online services (for companies), Hamriyah Free Zone Authority\"); Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 1 (CONFIRMED, e-portal)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": ["Start Up", "Smart", "Deluxe", "Standard", "Supreme"],
+      "source": "Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Start Up 1; Smart 4 to 7; Deluxe 2 to 7; Standard 7 to 8; Supreme 8 to 12; warehouses flexible (up to 50 reported)",
+      "source": "Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 7 (REPORTED 2 years)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 3 (CONTESTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Hamriyah Free Zone (HFZA), lease (consultancies say a valid lease is needed at renewal, REPORTED); https://bizstartuae.com/renew-hamriyah-free-zone-license/",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Hamriyah Free Zone (HFZA), lease (unknown; no 90 day lease rule found. Not confirmed for HFZA, consultancy sites only: if more than 30 days of the lease have expired, the lease must be renewed first); https://bizstartuae.com/renew-hamriyah-free-zone-license/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Hamriyah Free Zone (HFZA), renewal window (unknown. Advice, not a rule: consultancies recommend starting at least 30 days before expiry); https://bizstartuae.com/renew-hamriyah-free-zone-license/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewsTogether": {
+      "value": "A valid lease at renewal. The lease agreement is issued alongside the licence at incorporation.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Hamriyah Free Zone (HFZA), renews together (consultancies, REPORTED; the MOET registrar profile shows the lease issued alongside the licence at incorporation); https://bizstartuae.com/renew-hamriyah-free-zone-license/ ; https://www.moet.gov.ae/documents/20121/416990/Himriyah+ENG.pdf/6ffc4133-c9c7-9dbd-b166-8c2867107a26?t=1631908146890",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.afterExpiry": {
+      "value": "No licence expiry grace period is stated in an official source. The FZE Unit may deregister an FZE for a breach of the rules or licence terms not remedied within 7 days of written notice, or if it does not answer a written not carrying on business enquiry within 7 days. Daily fines during non-compliance are possible.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Hamriyah Free Zone (HFZA), late renewal (HFZA FZE Implementing Rules arts. 22(C), 24(B) and 25(B), CONFIRMED; these cover deregistration generally, not expiry thresholds. REPORTED only: consultancies say there is no grace period and that long lapses may require re-registration); https://hfza.ae/wp-content/uploads/2020/09/HHFZA_Implementing_Rules_FZE_rev_11_01_16.pdf ; https://bizstartuae.com/renew-hamriyah-free-zone-license/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Hamriyah Free Zone (HFZA), late renewal (no licence expiry grace period in an official source; consultancies say none); https://hfza.ae/wp-content/uploads/2020/09/HHFZA_Implementing_Rules_FZE_rev_11_01_16.pdf ; https://bizstartuae.com/renew-hamriyah-free-zone-license/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Hamriyah Free Zone (HFZA), late renewal (no expiry specific thresholds in an official source); https://hfza.ae/wp-content/uploads/2020/09/HHFZA_Implementing_Rules_FZE_rev_11_01_16.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}
