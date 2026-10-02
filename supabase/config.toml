@@ -1,6 +1,0 @@
-# Minimal Supabase CLI config. Schema itself lives only in migrations/.
-project_id = "boasis-portal"
-
-[db]
-port = 54322
-major_version = 15
