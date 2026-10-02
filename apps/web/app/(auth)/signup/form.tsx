@@ -224,6 +224,10 @@ export function SignupForm({
                     </button>
                   </form>
                 )}
+                <p className="small muted" style={{ marginTop: 8 }}>
+                  No code in the email? Click the sign-in link inside it
+                  instead — you&apos;ll land back here, verified.
+                </p>
                 <p className="small" style={{ marginTop: 8 }}>
                   Wrong email?{" "}
                   <button
