@@ -132,6 +132,10 @@ button.plan:hover{transform:translateY(-2px);border-color:rgba(95,211,232,.5)}
 .plan .price{font-family:var(--font-display);font-weight:500;font-size:22px;
   letter-spacing:-.01em;margin:8px 0 2px;color:#fff}
 .plan .btn{margin-top:14px}
+/* equal-height cards, every CTA pinned to the same baseline */
+.plan{display:flex;flex-direction:column}
+.plan .btn{margin-top:auto;align-self:flex-start}
+.plan p:last-of-type{margin-bottom:16px}
 
 .check{display:flex;gap:10px;align-items:flex-start;margin:6px 0 20px;font-size:15px}
 .check input{width:18px;height:18px;margin-top:2px;accent-color:var(--bo-teal)}
