@@ -1,0 +1,313 @@
+{
+  "id": "dubai-silicon-oasis",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Dubai Silicon Oasis",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "DSO government services one-stop shop; Member Portal on DIEZA Salesforce; GDRFA reported as issuer; no UAE Pass seen",
+      "source": "Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis, item 1 and 9 (CONFIRMED portal; issuer REPORTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "Member Portal (dso.ae)",
+      "source": "Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis, item 1 (CONFIRMED portal)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "2 per flexi desk, 3 per fixed desk, 1 per 9 sqm",
+      "source": "Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis, item 6 (REPORTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis, item 7 (REPORTED 2 to 3 years; not written as one number)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis, item 3 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Silicon Oasis, lease (consultancies say a signed lease agreement is submitted at renewal; not officially confirmed; consultancy URLs not recorded in the research); https://dso.ae/to-renew-your-license",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Silicon Oasis, lease (unknown: not found); https://dso.ae/to-renew-your-license ; https://dso.ae/faq ; https://dso.ae/documents/d/dubai-silicon-oasis/dieza_implementing_regs_2023-pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Renew before expiry.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Silicon Oasis, renewal window (search engine snippet of the dso.ae renewal page; the page itself would not render, REPORTED); https://dso.ae/to-renew-your-license",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.renewsTogether": {
+      "value": "A UBO declaration is required on each licence renewal.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Silicon Oasis, renews together (DIEZA Implementing Regulations 2023 reg 22.2, CONFIRMED. REPORTED only, not officially confirmed: consultancies report a signed lease, an audit report from the second renewal onward, and establishment card renewal); https://dso.ae/documents/d/dubai-silicon-oasis/dieza_implementing_regs_2023-pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "Failure to renew the licence is a ground on which the Registrar may, at its discretion, wind up the company. No day threshold is given.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Silicon Oasis, late renewal (DIEZA Implementing Regulations 2023 reg 106(c), CONFIRMED. REPORTED only: a search snippet of dso.ae describes a one month grace period and a higher penalty after 3 months (page did not render); consultancies say the licence is blocked after a 30 day grace period and strike-off can follow after 90 days); https://dso.ae/documents/d/dubai-silicon-oasis/dieza_implementing_regs_2023-pdf ; https://dso.ae/to-renew-your-license",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": 30,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Silicon Oasis, late renewal (consultancies report a 30 day grace period; a dso.ae search snippet says one month; unverified, REPORTED); https://dso.ae/to-renew-your-license",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": [
+        {
+          "after": {
+            "amount": 30,
+            "unit": "days"
+          },
+          "consequence": "Grace period ends and the licence is blocked (consultancies)."
+        },
+        {
+          "after": {
+            "amount": 3,
+            "unit": "months"
+          },
+          "consequence": "A higher penalty applies (dso.ae search snippet, page did not render)."
+        },
+        {
+          "after": {
+            "amount": 90,
+            "unit": "days"
+          },
+          "consequence": "Strike-off can follow (consultancies)."
+        }
+      ],
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Silicon Oasis, late renewal (consultancies and an unverified dso.ae search snippet, REPORTED; amounts left out); https://dso.ae/to-renew-your-license",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    }
+  }
+}

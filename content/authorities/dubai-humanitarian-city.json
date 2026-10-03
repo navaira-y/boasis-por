@@ -1,0 +1,291 @@
+{
+  "id": "dubai-humanitarian-city",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Dubai Humanitarian City",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "portalAddress": {
+      "value": null,
+      "source": "not in research; the u.ae list links the zone website https://dubaihumanitarian.ae/ but names no submission portal",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Humanitarian City, lease (IHC Regulations (Version 2022) Art. 14: a valid Lease is required to be licensed; the Authority may repossess property if the Lease or License is not renewed or cancelled within the stipulated timeframe, CONFIRMED); https://dubaihumanitarian.ae/wp-content/uploads/2023/01/IHC-Regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Humanitarian City, lease (no minimum remaining period stated in the IHC Regulations); https://dubaihumanitarian.ae/wp-content/uploads/2023/01/IHC-Regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Submit the renewal request, fees and documents no later than 60 days before each renewal date. The licence term is two years from issue.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Humanitarian City, renewal window (IHC Regulations Art. 65 and Art. 19, CONFIRMED); https://dubaihumanitarian.ae/wp-content/uploads/2023/01/IHC-Regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "At renewal of any License, Lease or Sponsorship Agreement, evidence of renewed insurance policies must be given, including employee injury and disability cover. Establishment Card renewal is a separate service in the fee schedule. The renewal must also show compliance and being actively operational in prior years.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Humanitarian City, renews together (IHC Regulations Arts. 37 to 40 and 66, and the fee schedule, CONFIRMED); https://dubaihumanitarian.ae/wp-content/uploads/2023/01/IHC-Regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "The Authority may terminate a licence if the entity fails to renew its expired licence or has not paid a renewal or late renewal fee, or if activities have ceased for more than 90 days. The Authority may suspend a licence at its discretion. After a termination notice the entity has 20 Business Days to respond; a Second Strike-Off Notice then gives 60 Business Days, or another period the Authority sets, plus a Public Notice; after that the entity may be struck off the Register. No fixed day count from expiry to termination.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Humanitarian City, late renewal (IHC Regulations Arts. 70, 71, 72(a)(iv), (v), (vii) and 74, CONFIRMED); https://dubaihumanitarian.ae/wp-content/uploads/2023/01/IHC-Regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Humanitarian City, late renewal (no grace period stated in the IHC Regulations); https://dubaihumanitarian.ae/wp-content/uploads/2023/01/IHC-Regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai Humanitarian City, late renewal (no fixed day count from expiry; the strike-off periods in Art. 74 run from notices, not from expiry); https://dubaihumanitarian.ae/wp-content/uploads/2023/01/IHC-Regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

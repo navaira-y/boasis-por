@@ -1,0 +1,291 @@
+{
+  "id": "dubai-commercity",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Dubai CommerCity (DCC)",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "portalAddress": {
+      "value": null,
+      "source": "not in research; the u.ae list links the zone website https://www.dubaicommercity.ae/ but names no submission portal",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research; not stated on the u.ae free zone list",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research; not stated on the u.ae free zone list",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai CommerCity (DCC), lease (unknown: the official DCC FAQ and site pages have no renewal, lease renewal or expiry rules; the one consultancy page opened gives renewal costs only; no DCC specific renewal regulation found); https://www.dubaicommercity.ae/faq ; https://filings.ae/anc-free-zone/dubai-commercity-cost",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai CommerCity (DCC), lease (unknown: the official DCC FAQ and site pages have no renewal, lease renewal or expiry rules; the one consultancy page opened gives renewal costs only; no DCC specific renewal regulation found); https://www.dubaicommercity.ae/faq ; https://filings.ae/anc-free-zone/dubai-commercity-cost",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai CommerCity (DCC), renewal window (unknown: the official DCC FAQ and site pages have no renewal, lease renewal or expiry rules; the one consultancy page opened gives renewal costs only; no DCC specific renewal regulation found); https://www.dubaicommercity.ae/faq ; https://filings.ae/anc-free-zone/dubai-commercity-cost",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewsTogether": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai CommerCity (DCC), renews together (unknown: the official DCC FAQ and site pages have no renewal, lease renewal or expiry rules; the one consultancy page opened gives renewal costs only; no DCC specific renewal regulation found); https://www.dubaicommercity.ae/faq ; https://filings.ae/anc-free-zone/dubai-commercity-cost",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiry": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai CommerCity (DCC), late renewal (unknown: the official DCC FAQ and site pages have no renewal, lease renewal or expiry rules; the one consultancy page opened gives renewal costs only; no DCC specific renewal regulation found); https://www.dubaicommercity.ae/faq ; https://filings.ae/anc-free-zone/dubai-commercity-cost",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai CommerCity (DCC), late renewal (unknown: the official DCC FAQ and site pages have no renewal, lease renewal or expiry rules; the one consultancy page opened gives renewal costs only; no DCC specific renewal regulation found); https://www.dubaicommercity.ae/faq ; https://filings.ae/anc-free-zone/dubai-commercity-cost",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Dubai CommerCity (DCC), late renewal (unknown: the official DCC FAQ and site pages have no renewal, lease renewal or expiry rules; the one consultancy page opened gives renewal costs only; no DCC specific renewal regulation found); https://www.dubaicommercity.ae/faq ; https://filings.ae/anc-free-zone/dubai-commercity-cost",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "id": "fujairah-creative-city",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Creative City",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Fujairah",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Zone; company login; channel partners",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "sys.ccfz.ae",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": ["Smart", "Business One", "Business Multi"],
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Smart 1 free visa; Business One 5 quota; Business Multi 15 quota",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City, item 7 (standard term NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Insurance listed as a requirement",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Creative City (Fujairah Creative City Media Free Zone), lease (unknown: the official rules set no lease rule for renewal); https://creativecity.gov.ae/wp-content/uploads/2026/04/Rules_and_Regulations-June2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Creative City (Fujairah Creative City Media Free Zone), lease (the official rules set no lease remaining rule; the 30 day rule applies to licence validity); https://creativecity.gov.ae/wp-content/uploads/2026/04/Rules_and_Regulations-June2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Renew before expiry. Submit renewal or cancellation requirements well before expiry, because no service request is processed once licence validity is under 30 days. Renewal can be for 1 to 10 years.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Creative City (Fujairah Creative City Media Free Zone), renewal window (Creative City Rules and Regulations (June 2025) 1.14, 1.15 and 1.5, CONFIRMED); https://creativecity.gov.ae/wp-content/uploads/2026/04/Rules_and_Regulations-June2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "The establishment card, if one exists, is tracked separately, with its own late fine after 28 days past card expiry. Residence visas must be renewed or cancelled before expiry. Lease or flexi desk renewal: unknown.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Creative City (Fujairah Creative City Media Free Zone), renews together (Creative City Rules and Regulations (June 2025) 1.16 and 2.3, CONFIRMED; amounts left out); https://creativecity.gov.ae/wp-content/uploads/2026/04/Rules_and_Regulations-June2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "If the licence is not renewed or cancelled within the period, a capped monthly late fine applies. Services may be suspended for overdue payments. 90 days after licence expiry, Creative City may take legal action and demand settlement of fines on the licence and visas. No automatic deregistration threshold is stated.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Creative City (Fujairah Creative City Media Free Zone), late renewal (Creative City Rules and Regulations (June 2025) 1.16, 1.17 and 1.22, CONFIRMED; amounts left out. A consultancy claim of annulment after 60 days is not in the official rules); https://creativecity.gov.ae/wp-content/uploads/2026/04/Rules_and_Regulations-June2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Creative City (Fujairah Creative City Media Free Zone), late renewal (no grace period stated in the official rules); https://creativecity.gov.ae/wp-content/uploads/2026/04/Rules_and_Regulations-June2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": [
+        {
+          "after": {
+            "amount": 90,
+            "unit": "days"
+          },
+          "consequence": "Creative City may take legal action and demand settlement of what is owed on the licence and visas."
+        }
+      ],
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Creative City (Fujairah Creative City Media Free Zone), late renewal (Creative City Rules and Regulations (June 2025) 1.22, CONFIRMED); https://creativecity.gov.ae/wp-content/uploads/2026/04/Rules_and_Regulations-June2025.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  }
+}

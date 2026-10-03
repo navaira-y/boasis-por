@@ -1,51 +1,1575 @@
 {
-  "version": 1,
-  "updated": "2026-09-28",
-  "source": "Boasis-Onboarding-v2, Appendix A (renewal facts research)",
-  "jurisdictions": ["free-zone"],
-  "note": "Mainland is carried from day one: a mainland entry only needs jurisdiction=mainland. Until then the app shows 'coming soon' + waitlist.",
+  "version": "0.0.1",
   "authorities": [
-    { "id": "abudhabi-airports-fz", "name": "Abu Dhabi Airports Free Zone", "shortName": "ADAFZ", "jurisdiction": "free-zone", "grade": "unknown", "deepContent": false },
-    { "id": "adgm", "name": "Abu Dhabi Global Market", "shortName": "ADGM", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "afz", "name": "Ajman Free Zone", "shortName": "AFZ", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "ajman-media-city", "name": "Ajman Media City Free Zone", "shortName": "AMCFZ", "jurisdiction": "free-zone", "grade": "unknown", "deepContent": false },
-    { "id": "creative-city", "name": "Creative City Fujairah", "shortName": "Creative City", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dafza", "name": "Dubai Airport Free Zone", "shortName": "DAFZA", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "dubai-auto-zone", "name": "Dubai Auto Zone", "shortName": "DAZ", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "dubai-commercity", "name": "Dubai CommerCity", "shortName": "DCC", "jurisdiction": "free-zone", "grade": "unknown", "deepContent": false },
-    { "id": "d3", "name": "Dubai Design District", "shortName": "d3", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dhcc", "name": "Dubai HealthCare City", "shortName": "DHCC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "ihc", "name": "Dubai Humanitarian City", "shortName": "IHC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "diac", "name": "Dubai International Academic City", "shortName": "DIAC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "difc", "name": "Dubai International Financial Centre", "shortName": "DIFC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dic", "name": "Dubai Internet City", "shortName": "DIC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dkp", "name": "Dubai Knowledge Park", "shortName": "DKP", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dubai-maritime-city", "name": "Dubai Maritime City", "shortName": "DMC-Maritime", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "dmc", "name": "Dubai Media City", "shortName": "DMC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dmcc", "name": "Dubai Multi Commodities Centre", "shortName": "DMCC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dubai-outsource-city", "name": "Dubai Outsource City", "shortName": "OSC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dubai-production-city", "name": "Dubai Production City", "shortName": "DPC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dubai-science-park", "name": "Dubai Science Park", "shortName": "DSP", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dso", "name": "Dubai Silicon Oasis", "shortName": "DSO", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "dubai-south", "name": "Dubai South", "shortName": "Dubai South", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "dubai-studio-city", "name": "Dubai Studio City", "shortName": "DSC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "dwtc", "name": "DWTC Free Zone", "shortName": "DWTC", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "fujairah-fz", "name": "Fujairah Free Zone", "shortName": "FFZA", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "gold-diamond-park", "name": "Gold and Diamond Park", "shortName": "GDP", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "hfza", "name": "Hamriyah Free Zone", "shortName": "HFZA", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "ifza", "name": "International Free Zone Authority", "shortName": "IFZA", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "innovation-city", "name": "Innovation City Ras Al Khaimah", "shortName": "Innovation City", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "jafza", "name": "Jebel Ali Free Zone", "shortName": "JAFZA", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "kezad", "name": "Khalifa Economic Zones Abu Dhabi", "shortName": "KEZAD", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "masdar-city", "name": "Masdar City Free Zone", "shortName": "Masdar", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "meydan", "name": "Meydan Free Zone", "shortName": "Meydan", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "nip", "name": "National Industries Park", "shortName": "NIP", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "rakez", "name": "Ras Al Khaimah Economic Zone", "shortName": "RAKEZ", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "saif-zone", "name": "Sharjah Airport International Free Zone", "shortName": "SAIF Zone", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "shams", "name": "Sharjah Media City", "shortName": "Shams", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "spc", "name": "Sharjah Publishing City Free Zone", "shortName": "SPC", "jurisdiction": "free-zone", "grade": "reported", "deepContent": false },
-    { "id": "srtip", "name": "Sharjah Research Technology and Innovation Park", "shortName": "SRTIP", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "twofour54", "name": "twofour54 Abu Dhabi", "shortName": "twofour54", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false },
-    { "id": "uaq-ftz", "name": "Umm Al Quwain Free Trade Zone", "shortName": "UAQ FTZ", "jurisdiction": "free-zone", "grade": "confirmed", "deepContent": false }
+    {
+      "id": "abu-dhabi-mainland",
+      "name": {
+        "value": "Abu Dhabi mainland (Department of Economic Development, ADDED)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1b (Abu Dhabi (ADDED / ADRA via TAMM))",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Abu Dhabi",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1b (Abu Dhabi (ADDED / ADRA via TAMM))",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "mainland",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404) (listed as the local economic authority issuing the licence)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "mohre",
+        "source": "Boasis research, mainland employee lifecycle, section 2 (Job offer and work permit (MOHRE), federal, CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": [
+        "ADDED",
+        "ADRA",
+        "TAMM",
+        "Abu Dhabi DED",
+        "Abu Dhabi Department of Economic Development",
+        "Department of Economic Development Abu Dhabi",
+        "Abu Dhabi mainland"
+      ],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1b (Abu Dhabi (ADDED / ADRA via TAMM))",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-mainland",
+      "name": {
+        "value": "Dubai mainland (Department of Economy and Tourism, DET)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1a (Dubai (DET))",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1a (Dubai (DET))",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "mainland",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404) (listed as the local economic authority issuing the licence)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "mohre",
+        "source": "Boasis research, mainland employee lifecycle, section 2 (Job offer and work permit (MOHRE), federal, CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": [
+        "DET",
+        "DED",
+        "Dubai Economy",
+        "Dubai DED",
+        "Department of Economy and Tourism",
+        "Dubai Department of Economy and Tourism",
+        "Invest in Dubai",
+        "Dubai mainland"
+      ],
+      "file": "dubai-mainland.json",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1a (Dubai (DET))",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "sharjah-mainland",
+      "name": {
+        "value": "Sharjah mainland (Sharjah Economic Development Department, SEDD)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1c (Sharjah (SEDD))",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Sharjah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1c (Sharjah (SEDD))",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "mainland",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404) (listed as the local economic authority issuing the licence)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "mohre",
+        "source": "Boasis research, mainland employee lifecycle, section 2 (Job offer and work permit (MOHRE), federal, CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": [
+        "SEDD",
+        "Sharjah DED",
+        "Sharjah Economic Development Department",
+        "Economic Development Department Sharjah",
+        "Sharjah mainland"
+      ],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); Boasis research, licence lifecycle, section 1c (Sharjah (SEDD))",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "ajman-mainland",
+      "name": {
+        "value": "Ajman mainland (Department of Economic Development, Ajman)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Ajman",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "mainland",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404) (listed as the local economic authority issuing the licence)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "mohre",
+        "source": "Boasis research, mainland employee lifecycle, section 2 (Job offer and work permit (MOHRE), federal, CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": [
+        "Ajman DED",
+        "Ajman Department of Economic Development",
+        "Department of Economic Development Ajman",
+        "Ajman mainland"
+      ],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "umm-al-quwain-mainland",
+      "name": {
+        "value": "Umm Al Quwain mainland (Department of Economic Development, Umm Al Quwain)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Umm Al Quwain",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "mainland",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404) (listed as the local economic authority issuing the licence)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "mohre",
+        "source": "Boasis research, mainland employee lifecycle, section 2 (Job offer and work permit (MOHRE), federal, CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": [
+        "UAQ DED",
+        "UAQ mainland",
+        "Umm Al Quwain DED",
+        "Umm Al Quwain Department of Economic Development",
+        "Umm Al Quwain mainland"
+      ],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "ras-al-khaimah-mainland",
+      "name": {
+        "value": "Ras Al Khaimah mainland (Department of Economic Development, Ras Al Khaimah)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Ras Al Khaimah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "mainland",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404) (listed as the local economic authority issuing the licence)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "mohre",
+        "source": "Boasis research, mainland employee lifecycle, section 2 (Job offer and work permit (MOHRE), federal, CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": [
+        "RAK DED",
+        "RAK mainland",
+        "RAK Department of Economic Development",
+        "Ras Al Khaimah DED",
+        "Ras Al Khaimah Department of Economic Development",
+        "Ras Al Khaimah mainland"
+      ],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "fujairah-mainland",
+      "name": {
+        "value": "Fujairah mainland (Fujairah Municipality)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404); the sibling u.ae page \"Accessing services for mainland companies\" names the Department of Industry and Economy for Fujairah instead, so the two u.ae pages conflict",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "emirate": {
+        "value": "Fujairah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "mainland",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404) (listed as the local economic authority issuing the licence)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "mohre",
+        "source": "Boasis research, mainland employee lifecycle, section 2 (Job offer and work permit (MOHRE), federal, CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": [
+        "Fujairah Municipality",
+        "Fujairah Department of Industry and Economy",
+        "Department of Industry and Economy",
+        "Fujairah mainland"
+      ],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-on-the-mainland/steps-to-start-a-business-on-the-mainland (list \"Websites of local economic authorities\", updated 16 Jul 2026; the address https://u.ae/en/information-and-services/business/business-licensing named in the brief now returns 404)",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "masdar-city-free-zone",
+      "name": {
+        "value": "Masdar City Free Zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Abu Dhabi",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Abu Dhabi zones, Masdar City Free Zone, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Masdar City", "Masdar"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "kezad",
+      "name": {
+        "value": "Khalifa Economic Zones Abu Dhabi (KEZAD)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Abu Dhabi",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Abu Dhabi zones, KEZAD, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["KEZAD", "Khalifa Economic Zones Abu Dhabi", "Khalifa Industrial Zone", "ADFZ"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "adgm",
+      "name": {
+        "value": "Abu Dhabi Global Market (ADGM)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Abu Dhabi",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["ADGM", "Abu Dhabi Global Market"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "abu-dhabi-airports-free-zone",
+      "name": {
+        "value": "Abu Dhabi Airports Free Zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Abu Dhabi",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["ADAFZ", "Abu Dhabi Airport Free Zone"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "twofour54",
+      "name": {
+        "value": "twofour54",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Abu Dhabi",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Abu Dhabi zones, twofour54, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["twofour54", "two four 54"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-commercity",
+      "name": {
+        "value": "Dubai CommerCity (DCC)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Dubai CommerCity", "DCC"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-internet-city",
+      "name": {
+        "value": "Dubai Internet City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DIC", "Internet City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-media-city",
+      "name": {
+        "value": "Dubai Media City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Media City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-production-city",
+      "name": {
+        "value": "Dubai Production City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DPC", "Production City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-studio-city",
+      "name": {
+        "value": "Dubai Studio City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Studio City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-outsource-city",
+      "name": {
+        "value": "Dubai Outsource City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Outsource City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-knowledge-park",
+      "name": {
+        "value": "Dubai Knowledge Park",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DKP", "Knowledge Park"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-international-academic-city",
+      "name": {
+        "value": "Dubai International Academic City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DIAC", "Academic City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-science-park",
+      "name": {
+        "value": "Dubai Science Park",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DSP", "Science Park"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-design-district",
+      "name": {
+        "value": "Dubai Design District",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["d3", "Design District"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dmcc",
+      "name": {
+        "value": "Dubai Multi Commodities Centre (DMCC)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, DMCC, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DMCC", "Dubai Multi Commodities Centre", "JLT"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "jafza",
+      "name": {
+        "value": "Jebel Ali Free Zone (JAFZA)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, JAFZA, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["JAFZA", "Jafza", "Jebel Ali Free Zone", "Jebel Ali"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dafza",
+      "name": {
+        "value": "Dubai Airport Free Zone (DAFZA)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, DAFZA, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DAFZA", "DAFZ", "Dubai Airport Free Zone", "Dubai Airport Freezone"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-silicon-oasis",
+      "name": {
+        "value": "Dubai Silicon Oasis",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, Dubai Silicon Oasis, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DSO", "Silicon Oasis", "DIEZ"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-healthcare-city",
+      "name": {
+        "value": "Dubai HealthCare City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DHCC", "Dubai Healthcare City", "Healthcare City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-humanitarian-city",
+      "name": {
+        "value": "Dubai Humanitarian City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Humanitarian City", "Dubai Humanitarian"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-maritime-city",
+      "name": {
+        "value": "Dubai Maritime City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Maritime City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "gold-and-diamond-park",
+      "name": {
+        "value": "Gold and Diamond Park",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Gold & Diamond Park"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-south",
+      "name": {
+        "value": "Dubai South",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, Dubai South, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DSBH"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "difc",
+      "name": {
+        "value": "Dubai International Financial Centre (DIFC)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, DIFC, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DIFC", "Dubai International Financial Centre"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "meydan-free-zone",
+      "name": {
+        "value": "Meydan Free Zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, Meydan Free Zone, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Meydan", "MFZ"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "national-industries-park",
+      "name": {
+        "value": "National Industries Park",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, JAFZA, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["NIP"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Dubai",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "saif-zone",
+      "name": {
+        "value": "Sharjah Airport International Free Zone (SAIF Zone)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Sharjah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, SAIF Zone, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": [
+        "SAIF Zone",
+        "SAIF",
+        "Sharjah Airport International Free Zone",
+        "Sharjah Airport International Free Zone Authority"
+      ],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "hamriyah-free-zone",
+      "name": {
+        "value": "Hamriyah Free Zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Sharjah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, Hamriyah Free Zone, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["HFZA", "Hamriyah", "Hamriyah Free Zone Authority"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "shams",
+      "name": {
+        "value": "Sharjah Media City (Shams)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Sharjah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["SHAMS", "Shams", "Sharjah Media City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "ajman-free-zone",
+      "name": {
+        "value": "Ajman Free Zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Ajman",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, Ajman Free Zone, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["AFZ", "AFZA", "Ajman Free Zone Authority"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "ajman-media-city",
+      "name": {
+        "value": "Ajman Media City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Ajman",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["AMC", "Ajman Media City Free Zone"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ajman",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "uaq-free-trade-zone",
+      "name": {
+        "value": "Umm Al Quwain Free Trade Zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Umm Al Quwain",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Umm Al Quwain",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Umm Al Quwain",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Umm Al Quwain",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["UAQ FTZ", "UAQFTZ", "UAQ Free Trade Zone", "UAQ Free Zone"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Umm Al Quwain",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "rakez",
+      "name": {
+        "value": "Ras Al Khaimah Economic Zone (RAKEZ)",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Ras Al Khaimah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["RAKEZ", "Ras Al Khaimah Economic Zone", "RAK Economic Zone"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "innovation-city",
+      "name": {
+        "value": "Innovation City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Ras Al Khaimah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["RAK Innovation City"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "fujairah-free-zone",
+      "name": {
+        "value": "Fujairah Free Zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Fujairah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, Fujairah Free Zone, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Fujairah Free Zone Authority", "FFZA", "FFZ"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "fujairah-creative-city",
+      "name": {
+        "value": "Creative City",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "emirate": {
+        "value": "Fujairah",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, Fujairah Creative City, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["Fujairah Creative City", "Creative City Fujairah", "CCFZ"],
+      "file": null,
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Fujairah",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dwtc-free-zone",
+      "name": {
+        "value": "DWTC Free Zone",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"DWTC Free Zone\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"DWTC Free Zone\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"DWTC Free Zone\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, DWTC Free Zone, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DWTC", "DWTCA", "Dubai World Trade Centre Free Zone"],
+      "file": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"DWTC Free Zone\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "ifza",
+      "name": {
+        "value": "IFZA",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"IFZA\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"IFZA\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"IFZA\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, IFZA, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["IFZA", "International Free Zone Authority"],
+      "file": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"IFZA\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "spc-free-zone",
+      "name": {
+        "value": "SPC Free Zone",
+        "source": "Boasis research, free zones per authority, Sharjah zones, section \"SPC Free Zone\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "emirate": {
+        "value": "Sharjah",
+        "source": "Boasis research, free zones per authority, Sharjah zones, section \"SPC Free Zone\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "Boasis research, free zones per authority, Sharjah zones, section \"SPC Free Zone\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, SPC Free Zone, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["SPC", "Sharjah Publishing City"],
+      "file": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, section \"SPC Free Zone\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "dubai-auto-zone",
+      "name": {
+        "value": "Dubai Auto Zone",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"JAFZA\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "emirate": {
+        "value": "Dubai",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"JAFZA\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "Boasis research, free zones per authority, Dubai zones, section \"JAFZA\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, JAFZA, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["DAZ"],
+      "file": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"JAFZA\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12"
+    },
+    {
+      "id": "srtip",
+      "name": {
+        "value": "SRTIP / SPark",
+        "source": "Boasis research, free zones per authority, Sharjah zones, section \"SRTIP / SPark\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "emirate": {
+        "value": "Sharjah",
+        "source": "Boasis research, free zones per authority, Sharjah zones, section \"SRTIP / SPark\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "type": {
+        "value": "free-zone",
+        "source": "Boasis research, free zones per authority, Sharjah zones, section \"SRTIP / SPark\" (not on the u.ae free zone list)",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "visaSponsor": {
+        "value": "zone",
+        "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, SRTIP / SPark, item 1",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      },
+      "aliases": ["SRTIP", "SPark", "SPARK", "Sharjah Research Technology and Innovation Park"],
+      "file": "srtip.json",
+      "source": "Boasis research, free zones per authority, Sharjah zones, section \"SRTIP / SPark\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12"
+    }
   ]
 }

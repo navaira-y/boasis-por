@@ -1,0 +1,317 @@
+{
+  "id": "rakez",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Ras Al Khaimah Economic Zone (RAKEZ)",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Ras Al Khaimah",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Ras Al Khaimah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "RAKEZ Portal / Portal 360 to ICP with UAE Pass; RAKEZ handles processing; credentials on a signed undertaking; agent-managed accounts exist",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "RAKEZ Portal / Portal 360 (rakez.com)",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": [
+        {
+          "type": "Licence amendment (resolution and form; the zone attests; 5 to 7 days)",
+          "feeAed": 1999
+        }
+      ],
+      "source": "Boasis research, licence lifecycle, section 5 (Free zone pattern, Amendments, CONFIRMED (RAKEZ))",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Flexi desk 1; tiers 1 / 2 / 4; AED 4,000 per extra visa (promotional)",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "flexiDeskVisaQuota": {
+      "value": 1,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 6 (CONFIRMED); onboarding v2 step 5 prefill (Flexi desk 1)",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 7 (CONFIRMED, 2 years (1 year for 59+))",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Mandatory, Immigration-approved insurer; payer not stated",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": "Workers Protection Insurance mandatory (unpaid salaries, gratuity, repatriation)",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, RAKEZ, item 3 (WPS NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, RAKEZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ras Al Khaimah Economic Zone (RAKEZ), lease (RAKEZ Free Zone Licence Renewal Checklist (Issue 04, 22 Jan 2025): for physical facilities, two copies of the renewed lease signed by the authorised signatory; Violations Code item 106 treats using a facility without a valid licence or lease as a violation, CONFIRMED); https://rakez.com/Upload/ManageDocument/Checklist-Licence-Renewal-Free-Zone_20200408145636.pdf ; https://rakez.com/Upload/ManageDocument/VIOLATIONS-CODE_20200408142313.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ras Al Khaimah Economic Zone (RAKEZ), lease (no minimum remaining term found); https://rakez.com/Upload/ManageDocument/Checklist-Licence-Renewal-Free-Zone_20200408145636.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Renew on or before the expiry date. No earliest renewal date stated. Some amendment requests at renewal (activity or licence type change, adding or cancelling a licence, lease upgrade or downgrade) are only accepted 60 days before licence expiry.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ras Al Khaimah Economic Zone (RAKEZ), renewal window (RAKEZ Licence Renewal Checklist and renewal FAQ, CONFIRMED); https://rakez.com/Upload/ManageDocument/Checklist-Licence-Renewal-Free-Zone_20200408145636.pdf ; https://renewalsupport.rakez.com/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "Renewed lease agreement for physical facilities; Chamber of Commerce membership renewal, if any; the Immigration File e-card, issued with the renewed licence; E-Channel registration or renewal for immigration services; regulator NOCs where applicable.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ras Al Khaimah Economic Zone (RAKEZ), renews together (RAKEZ Licence Renewal Checklist and renewal FAQ, CONFIRMED); https://rakez.com/Upload/ManageDocument/Checklist-Licence-Renewal-Free-Zone_20200408145636.pdf ; https://renewalsupport.rakez.com/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "No grace period after expiry. A daily late penalty runs from the expiry date. On the 30th day after licence expiry, sponsored visas are marked absconded and the company and its owners are marked absconded. The company's registration records and all licences are struck off 6 months after licence expiry. Using a facility without a valid licence or lease draws a warning to renew within 5 working days, then a second warning within 3 working days with suspension or partial block of the facility.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ras Al Khaimah Economic Zone (RAKEZ), late renewal (RAKEZ renewal FAQ and Violations Code, CONFIRMED; amounts left out. The Violations Code PDF shows no issue date in the extracted text); https://renewalsupport.rakez.com/ ; https://rakez.com/Upload/ManageDocument/VIOLATIONS-CODE_20200408142313.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": 0,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ras Al Khaimah Economic Zone (RAKEZ), late renewal (official RAKEZ renewal FAQ: no grace period after expiry, CONFIRMED); https://renewalsupport.rakez.com/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": [
+        {
+          "after": {
+            "amount": 30,
+            "unit": "days"
+          },
+          "consequence": "On the 30th day after licence expiry, sponsored visas are marked absconded and the company and its owners are marked absconded."
+        },
+        {
+          "after": {
+            "amount": 6,
+            "unit": "months"
+          },
+          "consequence": "Registration records and all licences are struck off."
+        }
+      ],
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Ras Al Khaimah Economic Zone (RAKEZ), late renewal (RAKEZ Violations Code, CONFIRMED); https://rakez.com/Upload/ManageDocument/VIOLATIONS-CODE_20200408142313.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  }
+}

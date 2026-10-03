@@ -8,6 +8,10 @@ apps/web/.next/
 apps/web/out/
 apps/web/build/
 
+# Vite / library builds
+dist/
+coverage/
+
 # Env — NEVER commit real keys
 .env
 .env*.local

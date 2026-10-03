@@ -96,3 +96,14 @@ set `EMAIL_PROVIDER=smtp` + `SMTP_USER` + `SMTP_PASS` (App Password, not the
 login password) + `EMAIL_FROM`. Resend works too (`EMAIL_PROVIDER=resend` +
 `RESEND_API_KEY` + `EMAIL_FROM`). Days are counted in Asia/Dubai; the schedule is 30/14/7/1 days
 before the period ends, then access pauses until the renewal is paid.
+
+## 8. Portal data layer (supabase mode)
+
+The portal (`apps/portal`) reads the mock in dev by default. For real data,
+build with `VITE_DATA_MODE=supabase` plus the web app's Supabase URL and anon
+key as `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` (see
+`apps/portal/.env.example`; Railway holds the production values). The client
+shares the web app's cookie session, so same-origin serving signs it in as
+the payer with no token hand-off. Slice 1 covers companies, offices, people,
+documents, cards, history and audit; the other repos fail loudly until their
+slice lands.

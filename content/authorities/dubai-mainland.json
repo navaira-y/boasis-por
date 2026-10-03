@@ -1,0 +1,732 @@
+{
+  "id": "dubai-mainland",
+  "version": "0.1.0",
+  "identity": {
+    "name": {
+      "value": "Dubai mainland (Department of Economy and Tourism, DET)",
+      "source": "Boasis research, licence lifecycle, section 1a (Dubai (DET)); https://app.invest.dubai.ae/license/renew",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "Boasis research, licence lifecycle, section 1a (Dubai (DET)); https://app.invest.dubai.ae/license/renew",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "mainland",
+      "source": "Boasis research, licence lifecycle, section 1a (Dubai (DET)); https://app.invest.dubai.ae/license/renew",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "mohre",
+      "source": "Boasis research, mainland employee lifecycle, section 2 (work permits issued by MOHRE) and section 3 (entry permit and residence at GDRFA Dubai); https://u.ae/en/information-and-services/jobs/Sector-of-employment/employment-in-the-private-sector/work-permits ; https://www.gdrfad.gov.ae/en/services/d551ce6f-52e8-11ea-0320-0050569629e8",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Invest in Dubai (UAE PASS), DET eServices, SMS 6969 or Dubai Now; submitted by the owner or a delegated PRO",
+      "source": "Boasis research, licence lifecycle, section 1a (Submit renewal, channel CONFIRMED); https://app.invest.dubai.ae/license/renew",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "https://app.invest.dubai.ae/license/renew",
+      "source": "Boasis research, licence lifecycle, section 1a (Submit renewal); https://app.invest.dubai.ae/license/renew",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "renewalLeadDays": {
+      "value": 30,
+      "source": "Boasis research, licence lifecycle, section 1a (Submit renewal: at least 30 days early recommended; earliest window not published; timing REPORTED); https://app.invest.dubai.ae/license/renew",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "renewalChecklist": {
+      "value": [
+        "Renew the Ejari so the tenancy has at least one month left (three or more is recommended)",
+        "Clear every pending DET fine",
+        "Gather the Ejari, the memorandum of association, the partner IDs and any external approvals",
+        "Submit the renewal on Invest in Dubai (UAE PASS), DET eServices, SMS 6969 or Dubai Now, by the owner or a delegated PRO",
+        "Pay the licence, market and chamber fees",
+        "Renew the Dubai Chamber membership after the licence is renewed"
+      ],
+      "source": "Boasis research, licence lifecycle, section 1a (Ejari renewal REPORTED; Clear fines REPORTED; Submit renewal channel CONFIRMED; Chamber renewal requirement CONFIRMED). Whole list graded at its weakest item; https://stratrich.com/ae/insights/ejari-for-trade-license-renewal/ ; https://www.henryclub.ae/business-setup/dubai-trade-license-renewal-2026/ ; https://app.invest.dubai.ae/license/renew ; https://www.dubaichambers.com/en/membership-renewal",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": 30,
+        "source": "Boasis research, licence lifecycle, section 1a (Ejari renewal: Ejari must have at least 1 month left); https://stratrich.com/ae/insights/ejari-for-trade-license-renewal/",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "finesCleared": {
+        "value": true,
+        "source": "Boasis research, licence lifecycle, section 1a (Clear fines: no pending DET fines); https://www.henryclub.ae/business-setup/dubai-trade-license-renewal-2026/",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "amendmentTypes": {
+      "value": [
+        {
+          "type": "add or remove an activity",
+          "feeAed": null
+        },
+        {
+          "type": "change the trade name",
+          "feeAed": null
+        },
+        {
+          "type": "transfer shares or change a partner",
+          "feeAed": null
+        },
+        {
+          "type": "change the manager",
+          "feeAed": null
+        },
+        {
+          "type": "change the legal form",
+          "feeAed": null
+        },
+        {
+          "type": "change the address",
+          "feeAed": null
+        },
+        {
+          "type": "open a branch",
+          "feeAed": null
+        }
+      ],
+      "source": "Boasis research, licence lifecycle, section 3 (Amendments, mainland; Dubai rows). Fees are ranges or approximations in the research, so feeAed is null; the ranges are in proposedFields; https://www.shuraa.com/uae-trade-license-activity-amendment-dubai/ ; https://www.farahatco.net/blog/change-a-trade-license-name-in-the-uae/ ; https://gatestonegroup.com/blog/transferring-shares-in-a-dubai-mainland-llc-a-step-by-step-guide/ ; https://www.startdxb.ae/article/amend-dubai-trade-licence ; https://www.propartnergroup.com/blog/2023/06/how-to-convert-a-sole-establishment-to-an-llc/ ; https://www.insightadvisory.ae/insights/dubai-mainland-license-process",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (the research does not state the Dubai mainland licence term; multi-year renewal is on its least-certain list)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (the research gives a range, see licence.feeRangeAed)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [
+    {
+      "id": "gdrfa-establishment-card",
+      "name": "Immigration establishment card (GDRFA Dubai)",
+      "validityMonths": {
+        "value": 12,
+        "source": "Boasis research, mainland employee lifecycle, section 1 (Immigration establishment card: annual, REPORTED for Dubai) and Boasis research, licence lifecycle, section 2 (GDRFA Dubai card: AED 100 per year renewal, fees CONFIRMED); https://www.gdrfad.gov.ae/en/services/8b45d552-6747-11ea-0320-0050569629e8",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    },
+    {
+      "id": "e-signature-card",
+      "name": "MOHRE e-signature card (per signatory)",
+      "validityMonths": {
+        "value": 12,
+        "source": "Boasis research, licence lifecycle, section 2 (E-signature card: 1 year, REPORTED) conflicts with Boasis research, mainland employee lifecycle, section 1 (validity not published); https://mohreenquiryuae.com/mohre-e-signature-card/ ; https://connectresources.ae/e-signature-card/",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    {
+      "id": "mohre-establishment-card",
+      "name": "MOHRE establishment card (labour file)",
+      "validityMonths": {
+        "value": null,
+        "source": "not in research (validity follows the licence, see cards.mohre-establishment-card.validityRule)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    }
+  ],
+  "premises": {
+    "packageTypes": {
+      "value": [
+        "Office with an Ejari-registered lease (a flexi-desk is not accepted for the visa quota)"
+      ],
+      "source": "Boasis research, mainland employee lifecycle, section 1 (Visa quota: Ejari (Dubai); flexi-desk not accepted); https://www.creativezone.ae/dubai-visa-quota/ ; https://virtuzone.com/blog/uae-visa-quotas/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "visaQuotaRule": {
+      "value": "MOHRE e-quota computed from the licence and the premises; about 1 visa per 9 square metres (some sources say 10 to 12); no emirate publishes a ratio; a larger lease triggers a recalculation and an exceptional quota can be requested with contracts",
+      "source": "Boasis research, mainland employee lifecycle, section 1 (Visa quota REPORTED; Office-space ratio REPORTED low; Increasing quota REPORTED); https://www.creativezone.ae/dubai-visa-quota/ ; https://virtuzone.com/blog/uae-visa-quotas/ ; https://tcgt.ae/understanding-dubais-visa-quota-system/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "ejariRequired": {
+      "value": true,
+      "source": "Boasis research, mainland employee lifecycle, section 1 (Visa quota: Ejari (Dubai)) and Boasis research, licence lifecycle, section 1a (Ejari renewal before licence renewal); https://www.creativezone.ae/dubai-visa-quota/ ; https://stratrich.com/ae/insights/ejari-for-trade-license-renewal/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": 6,
+      "source": "Boasis research, mainland employee lifecycle, section 3 (Employment entry permit, Dubai: passport at least 6 months); https://www.gdrfad.gov.ae/en/services/d551ce6f-52e8-11ea-0320-0050569629e8",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "passportValidityRenewalMonths": {
+      "value": 6,
+      "source": "Boasis research, mainland employee lifecycle, section 11 (Renewals order: passport at least 6 months) and section 5 (residence issuance needs passport at least 6 months); https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, mainland employee lifecycle, section 2 (13 permit types: standard validity 2 years); https://u.ae/en/information-and-services/jobs/Sector-of-employment/employment-in-the-private-sector/work-permits",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "entryToResidencyDays": {
+      "value": 60,
+      "source": "Boasis research, mainland employee lifecycle, section 3 (Employment entry permit, Dubai: valid 60 days from entry to complete residency); https://www.gdrfad.gov.ae/en/services/d551ce6f-52e8-11ea-0320-0050569629e8",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "renewalWindowDays": {
+      "value": 30,
+      "source": "Boasis research, mainland employee lifecycle, section 5 (Renewal: early renewal 1 to 6 months ahead needs ICP permission). The 30-day window is read from that rule, not stated as a window by the research; https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e68",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "medicalRequirement": {
+      "value": "Every applicant aged 18 or over, for a new or renewed residence, at a DHA centre via Amer; the certificate is valid for three months (validity REPORTED)",
+      "source": "Boasis research, mainland employee lifecycle, section 4 (Who / where CONFIRMED; Dubai fees and certificate validity REPORTED); https://www.ehs.gov.ae/EN/services/services-directory/examination-of-medical-fitness-for-residency-visa ; https://amercenter.ae/en/amer-services/medical-application",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "insuranceRule": {
+      "value": "The employer must enrol every employee, bear the cost and not charge it back (Dubai Law 11/2013 Art 9 to 10); the policy is produced at residence issuance and renewal (Art 11(6)); for dependants the sponsor pays unless the employer chooses to",
+      "source": "Boasis research, mainland employee lifecycle, section 7 (Dubai, Law 11/2013; Dubai dependents); https://dlp.dubai.gov.ae/Legislation%20Reference/2013/Law%20No.%20(11)%20of%202013.pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": "The employee subscribes and pays (AED 5 per month with a basic salary up to AED 16,000, AED 10 above; confirmed); owners and investors are exempt (confirmed); since January 2024 the certificate is required before the labour card is issued (reported); MOHRE will not issue or renew a permit while dues or fines are outstanding (reported)",
+      "source": "Boasis research, mainland employee lifecycle, section 8 (Who CONFIRMED; Exempt CONFIRMED; New employees REPORTED; Effect on employer REPORTED); https://www.iloe.ae/ ; https://vialtopartners.com/regional-alerts/uae-immigration-iloe-registration-requirement-for-new-and-renewal-of-employment-residence-permits-in-mainland ; https://uaeproservices.com/blog/iloe-insurance-uae-rules-fines-claims/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "wagesRule": {
+      "value": "WPS applies to MOHRE-licensed establishments. Under Ministerial Resolution 340/2026 (effective 1 June 2026) wages are due on the 1st of each month for the preceding month; the former 15-day grace is gone; early payment is compliant",
+      "source": "Boasis research, mainland employee lifecycle, section 9 (Instrument CONFIRMED Art 1; Deadline CONFIRMED; Scope REPORTED); https://www.lexismiddleeast.com/law/UnitedArabEmirates/MinisterialDecision_340_2026/en ; https://www.morganlewis.com/pubs/2026/05/uae-introduces-new-wage-protection-system-resolution-effective-1-june-2026",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emiratisationInScope": {
+      "value": true,
+      "source": "Boasis research, mainland employee lifecycle, section 10 (50+ employees CONFIRMED; 20 to 49 in 14 sectors CONFIRMED); https://www.mohre.gov.ae/en/media-center/news/2/1/2024/mohre-begins-implementing-emiratisation-targets-on-over-12000-private-companies-with-20-49-employees ; https://mohre.gov.ae/en/media-center/news/6/1/2023/...",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "companyRequirements": {
+    "uboRoute": {
+      "value": "File the beneficial owner declaration within 60 days of licensing and update it within 15 days of any change (Cabinet Decision 109/2023). Where a DET company files is not in the research. A claim that 2026 mainland renewals require a UBO declaration is reported only and unverified",
+      "source": "Boasis research, licence lifecycle, section 6 (UBO, CD 109/2023 CONFIRMED) and section 1a (UBO at renewal REPORTED ONLY); https://www.uaelegislation.gov.ae/en/legislations/2314/download ; https://masdarcity.ae/docs/default-source/pdf-to-download/cd-132-2023---final-english-version-06062024-(1).pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "amlActivities": {
+      "value": [
+        "real estate",
+        "auditors and accountants",
+        "precious metals",
+        "trust and company service providers"
+      ],
+      "source": "Boasis research, licence lifecycle, section 6 (goAML (DNFBPs): register SACM then goAML); https://www.moet.gov.ae/en/registering-companies-in-goaml",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (spec section 15 lists the Commercial Companies Law article as still to be confirmed)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (the research names permits without activity codes, see companyRequirements.sectorPermitNotes)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [
+    {
+      "requirementId": "licence-renewal",
+      "steps": {
+        "value": [
+          "Owner or PRO: renew the Ejari so the tenancy has at least one month left (three or more recommended)",
+          "Owner or PRO: clear every pending DET fine on Invest in Dubai",
+          "Owner: gather the Ejari, the memorandum of association, the partner IDs and any external approvals",
+          "Owner or PRO: submit the renewal on Invest in Dubai (UAE PASS), DET eServices, SMS 6969 or Dubai Now",
+          "Owner: pay the licence, market and chamber fees",
+          "Owner or PRO: renew the Dubai Chamber membership on dubaichambers.com after the licence",
+          "Owner: upload the renewed licence to the portal"
+        ],
+        "source": "Boasis research, licence lifecycle, section 1a (Ejari renewal REPORTED; Clear fines REPORTED; Submit renewal channel CONFIRMED, timing REPORTED; Chamber renewal requirement CONFIRMED); https://stratrich.com/ae/insights/ejari-for-trade-license-renewal/ ; https://www.henryclub.ae/business-setup/dubai-trade-license-renewal-2026/ ; https://app.invest.dubai.ae/license/renew ; https://www.dubaichambers.com/en/membership-renewal",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    },
+    {
+      "requirementId": "company-cancellation",
+      "steps": {
+        "value": [
+          "Owner: check the legal form; a sole establishment or a branch needs no liquidator and a short notice; the steps below are for an LLC",
+          "Owner: pass a notarised resolution to dissolve and appoint a liquidator who is not the recent auditor (Commercial Companies Law Art 302 and 316)",
+          "Owner or PRO: register the company as under liquidation with DET",
+          "Liquidator: publish the creditor notice in two daily newspapers including one in Arabic; the law requires at least 30 days (Commercial Companies Law Art 324)",
+          "Accountant: settle every employee entitlement, then PRO: cancel all work permits and the MOHRE card; the establishment acknowledges all entitlements paid (Cabinet Resolution 1/2022 Art 7(3))",
+          "PRO: cancel residence visas, dependants first (or the AED 5,000 guarantee), then the immigration card at GDRFA",
+          "Accountant: apply for VAT deregistration within 20 business days of ceasing to be required to register",
+          "Accountant: apply for corporate tax deregistration within 3 months of cessation",
+          "Owner: obtain clearances from DEWA, telecom, customs, the landlord and the bank",
+          "Liquidator: prepare the final account and report once the notice has elapsed and debts are settled; unclaimed amounts are deposited (Commercial Companies Law Art 326 and 330)",
+          "Bank: close the account after the final settlements",
+          "Owner or PRO: obtain the cancellation from DET; the company becomes closed in the portal"
+        ],
+        "source": "Boasis research, licence lifecycle, section 4 (Cancellation / liquidation, mainland LLC: Resolution REPORTED; Register REPORTED; Creditor notice CONFIRMED; Cancel permits CONFIRMED (Sharjah); Cancel visas REPORTED; Clearances REPORTED; VAT and CT deregistration REPORTED; Final account CONFIRMED; Simplified path REPORTED; total 3 to 6 months REPORTED) and Boasis research, mainland employee lifecycle, section 12 (Permit cancellation CONFIRMED; Residency cancellation CONFIRMED); https://bcl.ae/blogs/company-liquidation-dubai/ ; https://egsh.ae/insights/close-business-in-dubai ; https://www.moet.gov.ae/documents/20121/376326/Commercial+Companies.pdf ; https://www.saifaudit.com/blog/2026/06/12/company-liquidation-dubai/ ; https://taxready.ae/vat-deregistration-uae/ ; https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    },
+    {
+      "requirementId": "licence-amendment",
+      "steps": {
+        "value": [
+          "Owner: pass the partner resolution for the change; a manager change needs the resolution, the IDs and a no-objection letter",
+          "Owner or PRO: obtain a no-objection certificate from the regulator when the activity is in a regulated sector",
+          "Owner: notarise a memorandum of association addendum when the change touches the memorandum (objects, trade name, partners, legal form); in person or by remote video with UAE PASS",
+          "Owner or PRO: for a share transfer, get DET initial approval first, then the notarised transfer and addendum, then submit for reissue",
+          "Owner or PRO: submit the amendment online at DET; activity adds, manager swaps and address changes that do not touch the memorandum are online",
+          "Owner: for an address change, register the new Ejari first",
+          "Owner: update the beneficial owner declaration within 15 days if ownership changed (Cabinet Decision 109/2023)",
+          "Owner: upload the amended licence to the portal"
+        ],
+        "source": "Boasis research, licence lifecycle, section 3 (Amendments, mainland: all Dubai rows REPORTED; the notary rule) and section 6 (UBO update within 15 days CONFIRMED); https://www.shuraa.com/uae-trade-license-activity-amendment-dubai/ ; https://www.farahatco.net/blog/change-a-trade-license-name-in-the-uae/ ; https://gatestonegroup.com/blog/transferring-shares-in-a-dubai-mainland-llc-a-step-by-step-guide/ ; https://www.startdxb.ae/article/amend-dubai-trade-licence ; https://www.propartnergroup.com/blog/2023/06/how-to-convert-a-sole-establishment-to-an-llc/ ; https://www.uaelegislation.gov.ae/en/legislations/2314/download",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    },
+    {
+      "requirementId": "visa-stages",
+      "steps": {
+        "value": [
+          "Owner or PRO: check that a visa slot exists under the MOHRE quota for the premises",
+          "Owner and person: e-sign the MOHRE standard job offer (Ministerial Decree 46/2022) before the permit application",
+          "PRO: apply for the work permit at MOHRE with the passport, photo, attested qualification for skill levels 1 to 3, the licence and the signed offer",
+          "PRO: apply for the employment entry permit at GDRFA Dubai (UAE PASS or Amer); 48 hours; passport valid at least 6 months; AED 200 plus VAT",
+          "Person: enter the country, or change status inside the country (AED 500 plus 10 plus 10 plus 15 or 50); residency must be completed within 60 days of entry",
+          "Owner: put the health insurance policy in place; it is produced at residence issuance (Dubai Law 11/2013 Art 11(6))",
+          "Person, paid by the owner: medical fitness test at a DHA centre via Amer; the certificate is valid three months",
+          "PRO: Emirates ID application and biometrics",
+          "PRO: residence permit issuance at GDRFA within 60 days of entry, with the medical, the insurance, the work permit and a passport valid at least 6 months",
+          "PRO: register the labour contract at MOHRE within 14 days of entry or status change (reported; sources differ on the trigger)",
+          "Person: subscribe to unemployment insurance (ILOE); the certificate is required before the labour card is issued (reported)"
+        ],
+        "source": "Boasis research, mainland employee lifecycle, section 1 (Visa quota REPORTED), section 2 (Job offer CONFIRMED form; Documents CONFIRMED), section 3 (Dubai entry permit and status change CONFIRMED), section 4 (Medical CONFIRMED; certificate validity REPORTED), section 5 (Residence permit CONFIRMED; Emirates ID CONFIRMED), section 6 (Registration deadline REPORTED), section 7 (Dubai Law 11/2013 CONFIRMED), section 8 (New employees REPORTED); https://u.ae/en/information-and-services/jobs/Sector-of-employment/employment-in-the-private-sector/work-permits ; https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx ; https://www.gdrfad.gov.ae/en/services/d551ce6f-52e8-11ea-0320-0050569629e8 ; https://gdrfad.gov.ae/en/services/63c69432-585e-11ea-0320-0050569629e8 ; https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64 ; https://amercenter.ae/en/amer-services/medical-application ; https://dlp.dubai.gov.ae/Legislation%20Reference/2013/Law%20No.%20(11)%20of%202013.pdf ; https://vialtopartners.com/regional-alerts/uae-immigration-iloe-registration-requirement-for-new-and-renewal-of-employment-residence-permits-in-mainland",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    },
+    {
+      "requirementId": "leaving",
+      "steps": {
+        "value": [
+          "Owner: give the notice in the contract; 30 to 90 days after probation (Art 43), 14 days from the employer during probation (Art 9)",
+          "Accountant: compute the final settlement; wages through WPS by the 1st of the month, gratuity within 14 days, permitted deductions within 3 months (Cabinet Resolution 1/2022 Art 29)",
+          "PRO: cancel the work permit at MOHRE; fines paid; the establishment acknowledges that all entitlements are paid (Art 7(3))",
+          "PRO: cancel the residence at GDRFA, dependants first or the AED 5,000 guarantee; 2 days; AED 50 plus 100",
+          "Person: leave or change status within the grace period after cancellation (30, 60, 90 or 180 days by category)"
+        ],
+        "source": "Boasis research, mainland employee lifecycle, section 6 (Probation REPORTED / CONFIRMED; Notice after probation REPORTED) and section 12 (Permit cancellation CONFIRMED; Residency cancellation CONFIRMED; Grace CONFIRMED; Gratuity REPORTED; Deductions CONFIRMED; Final settlement REPORTED); https://www.morganlewis.com/pubs/2021/12/united-arab-emirates-updates-federal-labour-law ; https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx ; https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e68",
+        "lastChecked": "2026-09-12",
+        "grade": "reported"
+      }
+    }
+  ],
+  "library": [
+    {
+      "requirementId": "licence-renewal",
+      "entryPath": "content/library/dubai-mainland/your-licence.md"
+    },
+    {
+      "requirementId": "licence-renewal",
+      "entryPath": "content/library/dubai-mainland/annual-licence-renewal.md"
+    },
+    {
+      "requirementId": "company-cancellation",
+      "entryPath": "content/library/dubai-mainland/cancelling-or-closing.md"
+    },
+    {
+      "requirementId": "licence-amendment",
+      "entryPath": "content/library/dubai-mainland/amending-a-company.md"
+    },
+    {
+      "requirementId": "office-lease-and-ejari",
+      "entryPath": "content/library/dubai-mainland/your-office.md"
+    },
+    {
+      "requirementId": "visa-stages",
+      "entryPath": "content/library/dubai-mainland/visa-obligations.md"
+    },
+    {
+      "requirementId": "labour-contract-registered",
+      "entryPath": "content/library/dubai-mainland/employment-and-labour-law.md"
+    },
+    {
+      "requirementId": "health-insurance-policy",
+      "entryPath": "content/library/dubai-mainland/health-insurance.md"
+    },
+    {
+      "requirementId": "wages",
+      "entryPath": "content/library/dubai-mainland/wages-and-wps.md"
+    },
+    {
+      "requirementId": "emiratisation-targets",
+      "entryPath": "content/library/dubai-mainland/emiratisation.md"
+    },
+    {
+      "requirementId": "corporate-tax-registration",
+      "entryPath": "content/library/dubai-mainland/corporate-tax.md"
+    },
+    {
+      "requirementId": "vat-registration",
+      "entryPath": "content/library/dubai-mainland/vat.md"
+    },
+    {
+      "requirementId": "audited-accounts",
+      "entryPath": "content/library/dubai-mainland/audited-accounts.md"
+    },
+    {
+      "requirementId": "ubo-declaration",
+      "entryPath": "content/library/dubai-mainland/ubo.md"
+    },
+    {
+      "requirementId": "aml-registration",
+      "entryPath": "content/library/dubai-mainland/aml.md"
+    },
+    {
+      "requirementId": "general-assembly",
+      "entryPath": "content/library/dubai-mainland/company-records.md"
+    },
+    {
+      "requirementId": "bank-account",
+      "entryPath": "content/library/dubai-mainland/your-bank.md"
+    },
+    {
+      "requirementId": "data-and-documents",
+      "entryPath": "content/library/dubai-mainland/data-and-documents.md"
+    },
+    {
+      "requirementId": "working-with-a-pro",
+      "entryPath": "content/library/dubai-mainland/working-with-a-pro.md"
+    },
+    {
+      "requirementId": "e-invoicing",
+      "entryPath": "content/library/dubai-mainland/e-invoicing.md"
+    },
+    {
+      "requirementId": "setting-up",
+      "entryPath": "content/library/dubai-mainland/setting-up.md"
+    }
+  ],
+  "proposedFields": {
+    "licence.feeRangeAed": {
+      "value": {
+        "min": 8000,
+        "max": 15000,
+        "covers": "licence, market and chamber fees, typical"
+      },
+      "source": "Boasis research, licence lifecycle, section 1a (Submit renewal: typ. AED 8 to 15k); https://app.invest.dubai.ae/license/renew",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "licence.chamberRenewalFeeRangeAed": {
+      "value": {
+        "min": 50,
+        "max": 2200
+      },
+      "source": "Boasis research, licence lifecycle, section 1a (Chamber renewal) and section 6 (Dubai Chamber); https://www.dubaichambers.com/en/membership-renewal",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "licence.chamberMembershipRequired": {
+      "value": true,
+      "source": "Boasis research, licence lifecycle, section 6 (Dubai Chamber: mandatory for DET commercial and industrial licences); https://www.dubaichambers.com/en/membership-renewal",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "licence.amendmentFeeNotes": {
+      "value": {
+        "add or remove an activity": "from about AED 500; 1 to 3 days; NOC for regulated sectors; notarised addendum only if the objects change",
+        "change the trade name": "about AED 2,000 to 6,000; reserve the name; notarised addendum",
+        "transfer shares or change a partner": "government about AED 1,500 to 5,000 plus notary 0.25 percent",
+        "change the manager": "1 to 3 days; addendum only if the manager is named in the memorandum",
+        "change the legal form": "new memorandum notarised; about 1 month",
+        "change the address": "new Ejari; online",
+        "open a branch": "separate Ejari; DET approval; 3 to 4 weeks (thin source)"
+      },
+      "source": "Boasis research, licence lifecycle, section 3 (Amendments, mainland; Dubai rows, all REPORTED); https://www.shuraa.com/uae-trade-license-activity-amendment-dubai/ ; https://www.farahatco.net/blog/change-a-trade-license-name-in-the-uae/ ; https://gatestonegroup.com/blog/transferring-shares-in-a-dubai-mainland-llc-a-step-by-step-guide/ ; https://www.startdxb.ae/article/amend-dubai-trade-licence ; https://www.propartnergroup.com/blog/2023/06/how-to-convert-a-sole-establishment-to-an-llc/ ; https://www.insightadvisory.ae/insights/dubai-mainland-license-process",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "licence.creditorNoticeMinDays": {
+      "value": 30,
+      "source": "Boasis research, licence lifecycle, section 4 (Creditor notice: law at least 30 days, CCL Art 324); https://www.moet.gov.ae/documents/20121/376326/Commercial+Companies.pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "licence.cancellationDurationMonths": {
+      "value": {
+        "min": 3,
+        "max": 6
+      },
+      "source": "Boasis research, licence lifecycle, section 4 (Total 3 to 6 months mainland LLC)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "licence.lateRenewalConsequences": {
+      "value": "MOHRE freezes permits, GDRFA blocks renewals, bank restrictions, strike-off after about 90 days",
+      "source": "Boasis research, licence lifecycle, section 1a (Consequences); https://ifza.com/en/missed-trade-license-renewal-uae/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "cards.gdrfa-establishment-card.feesAed": {
+      "value": {
+        "issue": "200 plus VAT",
+        "renewal": 100,
+        "addOns": "10 plus 10, 100 urgent, 100 Amer"
+      },
+      "source": "Boasis research, licence lifecycle, section 2 (GDRFA Dubai card, fees CONFIRMED); https://www.gdrfad.gov.ae/en/services/8b45d552-6747-11ea-0320-0050569629e8",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "cards.mohre-establishment-card.validityRule": {
+      "value": "Follows the licence; needs the licence, the ICP or GDRFA card, the lease and the owners MOHRE IDs; free via the MOHRE site (business-centre commission up to AED 72); 2 days",
+      "source": "Boasis research, licence lifecycle, section 2 (MOHRE establishment card CONFIRMED) and Boasis research, mainland employee lifecycle, section 1 (MOHRE company card CONFIRMED); https://www.mohre.gov.ae/en/services/issuance-of-establishment-card-2022",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "premises.visaPerSquareMetre": {
+      "value": 9,
+      "source": "Boasis research, mainland employee lifecycle, section 1 (Office-space ratio: about 1 visa per 9 sqm, some say 10 to 12; REPORTED low); https://virtuzone.com/blog/uae-visa-quotas/ ; https://tcgt.ae/understanding-dubais-visa-quota-system/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.workPermitFeeRangeAed": {
+      "value": {
+        "min": 250,
+        "max": 3450,
+        "note": "by company classification category, 2-year permit"
+      },
+      "source": "Boasis research, mainland employee lifecycle, section 2 (13 permit types: fee AED 250 to 3,450; range CONFIRMED, tiers REPORTED); https://u.ae/en/information-and-services/jobs/Sector-of-employment/employment-in-the-private-sector/work-permits",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.residenceValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, mainland employee lifecycle, section 5 (Validity: 1, 2 or 3 years CONFIRMED; 2 years in mainland practice REPORTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.medicalCertificateValidityMonths": {
+      "value": 3,
+      "source": "Boasis research, mainland employee lifecycle, section 4 (Dubai fees: certificate valid 3 months); https://amercenter.ae/en/amer-services/medical-application",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.labourContractRegistrationDays": {
+      "value": 14,
+      "source": "Boasis research, mainland employee lifecycle, section 6 (Registration deadline: 14 days; sources differ on the trigger); https://egsh.ae/insights/labour-contract-uae-mohre ; https://www.uaeexperthub.com/mohre-labour-contract-registration/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.workPermitRenewalGraceDays": {
+      "value": 60,
+      "source": "Boasis research, mainland employee lifecycle, section 2 (Late issuance / renewal: 60-day grace); https://gulfnews.com/living-in-uae/ask-us/uae-labour-law-work-permit-not-renewed-the-company-faces-a-fine-of-dh200-per-month-1.1650033160744",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.emiratisationRule": {
+      "value": "50 or more employees: 2 percentage points a year in skilled jobs (1 percent by 30 June and 1 percent by 31 December is reported), 10 percent by end 2026. 20 to 49 employees in the 14 listed sectors: one Emirati in 2024, two in 2025.",
+      "source": "Boasis research, mainland employee lifecycle, section 10 (50+ employees CONFIRMED, half-year split REPORTED; 20 to 49 in 14 sectors CONFIRMED); https://www.mohre.gov.ae/en/media-center/news/2/1/2024/mohre-begins-implementing-emiratisation-targets-on-over-12000-private-companies-with-20-49-employees ; https://mohre.gov.ae/en/media-center/news/6/1/2023/...",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.wpsThresholdPercent": {
+      "value": 85,
+      "source": "Boasis research, mainland employee lifecycle, section 9 (Threshold: at least 85 percent of wages due paid on time, REPORTED); https://www.morganlewis.com/pubs/2026/05/uae-introduces-new-wage-protection-system-resolution-effective-1-june-2026",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "companyRequirements.sectorPermitNotes": {
+      "value": "Dubai Municipality signboard permit renewed yearly with the licence; food activities need HACCP and Civil Defence approvals; Civil Defence approval is yearly for many activities. No activity codes in the research.",
+      "source": "Boasis research, licence lifecycle, section 6 (Dubai Municipality permits REPORTED; Civil Defence REPORTED thin); https://www.dm.gov.ae/wp-content/uploads/2020/07/Food-Related-Permits-and-Approvals-Services.pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "companyRequirements.delegatingAPro": {
+      "value": "The owner logs in, opens My Company, Manage Users, and adds the PRO by Emirates ID (MoEI pattern); MOHRE transactions need an authorised signatory with an e-signature card; GDRFA Dubai works through Amer centres",
+      "source": "Boasis research, licence lifecycle, section 7 (Delegating a PRO CONFIRMED (MoEI); MOHRE CONFIRMED / REPORTED; GDRFA Dubai CONFIRMED); https://www.moei.gov.ae/assets/download/7f5dee18/User%20Guide%20EN-Add%20PROs%20by%20owner.pdf.aspx",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.corporateTaxRegistrationRule": {
+      "value": "Register within 3 months of incorporation, free zones included (FTA Decision 3/2024). Natural persons with business turnover above AED 1m register by 31 March of the following year. First-return waiver applies if the first return is filed within 7 months of the first period end.",
+      "source": "Boasis research, licence lifecycle, section 6 (CT registration); https://tax.gov.ae/Datafolder/Files/Legislation/FTA%20Decision%20No.%203%20of%202024%20on%20Registration%20Timeline%20for%20Corporate%20Tax%20-%20For%20publishing.pdf ; https://tax.gov.ae/en/services/corporate.tax.registration.aspx",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.corporateTaxReturnMonthsAfterPeriodEnd": {
+      "value": 9,
+      "source": "Boasis research, portal boundary and market, section 6 (Corporate tax return, FTA guide CTGTXR1 Nov 2024)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.corporateTaxSmallBusinessReliefRevenueCapAed": {
+      "value": 3000000,
+      "source": "Boasis research, portal boundary and market, section 6 (Corporate tax return, Small Business Relief up to AED 3m)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.auditedStatementsForCorporateTaxRule": {
+      "value": "Audited financial statements are required for corporate tax if revenue is above AED 50m or the company claims the qualifying free zone person regime.",
+      "source": "Boasis research, portal boundary and market, section 6 (Corporate tax return)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.vatRegistrationRule": {
+      "value": "Mandatory above AED 375,000 taxable turnover; voluntary above AED 187,500 (thresholds confirmed). Apply within 30 days of crossing (reported).",
+      "source": "Boasis research, licence lifecycle, section 6 (VAT registration); https://tax.gov.ae/Datafolder/Files/Pdf/2023/Knowledge%20Center%20Page/vat1-vat-registration-threshold-en.pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.vatRegistrationApplyWithinDays": {
+      "value": 30,
+      "source": "Boasis research, licence lifecycle, section 6 (VAT registration, 30 days REPORTED); https://tax.gov.ae/Datafolder/Files/Pdf/2023/Knowledge%20Center%20Page/vat1-vat-registration-threshold-en.pdf",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "companyRequirements.vatDeregistrationBusinessDays": {
+      "value": 20,
+      "source": "Boasis research, licence lifecycle, section 4 (VAT deregistration); https://taxready.ae/vat-deregistration-uae/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "companyRequirements.corporateTaxDeregistrationMonths": {
+      "value": 3,
+      "source": "Boasis research, licence lifecycle, section 4 (CT deregistration); https://www.saifaudit.com/blog/2026/06/12/company-liquidation-dubai/",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "companyRequirements.uboFilingDaysAfterLicensing": {
+      "value": 60,
+      "source": "Boasis research, licence lifecycle, section 6 (UBO, CD 109/2023); https://www.uaelegislation.gov.ae/en/legislations/2314/download",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.uboUpdateDaysAfterChange": {
+      "value": 15,
+      "source": "Boasis research, licence lifecycle, section 6 (UBO, CD 109/2023); https://www.uaelegislation.gov.ae/en/legislations/2314/download",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "companyRequirements.eInvoicingRule": {
+      "value": "Go-live 1 January 2027 for revenue of AED 50m or more; an accredited service provider must be appointed by 30 October 2026.",
+      "source": "Boasis research, portal boundary and market, section 6 (E-invoicing ASPs, MoF list; dates REPORTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.absenceAbroadLapseDays": {
+      "value": 180,
+      "source": "Boasis research, mainland employee lifecycle, section 5 (180-day absence, u.ae)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.residencyGraceDaysByCategory": {
+      "value": "30, 60, 90 or 180 days after expiry or cancellation depending on category",
+      "source": "Boasis research, mainland employee lifecycle, section 11 (Renewals) and section 12 (Grace); https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e68",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.earlyRenewalRule": {
+      "value": "Renewing a residence 1 to 6 months ahead of expiry needs ICP permission.",
+      "source": "Boasis research, mainland employee lifecycle, section 5 (Renewal); https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e68",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "people.probationMaxMonths": {
+      "value": 6,
+      "source": "Boasis research, mainland employee lifecycle, section 6 (Probation, Cabinet Resolution 1/2022 Art 9); https://www.morganlewis.com/pubs/2021/12/united-arab-emirates-updates-federal-labour-law ; https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.gratuityRule": {
+      "value": "After 1 year of service: 21 days of basic wage per year for the first 5 years, 30 days after; on the last basic wage; capped at 2 years of wage; paid within 14 days of leaving.",
+      "source": "Boasis research, mainland employee lifecycle, section 12 (Gratuity, Art 51 and 53); https://www.morganlewis.com/pubs/2021/12/united-arab-emirates-updates-federal-labour-law",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "people.finalDeductionsWithinMonths": {
+      "value": 3,
+      "source": "Boasis research, mainland employee lifecycle, section 12 (Deductions, Cabinet Resolution 1/2022 Art 29); https://www.mohre.gov.ae/assets/download/46bdbfda/Cabinet%20Resolution%20_Executive%20Regulations%20Decree-Law%20No.%2033.pdf.aspx",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  }
+}

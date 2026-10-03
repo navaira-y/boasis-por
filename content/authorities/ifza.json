@@ -1,0 +1,291 @@
+{
+  "id": "ifza",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "IFZA",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"IFZA\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "emirate": {
+      "value": "Dubai",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"IFZA\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "Boasis research, free zones per authority, Dubai zones, section \"IFZA\" (not on the u.ae free zone list)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Dubai zones, IFZA, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "IFZA sponsors; GDRFA/ICP issue; all applications go through IFZA-registered partners on the Partner Portal; licensees have no direct login",
+      "source": "Boasis research, free zones per authority, Dubai zones, IFZA, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "Partner Portal (ifza.com), registered partners only",
+      "source": "Boasis research, free zones per authority, Dubai zones, IFZA, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": "Grace period, then monthly penalties (amounts not published)",
+      "source": "Boasis research, licence lifecycle, section 5 (Free zone pattern, Late ladder, IFZA, CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Allocation 0 to 6; 4 or more requires an office; upgrade fees 1 to 2 AED 2,000, 1 to 6 AED 10,000",
+      "source": "Boasis research, free zones per authority, Dubai zones, IFZA, item 6 (upgrade fees REPORTED, lower grade taken)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Dubai zones, IFZA, item 7 (1 to 3 years per the zone guide; 2 years REPORTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Employer-provided, a visa condition; IFZA Life sells packages",
+      "source": "Boasis research, free zones per authority, Dubai zones, IFZA, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": "Employees must subscribe since 3 May 2023 via the \"Non-Registered in MOHRE\" category; AED 400 fine (zone page)",
+      "source": "Boasis research, free zones per authority, Dubai zones, IFZA, item 4 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Dubai zones, IFZA, item 3 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Dubai zones, IFZA does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), IFZA, lease (consultancies only say the flexi desk or business address lease must be active at renewal; no official source found; consultancy URLs not recorded in the research); https://ifza.com/wp-content/uploads/2024/03/how-to-renew-your-general-trading-license-with-ifza-official-guide.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), IFZA, lease (unknown: no official source found); https://ifza.com/wp-content/uploads/2024/03/how-to-renew-your-general-trading-license-with-ifza-official-guide.pdf ; https://cdn.ifza.com/marketing/FAQs%20Update_.pdf ; https://ifza.com/en/missed-trade-license-renewal-uae/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "On or before the expiry date. No official advance window found (unknown).",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), IFZA, renewal window (official IFZA renewal guide, CONFIRMED. Not verified, REPORTED only: one consultancy says the portal accepts applications from 90 days before expiry); https://ifza.com/wp-content/uploads/2024/03/how-to-renew-your-general-trading-license-with-ifza-official-guide.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "Financial statements are submitted with the renewal, with three months allowed after financial year end to prepare them. Third party approvals must be in place before a regulated licence is issued. Signatory DocuSign or e-legal confirmation is needed if it was not done in the first 12 months. Lease: unknown.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), IFZA, renews together (official IFZA renewal guide, CONFIRMED. REPORTED only: consultancies say the renewal quotation covers licence registration, establishment card renewal and the commercial licence fee); https://ifza.com/wp-content/uploads/2024/03/how-to-renew-your-general-trading-license-with-ifza-official-guide.pdf ; https://cdn.ifza.com/marketing/FAQs%20Update_.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "An expired licence cannot be used to trade, banks may suspend accounts, and fines may be imposed. Amendments cannot be made on an expired licence. A grace period exists but its length is not given, and portals are blocked once it ends. If not renewed, the licence may be struck off the register and visas may be cancelled or marked absconding. No official day thresholds found.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), IFZA, late renewal (official IFZA guide and IFZA article on missed renewal, CONFIRMED; consistent with the existing licence.lateRenewalFine value); https://ifza.com/wp-content/uploads/2024/03/how-to-renew-your-general-trading-license-with-ifza-official-guide.pdf ; https://ifza.com/en/missed-trade-license-renewal-uae/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), IFZA, late renewal (IFZA says a grace period exists without a length; consultancies conflict (30 days, or no grace period)); https://ifza.com/en/missed-trade-license-renewal-uae/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), IFZA, late renewal (no official day thresholds found); https://ifza.com/en/missed-trade-license-renewal-uae/",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

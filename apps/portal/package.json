@@ -16,6 +16,8 @@
     "@boasis/assistant": "0.1.0",
     "@boasis/rules": "0.1.0",
     "@boasis/schema": "0.1.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.2",
     "@tanstack/react-query": "^5.102.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

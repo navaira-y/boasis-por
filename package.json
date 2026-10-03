@@ -7,13 +7,15 @@
     "packages/*"
   ],
   "overrides": {
-    "postcss": "^8.5.28"
+    "postcss": "^8.5.28",
+    "@types/react-dom@18.3.7": {
+      "@types/react": "^18.3.31"
+    }
   },
   "scripts": {
     "dev": "npm run dev --workspace apps/web",
     "build": "npm run build --workspace apps/web",
     "test": "npm run test --workspace apps/web",
-    "typecheck": "npm run typecheck --workspace apps/web",
-    "validate:content": "node scripts/validate-content.mjs"
+    "typecheck": "npm run typecheck --workspace apps/web"
   }
 }

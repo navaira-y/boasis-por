@@ -1,0 +1,313 @@
+{
+  "id": "shams",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Sharjah Media City (Shams)",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Sharjah",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Sharjah",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Zone sponsors under an Employee Sponsorship Agreement (SHAMS Employment Regulations 2023, Reg 14.1); customer portal with email and OTP; ICP Sharjah; no PRO scheme published",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "SHAMS customer portal (shams.ae)",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Up to 50 per licence; over 10 needs a business plan and bank statements; upgrade via the portal",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 7 (REPORTED 2 years)",
+      "lastChecked": "2026-09-12",
+      "grade": "reported"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": "Medical at any EHS/MOHAP centre",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 7 (CONFIRMED sequence)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "insuranceRule": {
+      "value": "Employer bears permit and medical costs (Reg 5.1); insurance step before residency (FAQ)",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": "Wages in AED; pay period up to 1 month; paid within 7 days of period end; itemised statement (SHAMS Employment Regulations 2023)",
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City), item 3 (no WPS clause in the regulations; fit.ae reports SHAMS on WPS: CONTESTED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Sharjah zones, SHAMS (Sharjah Media City) does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Sharjah Media City (Shams), lease (consultancies say an updated lease is needed at renewal, REPORTED; no official source for the lease or flexi desk); https://nowconsultant.com/shams-license-renewal/",
+      "lastChecked": "2026-09-28",
+      "grade": "reported"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Sharjah Media City (Shams), lease (unknown; no 90 day lease rule found); https://www.shams.ae/hubfs/Regulations%2020250429/Regulations/Shams%20Companies%20and%20Licensing%20Regulations%202017.pdf?hsLang=ar",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Renew before the current term expires. No earlier window is stated in an official source.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Sharjah Media City (Shams), renewal window (Shams Companies and Licensing Regulations 2017 art. 12.1, CONFIRMED. Advice, not a rule: consultancies suggest starting 30 to 45 days before expiry); https://www.shams.ae/hubfs/Regulations%2020250429/Regulations/Shams%20Companies%20and%20Licensing%20Regulations%202017.pdf?hsLang=ar ; https://nowconsultant.com/shams-license-renewal/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "Visa allocations must be renewed together with the business licence at licence renewal. Lease or flexi desk renewal: unknown from an official source.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Sharjah Media City (Shams), renews together (official terms on shamsfz.ae, which shams.ae links to, CONFIRMED); https://shamsfz.ae/terms-and-conditions/ ; https://www.shams.ae/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "A 30 day grace period from licence expiry, then a monthly late penalty accrues until the licence is renewed or cancelled. The Authority may issue a legal notice 6 months after expiry, suspend the company 7 months after expiry, and cancel the immigration card and visas. The Authority may also suspend or cancel for unpaid renewal fees, with written notice.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Sharjah Media City (Shams), late renewal (official terms on shamsfz.ae and Companies and Licensing Regulations 2017 art. 13.2, CONFIRMED; amounts left out); https://shamsfz.ae/terms-and-conditions/ ; https://www.shams.ae/hubfs/Regulations%2020250429/Regulations/Shams%20Companies%20and%20Licensing%20Regulations%202017.pdf?hsLang=ar",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": 30,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Sharjah Media City (Shams), late renewal (official terms on shamsfz.ae: 30 day grace period from licence expiry, CONFIRMED); https://shamsfz.ae/terms-and-conditions/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": [
+        {
+          "after": {
+            "amount": 30,
+            "unit": "days"
+          },
+          "consequence": "Grace period ends; a monthly late penalty accrues until the licence is renewed or cancelled."
+        },
+        {
+          "after": {
+            "amount": 6,
+            "unit": "months"
+          },
+          "consequence": "The Authority may issue a legal notice."
+        },
+        {
+          "after": {
+            "amount": 7,
+            "unit": "months"
+          },
+          "consequence": "The Authority may suspend the company and cancel the immigration card and visas."
+        }
+      ],
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Sharjah Media City (Shams), late renewal (official terms on shamsfz.ae, CONFIRMED; amounts left out); https://shamsfz.ae/terms-and-conditions/",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "id": "adgm",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Abu Dhabi Global Market (ADGM)",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Abu Dhabi",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Abu Dhabi",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "ADGM Registration Authority issues the work permit; residency via ICP on ADGM’s e-channels; establishment card from GDRFA Abu Dhabi; ACCESSADGM with a company admin plus delegated users approved by ADGM; UAE Pass optional; external PRO not published",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "ACCESSADGM (adgm.com)",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [
+    {
+      "id": "gdrfa-establishment-card",
+      "name": "Immigration establishment card (GDRFA Abu Dhabi)",
+      "validityMonths": {
+        "value": 36,
+        "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 1 (CONFIRMED, 3 years); fee AED 1,127.27 per item 8 (CONFIRMED)",
+        "lastChecked": "2026-09-12",
+        "grade": "confirmed"
+      }
+    }
+  ],
+  "premises": {
+    "packageTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "Business centre 2 per desk (3 innovation); leased space 8 sqm per visa (6 retail, 20 hotel); kiosks 3",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 7 (CONFIRMED but two values: 1 or 2 years per the fee schedule, 1 or 3 per the work permit guide; not written as one number)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Employer obtains cover per DoH (Employment Regulations 2024, s.49); insurance card uploaded before the e-visa",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": "ILOE not mandatory in ADGM (EAO FAQ)",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 4 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wagesRule": {
+      "value": "No WPS (EAO FAQ); pay within 14 days of period end (ADGM Employment Regulations 2024, s.12); 21 days on termination (s.14)",
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 3 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "wpsApplies": {
+      "value": false,
+      "source": "Boasis research, free zones per authority, Abu Dhabi zones, ADGM, item 3 (CONFIRMED, no WPS per EAO FAQ)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Abu Dhabi zones, ADGM does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Abu Dhabi Global Market (ADGM), lease (ADGM Registration Authority renewal guidance (Ver4.1, 2019): the application must include a valid Certificate of Registration of Lease, or a consent letter for entities sharing an office with a service provider, holding company or parent, CONFIRMED); https://www.adgm.com/documents/operating-in-adgm/ongoing-obligation/commercial-licensing/guidance-notes/registration-authority-commercial-license-renewal-guidance.pdf ; https://assets.adgm.com/download/assets/LicenseRenewalGuideUpdated+v41.pdf/158ebf625b9d11ef9a39e6f760e2c825",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Abu Dhabi Global Market (ADGM), lease (no minimum remaining term found in the official guidance; no 90 day rule); https://www.adgm.com/documents/operating-in-adgm/ongoing-obligation/commercial-licensing/guidance-notes/registration-authority-commercial-license-renewal-guidance.pdf ; https://assets.adgm.com/download/assets/LicenseRenewalGuideUpdated+v41.pdf/158ebf625b9d11ef9a39e6f760e2c825",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "The commercial licence must be renewed every year on the entity's registration anniversary. No early renewal window is stated.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Abu Dhabi Global Market (ADGM), renewal window (official ADGM renewal guidance, CONFIRMED); https://www.adgm.com/documents/operating-in-adgm/ongoing-obligation/commercial-licensing/guidance-notes/registration-authority-commercial-license-renewal-guidance.pdf ; https://assets.adgm.com/download/assets/LicenseRenewalGuideUpdated+v41.pdf/158ebf625b9d11ef9a39e6f760e2c825",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "A valid registered lease (Certificate of Registration of Lease) or a consent letter is uploaded with the renewal application. No official statement found about the establishment card or insurance renewing at the same time.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Abu Dhabi Global Market (ADGM), renews together (official ADGM renewal guidance, CONFIRMED); https://www.adgm.com/documents/operating-in-adgm/ongoing-obligation/commercial-licensing/guidance-notes/registration-authority-commercial-license-renewal-guidance.pdf ; https://assets.adgm.com/download/assets/LicenseRenewalGuideUpdated+v41.pdf/158ebf625b9d11ef9a39e6f760e2c825",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "Late commercial licence renewal draws a monthly late fee, capped at three months. Unpaid fees lead to suspension of access to certain Registrar services (certificates and documents) after 30 days. The Registrar can suspend or withdraw a licence and can strike off an entity. No day threshold for strike-off or deregistration after non-renewal was found.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Abu Dhabi Global Market (ADGM), late renewal (ADGM late filings page and renewal guidance, CONFIRMED; amounts left out. REPORTED only: a one month grace period after expiry with no late fee appears in an ADGM consultation announcement through a search summary; the page opened did not show that wording); https://www.adgm.com/operating-in-adgm/monitoring-and-enforcement/late-filings-to-the-registrar ; https://www.adgm.com/documents/operating-in-adgm/ongoing-obligation/commercial-licensing/guidance-notes/registration-authority-commercial-license-renewal-guidance.pdf ; https://www.adgm.com/media/announcements/abu-dhabi-global-market-issues-public-consultation-on-guidance-regarding-commercial-licence-renewal",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Abu Dhabi Global Market (ADGM), late renewal (a one month grace period is REPORTED only, from a search summary of an ADGM consultation announcement; exact current wording unverified); https://www.adgm.com/media/announcements/abu-dhabi-global-market-issues-public-consultation-on-guidance-regarding-commercial-licence-renewal",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Abu Dhabi Global Market (ADGM), late renewal (no day threshold for strike-off or deregistration after non-renewal found); https://www.adgm.com/operating-in-adgm/monitoring-and-enforcement/late-filings-to-the-registrar ; https://www.adgm.com/documents/operating-in-adgm/ongoing-obligation/commercial-licensing/guidance-notes/registration-authority-commercial-license-renewal-guidance.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  }
+}

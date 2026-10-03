@@ -1,0 +1,104 @@
+{
+  "version": "0.1.0",
+  "ubo": {
+    "declarationDays": {
+      "value": 60,
+      "source": "Cabinet Decision No. 109 of 2023 on beneficial owner procedures, https://www.uaelegislation.gov.ae/en/legislations/2314/download ; Boasis research, licence lifecycle, sections 1a and 6 (content/library/dubai-mainland/ubo.md): the declaration within 60 days of licensing",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "updateDays": {
+      "value": 15,
+      "source": "Cabinet Decision No. 109 of 2023 on beneficial owner procedures, https://www.uaelegislation.gov.ae/en/legislations/2314/download ; Boasis research, licence lifecycle, sections 1a and 6 (content/library/dubai-mainland/ubo.md): each change filed within 15 days",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "corporateTax": {
+    "registrationTimelineFrom": {
+      "value": "2024-03-01",
+      "source": "FTA Decision No. 3 of 2024 on the registration timeline for corporate tax, https://tax.gov.ae/Datafolder/Files/Legislation/FTA%20Decision%20No.%203%20of%202024%20on%20Registration%20Timeline%20for%20Corporate%20Tax%20-%20For%20publishing.pdf and https://tax.gov.ae/en/media.centre/news/federal.tax.authority.issues.new.decision.on.specified.timeframes.for.corporate.tax.registration.aspx : a juridical person incorporated on or after 1 March 2024 registers within 3 months of incorporation; the deadlines for persons incorporated before that day all fell in 2024",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "registrationMonths": {
+      "value": 3,
+      "source": "FTA Decision No. 3 of 2024 on the registration timeline for corporate tax, https://tax.gov.ae/Datafolder/Files/Legislation/FTA%20Decision%20No.%203%20of%202024%20on%20Registration%20Timeline%20for%20Corporate%20Tax%20-%20For%20publishing.pdf and https://tax.gov.ae/en/media.centre/news/federal.tax.authority.issues.new.decision.on.specified.timeframes.for.corporate.tax.registration.aspx",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "returnMonths": {
+      "value": 9,
+      "source": "FTA news, returns and payment within nine months from the end of the tax period, https://tax.gov.ae/en/media.centre/News/federal.tax.authority.urges.submission.of.corporate.tax.returns.and.settlement.of.corporate.tax.liabilities.within.nine.months.from.the.end.of.the.tax.period.aspx ; first tax period of 6 to 18 months, FTA Public Clarification CTP003, https://tax.gov.ae/en/media.centre/news/Corporate.Tax.Public.Clarification.on.the.First.Tax.Period.aspx",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "firstTaxPeriodMonths": {
+      "value": {
+        "min": 6,
+        "max": 18
+      },
+      "source": "FTA Public Clarification CTP003 on the first tax period, https://tax.gov.ae/en/media.centre/news/Corporate.Tax.Public.Clarification.on.the.First.Tax.Period.aspx : a juridical person's first tax period is its first financial year, which can run from 6 to 18 months from incorporation (onboarding v2 section I, confirmed)",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "lateRegistrationConsequence": {
+      "value": "A late registration penalty applies.",
+      "source": "FTA waiver of penalties page, https://tax.gov.ae/en/about.fta/waiver.of.penalties.aspx , and FTA news of 14 May 2026, https://tax.gov.ae/en/media.centre/news/fta.expects.number.of.beneficiaries.from.corporate.tax.late.registration.penalty.waiver.initiative.to.rise.to.91000.aspx : an administrative penalty applies for registering for corporate tax late (onboarding v2 section 8, FTA confirmed). The amount is left out by design.",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "qfzpAuditedAccounts": {
+      "value": true,
+      "source": "Ministerial Decision No. 84 of 2025 on audited financial statements, https://mof.gov.ae/wp-content/uploads/2025/04/Ministerial-Decision-No.-84-of-2025-on-Audited-Financial-Statements.pdf : every Qualifying Free Zone Person prepares audited financial statements (onboarding v2 section I, confirmed). The audit due date is not sourced yet.",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "lateRegistrationWaiver": {
+      "value": null,
+      "source": "Unverified, not a live rule. FTA waiver page https://tax.gov.ae/en/about.fta/waiver.of.penalties.aspx and FTA news of 14 May 2026 https://tax.gov.ae/en/media.centre/news/fta.expects.number.of.beneficiaries.from.corporate.tax.late.registration.penalty.waiver.initiative.to.rise.to.91000.aspx describe a waiver when the first return is filed within 7 months of the end of the first tax period; whether it is still in force in September 2026 is unverified. Recheck before launch.",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  },
+  "vat": {
+    "mandatoryThresholdAed": {
+      "value": 375000,
+      "source": "FTA VAT registration page, https://tax.gov.ae/en/taxes/Vat/vat.topics/registration.for.vat.aspx : mandatory when taxable supplies and imports passed AED 375,000 over the previous 12 months, or are expected to pass it in the next 30 days",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "voluntaryThresholdAed": {
+      "value": 187500,
+      "source": "FTA VAT registration page, https://tax.gov.ae/en/taxes/Vat/vat.topics/registration.for.vat.aspx : voluntary above AED 187,500",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "expectedWithinDays": {
+      "value": 30,
+      "source": "FTA VAT registration page, https://tax.gov.ae/en/taxes/Vat/vat.topics/registration.for.vat.aspx : expected to pass the mandatory threshold in the next 30 days",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "returnDays": {
+      "value": 28,
+      "source": "Federal Decree-Law No. 8 of 2017, Art. 64, via u.ae, https://u.ae/en/information-and-services/finance-and-investment/taxation/vat/filing-a-tax-return-for-vat : the return and payment are due by the 28th day after the tax period ends",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "applicationWindowDays": {
+      "value": null,
+      "source": "Unverified at article level, not a live rule. VAT Executive Regulation, https://tax.gov.ae/Datafolder/Files/Legislation/Executive%20Regulation%20of%20Federal%20Decree%20Law%20No%208%20of%202017%20-%20Publish%20-%2004%2010%202024.pdf , is said to give 30 days to apply after the threshold is passed; the article text was not read",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    }
+  },
+  "passport": {
+    "residenceRenewalMonths": {
+      "value": 6,
+      "source": "ICP residence renewal service, https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e66 : passport valid for no less than 6 months",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "id": "uaq-free-trade-zone",
+  "version": "0.0.1",
+  "identity": {
+    "name": {
+      "value": "Umm Al Quwain Free Trade Zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Umm Al Quwain",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "emirate": {
+      "value": "Umm Al Quwain",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Umm Al Quwain",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "type": {
+      "value": "free-zone",
+      "source": "https://u.ae/en/information-and-services/business/Doing-business/doing-business-in-free-zones/starting-a-business-in-a-free-zone (section \"Authorities regulating free zone activities\", updated 06 May 2026; the address https://u.ae/en/information-and-services/business/free-zones named in the brief now returns 404), listed under Umm Al Quwain",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "visaSponsor": {
+      "value": "zone",
+      "source": "Boasis research, free zones per authority, Federal baseline (free-zone employees are sponsored by the zone authority, work permit and residence applied with the respective free zone authority, u.ae CONFIRMED); Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 1",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "submissionChannel": {
+      "value": "Zone sponsors; own visa portal and AMAAL services portal; login method not published",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 1 and 9 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "portalAddress": {
+      "value": "UAQ FTZ visa portal and AMAAL services portal (uaqftz.gov.ae)",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 1 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    }
+  },
+  "licence": {
+    "validityMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalLeadDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalChecklist": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "prerequisites": {
+      "leaseMinimumRemainingDays": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "auditRequired": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      },
+      "finesCleared": {
+        "value": null,
+        "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+        "lastChecked": "2026-09-12",
+        "grade": "unclear"
+      }
+    },
+    "fees": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "lateRenewalFine": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesInsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "cancellationFeesOutsideWindow": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amendmentTypes": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "cards": [],
+  "premises": {
+    "packageTypes": {
+      "value": ["START", "LYTE"],
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "termFollowsLicence": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "visaQuotaRule": {
+      "value": "START (AED 12,500) includes 1 investor visa; LYTE (AED 5,500) none; more with an office",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 6 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "ejariRequired": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "people": {
+    "passportValidityNewMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "passportValidityRenewalMonths": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "permitValidityMonths": {
+      "value": 24,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 7 (official page says all visas two-year validity, a zone blog says up to 3; CONFIRMED/inconsistent)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "entryToResidencyDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "renewalWindowDays": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "medicalRequirement": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "insuranceRule": {
+      "value": "Basic insurance bundled in the packages",
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 5 (CONFIRMED)",
+      "lastChecked": "2026-09-12",
+      "grade": "confirmed"
+    },
+    "unemploymentInsuranceRule": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 4 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wagesRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "wpsApplies": {
+      "value": null,
+      "source": "Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ, item 3 (NOT PUBLISHED)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "emiratisationInScope": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "companyRequirements": {
+    "auditRequiredForRenewal": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "generalAssemblyRule": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "uboRoute": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "amlActivities": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    },
+    "sectorPermits": {
+      "value": null,
+      "source": "not in research (Boasis research, free zones per authority, Northern Emirates zones, UAQ FTZ does not state it)",
+      "lastChecked": "2026-09-12",
+      "grade": "unclear"
+    }
+  },
+  "playbooks": [],
+  "library": [],
+  "proposedFields": {
+    "licence.leaseMustBeValidToRenew": {
+      "value": true,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Umm Al Quwain Free Trade Zone (UAQ FTZ), lease (UAQ FTZ Regulations (March 2015) 5.4 and 6.4(b): a valid lease is required to hold a licence; the official renewal checklist requires a Renewed Lease Agreement, issued together with the renewed licence, CONFIRMED); https://uaqftz.gov.ae/gallery/Freezone_rules_and_regulations.pdf ; https://uaqftz.gov.ae/gallery/UAQ-FTZ-License-Renewal-Required-Documents.docx.docx",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.leaseMinRemainingDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Umm Al Quwain Free Trade Zone (UAQ FTZ), lease (no minimum remaining rule in the Regulations; the 30 day figure in 6.8 is a deadline to renew before licence expiry, not a lease rule); https://uaqftz.gov.ae/gallery/Freezone_rules_and_regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.renewalWindow": {
+      "value": "Renew no later than 30 days before the current licence's expiry date.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Umm Al Quwain Free Trade Zone (UAQ FTZ), renewal window (UAQ FTZ Regulations (March 2015) 6.8, CONFIRMED); https://uaqftz.gov.ae/gallery/Freezone_rules_and_regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.renewsTogether": {
+      "value": "Renewed lease agreement, issued with the renewed licence; UBO declaration and UBO passports; insurance copy for a warehouse or land; civil defence certificate for industrial licences. The Operation Fitness Certificate must be renewed annually before licence renewal. No arrears of rent, levies or fines.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Umm Al Quwain Free Trade Zone (UAQ FTZ), renews together (official renewal checklist and form; Regulations 10.6 and 6.9; CONFIRMED); https://uaqftz.gov.ae/gallery/UAQ-FTZ-License-Renewal-Required-Documents.docx.docx ; https://uaqftz.gov.ae/gallery/UAQ-FTZ-License-Renewal-Application-Form.docx.docx ; https://uaqftz.gov.ae/gallery/Freezone_rules_and_regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.afterExpiry": {
+      "value": "Failure to renew on time attracts a fine and may lead to permanent revocation, refusal of renewal or de-registration. Late fees apply if not renewed by the expiry date. Licences will not be renewed after 6 months from the expiry date, and facilities are repossessed when the lease expires unrenewed. The licence can be revoked on written notice if renewal documents are not submitted. Sponsorship of employees can be terminated if the licence or lease is not renewed.",
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Umm Al Quwain Free Trade Zone (UAQ FTZ), late renewal (UAQ FTZ Regulations 6.8, 6.15, 7.2(f) and 14.10, and the renewal checklist note, CONFIRMED; amounts left out); https://uaqftz.gov.ae/gallery/Freezone_rules_and_regulations.pdf ; https://uaqftz.gov.ae/gallery/UAQ-FTZ-License-Renewal-Required-Documents.docx.docx",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    },
+    "licence.graceDays": {
+      "value": null,
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Umm Al Quwain Free Trade Zone (UAQ FTZ), late renewal (no grace period stated; late fees apply from the expiry date); https://uaqftz.gov.ae/gallery/UAQ-FTZ-License-Renewal-Required-Documents.docx.docx",
+      "lastChecked": "2026-09-28",
+      "grade": "unclear"
+    },
+    "licence.afterExpiryThresholds": {
+      "value": [
+        {
+          "after": {
+            "amount": 6,
+            "unit": "months"
+          },
+          "consequence": "The licence will not be renewed after 6 months from the expiry date."
+        }
+      ],
+      "source": "Boasis research, free zone licence renewal (2026-09-28), Umm Al Quwain Free Trade Zone (UAQ FTZ), late renewal (UAQ FTZ Regulations 6.15, CONFIRMED); https://uaqftz.gov.ae/gallery/Freezone_rules_and_regulations.pdf",
+      "lastChecked": "2026-09-28",
+      "grade": "confirmed"
+    }
+  }
+}
