@@ -24,6 +24,12 @@ export function SignupForm({
   const [email, setEmail] = useState(resumeEmail ?? "");
   const [emailTouched, setEmailTouched] = useState(false);
   const [cooldown, setCooldown] = useState(0);
+  // The name locks ONLY on the code→verified transition with a complete name
+  // (normal flow). A resumed signup starts verified with an EMPTY name, so it
+  // must stay editable — locking on "verified + 2 chars" froze resume users
+  // after two keystrokes.
+  const [nameLocked, setNameLocked] = useState(false);
+  const prevPhase = useRef<Phase>(resumeEmail ? "verified" : "email");
 
   const nameValid = name.trim().length >= 2;
   const emailValid = EMAIL_RE.test(email.trim());
@@ -52,6 +58,16 @@ export function SignupForm({
     if (verifyState.ok) setPhase("verified");
   }, [verifyState]);
 
+  // Lock the name on the transition into verified (normal flow only — a
+  // resume starts verified, so it never transitions and stays editable).
+  useEffect(() => {
+    const was = prevPhase.current;
+    prevPhase.current = phase;
+    if (was !== "verified" && phase === "verified" && name.trim().length >= 2) {
+      setNameLocked(true);
+    }
+  }, [phase, name]);
+
   // Wrong code → clear boxes so the user retypes cleanly.
   useEffect(() => {
     if (!verifyState.ok && verifyState.error) {
@@ -65,12 +81,13 @@ export function SignupForm({
     if (phase === "code") boxRefs.current[0]?.focus();
   }, [phase]);
 
-  // Resend cooldown ticker.
+  // Resend cooldown ticker. Stops once verified — zero re-renders while the
+  // password is being entered.
   useEffect(() => {
-    if (cooldown <= 0) return;
+    if (cooldown <= 0 || phase === "verified") return;
     const t = setTimeout(() => setCooldown((c) => c - 1), 1000);
     return () => clearTimeout(t);
-  }, [cooldown]);
+  }, [cooldown, phase]);
 
   // Auto-check once all 6 digits are in.
   useEffect(() => {
@@ -103,6 +120,7 @@ export function SignupForm({
 
   function useDifferentEmail() {
     setPhase("email");
+    setNameLocked(false);
     setDigits(["", "", "", "", "", ""]);
   }
 
@@ -116,7 +134,7 @@ export function SignupForm({
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          disabled={phase === "verified" && name.trim().length >= 2}
+          disabled={nameLocked && phase === "verified"}
           minLength={2}
           maxLength={100}
           autoComplete="name"
@@ -261,6 +279,27 @@ export function SignupForm({
         <form action={doneAction} style={{ marginTop: 8 }}>
           <input type="hidden" name="next" value={next} />
           <input type="hidden" name="fullName" value={name.trim()} />
+          {/* Stable username for password managers: Chrome binds a generated
+              password to the username present at generation time and REVOKES
+              the fill if that field changes. Without this it pairs the
+              password with the name field above, so every keystroke there
+              empties the password. The email never changes → the fill sticks. */}
+          <input
+            type="email"
+            name="username"
+            value={email.trim()}
+            readOnly
+            tabIndex={-1}
+            aria-hidden="true"
+            autoComplete="username"
+            style={{
+              position: "absolute",
+              opacity: 0,
+              height: 1,
+              width: 1,
+              pointerEvents: "none",
+            }}
+          />
           {!doneState.ok && doneState.error && (
             <div className="error">{doneState.error}</div>
           )}

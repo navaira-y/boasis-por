@@ -42,6 +42,9 @@ Run migrations **in order**, once each (SQL editor: paste whole file → Run):
 4. `supabase/migrations/0004_portal_core.sql` — portal interior real data:
    company facts + people/offices/documents/cards/history/audit tables with
    owner-only RLS (`select * from company_history` must return 0 rows, no error)
+5. `supabase/migrations/0005_pending_self_insert.sql` — lets owners insert
+   their OWN pending subscription row (activation stays server-only, so the
+   pay gate holds). Required for the signup fallback path.
 
 ## 3. Run
 

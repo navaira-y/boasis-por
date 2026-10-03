@@ -23,8 +23,21 @@ export interface AuthState {
  * Every failure returns an inline message (never a crash page). Raw detail is
  * appended in development only, so real causes stay debuggable.
  */
+function errMsg(detail: unknown): string {
+  if (detail instanceof Error) return detail.message;
+  if (
+    typeof detail === "object" &&
+    detail !== null &&
+    "message" in detail &&
+    typeof (detail as { message: unknown }).message === "string"
+  ) {
+    return (detail as { message: string }).message;
+  }
+  return String(detail ?? "");
+}
+
 function fail(friendly: string, detail: unknown): AuthState {
-  const raw = detail instanceof Error ? detail.message : String(detail ?? "");
+  const raw = errMsg(detail);
   const extra =
     process.env.NODE_ENV !== "production" && raw ? ` (tech: ${raw})` : "";
   return { ok: false, error: `${friendly}${extra}` };
@@ -161,58 +174,99 @@ export async function completeSignupAction(
       // Server logs only — never shown to the user.
       console.error("completeSignup: password update failed", {
         userId: user.id,
-        message: pwError.message,
+        message: errMsg(pwError),
       });
       return fail("Could not set the password. Please try again.", pwError);
     }
 
-    const admin = await createAdminSupabase();
-    const { error: profileError } = await admin.from("profiles").upsert(
-      {
-        id: user.id,
-        full_name: input.fullName,
-        terms_version: TERMS_VERSION,
-        terms_accepted_at: new Date().toISOString(),
-      },
-      { onConflict: "id" }
-    );
+    // Profile: admin first, own-session fallback (RLS lets owners insert and
+    // update their own row). A bad service key must not block signup — but a
+    // failed admin write is logged LOUDLY so the key outage is never silent.
+    const profileRow = {
+      id: user.id,
+      full_name: input.fullName,
+      terms_version: TERMS_VERSION,
+      terms_accepted_at: new Date().toISOString(),
+    };
+    let profileError: unknown = null;
+    try {
+      const admin = await createAdminSupabase();
+      const { error } = await admin
+        .from("profiles")
+        .upsert(profileRow, { onConflict: "id" });
+      profileError = error;
+    } catch (e) {
+      profileError = e;
+    }
     if (profileError) {
-      // Server logs only — never shown to the user.
-      console.error("completeSignup: profile save failed", {
+      console.error("completeSignup: admin profile write failed, trying own session", {
         userId: user.id,
-        code: (profileError as { code?: string }).code,
-        message: profileError.message,
-        details: (profileError as { details?: string }).details,
+        message: errMsg(profileError),
       });
-      return fail("Account hit a problem saving your profile. Please try again.", profileError);
+      const { error: ownError } = await supabase
+        .from("profiles")
+        .upsert(profileRow, { onConflict: "id" });
+      if (ownError) {
+        console.error("completeSignup: profile save failed (admin + own session)", {
+          userId: user.id,
+          adminMessage: errMsg(profileError),
+          ownMessage: errMsg(ownError),
+        });
+        return fail("Account hit a problem saving your profile. Please try again.", ownError);
+      }
     }
 
-    const { error: subError } = await admin.from("subscriptions").upsert(
-      {
-        profile_id: user.id,
-        status: "pending",
-        provider: process.env.BILLING_PROVIDER ?? "stub",
-      },
-      { onConflict: "profile_id", ignoreDuplicates: true }
-    );
+    // Subscription: same fallback (migration 0005 lets owners insert their
+    // OWN pending row; activation stays server-only, so the pay gate holds).
+    // Plain insert on the fallback (no update grant) — 23505 means the row is
+    // already there, which is success.
+    const subRow = {
+      profile_id: user.id,
+      status: "pending",
+      provider: process.env.BILLING_PROVIDER ?? "stub",
+    };
+    let subError: unknown = null;
+    try {
+      const admin = await createAdminSupabase();
+      const { error } = await admin
+        .from("subscriptions")
+        .upsert(subRow, { onConflict: "profile_id", ignoreDuplicates: true });
+      subError = error;
+    } catch (e) {
+      subError = e;
+    }
     if (subError) {
-      // Server logs only — never shown to the user.
-      console.error("completeSignup: subscription save failed", {
+      console.error("completeSignup: admin subscription write failed, trying own session", {
         userId: user.id,
-        code: (subError as { code?: string }).code,
-        message: subError.message,
-        details: (subError as { details?: string }).details,
+        message: errMsg(subError),
       });
-      return fail("Account hit a problem setting up billing. Please try again.", subError);
+      const { error: ownError } = await supabase.from("subscriptions").insert(subRow);
+      const alreadyThere =
+        (ownError as { code?: string } | null)?.code === "23505";
+      if (ownError && !alreadyThere) {
+        console.error("completeSignup: subscription save failed (admin + own session)", {
+          userId: user.id,
+          adminMessage: errMsg(subError),
+          ownMessage: errMsg(ownError),
+        });
+        return fail("Account hit a problem setting up billing. Please try again.", ownError);
+      }
     }
 
-    await audit(admin, {
-      actor_profile_id: user.id,
-      action: "account.created",
-      entity: "profile",
-      entity_id: user.id,
-      meta: { terms: TERMS_VERSION },
-    });
+    // Best-effort audit: never blocks signup (the helper also swallows
+    // insert failures internally; this guards admin creation too).
+    try {
+      const auditAdmin = await createAdminSupabase();
+      await audit(auditAdmin, {
+        actor_profile_id: user.id,
+        action: "account.created",
+        entity: "profile",
+        entity_id: user.id,
+        meta: { terms: TERMS_VERSION },
+      });
+    } catch {
+      console.error("completeSignup: audit skipped (admin unavailable)");
+    }
 
     // Standard flow: account created → sign out → sign in with the new
     // password. (If sign-out ever fails silently, /signin routes logged-in

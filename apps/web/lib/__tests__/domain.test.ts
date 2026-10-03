@@ -3,6 +3,7 @@ import {
   canAddCompany,
   canTransitionStatus,
   formatAED,
+  isKeyError,
   isPortalAccessible,
   stripePriceLookupKey,
 } from "@/lib/domain";
@@ -66,5 +67,24 @@ describe("canTransitionStatus", () => {
     expect(canTransitionStatus("pending", "past_due")).toBe(false);
     expect(canTransitionStatus("canceled", "active")).toBe(false);
     expect(canTransitionStatus("pending", "pending")).toBe(false);
+  });
+});
+
+describe("isKeyError", () => {
+  it("spots bad-key failures in any error shape", () => {
+    expect(isKeyError({ message: "Invalid API key" })).toBe(true);
+    expect(isKeyError(new Error("Invalid JWT: unable to parse"))).toBe(true);
+    expect(isKeyError(new Error("JWT expired"))).toBe(true);
+    expect(isKeyError("missing SUPABASE_SERVICE_ROLE_KEY")).toBe(true);
+  });
+  it("ignores data failures", () => {
+    expect(
+      isKeyError({ message: "duplicate key value violates unique constraint" })
+    ).toBe(false);
+    expect(isKeyError(new Error("permission denied for table profiles"))).toBe(
+      false
+    );
+    expect(isKeyError(null)).toBe(false);
+    expect(isKeyError(undefined)).toBe(false);
   });
 });

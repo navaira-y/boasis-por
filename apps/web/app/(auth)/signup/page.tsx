@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { createAdminSupabase, createServerSupabase } from "@/lib/supabase";
+import { createServerSupabase } from "@/lib/supabase";
 import { SignupForm } from "./form";
 
 /** Step 1 of 2: account with inline email-code check. Plan picked at payment. */
@@ -16,14 +16,14 @@ export default async function SignupPage({
 
   // Resume: verified session but no profile yet (abandoned halfway, or clicked
   // the email link instead of typing the code) → skip straight to details.
+  // Own-session read (RLS owner-read): no service key needed on this path.
   const supabase = await createServerSupabase();
   const {
     data: { user },
   } = await supabase.auth.getUser();
   let resumeEmail: string | null = null;
   if (user?.email) {
-    const admin = await createAdminSupabase();
-    const { data: profile } = await admin
+    const { data: profile } = await supabase
       .from("profiles")
       .select("id")
       .eq("id", user.id)

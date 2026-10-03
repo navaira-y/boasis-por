@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { z } from "zod";
-import { createAdminSupabase, createServerSupabase } from "@/lib/supabase";
+import { createServerSupabase } from "@/lib/supabase";
 import { rateLimit } from "@/lib/ratelimit";
 
 export interface SigninState {
@@ -54,8 +54,8 @@ export async function signinAction(
   if (!user) {
     return { ok: false, error: "Could not sign you in. Please try again." };
   }
-  const admin = await createAdminSupabase();
-  const { data: sub } = await admin
+  // Own-session read (RLS owner-read): routing must not depend on the key.
+  const { data: sub } = await supabase
     .from("subscriptions")
     .select("status")
     .eq("profile_id", user.id)

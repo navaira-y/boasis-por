@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { createAdminSupabase, createServerSupabase } from "@/lib/supabase";
+import { createServerSupabase } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
@@ -11,8 +11,8 @@ export default async function BillingSuccessPage() {
   } = await supabase.auth.getUser();
   if (!user) redirect("/signup");
 
-  const admin = await createAdminSupabase();
-  const { data: sub } = await admin
+  // Own-session read (RLS owner-read): no service key needed on this path.
+  const { data: sub } = await supabase
     .from("subscriptions")
     .select("status, provider, plans!inner(name)")
     .eq("profile_id", user.id)

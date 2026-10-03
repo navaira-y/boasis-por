@@ -96,3 +96,27 @@ export function canTransitionStatus(
   };
   return allowed[from].includes(to);
 }
+
+/**
+ * True when a Supabase failure smells like a bad/missing service key
+ * ("Invalid API key", bad JWT, missing env) rather than a data problem.
+ * Pure message sniffing, so activation paths can name the real cause.
+ */
+export function isKeyError(detail: unknown): boolean {
+  let msg = "";
+  if (typeof detail === "string") {
+    msg = detail;
+  } else if (detail instanceof Error) {
+    msg = detail.message;
+  } else if (
+    typeof detail === "object" &&
+    detail !== null &&
+    "message" in detail &&
+    typeof (detail as { message: unknown }).message === "string"
+  ) {
+    msg = (detail as { message: string }).message;
+  }
+  return /invalid api key|invalid jwt|jwt expired|missing supabase_service_role_key/i.test(
+    msg
+  );
+}

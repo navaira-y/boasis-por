@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { createAdminSupabase, createServerSupabase } from "@/lib/supabase";
+import { createServerSupabase } from "@/lib/supabase";
 import { listPlans } from "@/lib/plans";
 import type { PlanId } from "@/lib/domain";
 import { PlanSelector } from "./plan-selector";
@@ -10,15 +10,22 @@ import { PlanSelector } from "./plan-selector";
  */
 export const dynamic = "force-dynamic";
 
-export default async function BillingPendingPage() {
+export default async function BillingPendingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>;
+}) {
+  const params = await searchParams;
   const supabase = await createServerSupabase();
   const {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) redirect("/signup");
 
-  const admin = await createAdminSupabase();
-  const { data: sub } = await admin
+  // Own-session reads (RLS owner-read): this page must render even when the
+  // service key is misconfigured. Activation itself still needs the key —
+  // and names it (see the server-key notice below).
+  const { data: sub } = await supabase
     .from("subscriptions")
     .select("status, plan_id")
     .eq("profile_id", user.id)
@@ -27,13 +34,15 @@ export default async function BillingPendingPage() {
     // Self-heal: profile exists (terms accepted) but the subscription row was
     // never created (e.g. abandoned link-click signup) → create the pending
     // row inline. Bouncing to /signup would bounce straight back here.
-    const { data: profile } = await admin
+    const { data: profile } = await supabase
       .from("profiles")
       .select("id")
       .eq("id", user.id)
       .maybeSingle();
     if (!profile) redirect("/signup");
-    const { error: healError } = await admin.from("subscriptions").insert({
+    // Own-session insert (migration 0005: owners may insert their OWN
+    // pending row; activation stays server-only).
+    const { error: healError } = await supabase.from("subscriptions").insert({
       profile_id: user.id,
       status: "pending",
       provider: process.env.BILLING_PROVIDER ?? "stub",
@@ -52,6 +61,12 @@ export default async function BillingPendingPage() {
           {isRenewal ? "Boasis portal · Renewal" : "Boasis portal · Step 2 of 2 — Payment"}
         </p>
         <h1>{isRenewal ? "Your plan has ended" : "Choose your plan"}</h1>
+        {params.error === "server-key" && (
+          <div className="error" style={{ marginTop: 12 }}>
+            The payment could not complete: the server key is misconfigured.
+            The site owner needs to fix SUPABASE_SERVICE_ROLE_KEY.
+          </div>
+        )}
         {!isRenewal && (
           <ol className="steps">
             <li className="done">1. Account</li>

@@ -4,12 +4,16 @@ import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { createAdminSupabase, createServerSupabase } from "@/lib/supabase";
 import { activateSubscription } from "@/lib/billing";
+import { isKeyError } from "@/lib/domain";
 import { rateLimit } from "@/lib/ratelimit";
 
 export interface FreeState {
   ok: boolean;
   error?: string;
 }
+
+const KEY_MSG =
+  "Could not activate: the server key is misconfigured. The site owner needs to fix SUPABASE_SERVICE_ROLE_KEY.";
 
 /**
  * Solo plan: first 12 months free, no card, no checkout. One free year per
@@ -34,11 +38,15 @@ export async function activateFreeYearAction(
 
   try {
     const admin = await createAdminSupabase();
-    const { data: sub } = await admin
+    const { data: sub, error: subReadError } = await admin
       .from("subscriptions")
       .select("id, status, activated_at")
       .eq("profile_id", user.id)
       .maybeSingle<{ id: string; status: string; activated_at: string | null }>();
+    if (subReadError && isKeyError(subReadError)) {
+      console.error("activateFreeYear: service key misconfigured");
+      return { ok: false, error: KEY_MSG };
+    }
     if (!sub || (sub.status !== "pending" && sub.status !== "incomplete")) {
       return { ok: false, error: "This subscription cannot be activated." };
     }
@@ -46,12 +54,16 @@ export async function activateFreeYearAction(
       return { ok: false, error: "The free year was already used on this account." };
     }
 
-    const { data: plan } = await admin
+    const { data: plan, error: planReadError } = await admin
       .from("plans")
       .select("free_months, price_fils")
       .eq("id", "solo")
       .eq("active", true)
       .maybeSingle<{ free_months: number; price_fils: number | null }>();
+    if (planReadError && isKeyError(planReadError)) {
+      console.error("activateFreeYear: service key misconfigured");
+      return { ok: false, error: KEY_MSG };
+    }
     if (!plan || plan.free_months <= 0) {
       return { ok: false, error: "The free year is not available right now." };
     }
@@ -71,6 +83,10 @@ export async function activateFreeYearAction(
       periodEnd: periodEnd.toISOString(),
     });
   } catch (e) {
+    if (isKeyError(e)) {
+      console.error("activateFreeYear: service key misconfigured");
+      return { ok: false, error: KEY_MSG };
+    }
     const raw = e instanceof Error ? e.message : String(e ?? "");
     const extra = process.env.NODE_ENV !== "production" && raw ? ` (tech: ${raw})` : "";
     return { ok: false, error: `Could not activate the free year. Please try again.${extra}` };
