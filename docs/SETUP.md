@@ -122,9 +122,8 @@ The root `Dockerfile` (repo-root context) builds the portal with
 `apps/web/public/portal`, then builds the web app; `/portal/*` shares the
 origin, the login cookies and the middleware gate (verified + ACTIVE only —
 static files have no page check, so the middleware matcher lists `/portal`
-explicitly). Railway needs: Root Directory = repo root (empty), `Dockerfile`
-as the dockerfile path (see `railway.json`), and `VITE_SUPABASE_URL` /
-`VITE_SUPABASE_ANON_KEY` service variables (same values as the
-`NEXT_PUBLIC_` pair). Local preview: build the portal, copy `dist` to
+explicitly). Railway needs only: Root Directory = repo root (empty);
+`Dockerfile` as the dockerfile path (see `railway.json`). No extra variables
+(the portal reuses the `NEXT_PUBLIC_` Supabase values at build time). Local preview: build the portal, copy `dist` to
 `apps/web/public/portal`, run the web app; `/portal` without a session
 redirects to sign-in.

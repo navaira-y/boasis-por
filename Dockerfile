@@ -8,11 +8,10 @@ FROM node:20-alpine AS builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 # Build-time public env (Railway passes service variables as build args).
-# *_PUBLIC_*/VITE_* values are inlined into client bundles at build time, so
-# they must exist here. Server-only secrets stay runtime-only and are NEVER
-# baked into the image.
-ARG VITE_SUPABASE_URL
-ARG VITE_SUPABASE_ANON_KEY
+# *_PUBLIC_* values are inlined into client bundles at build time, so they
+# must exist here. The portal reuses the SAME Supabase values (mapped to the
+# VITE_* names Vite requires) — no extra variables to set. Server-only
+# secrets stay runtime-only and are NEVER baked into the image.
 ARG NEXT_PUBLIC_SUPABASE_URL
 ARG NEXT_PUBLIC_SUPABASE_ANON_KEY
 ARG NEXT_PUBLIC_APP_URL
@@ -27,8 +26,8 @@ COPY packages/schema/package.json packages/schema/package.json
 RUN npm ci --no-audit --no-fund
 COPY . .
 ENV VITE_DATA_MODE=supabase \
-    VITE_SUPABASE_URL=$VITE_SUPABASE_URL \
-    VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY \
+    VITE_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL \
+    VITE_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY \
     NEXT_TELEMETRY_DISABLED=1
 RUN npm run build --workspace @boasis/portal
 # Portal static output becomes same-origin /portal/* behind the pay gate.
