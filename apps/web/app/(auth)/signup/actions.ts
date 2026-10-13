@@ -278,3 +278,41 @@ export async function completeSignupAction(
 
   redirect("/signin?next=/billing/pending");
 }
+
+/**
+ * Entry branch (Oct-3 flow): early-access email → waitlist door, else plans
+ * door. The membership check is server-side (service key) + rate-limited; the
+ * OTP step still guards account creation, so learning that an address is
+ * listed grants nothing by itself.
+ */
+export async function checkEntryAction(
+  emailRaw: string
+): Promise<{ ok: boolean; branch?: "waitlist" | "plans"; error?: string }> {
+  const parsed = emailSchema.safeParse(emailRaw);
+  if (!parsed.success) {
+    return { ok: false, error: "Please enter a valid email address." };
+  }
+  const email = parsed.data;
+  const ip = await clientIp();
+  if (
+    !rateLimit(`entry:${email}`, 10, 3_600_000).ok ||
+    !rateLimit(`entry-ip:${ip}`, 30, 3_600_000).ok
+  ) {
+    return { ok: false, error: "Too many attempts. Please wait a while and try again." };
+  }
+  try {
+    const admin = await createAdminSupabase();
+    const { data, error } = await admin
+      .from("early_access_emails")
+      .select("id")
+      .eq("email", email)
+      .limit(1);
+    if (error) {
+      console.error("checkEntry: lookup failed", { message: errMsg(error) });
+      return { ok: false, error: "Could not check that email. Please try again." };
+    }
+    return { ok: true, branch: data && data.length > 0 ? "waitlist" : "plans" };
+  } catch (e) {
+    return fail("Could not check that email. Please try again.", e);
+  }
+}

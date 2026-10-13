@@ -50,6 +50,11 @@ Run migrations **in order**, once each (SQL editor: paste whole file → Run):
    tasks/reminders, waitlist, account people, roles, access grants, and the
    `email_reminders_on` preference. (`select * from portal_tasks` must return
    0 rows, no error.)
+7. `supabase/migrations/0007_early_access.sql` — waitlist-door entry flow:
+   `early_access_emails` list (service-key only, no RLS policies),
+   `profiles.is_early_access`, `subscriptions.pending_plan`. After running,
+   import the final early-access list (SQL editor, header comment in the file
+   has the exact INSERT).
 
 ## 3. Run
 
