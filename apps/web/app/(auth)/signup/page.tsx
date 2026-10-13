@@ -52,7 +52,10 @@ export default async function SignupPage() {
         <SignupForm plans={plans} resumeEmail={resumeEmail} />
         <p className="small muted" style={{ marginTop: 16 }}>
           Two-step sign-in with an authenticator app can be turned on later in
-          settings. <Link href="/">Back to plans</Link>
+          settings.{" "}
+          <a href="https://boasis.ae" target="_blank" rel="noreferrer">
+            Back to boasis.ae
+          </a>
         </p>
         <p className="small muted" style={{ marginTop: 8 }}>
           Already have an account? <Link href="/signin">Sign in</Link>

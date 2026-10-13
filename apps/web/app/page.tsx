@@ -1,90 +1,24 @@
-import Link from "next/link";
+import { redirect } from "next/navigation";
 import { createServerSupabase } from "@/lib/supabase";
-import { formatAED } from "@/lib/domain";
 
+/**
+ * This service is the portal app (future app.boasis.ae), not the marketing
+ * site (boasis.ae) — so / opens straight at the entry flow, not a homepage.
+ * Logged out → signup doors. Signed in → resume signup, or /signin which
+ * routes logged-in users (paid → portal, unpaid → payment).
+ */
 export const dynamic = "force-dynamic";
-
-function planBlurb(p: {
-  id: string;
-  max_companies: number | null;
-  price_fils: number | null;
-  free_months: number;
-  currency: string;
-}): { price: string; sub: string; detail: string } {
-  if (p.price_fils === null) {
-    return {
-      price: "Custom",
-      sub: "",
-      detail: "Unlimited companies. Talk to us and we tailor it.",
-    };
-  }
-  const companies =
-    p.max_companies === 1 ? "1 company" : `Up to ${p.max_companies} companies`;
-  if (p.free_months > 0) {
-    return {
-      price: `Free for ${p.free_months} months`,
-      sub: ` then ${formatAED(p.price_fils, p.currency)}/month`,
-      detail: `${companies}: every date, reminders, guidance, vault.`,
-    };
-  }
-  return {
-    price: formatAED(p.price_fils, p.currency),
-    sub: " /month",
-    detail: `${companies}: one combined year, reminders, vault.`,
-  };
-}
 
 export default async function Home() {
   const supabase = await createServerSupabase();
-  const { data: plans } = await supabase
-    .from("plans")
-    .select("id,name,max_companies,price_fils,free_months,currency")
-    .eq("active", true)
-    .order("price_fils", { ascending: true, nullsFirst: false });
-
-  return (
-    <main className="wrap">
-      <div className="card">
-        <p className="eyebrow">Boasis · Manage — for everyone who runs a company in the UAE</p>
-        <h1>
-          Manage <em>all your companies.</em>
-        </h1>
-        <p className="muted">
-          Every licence, visa, tax and bank date for every company you run,
-          and the right person reminded before it is due.
-        </p>
-        <div className="plans three">
-          {(plans ?? []).map((p) => {
-            const b = planBlurb(p);
-            return (
-              <div className={`plan${p.id === "enterprise" ? " ent" : ""}`} key={p.id}>
-                <h3>{p.name}</h3>
-                <div className="price">
-                  {b.price}
-                  <span className="muted small">{b.sub}</span>
-                </div>
-                <p className="muted small">{b.detail}</p>
-                {p.id === "solo" ? (
-                  <Link className="btn secondary" href="/signup">
-                    Get started
-                  </Link>
-                ) : (
-                  <span
-                    className="btn secondary"
-                    aria-disabled="true"
-                    style={{ opacity: 0.55, cursor: "not-allowed" }}
-                  >
-                    Opens soon
-                  </span>
-                )}
-              </div>
-            );
-          })}
-        </div>
-        <p className="small muted">
-          Solo starts free — no card until your second company or year two.
-        </p>
-      </div>
-    </main>
-  );
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user?.email) redirect("/signup");
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("id")
+    .eq("id", user.id)
+    .maybeSingle();
+  redirect(profile ? "/signin" : "/signup");
 }
