@@ -3,7 +3,8 @@
 # The portal builds with VITE_DATA_MODE=supabase and its static output is
 # copied into the web app's public/portal, so /portal/* shares the web app's
 # origin, login cookies and middleware pay gate. Same image runs on Railway
-# today and on any VPS tomorrow.
+# today and on any VPS tomorrow. The runner is a standard `next start` over a
+# production-only install (no standalone packer: it dropped node_modules).
 FROM node:20-alpine AS builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -44,12 +45,21 @@ WORKDIR /app
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs \
   && adduser --system --uid 1001 nextjs
-COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/apps/web/public ./public
+# Production-only install, hoisted at /app/node_modules (no devDependencies,
+# no source). `next start` runs the prebuilt ./apps/web/.next below.
+COPY package.json package-lock.json ./
+COPY apps/portal/package.json apps/portal/package.json
+COPY apps/server/package.json apps/server/package.json
+COPY apps/web/package.json apps/web/package.json
+COPY packages/assistant/package.json packages/assistant/package.json
+COPY packages/content/package.json packages/content/package.json
+COPY packages/rules/package.json packages/rules/package.json
+COPY packages/schema/package.json packages/schema/package.json
+RUN npm ci --omit=dev --no-audit --no-fund
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next ./apps/web/.next
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public
 USER nextjs
 EXPOSE 3000
 ENV PORT=3000 HOSTNAME="0.0.0.0"
-# Force port 3000: platforms inject their own PORT at runtime, which would
-# silently move the app away from the domain's target port (3000).
-CMD ["sh", "-c", "PORT=3000 node server.js"]
+# -p wins over any platform-injected PORT; the domain targets 3000.
+CMD ["./node_modules/.bin/next", "start", "apps/web", "-p", "3000"]

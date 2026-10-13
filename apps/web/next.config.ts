@@ -1,11 +1,10 @@
-import path from "path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Lean standalone server for Docker (Railway now, VPS later).
-  output: "standalone",
-  // Keep standalone flat (server.js at root) despite the npm-workspace root.
-  outputFileTracingRoot: path.join(process.cwd()),
+  // Standard server build, run with `next start` in Docker (Railway now,
+  // VPS later). Standalone output was dropped: built from the npm-workspace
+  // root it shipped an image without node_modules and crashed on boot
+  // (`Cannot find module 'next'`).
   // Keep default runtime (Node.js). No experimental flags in Phase 1.
   // Safe static-serving headers for the portal bundle (no inline-script
   // assumptions, so no CSP here — that needs per-page testing first).

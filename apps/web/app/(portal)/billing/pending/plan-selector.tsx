@@ -105,7 +105,13 @@ export function PlanSelector({
         </div>
       )}
 
-      {plan?.id === "trio" && <CheckoutButton planId="trio" />}
+      {plan?.id === "trio" && (
+        <div className="notice">
+          <strong>Trio opens soon.</strong> Online payment is being connected
+          right now — start with Solo free, your first company is covered for
+          a year.
+        </div>
+      )}
 
       {plan?.id === "enterprise" && (
         <div className="notice">
