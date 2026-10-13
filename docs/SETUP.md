@@ -45,6 +45,11 @@ Run migrations **in order**, once each (SQL editor: paste whole file → Run):
 5. `supabase/migrations/0005_pending_self_insert.sql` — lets owners insert
    their OWN pending subscription row (activation stays server-only, so the
    pay gate holds). Required for the signup fallback path.
+6. `supabase/migrations/0006_portal_accounts.sql` — portal slice 2: account
+   links (auto-written by trigger + backfilled), onboarding starts/progress/
+   tasks/reminders, waitlist, account people, roles, access grants, and the
+   `email_reminders_on` preference. (`select * from portal_tasks` must return
+   0 rows, no error.)
 
 ## 3. Run
 
@@ -107,6 +112,19 @@ build with `VITE_DATA_MODE=supabase` plus the web app's Supabase URL and anon
 key as `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` (see
 `apps/portal/.env.example`; Railway holds the production values). The client
 shares the web app's cookie session, so same-origin serving signs it in as
-the payer with no token hand-off. Slice 1 covers companies, offices, people,
-documents, cards, history and audit; the other repos fail loudly until their
-slice lands.
+the payer with no token hand-off. All 14 repos are real (slice 1: company
+records; slice 2: accounts projection, onboarding, people, roles, access).
+
+## 9. Serving the portal (same-origin behind the pay gate)
+
+The root `Dockerfile` (repo-root context) builds the portal with
+`VITE_DATA_MODE=supabase`, copies `apps/portal/dist` into
+`apps/web/public/portal`, then builds the web app; `/portal/*` shares the
+origin, the login cookies and the middleware gate (verified + ACTIVE only —
+static files have no page check, so the middleware matcher lists `/portal`
+explicitly). Railway needs: Root Directory = repo root (empty), `Dockerfile`
+as the dockerfile path (see `railway.json`), and `VITE_SUPABASE_URL` /
+`VITE_SUPABASE_ANON_KEY` service variables (same values as the
+`NEXT_PUBLIC_` pair). Local preview: build the portal, copy `dist` to
+`apps/web/public/portal`, run the web app; `/portal` without a session
+redirects to sign-in.

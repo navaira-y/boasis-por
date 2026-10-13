@@ -67,5 +67,14 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/billing/:path*", "/onboarding/:path*"],
+  // Bare paths listed too: /portal/* is static files with no page-level
+  // check, so the middleware is its ONLY gate — it must match exactly.
+  matcher: [
+    "/billing",
+    "/billing/:path*",
+    "/onboarding",
+    "/onboarding/:path*",
+    "/portal",
+    "/portal/:path*",
+  ],
 };

@@ -53,8 +53,8 @@ export default async function BillingSuccessPage() {
             ? "No payment was taken — your first year is free."
             : "Let's set up your first company."}
         </div>
-        <Link className="btn secondary" href="/onboarding">
-          Start onboarding →
+        <Link className="btn secondary" href="/portal">
+          Open your portal →
         </Link>
       </div>
     </main>

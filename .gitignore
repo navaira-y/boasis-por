@@ -11,6 +11,8 @@ apps/web/build/
 # Vite / library builds
 dist/
 coverage/
+# Portal bundle is built into the web app at image build time, never committed.
+apps/web/public/portal/
 
 # Env — NEVER commit real keys
 .env

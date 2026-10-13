@@ -61,7 +61,7 @@ export async function signinAction(
     .eq("profile_id", user.id)
     .maybeSingle<{ status: string }>();
 
-  const fallback = sub?.status === "active" ? "/onboarding" : "/billing/pending";
+  const fallback = sub?.status === "active" ? "/portal" : "/billing/pending";
   // Honor the requested page when it is a safe internal path; the gates
   // (middleware + page checks) re-enforce paid/unpaid routing regardless.
   const want = parsed.data.next ?? "";

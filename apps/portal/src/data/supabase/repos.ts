@@ -1,4 +1,5 @@
 import {
+  AccessGrant,
   AuditEvent,
   Card,
   CompanyFacts,
@@ -38,6 +39,7 @@ import type {
   Repos,
   RolesRepo,
 } from '../types';
+import { accounts, auth, passwords } from './accounts';
 import { currentActor, requireUser } from './actor';
 import { supabase } from './client';
 import {
@@ -47,6 +49,8 @@ import {
   KIND_VERB,
   type FieldChange,
 } from './diff';
+import { accountPeople, onboarding, roles } from './onboarding';
+import { requireOwnCompany } from './util';
 
 // The Supabase data layer: the same Repos interfaces the screens already use, backed by the
 // migration-0004 tables instead of the mock store. Behaviour mirrors the mock (the reference):
@@ -834,17 +838,103 @@ const audit: AuditRepo = {
   },
 };
 
-// ---------------------------------------------------- not in slice 1 (yet) --
+// ------------------------------------------------------------------ access --
 
-// Accounts, auth, passwords, member grants, roles, onboarding and access need their own
-// tables (migration 0005) and, for auth, the serving slice. They fail loudly instead of
-// pretending, so a screen wired too early is found in testing, not in production.
-function stub<R extends object>(repo: string): R {
-  return new Proxy({} as R, {
-    get: () => (): Promise<never> =>
-      Promise.reject(new Error(`${repo} is not in the Supabase data layer yet.`)),
-  });
+interface GrantRow {
+  readonly id: string;
+  readonly account_id: string;
+  readonly data: unknown;
 }
+
+async function readGrant(id: string): Promise<AccessGrant | null> {
+  const { data, error } = await supabase()
+    .from('portal_access_grants')
+    .select('id, data')
+    .eq('id', id)
+    .maybeSingle();
+  rethrow(error as PostgrestError | null);
+  if (data === null || data === undefined) {
+    return null;
+  }
+  const row = data as GrantRow;
+  return parseOrWarn(AccessGrant, 'access', row.id, { ...asObject(row.data), id: row.id });
+}
+
+// Spec 7.3: an access change, one line for each company it touches.
+async function accessLines(before: AccessGrant | null, after: AccessGrant): Promise<void> {
+  const who = `${after.member.name} (${after.roleName})`;
+  const had = new Set((before?.companies ?? []).map((entry) => entry.companyId));
+  const has = new Set(after.companies.map((entry) => entry.companyId));
+  for (const companyId of new Set([...had, ...has])) {
+    if (had.has(companyId) && has.has(companyId)) {
+      const old = before?.companies.find((entry) => entry.companyId === companyId);
+      const now = after.companies.find((entry) => entry.companyId === companyId);
+      if (
+        JSON.stringify(old) === JSON.stringify(now) &&
+        before?.member.name === after.member.name
+      ) {
+        continue;
+      }
+    }
+    const summary = !had.has(companyId)
+      ? `Access given to ${who}`
+      : !has.has(companyId)
+        ? `Access removed for ${who}`
+        : `Access changed for ${who}`;
+    await insertAudit({ companyId, kind: 'access-changed', summary });
+  }
+}
+
+const access: AccessRepo = {
+  get: (id) => readGrant(id),
+  list: async () => {
+    const { data, error } = await supabase()
+      .from('portal_access_grants')
+      .select('id, data')
+      .order('created_at', { ascending: true });
+    rethrow(error as PostgrestError | null);
+    const grants: AccessGrant[] = [];
+    for (const row of (data ?? []) as GrantRow[]) {
+      const grant = parseOrWarn(AccessGrant, 'access', row.id, {
+        ...asObject(row.data),
+        id: row.id,
+      });
+      if (grant !== null) {
+        grants.push(grant);
+      }
+    }
+    return grants;
+  },
+  create: async (input) => {
+    const user = await requireUser();
+    const record = AccessGrant.parse({ ...input, id: newId() });
+    for (const companyId of record.companies.map((entry) => entry.companyId)) {
+      await requireOwnCompany(companyId);
+    }
+    const { error } = await supabase().from('portal_access_grants').insert({
+      id: record.id,
+      account_id: user.id,
+      data: record,
+    });
+    rethrow(error as PostgrestError | null);
+    await accessLines(null, record);
+    return record;
+  },
+  update: async (id, patch) => {
+    const before = (await readGrant(id)) ?? noRecord('access', id);
+    const after = AccessGrant.parse({ ...before, ...patch, id });
+    for (const companyId of after.companies.map((entry) => entry.companyId)) {
+      await requireOwnCompany(companyId);
+    }
+    const { error } = await supabase()
+      .from('portal_access_grants')
+      .update({ data: after })
+      .eq('id', id);
+    rethrow(error as PostgrestError | null);
+    await accessLines(before, after);
+    return after;
+  },
+};
 
 export function createSupabaseRepos(): Repos {
   const offices: OfficesRepo = fieldCollection({
@@ -864,17 +954,17 @@ export function createSupabaseRepos(): Repos {
     personOf: (record: Person) => record.id,
   });
   return {
-    accounts: stub<AccountsRepo>('accounts'),
-    auth: stub<AuthAdapter>('auth'),
-    passwords: stub<BreachedPasswordCheck>('passwords'),
-    accountPeople: stub<AccountPeopleRepo>('accountPeople'),
-    roles: stub<RolesRepo>('roles'),
-    onboarding: stub<OnboardingRepo>('onboarding'),
+    accounts,
+    auth,
+    passwords,
+    accountPeople,
+    roles,
+    onboarding,
     companies,
     offices,
     people,
     documents,
-    access: stub<AccessRepo>('access'),
+    access,
     cards,
     history,
     audit,
