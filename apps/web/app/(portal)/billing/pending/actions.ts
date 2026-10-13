@@ -47,8 +47,23 @@ export async function activateFreeYearAction(
       console.error("activateFreeYear: service key misconfigured");
       return { ok: false, error: KEY_MSG };
     }
-    if (!sub || (sub.status !== "pending" && sub.status !== "incomplete")) {
+    if (!sub) {
+      // Admin sees no row: either truly missing, or the "service key" is
+      // really the anon key (RLS then hides everything WITH NO ERROR — the
+      // classic silent failure). Probe with an admin-only call to tell them
+      // apart.
+      const { error: probeError } = await admin.auth.admin.listUsers({
+        page: 1,
+        perPage: 1,
+      });
+      if (probeError) {
+        console.error("activateFreeYear: admin probe failed — service key is not a service key");
+        return { ok: false, error: KEY_MSG };
+      }
       return { ok: false, error: "This subscription cannot be activated." };
+    }
+    if (sub.status !== "pending" && sub.status !== "incomplete") {
+      return { ok: false, error: `This subscription cannot be activated (status: ${sub.status}).` };
     }
     if (sub.activated_at) {
       return { ok: false, error: "The free year was already used on this account." };

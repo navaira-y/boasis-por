@@ -284,9 +284,21 @@ export async function completeEntryAction(
         .eq("profile_id", user.id)
         .maybeSingle<{ id: string; status: string; activated_at: string | null }>();
       if (subReadError) throw subReadError;
+      if (!sub) {
+        // Same silent-failure probe as the billing page: an anon key in the
+        // service var reads empty with no error.
+        const { error: probeError } = await admin.auth.admin.listUsers({
+          page: 1,
+          perPage: 1,
+        });
+        if (probeError) {
+          console.error("completeEntry: admin probe failed — service key is not a service key");
+          return { ok: false, error: KEY_MSG };
+        }
+      }
       if (sub?.status !== "active") {
         if (sub && sub.status !== "pending" && sub.status !== "incomplete") {
-          return { ok: false, error: "This subscription cannot be activated." };
+          return { ok: false, error: `This subscription cannot be activated (status: ${sub.status}).` };
         }
         if (sub?.activated_at) {
           return { ok: false, error: "The free year was already used on this account." };
