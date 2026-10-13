@@ -64,15 +64,25 @@ export default async function Home() {
                   <span className="muted small">{b.sub}</span>
                 </div>
                 <p className="muted small">{b.detail}</p>
-                <Link className="btn secondary" href="/signup">
-                  Get started
-                </Link>
+                {p.id === "solo" ? (
+                  <Link className="btn secondary" href="/signup">
+                    Get started
+                  </Link>
+                ) : (
+                  <span
+                    className="btn secondary"
+                    aria-disabled="true"
+                    style={{ opacity: 0.55, cursor: "not-allowed" }}
+                  >
+                    Opens soon
+                  </span>
+                )}
               </div>
             );
           })}
         </div>
         <p className="small muted">
-          You choose your plan after signup — nothing is preselected.
+          Solo starts free — no card until your second company or year two.
         </p>
       </div>
     </main>
