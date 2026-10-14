@@ -422,11 +422,35 @@ export async function checkEntryAction(
       .eq("email", email)
       .limit(1);
     if (error) {
-      console.error("checkEntry: lookup failed", { message: errMsg(error) });
+      const code = (error as { code?: string }).code ?? "";
+      console.error("checkEntry: lookup failed", {
+        message: errMsg(error),
+        code,
+      });
+      const msg = errMsg(error).toLowerCase();
+      if (msg.includes("invalid api key") || code === "401") {
+        return { ok: false, error: KEY_MSG };
+      }
+      if (
+        code === "42P01" ||
+        code === "PGRST205" ||
+        msg.includes("does not exist") ||
+        msg.includes("could not find the table")
+      ) {
+        return {
+          ok: false,
+          error:
+            "Could not check that email: the early-access list is missing in the connected database. The site owner needs to run migration 0007 on the same Supabase project the app uses.",
+        };
+      }
       return { ok: false, error: "Could not check that email. Please try again." };
     }
     return { ok: true, branch: data && data.length > 0 ? "waitlist" : "plans" };
   } catch (e) {
+    if (errMsg(e).includes("Missing SUPABASE_SERVICE_ROLE_KEY")) {
+      console.error("checkEntry: service key var missing at runtime");
+      return { ok: false, error: KEY_MSG };
+    }
     return fail("Could not check that email. Please try again.", e);
   }
 }
