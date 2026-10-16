@@ -9,7 +9,7 @@ import { signInAction, verifySignInCodeAction } from './actions';
 
 /**
  * Two ways in for a returning visitor, and no dead end for a forgotten
- * password: a six-digit code to the inbox signs you in just as well, using the
+ * password: a code to the inbox signs you in just as well, using the
  * machinery the entry flow already runs.
  */
 export function SignInForm() {
@@ -140,8 +140,8 @@ export function SignInForm() {
           <h1>Sign in with a code</h1>
           <p className="lede">
             {codeSent
-              ? `Enter the six-digit code we sent to ${cleanEmail}.`
-              : 'We will send a six-digit code to your inbox. No password needed.'}
+              ? `Enter the code we sent to ${cleanEmail}.`
+              : 'We will send a code to your inbox. No password needed.'}
           </p>
           <div className="field">
             <label htmlFor="code-email">Email</label>

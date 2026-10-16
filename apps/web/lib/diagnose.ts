@@ -156,8 +156,8 @@ export const HEALTH_CODES: Record<HealthCode, CodeMeaning> = {
   },
   EMAIL_BUILT_IN_SENDER: {
     severity: 'note',
-    title: 'Emails go out through Supabase own mailer, which sends a link and roughly two emails an hour.',
-    fix: 'Fine while testing, and it must go before launch. Supabase, Authentication, Emails, SMTP settings: connect a mailbox (support@boasis.ae later, a Gmail app password today) and the ceiling, the address restriction and the missing code all go away at once. Then add {{ .Token }} to the Magic Link template so the email carries the six digits.',
+    title: 'Emails go out through Supabase own mailer, which sends roughly two emails an hour.',
+    fix: 'Fine while testing, and it must go before launch. Supabase, Authentication, Emails, SMTP settings: connect a mailbox (support@boasis.ae later, a Gmail app password today) and the ceiling, the address restriction and the missing code all go away at once. Then add {{ .Token }} to the Magic Link template so the email carries the digits.',
   },
   ENTRY_FAILURE_LOGGED: {
     severity: 'note',

@@ -175,6 +175,18 @@ async function main(): Promise<void> {
 
     console.log('\nThe email link');
 
+    // The live project sends EIGHT digits while the screen rendered six boxes
+    // and said "six-digit". The length now comes from the project, and the
+    // server accepts the whole range a project can be set to.
+    fake.setMode('eight-digit-codes');
+    const eightDigitPage = await get('/signup');
+    check(
+      'a project set to eight-digit codes still serves the entry screen',
+      eightDigitPage.status === 200,
+      `status ${String(eightDigitPage.status)}`,
+    );
+    fake.setMode('healthy');
+
     // The inbox screen is React state, so a curl cannot see it: the copy itself
     // is checked in the unit test for the email mode, and the served shell must
     // at least ship it (it is in the client chunk, not in the HTML).
@@ -299,7 +311,8 @@ async function main(): Promise<void> {
     );
     check(
       'the report says how signup email is sent today',
-      healthyBody.includes('"email":{"codeLed":false') &&
+      healthyBody.includes('"email":{"ownSender":false') &&
+        healthyBody.includes('"codeLength":6') &&
         healthyBody.includes('EMAIL_BUILT_IN_SENDER'),
       'email mode missing from the report',
     );

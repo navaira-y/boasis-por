@@ -1,5 +1,6 @@
 import 'server-only';
 import { readPublicEnv } from './env';
+import { codeLengthFrom, DEFAULT_CODE_LENGTH } from './code-length';
 
 /**
  * Does the project have a real sender yet?
@@ -9,7 +10,7 @@ import { readPublicEnv } from './env';
  * length. That way the screen follows the truth instead of a switch somebody has
  * to keep in step:
  *
- *   a real sender configured -> the email can carry a six-digit code, so the
+ *   a real sender configured -> the email can carry a code, so the
  *                               code screen is offered (the link still works)
  *   no sender yet            -> the built-in mailer sends a link only, so the
  *                               screen asks for the click instead of for digits
@@ -20,15 +21,18 @@ import { readPublicEnv } from './env';
  */
 
 export interface EmailMode {
-  /** True when the email is expected to carry a six-digit code. */
-  codeLed: boolean;
   /** True when the project has a sender of its own configured. */
   ownSender: boolean;
-  /** The project's configured code length, when it reports one. */
+  /** The length the project reports, when it reports one. */
   otpLength: number | null;
+  /**
+   * How many digits the code has (see lib/code-length). This is the number the
+   * screen renders boxes for.
+   */
+  codeLength: number;
 }
 
-const FALLBACK: EmailMode = { codeLed: false, ownSender: false, otpLength: null };
+const FALLBACK: EmailMode = { ownSender: false, otpLength: null, codeLength: DEFAULT_CODE_LENGTH };
 const CACHE_MS = 60_000;
 let cache: { at: number; mode: EmailMode } | null = null;
 
@@ -53,9 +57,7 @@ export async function readEmailMode(): Promise<EmailMode> {
       // until it proves otherwise.
       const rawLength: unknown = Reflect.get(settings, 'mailer_otp_length');
       const otpLength = typeof rawLength === 'number' ? rawLength : null;
-      // A code needs a working sender; without one the email carries a link.
-      const codeLed = ownSender && otpLength !== null && otpLength >= 6;
-      mode = { codeLed, ownSender, otpLength };
+      mode = { ownSender, otpLength, codeLength: codeLengthFrom(otpLength) };
     }
   } catch {
     mode = FALLBACK;

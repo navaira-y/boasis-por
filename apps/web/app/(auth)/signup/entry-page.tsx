@@ -29,8 +29,9 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
   const { plans } = await listPlans();
   // Whether the project has a sender of its own only changes a courtesy line on
   // the inbox screen (the built-in mailer sends about two an hour). Whether the
-  // EMAIL carries the six digits is decided by the Supabase template, which the
-  // app cannot read, so the screen always offers both the code and the link.
+  // EMAIL carries the code is decided by the Supabase template, which the app
+  // cannot read, so the screen always offers both the code and the link. How many
+  // boxes the code gets is the length this project reports.
   const emailMode = await readEmailMode();
 
   return (
@@ -41,6 +42,7 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
           resumeEmail={resumeEmail}
           notice={linkExpired ? ENTRY_COPY.linkExpired : null}
           limitedSender={!emailMode.ownSender}
+          codeLength={emailMode.codeLength}
         />
       </section>
       <aside className="aside">

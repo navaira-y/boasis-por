@@ -33,7 +33,7 @@ export default async function SignInPage() {
         </p>
         <p className="lede-note">
           No account yet?{' '}
-          <a href="/signup">Creating one takes an email and a six-digit code</a>, and your first
+          <a href="/signup">Creating one takes an email and a code</a>, and your first
           year for one company is free.
         </p>
       </aside>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { authFailure, isOperatorProblem } from './auth-error';
+import { authFailure, isAmbiguousSend, isOperatorProblem } from './auth-error';
 
 /**
  * Every message below is one Supabase Auth is known to return. The point of the
@@ -65,6 +65,25 @@ describe('the visitor own mistakes', () => {
 
   it('points at the password rule', () => {
     expect(authFailure('Password should be at least 12 characters.').code).toBe('AUTH_PASSWORD_POLICY');
+  });
+});
+
+describe('a send that was cut off', () => {
+  it('is not reported as a failure, because the email usually went out', () => {
+    // This is the live bug: the timeout cut the request off while GoTrue had
+    // already handed the email to the mailer, so the inbox had it and the screen
+    // said "we could not finish that step".
+    for (const said of ['Failed to fetch', 'The operation was aborted', 'fetch failed', 'NetworkError when attempting to fetch resource.']) {
+      const failure = authFailure(said);
+      expect(failure.kind).toBe('send-unconfirmed');
+      expect(failure.message).toContain('on its way');
+      expect(isAmbiguousSend(failure)).toBe(true);
+    }
+  });
+
+  it('is not confused with a refusal that a retry cannot fix', () => {
+    expect(isAmbiguousSend(authFailure('Error sending magic link email'))).toBe(false);
+    expect(isAmbiguousSend(authFailure('Email address is not authorized'))).toBe(false);
   });
 });
 

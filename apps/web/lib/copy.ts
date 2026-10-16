@@ -33,8 +33,11 @@ export const ENTRY_COPY = {
    * stuck in front of a screen that expects something their email does not have.
    */
   codeTitle: 'Check your inbox',
-  codeBody:
-    'We sent an email to your address with a six-digit code and a sign-in link. Type the code below, or click the link inside the email and you will land back here already verified.',
+  // Split so the address can be shown in bold. Deliberately no digit count:
+  // the project decides how many digits its codes have (see lib/code-length).
+  codeBodyLead: 'We sent an email to',
+  codeBodyTail:
+    'with a code and a sign-in link. Type the code below, or click the link inside the email and you will land back here already verified.',
 
   /** Shown when an email link has already been used or has timed out. */
   linkExpired:

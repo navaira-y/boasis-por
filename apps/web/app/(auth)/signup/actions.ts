@@ -11,7 +11,7 @@ import { appUrl } from '@/lib/env';
 import { accessForUser, hasProfile } from '@/lib/access';
 import { auditEvent, logEntryEvent } from '@/lib/log';
 import { asRecord, asRows, asText } from '@/lib/shape';
-import { authFailure } from '@/lib/auth-error';
+import { authFailure, isAmbiguousSend } from '@/lib/auth-error';
 import { activateFreeYearForCurrentUser } from '@/lib/activation';
 import { TERMS_VERSION } from '@/lib/copy';
 import type { PlanId } from '@/lib/plans';
@@ -43,6 +43,8 @@ export interface EntryCheckResponse {
 export interface SimpleResponse {
   ok: boolean;
   error?: string;
+  /** A soft line to show on the next screen, when the step worked with a caveat. */
+  notice?: string;
   /** Where the visitor goes next, when the action did not redirect itself. */
   next?: string;
 }
@@ -77,7 +79,7 @@ export async function checkEntryAction(emailRaw: string): Promise<EntryCheckResp
   };
 }
 
-/** Step 3: send the six-digit code. Reveals nothing about the address. */
+/** Step 3: send the code. Reveals nothing about the address. */
 export async function sendCodeAction(emailRaw: string): Promise<SimpleResponse> {
   const email = normalizeEmail(emailRaw);
   if (!isValidEmail(email)) return { ok: false, error: 'Please enter a valid email address.' };
@@ -109,6 +111,14 @@ export async function sendCodeAction(emailRaw: string): Promise<SimpleResponse> 
       code: failure.code,
       meta: { said: error.message.slice(0, 200), status: error.status ?? null, fix: failure.fix },
     });
+    if (isAmbiguousSend(failure)) {
+      // The request to the mailer was cut off, which does NOT cancel the email:
+      // GoTrue hands the message to SMTP before it answers. Reporting a failure
+      // here is the worst outcome, because the visitor's inbox HAS the email and
+      // the screen tells them it failed. They continue to the code screen, with
+      // a line telling them what to do if nothing arrives.
+      return { ok: true, notice: failure.message };
+    }
     return { ok: false, error: failure.message };
   }
   await logEntryEvent({ kind: 'code_sent', email, code: 'OK' });
@@ -119,7 +129,12 @@ export async function sendCodeAction(emailRaw: string): Promise<SimpleResponse> 
 export async function verifyCodeAction(emailRaw: string, code: string): Promise<SimpleResponse> {
   const email = normalizeEmail(emailRaw);
   if (!isValidEmail(email)) return { ok: false, error: 'Please enter a valid email address.' };
-  if (!/^\d{6}$/.test(code.trim())) return { ok: false, error: 'Please enter the 6-digit code.' };
+  // Supabase projects can be set to 6, 7, 8, 9 or 10 digit codes. The app reads
+  // the project's own length for the boxes, and accepts the range here, so a
+  // project setting can never lock a visitor out of their own code.
+  if (!/^\d{6,10}$/.test(code.trim())) {
+    return { ok: false, error: 'Please enter the code from your email.' };
+  }
 
   const perIp = checkLimit('otpVerify', await requestIp());
   if (!perIp.ok) return { ok: false, error: waitMessage(perIp.retryAfterSeconds) };

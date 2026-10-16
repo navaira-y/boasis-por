@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isValidEmail, normalizeEmail, suggestEmailFix } from '@/lib/email';
 import { CTA, ENTRY_COPY, TERMS_VERSION } from '@/lib/copy';
+import { codeDigits, DEFAULT_CODE_LENGTH, pastedDigits } from '@/lib/code-length';
 import { formatAED, type Plan, type PlanId } from '@/lib/plans';
 import { checkEntryAction, completeEntryAction, recordPlanWishAction, sendCodeAction, verifyCodeAction } from './actions';
 import type { EntryCheckResponse } from './actions';
@@ -44,6 +45,7 @@ export function EntryForm({
   resumeEmail,
   notice = null,
   limitedSender = false,
+  codeLength = DEFAULT_CODE_LENGTH,
 }: {
   plans: Plan[];
   resumeEmail: string | null;
@@ -51,6 +53,8 @@ export function EntryForm({
   notice?: string | null;
   /** True while email goes out through a sender that allows about two an hour. */
   limitedSender?: boolean;
+  /** How many digits the project's codes have (6 to 10). */
+  codeLength?: number;
 }) {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>(resumeEmail === null ? 'email' : 'password');
@@ -66,7 +70,8 @@ export function EntryForm({
   const [cooldown, setCooldown] = useState(0);
   const [codeSent, setCodeSent] = useState(false);
   const [verifyPending, setVerifyPending] = useState(false);
-  const [digits, setDigits] = useState<string[]>(['', '', '', '', '', '']);
+  const [digits, setDigits] = useState<string[]>(() => codeDigits(codeLength));
+  const [sendNotice, setSendNotice] = useState<string | null>(null);
 
   // Typed values that must survive a re-render: kept in a ref, never state.
   const stash = useRef({ name: '', password: '' });
@@ -97,7 +102,7 @@ export function EntryForm({
     setProblem(null);
     setAckedProblem(false);
     setError(null);
-    setDigits(['', '', '', '', '', '']);
+    setDigits(codeDigits(codeLength));
     setCodeSent(false);
   }
 
@@ -148,7 +153,10 @@ export function EntryForm({
       setError(sent.error ?? 'Could not send the code. Please try again.');
       return;
     }
-    setDigits(['', '', '', '', '', '']);
+    // A cut-off mailer is not a failed send, and the visitor is told so on the
+    // next screen rather than being stopped here.
+    setSendNotice(sent.notice ?? null);
+    setDigits(codeDigits(codeLength));
     setCodeSent(true);
     setCooldown(60);
     setPhase('code');
@@ -164,7 +172,7 @@ export function EntryForm({
       setError(sent.error ?? 'Could not send the code. Please try again.');
       return;
     }
-    setDigits(['', '', '', '', '', '']);
+    setDigits(codeDigits(codeLength));
     setCooldown(60);
     boxRefs.current[0]?.focus();
   }
@@ -195,7 +203,7 @@ export function EntryForm({
     if (!result.ok) {
       setVerifyPending(false);
       setError(result.error ?? 'That code is not right. Please try again.');
-      setDigits(['', '', '', '', '', '']);
+      setDigits(codeDigits(codeLength));
       boxRefs.current[0]?.focus();
       return;
     }
@@ -213,8 +221,8 @@ export function EntryForm({
   verifyRef.current = verifyNow;
 
   useEffect(() => {
-    if (phase === 'code' && code.length === 6) void verifyRef.current();
-  }, [phase, code]);
+    if (phase === 'code' && code.length === codeLength) void verifyRef.current();
+  }, [phase, code, codeLength]);
 
   function onDigit(index: number, value: string) {
     const digit = value.replace(/\D/g, '').slice(-1);
@@ -233,11 +241,13 @@ export function EntryForm({
   }
 
   function onPaste(event: React.ClipboardEvent<HTMLDivElement>) {
-    const pasted = event.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
-    if (pasted.length === 0) return;
+    // See pastedDigits: digits only, and the row grows rather than swallowing any
+    // digit the visitor's email actually carries.
+    const boxes = pastedDigits(event.clipboardData.getData('text'), codeLength);
+    if (boxes.length === 0) return;
     event.preventDefault();
-    setDigits([0, 1, 2, 3, 4, 5].map((index) => pasted[index] ?? ''));
-    boxRefs.current[Math.min(pasted.length, 5)]?.focus();
+    setDigits(boxes);
+    boxRefs.current[Math.min(boxes.filter(Boolean).length, boxes.length - 1)]?.focus();
   }
 
   function choosePlan(plan: Plan) {
@@ -433,7 +443,7 @@ export function EntryForm({
         >
           <h1>{ENTRY_COPY.passwordTitle}</h1>
           <p className="lede">
-            Two fields and a tick, then a six-digit code to your inbox.
+            Two fields and a tick, then a code to your inbox.
           </p>
           {resumeEmail !== null && (
             <div className="notice">
@@ -514,10 +524,13 @@ export function EntryForm({
         <div>
           <h1>{ENTRY_COPY.codeTitle}</h1>
           <p className="lede">
-            We sent an email to <strong>{cleanEmail}</strong> with a six-digit code and a sign-in
-            link. Type the code below, or click the link inside the email and you will land back
-            here already verified.
+            {ENTRY_COPY.codeBodyLead} <strong>{cleanEmail}</strong> {ENTRY_COPY.codeBodyTail}
           </p>
+          {sendNotice !== null && (
+            <div className="notice" role="status">
+              {sendNotice}
+            </div>
+          )}
           <div className="code-boxes" onPaste={onPaste}>
             {digits.map((digit, index) => (
               <input
@@ -531,7 +544,7 @@ export function EntryForm({
                 maxLength={1}
                 value={digit}
                 disabled={verifyPending}
-                aria-label={`Digit ${String(index + 1)}`}
+                aria-label={`Digit ${String(index + 1)} of ${String(codeLength)}`}
                 onChange={(event) => { onDigit(index, event.target.value); }}
                 onKeyDown={(event) => { onDigitKey(index, event); }}
               />
@@ -541,14 +554,14 @@ export function EntryForm({
             className="btn"
             type="button"
             style={{ marginBlockStart: 16 }}
-            disabled={code.length !== 6 || verifyPending}
+            disabled={code.length !== codeLength || verifyPending}
             onClick={() => void verifyRef.current()}
           >
             {verifyPending ? CTA.verifying : CTA.verify}
           </button>
           <ol className="steps">
             <li>Open the newest email from Boasis.</li>
-            <li>Type the six digits, or click the link inside it.</li>
+            <li>Type the code from that email, or click the link inside it.</li>
             <li>Either way you land back here, verified, and set your password next.</li>
           </ol>
           <div style={{ marginBlockStart: 14 }}>

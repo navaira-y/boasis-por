@@ -54,8 +54,8 @@ describe('a refusal on the entry trail', () => {
     const report = await runHealth({ fresh: true, withEvents: false });
 
     // The fake project has no sender of its own, like the real one today.
-    expect(report.email?.codeLed).toBe(false);
     expect(report.email?.ownSender).toBe(false);
+    expect(report.email?.codeLength).toBe(6);
     expect(report.codes).toContain('EMAIL_BUILT_IN_SENDER');
     // Still green: the link works, the mailer is just limited.
     expect(report.ok).toBe(true);

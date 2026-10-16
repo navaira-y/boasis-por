@@ -22,6 +22,20 @@
 
 export const SUPABASE_FETCH_TIMEOUT_MS = 2_500;
 
+/**
+ * The auth mailer gets a much longer budget, and this is not a detail:
+ * GoTrue hands the message to SMTP before it answers, so cutting the request
+ * off does NOT cancel the email. On the live project that produced the worst
+ * kind of failure: the founder's inbox had the email while the screen said
+ * "we could not finish that step". A long budget makes a completed send look
+ * completed, and the caller treats a genuine cut-off as "maybe sent" instead of
+ * "failed" (see sendCodeAction).
+ */
+export const SUPABASE_MAILER_TIMEOUT_MS = 20_000;
+
+/** Paths where the request may already have had an effect when it is cut off. */
+const MAILER_PATHS = ['/auth/v1/otp', '/auth/v1/verify', '/auth/v1/recover', '/auth/v1/invite'];
+
 /** How long a proven-unreachable project is left alone before trying again. */
 export const SUPABASE_COOLDOWN_MS = 10_000;
 
@@ -36,6 +50,7 @@ const UNREACHABLE_BODY = JSON.stringify({
 export function fetchWithTimeout(
   timeoutMs = SUPABASE_FETCH_TIMEOUT_MS,
   cooldownMs = SUPABASE_COOLDOWN_MS,
+  mailerTimeoutMs = SUPABASE_MAILER_TIMEOUT_MS,
 ): typeof fetch {
   let downUntil = 0;
 
@@ -47,10 +62,13 @@ export function fetchWithTimeout(
       });
     }
 
+    const target = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+    const budget = MAILER_PATHS.some((path) => target.includes(path)) ? mailerTimeoutMs : timeoutMs;
+
     const controller = new AbortController();
     const timer = setTimeout(() => {
       controller.abort();
-    }, timeoutMs);
+    }, budget);
     // Keep the caller's own cancellation working as well (supabase-js passes a
     // signal of its own when a request is abandoned).
     const signal =

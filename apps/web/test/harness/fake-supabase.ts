@@ -20,6 +20,7 @@ export type FakeMode =
   | 'grants-missing'
   | 'activation-missing'
   | 'smtp-configured'
+  | 'eight-digit-codes'
   | 'anon-can-read-private'
   | 'privilege-not-proven'
   | 'privilege-unknown'
@@ -215,10 +216,11 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
       // a link, so no code length is reported and the screen must ask for the
       // click. `smtp: true` flips it to a code-led project.
       const smtp = mode === 'smtp-configured';
+      const eightDigits = mode === 'eight-digit-codes';
       send(response, 200, {
         external: { email: true },
         mailer_autoconfirm: false,
-        mailer_otp_length: smtp ? 6 : null,
+        mailer_otp_length: eightDigits ? 8 : smtp ? 6 : null,
         smtp_admin_email: smtp ? 'support@boasis.ae' : '',
         smtp_host: smtp ? 'smtp.gmail.com' : '',
       });

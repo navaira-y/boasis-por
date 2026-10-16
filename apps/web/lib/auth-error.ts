@@ -13,6 +13,7 @@
  */
 
 export type AuthFailureKind =
+  | 'send-unconfirmed'
   | 'rate-limit'
   | 'mailer-not-configured'
   | 'address-not-authorized'
@@ -34,6 +35,18 @@ export interface AuthFailure {
 }
 
 const RULES: { kind: AuthFailureKind; code: string; test: RegExp; message: string; fix: string }[] = [
+  {
+    kind: 'send-unconfirmed',
+    code: 'AUTH_SEND_UNCONFIRMED',
+    // The request was cut off, or the network dropped it. The mailer may still
+    // have sent the email, because GoTrue hands the message to SMTP before it
+    // answers, so this is NOT reported as a failure: the visitor is moved to the
+    // code screen and told what to do if nothing arrives.
+    test: /failed to fetch|fetch failed|network|aborted|timeout|timed out|signal|econnreset/i,
+    message:
+      'Your email is on its way. If it does not arrive in a minute, ask for another one below.',
+    fix: 'The request to Supabase was cut off rather than refused. The email is usually already sent; the trail records this case so a pattern would be visible.',
+  },
   {
     kind: 'rate-limit',
     code: 'AUTH_RATE_LIMIT',
@@ -117,6 +130,14 @@ export function authFailure(message: string): AuthFailure {
       'We could not finish that step just now. Please try again in a moment, or write to support@boasis.ae.',
     fix: 'Read the raw message in the entry trail (Railway logs: entry: kind=code_sent) and in Supabase, Authentication, Logs.',
   };
+}
+
+/**
+ * True when the send MAY have happened and must not be reported as a failure.
+ * Cutting off a mailer request does not cancel the mail.
+ */
+export function isAmbiguousSend(failure: AuthFailure): boolean {
+  return failure.kind === 'send-unconfirmed';
 }
 
 /** True when the visitor cannot be helped by retrying. */
