@@ -43,14 +43,14 @@ export function EntryForm({
   plans,
   resumeEmail,
   notice = null,
-  codeLed = false,
+  limitedSender = false,
 }: {
   plans: Plan[];
   resumeEmail: string | null;
   /** Something the server wants the visitor told before they type anything. */
   notice?: string | null;
-  /** True when the email is expected to carry six digits. */
-  codeLed?: boolean;
+  /** True while email goes out through a sender that allows about two an hour. */
+  limitedSender?: boolean;
 }) {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>(resumeEmail === null ? 'email' : 'password');
@@ -424,7 +424,6 @@ export function EntryForm({
           </p>
         </div>
       )}
-
       {phase === 'password' && (
         <form
           onSubmit={(event) => {
@@ -513,25 +512,12 @@ export function EntryForm({
 
       {phase === 'code' && (
         <div>
-          {codeLed ? (
-            <>
-              <h1>{ENTRY_COPY.codeLedTitle}</h1>
-              <p className="lede">{ENTRY_COPY.codeLedBody}</p>
-            </>
-          ) : (
-            <>
-              <h1>{ENTRY_COPY.linkLedTitle}</h1>
-              <p className="lede">
-                {ENTRY_COPY.linkLedBody} We sent it to <strong>{cleanEmail}</strong>.
-              </p>
-              <ol className="steps">
-                <li>Open the newest email from Boasis.</li>
-                <li>Click the link inside it.</li>
-                <li>Set your password and you are in.</li>
-              </ol>
-            </>
-          )}
-          {codeLed && (
+          <h1>{ENTRY_COPY.codeTitle}</h1>
+          <p className="lede">
+            We sent an email to <strong>{cleanEmail}</strong> with a six-digit code and a sign-in
+            link. Type the code below, or click the link inside the email and you will land back
+            here already verified.
+          </p>
           <div className="code-boxes" onPaste={onPaste}>
             {digits.map((digit, index) => (
               <input
@@ -551,8 +537,6 @@ export function EntryForm({
               />
             ))}
           </div>
-          )}
-          {codeLed && (
           <button
             className="btn"
             type="button"
@@ -562,7 +546,11 @@ export function EntryForm({
           >
             {verifyPending ? CTA.verifying : CTA.verify}
           </button>
-          )}
+          <ol className="steps">
+            <li>Open the newest email from Boasis.</li>
+            <li>Type the six digits, or click the link inside it.</li>
+            <li>Either way you land back here, verified, and set your password next.</li>
+          </ol>
           <div style={{ marginBlockStart: 14 }}>
             {cooldown > 0 ? (
               <p className="hint">You can ask for another email in {String(cooldown)}s.</p>
@@ -578,16 +566,16 @@ export function EntryForm({
                 {busy ? CTA.sending : CTA.resend}
               </button>
             )}
-            {!codeLed && (
+            {limitedSender && (
               <p className="hint">
-                The email can take a minute to arrive, and it will not always send twice in the
-                same hour: if nothing arrives, wait a little before asking again.
+                While our own sender is being connected, this email comes from Boasis own mail
+                service, which sends only a couple an hour and can take a minute to arrive. If
+                nothing comes, wait a little before asking again.
               </p>
             )}
-            <p className="hint">
-              {codeSent && 'Nothing in your inbox yet? '}
-              Ask for another email below, and use the newest one: it is the only one that works.
-            </p>
+            {codeSent && (
+              <p className="hint">Nothing in your inbox yet? Ask again below, and use the newest email: it is the only one that works.</p>
+            )}
             <p className="hint">
               Wrong address?{' '}
               <button type="button" className="linkish" onClick={reset}>

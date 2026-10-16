@@ -23,14 +23,18 @@ export const ENTRY_COPY = {
   passwordWhy:
     'The code goes to your inbox next, so we can be sure this address is yours before the account exists.',
 
+  /**
+   * One inbox screen for both kinds of email.
+   *
+   * Which of the two the visitor receives is decided by the email TEMPLATE in
+   * Supabase (the code line is `{{ .Token }}`, the link is
+   * `{{ .ConfirmationURL }}`), and the app cannot read a template. So the screen
+   * names both: type the code, or click the link. Neither way can leave somebody
+   * stuck in front of a screen that expects something their email does not have.
+   */
   codeTitle: 'Check your inbox',
-  /** With no sender configured yet, the link is the only thing in the email. */
-  linkLedTitle: 'Click the link in your inbox',
-  linkLedBody:
-    'We sent it to your address. One click there proves the address is yours, and it brings you back here to set your password.',
-  codeLedTitle: 'Check your inbox',
-  codeLedBody:
-    'We sent a six-digit code to your address. Type it below, or click the link in the same email and you will land back here already verified.',
+  codeBody:
+    'We sent an email to your address with a six-digit code and a sign-in link. Type the code below, or click the link inside the email and you will land back here already verified.',
 
   /** Shown when an email link has already been used or has timed out. */
   linkExpired:

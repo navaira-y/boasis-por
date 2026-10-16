@@ -55,14 +55,10 @@ describe('the email mode', () => {
   });
 });
 
-describe('the copy for both modes', () => {
-  it('asks for the click in the link-led mode, and says where the email went', () => {
-    expect(ENTRY_COPY.linkLedTitle).toContain('link');
-    expect(ENTRY_COPY.linkLedBody).toContain('proves the address is yours');
-  });
-
-  it('offers the code and the link in the code-led mode', () => {
-    expect(ENTRY_COPY.codeLedBody).toContain('six-digit code');
-    expect(ENTRY_COPY.codeLedBody).toContain('click the link');
+describe('the copy for the inbox screen', () => {
+  it('names both ways in, so an email with a link only, or a code only, cannot strand anyone', () => {
+    expect(ENTRY_COPY.codeBody).toContain('six-digit code');
+    expect(ENTRY_COPY.codeBody).toContain('click the link');
+    expect(ENTRY_COPY.codeTitle).toContain('inbox');
   });
 });

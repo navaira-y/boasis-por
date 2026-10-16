@@ -27,9 +27,10 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
   }
 
   const { plans } = await listPlans();
-  // Whether the email will carry code digits is the project's own answer, read
-  // from Supabase rather than guessed, so the screen never asks for digits that
-  // are not in the inbox.
+  // Whether the project has a sender of its own only changes a courtesy line on
+  // the inbox screen (the built-in mailer sends about two an hour). Whether the
+  // EMAIL carries the six digits is decided by the Supabase template, which the
+  // app cannot read, so the screen always offers both the code and the link.
   const emailMode = await readEmailMode();
 
   return (
@@ -39,7 +40,7 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
           plans={plans}
           resumeEmail={resumeEmail}
           notice={linkExpired ? ENTRY_COPY.linkExpired : null}
-          codeLed={emailMode.codeLed}
+          limitedSender={!emailMode.ownSender}
         />
       </section>
       <aside className="aside">
