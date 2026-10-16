@@ -289,7 +289,13 @@ h3 {
 
 /* ----------------------------------------------------------------- progress */
 
-.steps {
+/*
+ * The progress bar: four 4px tabs at the top of the entry card. It is NOT the
+ * list of instructions under the Verify button. Both were called `.steps`, so the
+ * instructions inherited `flex: 1; height: 4px` and their text spilled out of the
+ * four-pixel boxes, over each other. One class, one job.
+ */
+.progress {
   display: flex;
   gap: 6px;
   margin-block-end: 20px;
@@ -297,19 +303,35 @@ h3 {
   list-style: none;
 }
 
-.steps li {
+.progress li {
   flex: 1;
   height: 4px;
   border-radius: 999px;
   background: var(--line);
 }
 
-.steps li[data-state='done'] {
+.progress li[data-state='done'] {
   background: var(--teal-line);
 }
 
-.steps li[data-state='now'] {
+.progress li[data-state='now'] {
   background: linear-gradient(90deg, var(--teal) 0%, var(--sky) 100%);
+}
+
+/* The numbered instructions on the code screen. */
+.guide {
+  margin: 18px 0 0;
+  padding-inline-start: 20px;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.guide li {
+  height: auto;
+  overflow-wrap: anywhere;
 }
 
 /* ------------------------------------------------------------------- forms */

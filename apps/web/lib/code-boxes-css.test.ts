@@ -47,3 +47,17 @@ describe('text that sits beside the boxes', () => {
     expect(rule('.lede')).toContain('overflow-wrap: anywhere');
   });
 });
+
+describe('instructions are not progress bars', () => {
+  const form = readFileSync(new URL('../app/(auth)/signup/entry-form.tsx', import.meta.url), 'utf8');
+  it('uses separate classes for the bars and the written instructions', () => {
+    expect(form).toContain('className="progress" aria-label="Progress"');
+    expect(form).toContain('className="guide"');
+    expect(form).not.toContain('className="steps"');
+  });
+  it('lets every instruction take its full height in normal flow', () => {
+    expect(rule('.guide')).toContain('display: grid');
+    expect(rule('.guide li')).toContain('height: auto');
+    expect(rule('.progress li')).toContain('height: 4px');
+  });
+});

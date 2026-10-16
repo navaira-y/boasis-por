@@ -36,6 +36,7 @@ import type {
 import { accounts, auth, passwords } from './accounts';
 import { currentActor, requireUser } from './actor';
 import { supabase } from './client';
+import { restorePortalSession } from './session';
 import {
   changedLine,
   fieldChanges,
@@ -932,7 +933,8 @@ const access: AccessRepo = {
   },
 };
 
-export function createSupabaseRepos(): Repos {
+export async function createSupabaseRepos(): Promise<Repos> {
+  await restorePortalSession();
   const offices: OfficesRepo = fieldCollection({
     table: 'company_offices',
     label: 'offices',

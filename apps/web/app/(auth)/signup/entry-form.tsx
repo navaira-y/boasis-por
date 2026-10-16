@@ -281,7 +281,7 @@ export function EntryForm({
 
   return (
     <div>
-      <ol className="steps" aria-label="Progress">
+      <ol className="progress" aria-label="Progress">
         {STEPS.map((step) => (
           <li key={step.id} data-state={stepState(phase, step.id)}>
             <span className="screenreader">{step.label}</span>
@@ -581,7 +581,7 @@ export function EntryForm({
           >
             {verifyPending ? CTA.verifying : CTA.verify}
           </button>
-          <ol className="steps">
+          <ol className="guide">
             <li>Open the newest email from Boasis.</li>
             <li>
               Type the code from that email, or click the link inside it.

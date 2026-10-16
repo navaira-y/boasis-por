@@ -278,6 +278,26 @@ async function main(): Promise<void> {
       'portal assets carry the policy too',
       (portalAsset.headers.get('content-security-policy') ?? '').includes('script-src'),
     );
+    // A root div alone proved nothing: /portal used to return HTML whose
+    // relative scripts resolved to /assets and 404ed in a real browser.
+    const baseHref = /<base\s+href="([^"]+)"/.exec(portalActive.body)?.[1];
+    check('the portal pins relative references under /portal/', baseHref === '/portal/', String(baseHref));
+    const documentBase = new URL(baseHref ?? '.', `${ORIGIN}/portal`);
+    const refs = [...portalActive.body.matchAll(/(?:src|href)="(\.\/[^"]+)"/g)];
+    check('the served portal names scripts and styles', refs.length >= 3);
+    for (const match of refs) {
+      const assetUrl = new URL(match[1] ?? '', documentBase);
+      const asset = await get(assetUrl.pathname, { headers: { cookie: cookies } });
+      const contentType = asset.headers.get('content-type') ?? '';
+      check(`the browser can load ${assetUrl.pathname}`, assetUrl.pathname.startsWith('/portal/') && asset.status === 200,
+        `status ${String(asset.status)}`);
+      if (assetUrl.pathname.endsWith('.js')) {
+        check('the script is JavaScript, not a redirected HTML page', contentType.includes('javascript'), contentType);
+      }
+      if (assetUrl.pathname.endsWith('.css')) {
+        check('the stylesheet is CSS', contentType.includes('text/css'), contentType);
+      }
+    }
     const signupCsp = (await get('/signup')).headers.get('content-security-policy');
     check('the entry pages are not given the portal policy by accident', signupCsp === null, String(signupCsp));
 
@@ -392,6 +412,11 @@ async function main(): Promise<void> {
       headers: { authorization: `Bearer ${FAKE_SERVICE_KEY}` },
     });
     check('the renewal job runs for the service key', cronOk.status === 200, `status ${String(cronOk.status)}`);
+    if (process.env.BROWSER_EXECUTABLE_PATH !== undefined) {
+      const { checkInBrowser } = await import('./browser.ts');
+      await checkInBrowser(ORIGIN, fake);
+    }
+
   } finally {
     stop();
     await fake.close();

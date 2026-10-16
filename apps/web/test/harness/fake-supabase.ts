@@ -98,7 +98,12 @@ const DEFAULT_USER_UNCONFIRMED: FakeUser = {
 
 function send(response: ServerResponse, status: number, body: unknown): void {
   const text = typeof body === 'string' ? body : JSON.stringify(body);
-  response.writeHead(status, { 'content-type': 'application/json' });
+  response.writeHead(status, {
+    'content-type': 'application/json',
+    'access-control-allow-origin': '*',
+    'access-control-allow-headers': 'authorization, apikey, content-type, x-client-info, x-supabase-api-version, prefer',
+    'access-control-allow-methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+  });
   response.end(text);
 }
 
@@ -159,6 +164,10 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
   });
 
   async function handle(request: IncomingMessage, response: ServerResponse): Promise<void> {
+    if (request.method === 'OPTIONS') {
+      send(response, 204, '');
+      return;
+    }
     const raw = request.url ?? '/';
     const parsed = new URL(raw, 'http://127.0.0.1');
     const path = parsed.pathname;
@@ -399,7 +408,20 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     }
 
     if (path === '/rest/v1/profiles') {
-      send(response, 200, hasProfile ? [{ id: DEFAULT_USER_ACTIVE.id }] : []);
+      send(response, 200, hasProfile ? [{
+        id: DEFAULT_USER_ACTIVE.id, full_name: 'Test Owner', terms_version: 'test',
+        terms_accepted_at: '2026-10-17T00:00:00Z', created_at: '2026-10-17T00:00:00Z',
+        email_reminders_on: true,
+      }] : []);
+      return;
+    }
+
+    // A fresh account has no company data. Browser proof uses the real adapter,
+    // not the mock adapter or seeded companies.
+    if (['/rest/v1/companies', '/rest/v1/portal_account_companies',
+      '/rest/v1/portal_onboarding_starts', '/rest/v1/portal_access_grants',
+      '/rest/v1/portal_account_people'].includes(path)) {
+      send(response, 200, []);
       return;
     }
 

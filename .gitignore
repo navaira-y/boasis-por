@@ -41,3 +41,7 @@ coverage/
 
 # TypeScript build info
 *.tsbuildinfo
+
+# Browser regression output, never ship captures or reports.
+**/test-results/
+**/playwright-report/

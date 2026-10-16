@@ -32,9 +32,7 @@ RUN VITE_DATA_MODE=supabase \
     npm run build --workspace @boasis/portal
 # The portal becomes same-origin /portal/* behind the gate. It is built here,
 # never committed (see .gitignore).
-RUN rm -rf apps/web/public/portal \
-  && mkdir -p apps/web/public/portal \
-  && cp -r apps/portal/dist/. apps/web/public/portal/
+RUN node --experimental-strip-types apps/web/scripts/prepare-portal.ts
 RUN npm run build --workspace @boasis/web
 
 FROM node:22-alpine AS runner
