@@ -5,7 +5,7 @@ import {
   startFakeSupabase,
   type FakeSupabase,
 } from '../test/harness/fake-supabase';
-import { resetHealthCache, runHealth } from './diagnose';
+import { entryBlockers, resetHealthCache, runHealth } from './diagnose';
 
 vi.mock('next/headers', () => ({
   cookies: () => ({ getAll: () => [], set: () => undefined, delete: () => undefined }),
@@ -47,6 +47,20 @@ describe('a refusal on the entry trail', () => {
     expect(report.codes).toContain('ENTRY_FAILURE_LOGGED');
     // A note, not a blocker: the door still works for everybody else.
     expect(report.ok).toBe(true);
+  });
+
+  it('reports how email is sent, and keeps that off the signup screen', async () => {
+    resetHealthCache();
+    const report = await runHealth({ fresh: true, withEvents: false });
+
+    // The fake project has no sender of its own, like the real one today.
+    expect(report.email?.codeLed).toBe(false);
+    expect(report.email?.ownSender).toBe(false);
+    expect(report.codes).toContain('EMAIL_BUILT_IN_SENDER');
+    // Still green: the link works, the mailer is just limited.
+    expect(report.ok).toBe(true);
+    // And the door does not nag the visitor about it.
+    expect(entryBlockers(report)).toEqual([]);
   });
 
   it('says nothing when the trail is clean', async () => {

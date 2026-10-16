@@ -298,6 +298,12 @@ async function main(): Promise<void> {
       'activation probe was not explained',
     );
     check(
+      'the report says how signup email is sent today',
+      healthyBody.includes('"email":{"codeLed":false') &&
+        healthyBody.includes('EMAIL_BUILT_IN_SENDER'),
+      'email mode missing from the report',
+    );
+    check(
       'the report knows the operator address is on the list',
       healthyBody.includes('"operatorListed":true'),
       'operatorListed was not true',

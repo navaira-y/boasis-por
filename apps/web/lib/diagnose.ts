@@ -2,6 +2,7 @@ import 'server-only';
 import { envPresence, readPublicEnv, readServiceKey, type EnvPresence } from './env';
 import { readKeyFacts, readUrlFacts, type KeyFormat } from './keys';
 import { classifyDbFailure } from './db-error';
+import { readEmailMode, type EmailMode } from './email-mode';
 
 /**
  * The probe suite behind /api/health and behind every named signup failure.
@@ -39,7 +40,8 @@ export type HealthCode =
   | 'SERVICE_SCHEMA_UNREADABLE'
   | 'LIST_EMPTY_UNVERIFIED'
   | 'SENSITIVE_TABLE_PUBLIC'
-  | 'ENTRY_FAILURE_LOGGED';
+  | 'ENTRY_FAILURE_LOGGED'
+  | 'EMAIL_BUILT_IN_SENDER';
 
 export type Severity = 'blocker' | 'warning' | 'note';
 
@@ -151,6 +153,11 @@ export const HEALTH_CODES: Record<HealthCode, CodeMeaning> = {
     severity: 'note',
     title: 'The early-access list read came back empty and could not be verified.',
     fix: 'Reload /api/health. If it repeats, confirm SUPABASE_SERVICE_ROLE_KEY really is the service_role key of this project.',
+  },
+  EMAIL_BUILT_IN_SENDER: {
+    severity: 'note',
+    title: 'Emails go out through Supabase own mailer, which sends a link and roughly two emails an hour.',
+    fix: 'Fine while testing, and it must go before launch. Supabase, Authentication, Emails, SMTP settings: connect a mailbox (support@boasis.ae later, a Gmail app password today) and the ceiling, the address restriction and the missing code all go away at once. Then add {{ .Token }} to the Magic Link template so the email carries the six digits.',
   },
   ENTRY_FAILURE_LOGGED: {
     severity: 'note',
@@ -273,6 +280,8 @@ export interface HealthReport {
   recentEvents: EntryEventView[];
   /** The most recent refusal on the entry path, if there is one. */
   lastEntryFailure: { kind: string; code: string; at: string } | null;
+  /** How this project sends signup emails right now. */
+  email: EmailMode | null;
   action: CodeMeaning | null;
 }
 
@@ -383,6 +392,17 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
     if (urlFacts.ref !== null && serviceFacts.ref !== null && serviceFacts.ref !== urlFacts.ref) {
       codes.push('SERVICE_URL_MISMATCH');
     }
+  }
+
+  // How the project sends email decides which inbox screen the visitor sees, so
+  // the report states it rather than leaving the operator to guess why the code
+  // boxes disappeared.
+  let email: EmailMode | null = null;
+  try {
+    email = await readEmailMode();
+    if (!email.ownSender) addCode(codes, 'EMAIL_BUILT_IN_SENDER');
+  } catch {
+    email = null;
   }
 
   const notAttempted: Probe = { status: 0, ok: false, note: 'not attempted' };
@@ -520,6 +540,7 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
     operatorListed,
     recentEvents,
     lastEntryFailure,
+    email,
     action: primary === 'OK' ? null : HEALTH_CODES[primary],
   };
 
@@ -684,9 +705,18 @@ export function entryBlockers(report: HealthReport): HealthCode[] {
     'EVENTS_TABLE_MISSING',
     'ACTIVATION_FUNCTION_MISSING',
   ];
-  const found = report.codes.filter((code) => relevant.includes(code));
-  return found.length > 0 ? found : report.primary === 'OK' ? [] : [report.primary];
+  const found = report.codes.filter((code) => relevant.includes(code) && !DOOR_IRRELEVANT.includes(code));
+  if (found.length > 0) return found;
+  const primary = DOOR_IRRELEVANT.includes(report.primary) ? 'OK' : report.primary;
+  return primary === 'OK' ? [] : [primary];
 }
+
+/**
+ * Codes that are true and worth printing on the health page, but are NOT a
+ * signup problem: the built-in mailer works, it is just limited, and telling
+ * every visitor about it would be noise.
+ */
+const DOOR_IRRELEVANT: HealthCode[] = ['EMAIL_BUILT_IN_SENDER'];
 
 /** Codes that still leave a usable signup: the inbox code can still be sent. */
 const CONTINUE_ALLOWED: HealthCode[] = [
