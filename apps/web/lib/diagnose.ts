@@ -38,7 +38,8 @@ export type HealthCode =
   | 'ACTIVATION_FUNCTION_MISSING'
   | 'SERVICE_SCHEMA_UNREADABLE'
   | 'LIST_EMPTY_UNVERIFIED'
-  | 'SENSITIVE_TABLE_PUBLIC';
+  | 'SENSITIVE_TABLE_PUBLIC'
+  | 'ENTRY_FAILURE_LOGGED';
 
 export type Severity = 'blocker' | 'warning' | 'note';
 
@@ -150,6 +151,11 @@ export const HEALTH_CODES: Record<HealthCode, CodeMeaning> = {
     severity: 'note',
     title: 'The early-access list read came back empty and could not be verified.',
     fix: 'Reload /api/health. If it repeats, confirm SUPABASE_SERVICE_ROLE_KEY really is the service_role key of this project.',
+  },
+  ENTRY_FAILURE_LOGGED: {
+    severity: 'note',
+    title: 'The entry trail has a refusal on it: someone was stopped on the way in.',
+    fix: 'Read lastEntryFailure below, then the same row in public.entry_events (it carries the wording Supabase used and the change that fixes it). Nothing is broken for everybody else.',
   },
   SENSITIVE_TABLE_PUBLIC: {
     severity: 'blocker',
@@ -265,6 +271,8 @@ export interface HealthReport {
   listRows: number | null;
   operatorListed: boolean | null;
   recentEvents: EntryEventView[];
+  /** The most recent refusal on the entry path, if there is one. */
+  lastEntryFailure: { kind: string; code: string; at: string } | null;
   action: CodeMeaning | null;
 }
 
@@ -389,6 +397,7 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
   let listRows: number | null = null;
   let operatorListed: boolean | null = null;
   let recentEvents: EntryEventView[] = [];
+  let lastEntryFailure: { kind: string; code: string; at: string } | null = null;
 
   if (urlFacts.ok && env.anonKey) {
     const authRaw = await rawProbe(`${url}/auth/v1/health`, { headers: { apikey: anonKey ?? '' } });
@@ -429,6 +438,20 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
       probes.events = toProbe(eventsRaw);
       if (eventsRaw.ok) {
         recentEvents = parseEvents(eventsRaw.body);
+        // A refused signup or a failed code send is the first thing the
+        // operator needs to see, so the report does not just list the trail:
+        // it names the last failure and what to change.
+        const lastFailure = recentEvents.find(
+          (event) => event.code !== null && event.code !== 'OK' && event.code !== 'LINK',
+        );
+        if (lastFailure !== undefined) {
+          addCode(codes, 'ENTRY_FAILURE_LOGGED');
+          lastEntryFailure = {
+            kind: lastFailure.kind,
+            code: lastFailure.code ?? 'unknown',
+            at: lastFailure.at,
+          };
+        }
       } else {
         addCode(codes, failureCode(eventsRaw, 'EVENTS_TABLE_MISSING'));
       }
@@ -496,6 +519,7 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
     listRows,
     operatorListed,
     recentEvents,
+    lastEntryFailure,
     action: primary === 'OK' ? null : HEALTH_CODES[primary],
   };
 
@@ -639,6 +663,7 @@ export function resetPrivilegeCache(): void {
 export function entryBlockers(report: HealthReport): HealthCode[] {
   const relevant: HealthCode[] = [
     'SENSITIVE_TABLE_PUBLIC',
+    'ENTRY_FAILURE_LOGGED',
     'ENV_URL_MISSING',
     'ENV_ANON_MISSING',
     'URL_MALFORMED',

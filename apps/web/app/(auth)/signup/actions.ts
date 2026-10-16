@@ -11,6 +11,7 @@ import { appUrl } from '@/lib/env';
 import { accessForUser, hasProfile } from '@/lib/access';
 import { auditEvent, logEntryEvent } from '@/lib/log';
 import { asRecord, asRows, asText } from '@/lib/shape';
+import { authFailure } from '@/lib/auth-error';
 import { activateFreeYearForCurrentUser } from '@/lib/activation';
 import { TERMS_VERSION } from '@/lib/copy';
 import type { PlanId } from '@/lib/plans';
@@ -98,9 +99,17 @@ export async function sendCodeAction(emailRaw: string): Promise<SimpleResponse> 
   });
 
   if (error !== null) {
-    const mapped = mapAuthError(error.message);
-    await logEntryEvent({ kind: 'code_sent', email, code: mapped.code });
-    return { ok: false, error: mapped.message };
+    const failure = authFailure(error.message);
+    // The raw wording goes to the trail, so the first failure after a change
+    // tells the operator everything: which rule matched, what Supabase actually
+    // said, and the change that fixes it.
+    await logEntryEvent({
+      kind: 'code_sent',
+      email,
+      code: failure.code,
+      meta: { said: error.message.slice(0, 200), status: error.status ?? null, fix: failure.fix },
+    });
+    return { ok: false, error: failure.message };
   }
   await logEntryEvent({ kind: 'code_sent', email, code: 'OK' });
   return { ok: true };
@@ -118,8 +127,13 @@ export async function verifyCodeAction(emailRaw: string, code: string): Promise<
   const supabase = await serverSupabase();
   const { error } = await supabase.auth.verifyOtp({ email, token: code.trim(), type: 'email' });
   if (error !== null) {
-    const expired = /expired|invalid/i.test(error.message);
-    await logEntryEvent({ kind: 'code_failed', email, code: expired ? 'EXPIRED' : 'WRONG' });
+    const failure = authFailure(error.message);
+    await logEntryEvent({
+      kind: 'code_failed',
+      email,
+      code: failure.kind === 'code-wrong-or-expired' ? 'EXPIRED_OR_WRONG' : failure.code,
+      meta: { said: error.message.slice(0, 200), status: error.status ?? null },
+    });
     return {
       ok: false,
       error: 'That code is not right, or it has expired. Check the newest email and try again.',
@@ -322,35 +336,4 @@ async function recordWish(email: string, planId: PlanId, profileId: string | nul
   }
 }
 
-function mapAuthError(message: string): { code: string; message: string } {
-  const lower = message.toLowerCase();
-  if (lower.includes('rate limit') || lower.includes('too many')) {
-    return {
-      code: 'AUTH_RATE_LIMIT',
-      message: 'Too many emails requested just now. Please wait a few minutes and try again.',
-    };
-  }
-  if (lower.includes('not authorized') || lower.includes('allow list') || lower.includes('allowlist')) {
-    return {
-      code: 'AUTH_EMAIL_NOT_ALLOWED',
-      message: 'This address is not allowed to receive codes yet. Please contact support@boasis.ae.',
-    };
-  }
-  if (lower.includes('signups not allowed')) {
-    return {
-      code: 'AUTH_SIGNUPS_DISABLED',
-      message: 'Signups are switched off for this project. Please contact support@boasis.ae.',
-    };
-  }
-  if (lower.includes('sending') || lower.includes('smtp')) {
-    return {
-      code: 'AUTH_SMTP_MISSING',
-      message: 'We could not send that email right now. Please try again in a moment.',
-    };
-  }
-  console.error(`sendCode: unexpected auth error: ${message}`);
-  return {
-    code: 'AUTH_UNKNOWN',
-    message: 'We could not send that email right now. Please try again in a moment.',
-  };
-}
+

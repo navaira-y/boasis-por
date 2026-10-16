@@ -59,6 +59,7 @@ export interface FakeSupabase {
   setSubscriptionStatus(status: string | null): void;
   setList(list: { id: string; email: string; status: string }[]): void;
   setHasProfile(value: boolean): void;
+  setEvents(events: { at: string; kind: string; code: string | null; email: string | null }[]): void;
   close(): Promise<void>;
 }
 
@@ -140,7 +141,7 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
   let list = options.list ?? [
     { id: 'row-1', email: 'navaira.builds@gmail.com', status: 'invited' },
   ];
-  const events = options.events ?? [];
+  let events = options.events ?? [];
   let hasProfile = options.hasProfile ?? false;
   const users: Record<string, FakeUser> = options.users ?? {
     [TOKEN_ACTIVE]: DEFAULT_USER_ACTIVE,
@@ -416,6 +417,9 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     },
     setHasProfile(value: boolean): void {
       hasProfile = value;
+    },
+    setEvents(next: { at: string; kind: string; code: string | null; email: string | null }[]): void {
+      events = next;
     },
     close(): Promise<void> {
       return new Promise((resolve, reject) => {
