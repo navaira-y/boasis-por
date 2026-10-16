@@ -18,6 +18,7 @@ export type FakeMode =
   | 'list-empty'
   | 'list-missing'
   | 'grants-missing'
+  | 'activation-missing'
   | 'anon-can-read-private'
   | 'privilege-not-proven'
   | 'privilege-unknown'
@@ -373,6 +374,21 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     }
 
     if (path.startsWith('/rest/v1/rpc/')) {
+      // activate_free_year is called with the service key and no session, so
+      // auth.uid() is null and the real function raises P0002 "no session".
+      // Modelling that faithfully is the point: a healthy project answers 500
+      // here, and the report must still be green.
+      if (path === '/rest/v1/rpc/activate_free_year') {
+        if (mode === 'activation-missing') {
+          send(response, 404, {
+            code: 'PGRST202',
+            message: "Could not find the function public.activate_free_year in the schema cache",
+          });
+          return;
+        }
+        send(response, 500, { code: 'P0002', details: null, hint: null, message: 'no session' });
+        return;
+      }
       send(response, 200, { source: 'free-year', period_end: new Date(Date.now() + 31_536_000_000).toISOString() });
       return;
     }

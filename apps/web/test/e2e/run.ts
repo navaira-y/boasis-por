@@ -272,6 +272,26 @@ async function main(): Promise<void> {
       healthyBody.includes('"plansAnon":{"status":200'),
       'plansAnon probe did not answer 200',
     );
+    check(
+      'the free-year function is confirmed as installed and refusing anonymous calls',
+      healthyBody.includes('"activation":{"status":500,"ok":true') &&
+        healthyBody.includes('no session'),
+      'activation probe was not explained',
+    );
+    check(
+      'the report knows the operator address is on the list',
+      healthyBody.includes('"operatorListed":true'),
+      'operatorListed was not true',
+    );
+
+    fake.setMode('activation-missing');
+    const noFunction = await get('/api/health?fresh=1');
+    check(
+      'a missing free-year function is a note, not a red report',
+      noFunction.status === 200 && noFunction.body.includes('ACTIVATION_FUNCTION_MISSING'),
+      `status ${String(noFunction.status)}`,
+    );
+    fake.setMode('healthy');
 
     fake.setMode('service-key-rejected');
     const rejected = await get('/api/health?fresh=1');

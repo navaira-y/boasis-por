@@ -197,6 +197,12 @@ function failureCode(raw: RawProbe, missingCode: HealthCode): HealthCode {
   }
 }
 
+/** True when the function answered "no session", i.e. it is there and it refused. */
+function isNoSessionRefusal(body: string): boolean {
+  if (errorCodeOf(body) === 'P0002') return true;
+  return /no session/i.test(body);
+}
+
 /** The PostgREST/Postgres error code inside a response body, if it carries one. */
 function errorCodeOf(body: string): string | null {
   try {
@@ -436,9 +442,20 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
       body: '{}',
     });
     probes.activation = toProbe(activationRaw);
-    if (activationRaw.status === 404) addCode(codes, 'ACTIVATION_FUNCTION_MISSING');
-    else if (activationRaw.status === 401 || activationRaw.status === 403) {
+    if (activationRaw.status === 404) {
+      addCode(codes, 'ACTIVATION_FUNCTION_MISSING');
+    } else if (activationRaw.status === 401 || activationRaw.status === 403) {
       addCode(codes, failureCode(activationRaw, 'ACTIVATION_FUNCTION_MISSING'));
+    } else if (isNoSessionRefusal(activationRaw.body)) {
+      // This is the answer a healthy project gives: the function is installed,
+      // it is security definer, and it refused a caller with no session
+      // (P0002). That is the whole point of it, so the probe counts as passed
+      // and says why, instead of leaving a red 500 on the operator's screen.
+      probes.activation = {
+        status: activationRaw.status,
+        ok: true,
+        note: 'Installed, and it refused an anonymous call with P0002 no session, which is exactly right.',
+      };
     }
 
     // Only worth asking when the list itself answered: otherwise the report has
