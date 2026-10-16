@@ -11,7 +11,7 @@ import { appUrl } from '@/lib/env';
 import { accessForUser, hasProfile } from '@/lib/access';
 import { auditEvent, logEntryEvent } from '@/lib/log';
 import { asRecord, asRows, asText } from '@/lib/shape';
-import { authFailure, isAmbiguousSend } from '@/lib/auth-error';
+import { authFailure, isAmbiguousSend, SEND_MAYBE_DONE_MESSAGE } from '@/lib/auth-error';
 import { activateFreeYearForCurrentUser } from '@/lib/activation';
 import { TERMS_VERSION } from '@/lib/copy';
 import type { PlanId } from '@/lib/plans';
@@ -102,22 +102,33 @@ export async function sendCodeAction(emailRaw: string): Promise<SimpleResponse> 
 
   if (error !== null) {
     const failure = authFailure(error.message);
+    const ambiguous = isAmbiguousSend(failure);
     // The raw wording goes to the trail, so the first failure after a change
     // tells the operator everything: which rule matched, what Supabase actually
-    // said, and the change that fixes it.
+    // said, what the visitor was told, and the change that fixes it.
     await logEntryEvent({
       kind: 'code_sent',
       email,
       code: failure.code,
-      meta: { said: error.message.slice(0, 200), status: error.status ?? null, fix: failure.fix },
+      meta: {
+        said: error.message.slice(0, 200),
+        status: error.status ?? null,
+        fix: failure.fix,
+        // Whether the visitor was stopped or moved on. An unrecognised wording
+        // (AUTH_UNKNOWN) is now "maybe sent", which is why a rise in this code no
+        // longer means a broken door.
+        treated: ambiguous ? 'moved-on-maybe-sent' : 'refused',
+      },
     });
-    if (isAmbiguousSend(failure)) {
-      // The request to the mailer was cut off, which does NOT cancel the email:
-      // GoTrue hands the message to SMTP before it answers. Reporting a failure
-      // here is the worst outcome, because the visitor's inbox HAS the email and
-      // the screen tells them it failed. They continue to the code screen, with
-      // a line telling them what to do if nothing arrives.
-      return { ok: true, notice: failure.message };
+    if (ambiguous) {
+      // The request to the mailer was cut off or answered with something we do
+      // not recognize, and this does NOT cancel the email: GoTrue hands the
+      // message to SMTP before it answers. Reporting a failure here is the worst
+      // outcome, because the visitor's inbox may well have the email while the
+      // screen tells them it failed. They continue to the code screen, with a
+      // line telling them what to do if nothing arrives, and the raw wording is
+      // on the trail above for us.
+      return { ok: true, notice: SEND_MAYBE_DONE_MESSAGE };
     }
     return { ok: false, error: failure.message };
   }

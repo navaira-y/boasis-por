@@ -1,4 +1,4 @@
-import { FAKE_ANON_KEY, FAKE_SERVICE_KEY, startFakeSupabase } from './fake-supabase.ts';
+import { FAKE_ANON_KEY, FAKE_SERVICE_KEY, startFakeSupabase, type FakeMode } from './fake-supabase.ts';
 
 /**
  * Runs the fake Supabase on its own, for looking at the entry flow in a browser
@@ -23,6 +23,15 @@ const fake = await startFakeSupabase({
   serviceKey: FAKE_SERVICE_KEY,
   port: Number(process.env.FAKE_PORT ?? 5199),
 });
+
+// FAKE_MODE picks which project the fake imitates, so a shape that only shows up
+// in the wild can be looked at in a browser: FAKE_MODE=settings-refused, for
+// instance, is the project that refused the auth settings read.
+const wanted = process.env.FAKE_MODE;
+if (wanted !== undefined && wanted !== '') {
+  fake.setMode(wanted as FakeMode);
+  console.log(`fake Supabase mode: ${wanted}`);
+}
 
 console.log(`fake Supabase listening on ${fake.url}`);
 console.log(`NEXT_PUBLIC_SUPABASE_ANON_KEY=${FAKE_ANON_KEY}`);

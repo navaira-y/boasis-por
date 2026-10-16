@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isValidEmail, normalizeEmail, suggestEmailFix } from '@/lib/email';
 import { CTA, ENTRY_COPY, TERMS_VERSION } from '@/lib/copy';
-import { codeDigits, DEFAULT_CODE_LENGTH, pastedDigits } from '@/lib/code-length';
+import { codeDigits, growsOnTyping, isComplete, isSubmittable, pastedDigits, typedDigits } from '@/lib/code-length';
 import { formatAED, type Plan, type PlanId } from '@/lib/plans';
 import { checkEntryAction, completeEntryAction, recordPlanWishAction, sendCodeAction, verifyCodeAction } from './actions';
 import type { EntryCheckResponse } from './actions';
@@ -44,17 +44,18 @@ export function EntryForm({
   plans,
   resumeEmail,
   notice = null,
-  limitedSender = false,
-  codeLength = DEFAULT_CODE_LENGTH,
+  codeLength = null,
 }: {
   plans: Plan[];
   resumeEmail: string | null;
   /** Something the server wants the visitor told before they type anything. */
   notice?: string | null;
-  /** True while email goes out through a sender that allows about two an hour. */
-  limitedSender?: boolean;
-  /** How many digits the project's codes have (6 to 10). */
-  codeLength?: number;
+  /**
+   * How many digits this project's codes have, when it reported a usable length.
+   * Null means it did not say, so the row grows while the visitor types instead
+   * of assuming six.
+   */
+  codeLength?: number | null;
 }) {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>(resumeEmail === null ? 'email' : 'password');
@@ -72,6 +73,9 @@ export function EntryForm({
   const [verifyPending, setVerifyPending] = useState(false);
   const [digits, setDigits] = useState<string[]>(() => codeDigits(codeLength));
   const [sendNotice, setSendNotice] = useState<string | null>(null);
+  // Which box should hold the cursor once the row has been rendered at its new
+  // width. Set by typing and pasting, cleared by the effect below.
+  const wantFocus = useRef<number | null>(null);
 
   // Typed values that must survive a re-render: kept in a ref, never state.
   const stash = useRef({ name: '', password: '' });
@@ -95,6 +99,15 @@ export function EntryForm({
   useEffect(() => {
     if (phase === 'code') boxRefs.current[0]?.focus();
   }, [phase]);
+
+  // Move the cursor after the row has rendered, so a box that was just added by
+  // typing or pasting can take it. Without this the extra digit lands nowhere.
+  useEffect(() => {
+    const target = wantFocus.current;
+    if (target === null) return;
+    wantFocus.current = null;
+    boxRefs.current[target]?.focus();
+  }, [digits]);
 
   function reset() {
     setPhase('email');
@@ -196,7 +209,7 @@ export function EntryForm({
   finishRef.current = finish;
 
   async function verifyNow() {
-    if (code.length !== 6 || verifyPending) return;
+    if (!isSubmittable(code, codeLength) || verifyPending) return;
     setVerifyPending(true);
     setError(null);
     const result = await verifyCodeAction(cleanEmail, code);
@@ -221,17 +234,22 @@ export function EntryForm({
   verifyRef.current = verifyNow;
 
   useEffect(() => {
-    if (phase === 'code' && code.length === codeLength) void verifyRef.current();
+    // Only at a length the PROJECT reported. Firing at a guessed six would reject
+    // an eight-digit code that is perfectly correct.
+    if (phase === 'code' && isComplete(code, codeLength)) void verifyRef.current();
   }, [phase, code, codeLength]);
 
   function onDigit(index: number, value: string) {
     const digit = value.replace(/\D/g, '').slice(-1);
-    setDigits((previous) => {
-      const next = [...previous];
-      next[index] = digit;
-      return next;
-    });
-    if (digit.length > 0 && index < 5) boxRefs.current[index + 1]?.focus();
+    const width = digits.length;
+    // The box to move to after this keystroke. It may be a box that does not
+    // exist yet, which is why the focus happens in an effect, after the row has
+    // rendered its new width.
+    const grows = digit.length > 0 && index === width - 1 && growsOnTyping(codeLength, width);
+    wantFocus.current = digit.length > 0 && (index + 1 < width || grows) ? index + 1 : null;
+    // typedDigits owns the rule, including the box that appears on the last
+    // keystroke (see lib/code-length).
+    setDigits((previous) => typedDigits(previous, index, digit, codeLength));
   }
 
   function onDigitKey(index: number, event: React.KeyboardEvent<HTMLInputElement>) {
@@ -246,8 +264,8 @@ export function EntryForm({
     const boxes = pastedDigits(event.clipboardData.getData('text'), codeLength);
     if (boxes.length === 0) return;
     event.preventDefault();
+    wantFocus.current = boxes.length - 1;
     setDigits(boxes);
-    boxRefs.current[Math.min(boxes.filter(Boolean).length, boxes.length - 1)]?.focus();
   }
 
   function choosePlan(plan: Plan) {
@@ -544,7 +562,11 @@ export function EntryForm({
                 maxLength={1}
                 value={digit}
                 disabled={verifyPending}
-                aria-label={`Digit ${String(index + 1)} of ${String(codeLength)}`}
+                aria-label={
+                  codeLength === null
+                    ? `Digit ${String(index + 1)}`
+                    : `Digit ${String(index + 1)} of ${String(codeLength)}`
+                }
                 onChange={(event) => { onDigit(index, event.target.value); }}
                 onKeyDown={(event) => { onDigitKey(index, event); }}
               />
@@ -554,14 +576,18 @@ export function EntryForm({
             className="btn"
             type="button"
             style={{ marginBlockStart: 16 }}
-            disabled={code.length !== codeLength || verifyPending}
+            disabled={!isSubmittable(code, codeLength) || verifyPending}
             onClick={() => void verifyRef.current()}
           >
             {verifyPending ? CTA.verifying : CTA.verify}
           </button>
           <ol className="steps">
             <li>Open the newest email from Boasis.</li>
-            <li>Type the code from that email, or click the link inside it.</li>
+            <li>
+              Type the code from that email, or click the link inside it.
+              {codeLength === null &&
+                ' If your code is longer than the boxes, keep typing: the row grows with you.'}
+            </li>
             <li>Either way you land back here, verified, and set your password next.</li>
           </ol>
           <div style={{ marginBlockStart: 14 }}>
@@ -578,13 +604,6 @@ export function EntryForm({
               >
                 {busy ? CTA.sending : CTA.resend}
               </button>
-            )}
-            {limitedSender && (
-              <p className="hint">
-                While our own sender is being connected, this email comes from Boasis own mail
-                service, which sends only a couple an hour and can take a minute to arrive. If
-                nothing comes, wait a little before asking again.
-              </p>
             )}
             {codeSent && (
               <p className="hint">Nothing in your inbox yet? Ask again below, and use the newest email: it is the only one that works.</p>

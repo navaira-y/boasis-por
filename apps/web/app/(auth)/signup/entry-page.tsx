@@ -27,11 +27,12 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
   }
 
   const { plans } = await listPlans();
-  // Whether the project has a sender of its own only changes a courtesy line on
-  // the inbox screen (the built-in mailer sends about two an hour). Whether the
-  // EMAIL carries the code is decided by the Supabase template, which the app
-  // cannot read, so the screen always offers both the code and the link. How many
-  // boxes the code gets is the length this project reports.
+  // Whether the EMAIL carries the code or the link is decided by the Supabase
+  // template, which the app cannot read, so the inbox screen always offers both.
+  // What the app does ask for is the project's code length: it decides how many
+  // boxes to draw, and null (the project did not say) means the row grows as the
+  // visitor types rather than assuming six. See lib/code-length and
+  // lib/email-mode; the health report shows what the project answered and why.
   const emailMode = await readEmailMode();
 
   return (
@@ -41,7 +42,6 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
           plans={plans}
           resumeEmail={resumeEmail}
           notice={linkExpired ? ENTRY_COPY.linkExpired : null}
-          limitedSender={!emailMode.ownSender}
           codeLength={emailMode.codeLength}
         />
       </section>

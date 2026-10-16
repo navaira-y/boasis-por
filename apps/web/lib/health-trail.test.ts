@@ -6,6 +6,7 @@ import {
   type FakeSupabase,
 } from '../test/harness/fake-supabase';
 import { entryBlockers, resetHealthCache, runHealth } from './diagnose';
+import { resetEmailModeCache } from './email-mode';
 
 vi.mock('next/headers', () => ({
   cookies: () => ({ getAll: () => [], set: () => undefined, delete: () => undefined }),
@@ -49,18 +50,37 @@ describe('a refusal on the entry trail', () => {
     expect(report.ok).toBe(true);
   });
 
-  it('reports how email is sent, and keeps that off the signup screen', async () => {
+  it('reports a code length it cannot read as a note, and keeps it off the signup screen', async () => {
     resetHealthCache();
+    resetEmailModeCache();
     const report = await runHealth({ fresh: true, withEvents: false });
 
-    // The fake project has no sender of its own, like the real one today.
-    expect(report.email?.ownSender).toBe(false);
-    expect(report.email?.codeLength).toBe(6);
-    expect(report.codes).toContain('EMAIL_BUILT_IN_SENDER');
-    // Still green: the link works, the mailer is just limited.
+    // The fake project answers without a code length, which is the shape the live
+    // project answered with. Unknown is not six: the entry screen grows its row.
+    expect(report.email?.codeLength).toBeNull();
+    expect(report.email?.settings.ok).toBe(true);
+    expect(report.codes).toContain('EMAIL_CODE_LENGTH_UNKNOWN');
+    // Still green: the visitor can type any code from 6 to 10 digits.
     expect(report.ok).toBe(true);
     // And the door does not nag the visitor about it.
     expect(entryBlockers(report)).toEqual([]);
+  });
+
+  it('names a refused settings read, with the status, and still stays green', async () => {
+    fake.setMode('settings-refused');
+    resetHealthCache();
+    // The settings answer is cached for a minute, so a test that changes the
+    // project's answer must say so.
+    resetEmailModeCache();
+    const report = await runHealth({ fresh: true, withEvents: false });
+
+    expect(report.email?.settings.status).toBe(401);
+    expect(report.email?.settings.note).toContain('Invalid API key');
+    expect(report.codes).toContain('EMAIL_SETTINGS_UNREADABLE');
+    expect(report.ok).toBe(true);
+    expect(entryBlockers(report)).toEqual([]);
+    fake.setMode('healthy');
+    resetEmailModeCache();
   });
 
   it('says nothing when the trail is clean', async () => {

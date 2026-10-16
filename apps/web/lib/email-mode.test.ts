@@ -5,15 +5,18 @@ import {
   startFakeSupabase,
   type FakeSupabase,
 } from '../test/harness/fake-supabase';
-import { MAX_CODE_LENGTH, MIN_CODE_LENGTH } from './code-length';
 import { readEmailMode, resetEmailModeCache } from './email-mode';
 import { ENTRY_COPY } from './copy';
 
 /**
- * With no sender configured, the email carries a link and no digits. Asking the
- * visitor for six digits that are not in their inbox is the exact "the screen
- * lied" failure this project keeps having to fix, so the screen follows the
- * project's own settings instead of a guess.
+ * The live project taught this lesson twice.
+ *
+ * First the screen assumed six digits while the project sent eight, so the code
+ * could not be typed. Then the report assumed the project was on the built-in
+ * mailer because the settings did not name a sender, while SMTP was connected and
+ * working. So: the length is asked for and never guessed, null means unknown, and
+ * the report says what the endpoint actually answered (status and field NAMES,
+ * never a value).
  */
 let fake: FakeSupabase;
 
@@ -28,44 +31,80 @@ afterAll(async () => {
   await fake.close();
 });
 
-describe('the email mode', () => {
-  it('reports that the built-in sender is in use, with a usable code length', async () => {
+describe('the code length', () => {
+  it('is taken from the project when the project reports one', async () => {
+    fake.setMode('eight-digit-codes');
+    resetEmailModeCache();
+    const mode = await readEmailMode();
+    expect(mode.otpLength).toBe(8);
+    expect(mode.codeLength).toBe(8);
+    expect(mode.settings.status).toBe(200);
+    expect(mode.settings.ok).toBe(true);
+  });
+
+  it('is UNKNOWN, not six, when the answer carries no length', async () => {
+    // This is the shape the live project answered with. Treating it as six is
+    // what capped an eight-digit code at six boxes.
     fake.setMode('healthy');
     resetEmailModeCache();
     const mode = await readEmailMode();
-    expect(mode.ownSender).toBe(false);
-    expect(mode.codeLength).toBe(6);
+    expect(mode.otpLength).toBeNull();
+    expect(mode.codeLength).toBeNull();
+    expect(mode.settings.ok).toBe(true);
+    expect(mode.settings.fields).toContain('mailer_autoconfirm');
   });
 
-  it('follows the project own code length once one is reported', async () => {
-    fake.setMode('smtp-configured');
+  it('is UNKNOWN when the endpoint refuses, and the reason is kept for the report', async () => {
+    fake.setMode('settings-refused');
     resetEmailModeCache();
     const mode = await readEmailMode();
-    expect(mode.ownSender).toBe(true);
-    expect(mode.otpLength).toBe(6);
-    expect(mode.codeLength).toBe(6);
+    expect(mode.codeLength).toBeNull();
+    expect(mode.settings.ok).toBe(false);
+    expect(mode.settings.status).toBe(401);
+    expect(mode.settings.note).toContain('Invalid API key');
+    expect(mode.settings.fields).toEqual([]);
   });
 
-  it('falls back to six digits when the settings cannot be read', async () => {
+  it('is UNKNOWN when the project cannot be reached at all', async () => {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     process.env.NEXT_PUBLIC_SUPABASE_URL = 'http://127.0.0.1:1';
     resetEmailModeCache();
     const mode = await readEmailMode();
     process.env.NEXT_PUBLIC_SUPABASE_URL = url;
     resetEmailModeCache();
-    expect(mode.codeLength).toBe(6);
+    expect(mode.codeLength).toBeNull();
+    expect(mode.settings.ok).toBe(false);
+    expect(mode.settings.status).toBe(0);
   });
 });
 
-describe('the project own code length', () => {
-  it('is read from the settings, so eight digits render eight boxes', async () => {
-    fake.setMode('eight-digit-codes');
+describe('the sender', () => {
+  it('is reported only from fields that actually carry a value', async () => {
+    fake.setMode('smtp-configured');
     resetEmailModeCache();
     const mode = await readEmailMode();
-    expect(mode.otpLength).toBe(8);
-    expect(mode.codeLength).toBe(8);
-    expect(MAX_CODE_LENGTH).toBeGreaterThanOrEqual(8);
-    expect(MIN_CODE_LENGTH).toBe(6);
+    expect(mode.ownSender).toBe(true);
+    expect(mode.settings.senderFields).toContain('smtp_admin_email');
+  });
+
+  it('is not claimed either way when the answer says nothing about it', async () => {
+    fake.setMode('healthy');
+    resetEmailModeCache();
+    const mode = await readEmailMode();
+    expect(mode.ownSender).toBe(false);
+    expect(mode.settings.senderFields).toEqual([]);
+    // The names are still listed, which is what makes the report readable.
+    expect(mode.settings.fields).toContain('smtp_admin_email');
+  });
+
+  it('never carries a VALUE out of the settings response', async () => {
+    fake.setMode('smtp-configured');
+    resetEmailModeCache();
+    const mode = await readEmailMode();
+    const printed = JSON.stringify(mode.settings);
+    // Names only: an address in the report would be a leak, a name never is.
+    expect(printed).not.toContain('support@boasis.ae');
+    expect(printed).not.toContain('smtp.gmail.com');
   });
 });
 

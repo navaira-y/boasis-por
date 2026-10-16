@@ -1,78 +1,147 @@
 import 'server-only';
 import { readPublicEnv } from './env';
-import { codeLengthFrom, DEFAULT_CODE_LENGTH } from './code-length';
+import { knownCodeLength } from './code-length';
 
 /**
- * Does the project have a real sender yet?
+ * What the project says about its own auth settings, and why we believe it.
  *
- * The app asks Supabase's own public auth settings (they are meant to be public
- * and carry no secret), which report the configured SMTP sender and the OTP
- * length. That way the screen follows the truth instead of a switch somebody has
- * to keep in step:
+ * The app asks Supabase's public auth settings (`/auth/v1/settings`, meant to be
+ * public and carrying no secret) for two things: how long the codes are, and
+ * whether the project has a sender of its own. The second is not reliable on
+ * every project, and the report says so rather than pretending:
  *
- *   a real sender configured -> the email can carry a code, so the
- *                               code screen is offered (the link still works)
- *   no sender yet            -> the built-in mailer sends a link only, so the
- *                               screen asks for the click instead of for digits
- *                               that are not in the email
+ *   the request answered      -> the length is used exactly, and the KEY NAMES it
+ *                               carried are listed (names only, never values)
+ *   the request did not answer -> the length is unknown, and the entry screen
+ *                               draws six boxes that grow while the visitor types,
+ *                               with no automatic submit. Guessing here is what
+ *                               told a visitor with an eight-digit code to type
+ *                               six, so nothing is guessed any more.
  *
- * Every failure falls back to the link-led screen, which is the state this
- * project is in until support@boasis.ae is connected.
+ * Everything the health report shows from this probe is a status, a short reason
+ * and configuration field NAMES. No key, no token, no value is ever kept.
  */
 
-export interface EmailMode {
-  /** True when the project has a sender of its own configured. */
-  ownSender: boolean;
-  /** The length the project reports, when it reports one. */
-  otpLength: number | null;
-  /**
-   * How many digits the code has (see lib/code-length). This is the number the
-   * screen renders boxes for.
-   */
-  codeLength: number;
+export interface EmailSettingsProbe {
+  /** The HTTP status, or 0 when the request never came back. */
+  status: number;
+  /** True when a response arrived, was ok, and parsed as an object. */
+  ok: boolean;
+  /** A short reason when not ok: the fetch error, or the endpoint's own message. */
+  note: string | null;
+  /** The setting names the response carried. Names only, never values. */
+  fields: string[];
+  /** The sender-related names among them, which is what "own sender" needs. */
+  senderFields: string[];
 }
 
-const FALLBACK: EmailMode = { ownSender: false, otpLength: null, codeLength: DEFAULT_CODE_LENGTH };
+export interface EmailMode {
+  /** The length the project reports, when it reports a usable one. */
+  otpLength: number | null;
+  /**
+   * The number of boxes to draw, or null when the project did not say. Null means
+   * "any length could arrive", not "six" (see lib/code-length).
+   */
+  codeLength: number | null;
+  /** True when the settings named a sender of the project's own. */
+  ownSender: boolean;
+  /** Why the read came out the way it did, for the health report. */
+  settings: EmailSettingsProbe;
+}
+
+/** Names that would mean the project has a sender of its own configured. */
+const SENDER_FIELDS = ['smtp_admin_email', 'smtp_host', 'smtp_sender_name', 'smtp_port', 'smtp_user'];
+
+/** How many setting names the report keeps. The list is for reading, not parsing. */
+const MAX_FIELDS = 40;
+/** How much of a reason is kept. Long enough to recognise, short enough to skim. */
+const MAX_NOTE = 160;
+
 const CACHE_MS = 60_000;
 let cache: { at: number; mode: EmailMode } | null = null;
+
+const UNREADABLE: EmailSettingsProbe = {
+  status: 0,
+  ok: false,
+  note: 'the request to /auth/v1/settings did not come back',
+  fields: [],
+  senderFields: [],
+};
 
 export async function readEmailMode(): Promise<EmailMode> {
   const now = Date.now();
   if (cache !== null && now - cache.at < CACHE_MS) return cache.mode;
 
-  let mode = FALLBACK;
+  let otpLength: number | null = null;
+  let ownSender = false;
+  let settings: EmailSettingsProbe = UNREADABLE;
+
   try {
     const { url, anonKey } = readPublicEnv();
+    // Both headers, the same pair every working read in this app uses: the
+    // apikey identifies the project, the bearer token is what the gateway
+    // expects when a route asks for one.
     const response = await fetch(`${url}/auth/v1/settings`, {
-      headers: { apikey: anonKey },
+      headers: { apikey: anonKey, Authorization: `Bearer ${anonKey}`, Accept: 'application/json' },
       cache: 'no-store',
     });
+
     if (response.ok) {
-      const body: unknown = await response.json();
-      const settings: Record<string, unknown> =
-        typeof body === 'object' && body !== null ? (body as Record<string, unknown>) : {};
-      const ownSender = namesSender(settings);
-      // Supabase does not promise every field on every project version, so the
-      // whole settings object is narrowed once, by name, and treated as unknown
-      // until it proves otherwise.
-      const rawLength: unknown = Reflect.get(settings, 'mailer_otp_length');
-      const otpLength = typeof rawLength === 'number' ? rawLength : null;
-      mode = { ownSender, otpLength, codeLength: codeLengthFrom(otpLength) };
+      const body: unknown = await response.json().catch(() => null);
+      const parsed = typeof body === 'object' && body !== null ? (body as Record<string, unknown>) : null;
+      if (parsed === null) {
+        settings = { status: response.status, ok: false, note: 'the answer was not readable JSON', fields: [], senderFields: [] };
+      } else {
+        const fields = Object.keys(parsed).slice(0, MAX_FIELDS);
+        const senderFields = SENDER_FIELDS.filter((field) => {
+          const value = Reflect.get(parsed, field);
+          return (typeof value === 'string' && value.trim().length > 0) || typeof value === 'number';
+        });
+        // Supabase does not promise every field on every project version, so each
+        // one is narrowed by name and treated as unknown until it proves itself.
+        const rawLength: unknown = Reflect.get(parsed, 'mailer_otp_length');
+        otpLength = typeof rawLength === 'number' ? rawLength : null;
+        ownSender = senderFields.length > 0;
+        settings = { status: response.status, ok: true, note: null, fields, senderFields };
+      }
+    } else {
+      // The endpoint's own message, and only that: it explains a refused key far
+      // better than a status number alone, and it never contains the key.
+      const said = await response.text().catch(() => '');
+      settings = {
+        status: response.status,
+        ok: false,
+        note: shortReason(response.status, said),
+        fields: [],
+        senderFields: [],
+      };
     }
-  } catch {
-    mode = FALLBACK;
+  } catch (error) {
+    settings = {
+      ...UNREADABLE,
+      note: (error instanceof Error ? error.message : String(error)).slice(0, MAX_NOTE),
+    };
   }
+
+  const mode: EmailMode = { otpLength, codeLength: knownCodeLength(otpLength), ownSender, settings };
   cache = { at: now, mode };
   return mode;
 }
 
-/** True when the settings name a sender of the project's own. */
-function namesSender(settings: Record<string, unknown>): boolean {
-  for (const field of ['smtp_admin_email', 'smtp_host', 'smtp_sender_name']) {
-    const value = settings[field];
-    if (typeof value === 'string' && value.trim().length > 0) return true;
+/** A one-line reason from a refused response: its own `message` field when there is one. */
+function shortReason(status: number, body: string): string {
+  try {
+    const parsed: unknown = JSON.parse(body);
+    if (typeof parsed === 'object' && parsed !== null) {
+      const message: unknown = Reflect.get(parsed as Record<string, unknown>, 'message');
+      if (typeof message === 'string' && message.trim() !== '') {
+        return `${String(status)}: ${message.trim()}`.slice(0, MAX_NOTE);
+      }
+    }
+  } catch {
+    // Not JSON: fall through to the plain status.
   }
-  return false;
+  return `${String(status)}: the endpoint refused the request`;
 }
 
 /** Test and operator hook: forget the cached answer. */

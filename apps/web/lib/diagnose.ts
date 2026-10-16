@@ -2,7 +2,7 @@ import 'server-only';
 import { envPresence, readPublicEnv, readServiceKey, type EnvPresence } from './env';
 import { readKeyFacts, readUrlFacts, type KeyFormat } from './keys';
 import { classifyDbFailure } from './db-error';
-import { readEmailMode, type EmailMode } from './email-mode';
+import { readEmailMode, resetEmailModeCache, type EmailMode } from './email-mode';
 
 /**
  * The probe suite behind /api/health and behind every named signup failure.
@@ -41,7 +41,8 @@ export type HealthCode =
   | 'LIST_EMPTY_UNVERIFIED'
   | 'SENSITIVE_TABLE_PUBLIC'
   | 'ENTRY_FAILURE_LOGGED'
-  | 'EMAIL_BUILT_IN_SENDER';
+  | 'EMAIL_SETTINGS_UNREADABLE'
+  | 'EMAIL_CODE_LENGTH_UNKNOWN';
 
 export type Severity = 'blocker' | 'warning' | 'note';
 
@@ -154,10 +155,15 @@ export const HEALTH_CODES: Record<HealthCode, CodeMeaning> = {
     title: 'The early-access list read came back empty and could not be verified.',
     fix: 'Reload /api/health. If it repeats, confirm SUPABASE_SERVICE_ROLE_KEY really is the service_role key of this project.',
   },
-  EMAIL_BUILT_IN_SENDER: {
+  EMAIL_SETTINGS_UNREADABLE: {
     severity: 'note',
-    title: 'Emails go out through Supabase own mailer, which sends roughly two emails an hour.',
-    fix: 'Fine while testing, and it must go before launch. Supabase, Authentication, Emails, SMTP settings: connect a mailbox (support@boasis.ae later, a Gmail app password today) and the ceiling, the address restriction and the missing code all go away at once. Then add {{ .Token }} to the Magic Link template so the email carries the digits.',
+    title: 'The app could not read this project auth settings, so it does not know how long the codes are.',
+    fix: 'Nothing is broken for the visitor: the code screen then draws six boxes that GROW as they type, and the server accepts 6 to 10 digits, so a longer code can still be entered. Read email.settings in this report for the status and the reason. It matters only because the screen cannot submit itself at the right length, and because this was how the screen once told a visitor with an eight-digit code to type six.',
+  },
+  EMAIL_CODE_LENGTH_UNKNOWN: {
+    severity: 'note',
+    title: 'The project answered, but its auth settings do not report a code length.',
+    fix: 'Nothing is broken for the visitor: the code screen draws six boxes that GROW as they type, so any code from 6 to 10 digits can still be entered. The field to look for is mailer_otp_length; email.settings in this report lists the names the answer did carry. Supabase, Authentication, Settings sets the email OTP length, and 6 there is the value that lets the screen submit itself.',
   },
   ENTRY_FAILURE_LOGGED: {
     severity: 'note',
@@ -350,6 +356,12 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
   if (options.fresh !== true && cache !== null && now - cache.at < CACHE_MS) {
     return cache.report;
   }
+  if (options.fresh === true) {
+    // "fresh" means fresh: the auth settings answer is cached for a minute of its
+    // own, and an operator reloading this page after a change must not be shown
+    // the answer from before that change.
+    resetEmailModeCache();
+  }
 
   const env = envPresence();
   const codes: HealthCode[] = [];
@@ -400,7 +412,14 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
   let email: EmailMode | null = null;
   try {
     email = await readEmailMode();
-    if (!email.ownSender) addCode(codes, 'EMAIL_BUILT_IN_SENDER');
+    // The report stops at what it can actually see. It used to claim the project
+    // was on Supabase's built-in mailer whenever the settings did not name a
+    // sender, which was wrong on the live project: SMTP is connected there and
+    // the settings simply do not report it. So: report the probe outcome, and
+    // report the length only when it is missing, because that is the part the
+    // entry screen genuinely depends on.
+    if (!email.settings.ok) addCode(codes, 'EMAIL_SETTINGS_UNREADABLE');
+    else if (email.codeLength === null) addCode(codes, 'EMAIL_CODE_LENGTH_UNKNOWN');
   } catch {
     email = null;
   }
@@ -713,10 +732,10 @@ export function entryBlockers(report: HealthReport): HealthCode[] {
 
 /**
  * Codes that are true and worth printing on the health page, but are NOT a
- * signup problem: the built-in mailer works, it is just limited, and telling
- * every visitor about it would be noise.
+ * signup problem: the entry screen handles both of them by itself, by drawing a
+ * row that grows while the visitor types.
  */
-const DOOR_IRRELEVANT: HealthCode[] = ['EMAIL_BUILT_IN_SENDER'];
+const DOOR_IRRELEVANT: HealthCode[] = ['EMAIL_SETTINGS_UNREADABLE', 'EMAIL_CODE_LENGTH_UNKNOWN'];
 
 /** Codes that still leave a usable signup: the inbox code can still be sent. */
 const CONTINUE_ALLOWED: HealthCode[] = [

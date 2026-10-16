@@ -21,6 +21,8 @@ export type FakeMode =
   | 'activation-missing'
   | 'smtp-configured'
   | 'eight-digit-codes'
+  | 'settings-refused'
+  | 'settings-only-sender-fields'
   | 'anon-can-read-private'
   | 'privilege-not-proven'
   | 'privilege-unknown'
@@ -212,15 +214,24 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     }
 
     if (path === '/auth/v1/settings') {
-      // Mirrors a project with no sender of its own: the built-in mailer sends
-      // a link, so no code length is reported and the screen must ask for the
-      // click. `smtp: true` flips it to a code-led project.
-      const smtp = mode === 'smtp-configured';
+      // The shapes this endpoint has taken in the wild, so the app is tested
+      // against each one instead of against a hope:
+      //
+      //   healthy        answers, reports no length (the screen grows its row)
+      //   smtp-configured names a sender and a length of six
+      //   eight-digit-codes reports eight, as the live project sends
+      //   settings-only-sender-fields names a sender but no length
+      //   settings-refused   refuses, the way it did on the live project
+      if (mode === 'settings-refused') {
+        send(response, 401, { message: 'Invalid API key' });
+        return;
+      }
+      const smtp = mode === 'smtp-configured' || mode === 'settings-only-sender-fields';
       const eightDigits = mode === 'eight-digit-codes';
       send(response, 200, {
         external: { email: true },
         mailer_autoconfirm: false,
-        mailer_otp_length: eightDigits ? 8 : smtp ? 6 : null,
+        mailer_otp_length: eightDigits ? 8 : smtp && mode !== 'settings-only-sender-fields' ? 6 : null,
         smtp_admin_email: smtp ? 'support@boasis.ae' : '',
         smtp_host: smtp ? 'smtp.gmail.com' : '',
       });

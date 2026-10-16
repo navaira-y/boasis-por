@@ -34,6 +34,16 @@ export interface AuthFailure {
   fix: string;
 }
 
+/**
+ * What the visitor is told when a send may have happened.
+ *
+ * One sentence, used for every send we cannot call a refusal: it cannot be wrong
+ * on its own terms, because if the email did arrive the visitor is looking at the
+ * right screen, and if it did not, the resend button is right there.
+ */
+export const SEND_MAYBE_DONE_MESSAGE =
+  'Your email is on its way. If it does not arrive in a minute, ask for another one below.';
+
 const RULES: { kind: AuthFailureKind; code: string; test: RegExp; message: string; fix: string }[] = [
   {
     kind: 'send-unconfirmed',
@@ -43,8 +53,7 @@ const RULES: { kind: AuthFailureKind; code: string; test: RegExp; message: strin
     // answers, so this is NOT reported as a failure: the visitor is moved to the
     // code screen and told what to do if nothing arrives.
     test: /failed to fetch|fetch failed|network|aborted|timeout|timed out|signal|econnreset/i,
-    message:
-      'Your email is on its way. If it does not arrive in a minute, ask for another one below.',
+    message: SEND_MAYBE_DONE_MESSAGE,
     fix: 'The request to Supabase was cut off rather than refused. The email is usually already sent; the trail records this case so a pattern would be visible.',
   },
   {
@@ -133,11 +142,29 @@ export function authFailure(message: string): AuthFailure {
 }
 
 /**
+ * The refusals that are certainly refusals: the mailer said no, and no email is
+ * coming. Everything else on the send step is treated as "maybe sent".
+ *
+ * This defaults to ambiguity ON PURPOSE. On the live project a send was cut off
+ * exactly as GoTrue handed the message to the mailer, so the inbox had the email
+ * while the screen said it failed, and the trail recorded the wording as unknown.
+ * Listing the refusals instead of the ambiguous cases means an unfamiliar error
+ * can never again tell a visitor their email failed when it did not.
+ */
+const REFUSED_SENDS: readonly AuthFailureKind[] = [
+  'rate-limit',
+  'mailer-not-configured',
+  'address-not-authorized',
+  'redirect-not-allowed',
+  'signups-disabled',
+];
+
+/**
  * True when the send MAY have happened and must not be reported as a failure.
  * Cutting off a mailer request does not cancel the mail.
  */
 export function isAmbiguousSend(failure: AuthFailure): boolean {
-  return failure.kind === 'send-unconfirmed';
+  return !REFUSED_SENDS.includes(failure.kind);
 }
 
 /** True when the visitor cannot be helped by retrying. */

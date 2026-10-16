@@ -185,6 +185,25 @@ async function main(): Promise<void> {
       eightDigitPage.status === 200,
       `status ${String(eightDigitPage.status)}`,
     );
+
+    // And the project that refuses the settings read, which is what the live
+    // project did: the screen must still work, with a row that grows as the
+    // visitor types, and the report must name the refusal rather than guess.
+    fake.setMode('settings-refused');
+    const refusedSettings = await get('/signup');
+    check(
+      'a project that refuses the settings read still serves the entry screen',
+      refusedSettings.status === 200,
+      `status ${String(refusedSettings.status)}`,
+    );
+    const refusedReport = await get('/api/health?fresh=1');
+    check(
+      'the report names a refused settings read instead of guessing a length',
+      refusedReport.body.includes('EMAIL_SETTINGS_UNREADABLE') &&
+        refusedReport.body.includes('"codeLength":null') &&
+        refusedReport.body.includes('Invalid API key'),
+      'the report still guesses how long the codes are',
+    );
     fake.setMode('healthy');
 
     // The inbox screen is React state, so a curl cannot see it: the copy itself
@@ -311,9 +330,9 @@ async function main(): Promise<void> {
     );
     check(
       'the report says how signup email is sent today',
-      healthyBody.includes('"email":{"ownSender":false') &&
-        healthyBody.includes('"codeLength":6') &&
-        healthyBody.includes('EMAIL_BUILT_IN_SENDER'),
+      healthyBody.includes('"codeLength":null') &&
+        healthyBody.includes('"settings":{"status":200') &&
+        healthyBody.includes('EMAIL_CODE_LENGTH_UNKNOWN'),
       'email mode missing from the report',
     );
     check(

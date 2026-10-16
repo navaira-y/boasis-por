@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { authFailure, isAmbiguousSend, isOperatorProblem } from './auth-error';
+import { authFailure, isAmbiguousSend, isOperatorProblem, SEND_MAYBE_DONE_MESSAGE } from './auth-error';
 
 /**
  * Every message below is one Supabase Auth is known to return. The point of the
@@ -84,6 +84,24 @@ describe('a send that was cut off', () => {
   it('is not confused with a refusal that a retry cannot fix', () => {
     expect(isAmbiguousSend(authFailure('Error sending magic link email'))).toBe(false);
     expect(isAmbiguousSend(authFailure('Email address is not authorized'))).toBe(false);
+    expect(isAmbiguousSend(authFailure('Email rate limit exceeded'))).toBe(false);
+    expect(isAmbiguousSend(authFailure('Signups not allowed for this instance'))).toBe(false);
+    expect(isAmbiguousSend(authFailure('Redirect URL not allowed'))).toBe(false);
+  });
+
+  it('covers an error nobody has seen before, because that is what happened live', () => {
+    // The trail recorded the live send as AUTH_UNKNOWN: the wording matched no
+    // rule, so a rule-based "is this ambiguous?" check would have shown the
+    // visitor a failure while the email was already in their inbox. The send step
+    // therefore treats everything EXCEPT a named refusal as "maybe sent".
+    const neverSeen = authFailure('unexpected wording from a new Supabase version');
+    expect(neverSeen.code).toBe('AUTH_UNKNOWN');
+    expect(isAmbiguousSend(neverSeen)).toBe(true);
+  });
+
+  it('says the same reassuring thing whatever the wording was', () => {
+    expect(SEND_MAYBE_DONE_MESSAGE).toContain('on its way');
+    expect(SEND_MAYBE_DONE_MESSAGE).not.toMatch(/failed|could not/i);
   });
 });
 
