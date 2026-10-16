@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 import { serverSupabase } from '@/lib/supabase';
 import { hasProfile, routeForUser } from '@/lib/access';
 import { listPlans } from '@/lib/plans-server';
+import { ENTRY_COPY } from '@/lib/copy';
 import { EntryForm } from './entry-form';
 
 /**
@@ -10,7 +11,7 @@ import { EntryForm } from './entry-form';
  * belongs elsewhere, and visitors who clicked the link inside the email arrive
  * already verified: they pick up at the password step with the code skipped.
  */
-export async function EntryPage() {
+export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean } = {}) {
   const supabase = await serverSupabase();
   const {
     data: { user },
@@ -29,7 +30,11 @@ export async function EntryPage() {
   return (
     <main className="shell stage">
       <section className="panel" aria-labelledby="entry-heading">
-        <EntryForm plans={plans} resumeEmail={resumeEmail} />
+        <EntryForm
+          plans={plans}
+          resumeEmail={resumeEmail}
+          notice={linkExpired ? ENTRY_COPY.linkExpired : null}
+        />
       </section>
       <aside className="aside">
         <h2>Know, tell, guide, keep.</h2>

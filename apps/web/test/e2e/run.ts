@@ -182,6 +182,15 @@ async function main(): Promise<void> {
       `status ${String(expired.status)} location ${String(expired.location)}`,
     );
 
+    // The landing screen has to SAY what happened, or the visitor is left on
+    // an email box with no explanation.
+    const expiredPage = await get('/signup?link=expired');
+    check(
+      'the expired-link screen explains itself',
+      expiredPage.status === 200 && expiredPage.body.includes('already been used'),
+      `status ${String(expiredPage.status)}`,
+    );
+
     const fresh = await get('/auth/callback?token_hash=e2e-ok&type=email');
     const cookies = cookieHeader(fresh.setCookies);
     check(

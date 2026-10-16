@@ -24,6 +24,10 @@ export const ENTRY_COPY = {
     'The code goes to your inbox next, so we can be sure this address is yours before the account exists.',
 
   codeTitle: 'Check your inbox',
+
+  /** Shown when an email link has already been used or has timed out. */
+  linkExpired:
+    'That link has already been used, or it has expired. Enter your email again and we will send a fresh one.',
   termsLine: 'I accept the Terms and Privacy Policy (version TERMS_VERSION).',
 } as const;
 

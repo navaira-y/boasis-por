@@ -42,9 +42,12 @@ function stepState(current: Phase, step: Phase): 'done' | 'now' | 'todo' {
 export function EntryForm({
   plans,
   resumeEmail,
+  notice = null,
 }: {
   plans: Plan[];
   resumeEmail: string | null;
+  /** Something the server wants the visitor told before they type anything. */
+  notice?: string | null;
 }) {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>(resumeEmail === null ? 'email' : 'password');
@@ -52,7 +55,7 @@ export function EntryForm({
   const [email, setEmail] = useState(resumeEmail ?? '');
   const [emailTouched, setEmailTouched] = useState(false);
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(notice);
   const [problem, setProblem] = useState<EntryCheckResponse['problem'] | null>(null);
   const [ackedProblem, setAckedProblem] = useState(false);
   const [selected, setSelected] = useState<PlanId>('solo');
