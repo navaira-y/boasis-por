@@ -8,3 +8,7 @@ docs/audit
 package-lock.json
 test-results
 playwright-report
+.next
+apps/web/.next
+apps/web/public/portal
+apps/web/test/.build

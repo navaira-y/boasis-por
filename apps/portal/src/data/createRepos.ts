@@ -6,6 +6,12 @@ import type { Repos } from './types';
 // session on every write, so the history and the audit trail name the owner, or the member the
 // demo is acting as.
 export async function createRepos(): Promise<Repos> {
+  // The real data layer (slice 1: companies, offices, people, documents, cards, history,
+  // audit). Build with VITE_DATA_MODE=supabase; anything else keeps the mock in dev.
+  if (import.meta.env.VITE_DATA_MODE === 'supabase') {
+    const { createSupabaseRepos } = await import('./supabase/repos');
+    return createSupabaseRepos();
+  }
   if (import.meta.env.DEV && import.meta.env.VITE_DATA_MODE !== 'supabase') {
     const { createMockRepos, localStorageAdapter } = await import('./mock/repos');
     return createMockRepos(localStorageAdapter(), () => {

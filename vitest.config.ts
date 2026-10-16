@@ -10,6 +10,7 @@ export default defineConfig({
       'packages/assistant',
       'apps/portal',
       'apps/server',
+      'apps/web',
     ],
   },
 });

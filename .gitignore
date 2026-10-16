@@ -1,20 +1,43 @@
+# Dependencies
 node_modules/
+.pnp
+.pnp.*
+
+# Next.js
+apps/web/.next/
+apps/web/out/
+apps/web/build/
+
+# Vite / library builds
 dist/
 coverage/
+# Portal bundle is built into the web app at image build time, never committed.
+apps/web/public/portal/
+
+# Env — NEVER commit real keys
 .env
-.env.*
+.env*.local
 !.env.example
-*.log
+
+# Supabase CLI
+supabase/.branches/
+supabase/.temp/
+
+# OS / editor
 .DS_Store
-.vite/
-test-results/
-playwright-report/
-apps/portal/dev-dist/
+Thumbs.db
+*.pem
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Logs / coverage
+*.log
+coverage/
+.nyc_output/
+
+# Uploaded source docs live on main; working copies stay out of feature branches
+*.pdf
+
+# TypeScript build info
 *.tsbuildinfo
-
-# Role worktrees (CLAUDE.md rule 14) live inside the repo folder but are never committed.
-.claude/worktrees/
-
-# Review captures and all documents stay on local machines, never in the repository.
-apps/portal/e2e/fidelity/**/*.png
-docs/

@@ -10,20 +10,28 @@
   "workspaces": [
     "apps/portal",
     "apps/server",
+    "apps/web",
     "packages/schema",
     "packages/rules",
     "packages/content",
     "packages/assistant"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace @boasis/portal",
+    "dev": "npm run dev --workspace @boasis/web",
+    "dev:portal": "npm run dev --workspace @boasis/portal",
     "build": "npm run build --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:e2e": "npm run test:e2e --workspace @boasis/portal",
+    "test:e2e": "npm run test:e2e --workspace @boasis/web",
+    "test:e2e:portal": "npm run test:e2e --workspace @boasis/portal",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.30"
+    }
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

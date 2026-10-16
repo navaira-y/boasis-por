@@ -1,0 +1,13 @@
+node_modules
+**/node_modules
+.next
+**/.next
+dist
+**/dist
+.git
+coverage
+**/coverage
+.env*
+*.tsbuildinfo
+# Portal output is built fresh inside the image, never copied in.
+apps/web/public/portal

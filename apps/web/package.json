@@ -1,0 +1,31 @@
+{
+  "name": "@boasis/web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Entry, gate and serving app for the Boasis portal: signup doors, sign-in, the pay gate in front of /portal, and the operator health probe. Same-origin with the team portal bundle.",
+  "scripts": {
+    "dev": "next dev -p 5192",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "node --experimental-strip-types test/e2e/run.ts"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.2",
+    "next": "^15.5.27",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "server-only": "^0.0.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.2",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  }
+}

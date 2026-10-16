@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Boasis">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2ee6c5" />
+      <stop offset="1" stop-color="#2a6bd8" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0a1022" />
+  <path
+    d="M22 16h13.5c5 0 8.5 2.7 8.5 7.2 0 3-1.5 5.2-4 6.3 3.2 1 5.2 3.5 5.2 7 0 5-3.8 8.3-9.4 8.3H22z"
+    fill="url(#g)"
+  />
+  <rect x="22" y="24.5" width="9" height="4" rx="2" fill="#0a1022" opacity="0.55" />
+  <rect x="22" y="34" width="11" height="4" rx="2" fill="#0a1022" opacity="0.55" />
+</svg>
