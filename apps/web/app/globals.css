@@ -250,6 +250,9 @@ h3 {
   margin: 0 0 20px;
   color: var(--muted);
   font-size: 15px;
+  /* A long address is shown in full on the code screen, and it must wrap rather
+     than push the panel wide. */
+  overflow-wrap: anywhere;
 }
 
 .small {
@@ -363,6 +366,7 @@ input:focus {
   margin: 8px 0 0;
   font-size: 13px;
   color: var(--muted);
+  overflow-wrap: anywhere;
 }
 
 .hint-warn {
@@ -594,17 +598,32 @@ input:focus {
 
 /* -------------------------------------------------------------------- code */
 
+/*
+ * The row of code boxes.
+ *
+ * This was a six-column grid, and it burst out of the panel: an <input> keeps its
+ * intrinsic 20-character width unless it is told otherwise, so six of them drew
+ * far wider than their columns and ran over the text beside them. Flex with
+ * `flex-basis: 0` and `min-width: 0` is what stops that: the boxes share the row
+ * equally however many there are, whether the code is six digits or ten.
+ */
 .code-boxes {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+  max-width: 100%;
 }
 
 .code-boxes input {
+  /* Both lines are load-bearing: without them the boxes overflow the panel. */
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 64px;
+  width: 100%;
   text-align: center;
-  font-size: 22px;
+  font-size: clamp(16px, 4.6vw, 22px);
   font-weight: 600;
-  min-height: 56px;
+  min-height: clamp(46px, 11vw, 56px);
   padding: 0;
   letter-spacing: 0.04em;
   border-radius: 12px;
