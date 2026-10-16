@@ -24,6 +24,13 @@ export const ENTRY_COPY = {
     'The code goes to your inbox next, so we can be sure this address is yours before the account exists.',
 
   codeTitle: 'Check your inbox',
+  /** With no sender configured yet, the link is the only thing in the email. */
+  linkLedTitle: 'Click the link in your inbox',
+  linkLedBody:
+    'We sent it to your address. One click there proves the address is yours, and it brings you back here to set your password.',
+  codeLedTitle: 'Check your inbox',
+  codeLedBody:
+    'We sent a six-digit code to your address. Type it below, or click the link in the same email and you will land back here already verified.',
 
   /** Shown when an email link has already been used or has timed out. */
   linkExpired:

@@ -19,6 +19,7 @@ export type FakeMode =
   | 'list-missing'
   | 'grants-missing'
   | 'activation-missing'
+  | 'smtp-configured'
   | 'anon-can-read-private'
   | 'privilege-not-proven'
   | 'privilege-unknown'
@@ -206,6 +207,21 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
       }
       lastSessionUser = DEFAULT_USER_ACTIVE;
       send(response, 200, sessionPayload(DEFAULT_USER_ACTIVE));
+      return;
+    }
+
+    if (path === '/auth/v1/settings') {
+      // Mirrors a project with no sender of its own: the built-in mailer sends
+      // a link, so no code length is reported and the screen must ask for the
+      // click. `smtp: true` flips it to a code-led project.
+      const smtp = mode === 'smtp-configured';
+      send(response, 200, {
+        external: { email: true },
+        mailer_autoconfirm: false,
+        mailer_otp_length: smtp ? 6 : null,
+        smtp_admin_email: smtp ? 'support@boasis.ae' : '',
+        smtp_host: smtp ? 'smtp.gmail.com' : '',
+      });
       return;
     }
 

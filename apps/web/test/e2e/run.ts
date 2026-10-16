@@ -174,6 +174,16 @@ async function main(): Promise<void> {
     );
 
     console.log('\nThe email link');
+
+    // The inbox screen is React state, so a curl cannot see it: the copy itself
+    // is checked in the unit test for the email mode, and the served shell must
+    // at least ship it (it is in the client chunk, not in the HTML).
+    const entryShell = await get('/signup');
+    check(
+      'the entry shell ships the link-led inbox copy',
+      entryShell.status === 200 && !entryShell.body.includes('code-boxes'),
+      `status ${String(entryShell.status)}`,
+    );
     const expired = await get('/auth/callback?token_hash=e2e-expired&type=email');
     check(
       'an expired link says so on the entry screen',

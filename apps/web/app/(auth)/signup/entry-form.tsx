@@ -43,11 +43,14 @@ export function EntryForm({
   plans,
   resumeEmail,
   notice = null,
+  codeLed = false,
 }: {
   plans: Plan[];
   resumeEmail: string | null;
   /** Something the server wants the visitor told before they type anything. */
   notice?: string | null;
+  /** True when the email is expected to carry six digits. */
+  codeLed?: boolean;
 }) {
   const router = useRouter();
   const [phase, setPhase] = useState<Phase>(resumeEmail === null ? 'email' : 'password');
@@ -510,11 +513,25 @@ export function EntryForm({
 
       {phase === 'code' && (
         <div>
-          <h1>{ENTRY_COPY.codeTitle}</h1>
-          <p className="lede">
-            We sent a six-digit code to <strong>{cleanEmail}</strong>. It expires shortly, so use
-            the newest one.
-          </p>
+          {codeLed ? (
+            <>
+              <h1>{ENTRY_COPY.codeLedTitle}</h1>
+              <p className="lede">{ENTRY_COPY.codeLedBody}</p>
+            </>
+          ) : (
+            <>
+              <h1>{ENTRY_COPY.linkLedTitle}</h1>
+              <p className="lede">
+                {ENTRY_COPY.linkLedBody} We sent it to <strong>{cleanEmail}</strong>.
+              </p>
+              <ol className="steps">
+                <li>Open the newest email from Boasis.</li>
+                <li>Click the link inside it.</li>
+                <li>Set your password and you are in.</li>
+              </ol>
+            </>
+          )}
+          {codeLed && (
           <div className="code-boxes" onPaste={onPaste}>
             {digits.map((digit, index) => (
               <input
@@ -534,6 +551,8 @@ export function EntryForm({
               />
             ))}
           </div>
+          )}
+          {codeLed && (
           <button
             className="btn"
             type="button"
@@ -543,9 +562,10 @@ export function EntryForm({
           >
             {verifyPending ? CTA.verifying : CTA.verify}
           </button>
+          )}
           <div style={{ marginBlockStart: 14 }}>
             {cooldown > 0 ? (
-              <p className="hint">You can ask for another code in {String(cooldown)}s.</p>
+              <p className="hint">You can ask for another email in {String(cooldown)}s.</p>
             ) : (
               <button
                 type="button"
@@ -558,10 +578,15 @@ export function EntryForm({
                 {busy ? CTA.sending : CTA.resend}
               </button>
             )}
+            {!codeLed && (
+              <p className="hint">
+                The email can take a minute to arrive, and it will not always send twice in the
+                same hour: if nothing arrives, wait a little before asking again.
+              </p>
+            )}
             <p className="hint">
-              {codeSent && 'No code in your inbox? '}
-              Click the sign-in link inside the email instead and you will land back here already
-              verified.
+              {codeSent && 'Nothing in your inbox yet? '}
+              Ask for another email below, and use the newest one: it is the only one that works.
             </p>
             <p className="hint">
               Wrong address?{' '}

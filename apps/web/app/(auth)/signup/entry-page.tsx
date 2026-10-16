@@ -3,6 +3,7 @@ import { serverSupabase } from '@/lib/supabase';
 import { hasProfile, routeForUser } from '@/lib/access';
 import { listPlans } from '@/lib/plans-server';
 import { ENTRY_COPY } from '@/lib/copy';
+import { readEmailMode } from '@/lib/email-mode';
 import { EntryForm } from './entry-form';
 
 /**
@@ -26,6 +27,10 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
   }
 
   const { plans } = await listPlans();
+  // Whether the email will carry code digits is the project's own answer, read
+  // from Supabase rather than guessed, so the screen never asks for digits that
+  // are not in the inbox.
+  const emailMode = await readEmailMode();
 
   return (
     <main className="shell stage">
@@ -34,6 +39,7 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
           plans={plans}
           resumeEmail={resumeEmail}
           notice={linkExpired ? ENTRY_COPY.linkExpired : null}
+          codeLed={emailMode.codeLed}
         />
       </section>
       <aside className="aside">
