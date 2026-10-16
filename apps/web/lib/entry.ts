@@ -6,6 +6,7 @@ import { adminSupabaseOrNull } from './supabase';
 import { HEALTH_CODES, canContinueWithoutList, verifyServicePrivilege, type HealthCode } from './diagnose';
 import { logEntryEvent } from './log';
 import { asRecord, asRows } from './shape';
+import { classifyDbFailure } from './db-error';
 
 /**
  * The door decision for one email address.
@@ -139,7 +140,9 @@ export async function checkEntry(emailRaw: string): Promise<EntryDecision> {
   // tables; otherwise the row may well be sitting there unread.
   const verdict = await verifyServicePrivilege();
   if (verdict === 'not-privileged') {
-    return problem('SERVICE_NOT_SERVICE', email, { witness: 'schema' });
+    // The key could read the list but cannot read a private table: on a real
+    // project that is a missing GRANT (42501), not a wrong key.
+    return problem('SERVICE_GRANTS_MISSING', email, { witness: 'entry_events' });
   }
   if (verdict === 'unknown') {
     return problem('LIST_EMPTY_UNVERIFIED', email);
@@ -176,32 +179,30 @@ async function problem(
 }
 
 /**
- * Which named problem an error from the list read is. Branching on the error
- * CODE (stable) instead of the message text (not), with a short message match
- * only as a last resort for the shapes that carry no code.
+ * Which named problem an error from the list read is.
+ *
+ * The distinction that matters, learned from a real production report: a
+ * revoked key answers 401 and a missing GRANT answers 42501 "permission denied
+ * ... TO service_role". Telling the operator "your key was revoked" for the
+ * second one sent them hunting for a key that was never wrong. classifyDbFailure
+ * reads the response properly; this maps its verdict to the code on screen.
  */
 function classify(error: DbErrorShape): HealthCode {
   const code = typeof error.code === 'string' ? error.code : '';
   const message = typeof error.message === 'string' ? error.message : '';
-
-  // The app's own bounded fetch answers this when the project stops responding.
-  if (code === 'DB_UNREACHABLE') return 'DB_UNREACHABLE';
-  if (['42501', 'PGRST301', 'PGRST302', '401', '403'].includes(code)) return 'SERVICE_KEY_REJECTED';
-  if (['42P01', 'PGRST205', 'PGRST106'].includes(code)) return 'LIST_TABLE_MISSING';
-  if (code === 'PGRST002') return 'SERVICE_SCHEMA_UNREADABLE';
-  // Supabase answers a bad key with 401 and NO error code, so the only stable
-  // marker left is its own wording. These strings appear for nothing else.
-  if (/invalid api key|no api key found|jwt|invalid claim|invalid signature/i.test(message)) {
-    return 'SERVICE_KEY_REJECTED';
+  switch (classifyDbFailure({ code, message })) {
+    case 'key-rejected':
+      return 'SERVICE_KEY_REJECTED';
+    case 'grants-missing':
+      return 'SERVICE_GRANTS_MISSING';
+    case 'table-missing':
+    case 'function-missing':
+      return 'LIST_TABLE_MISSING';
+    case 'unreachable':
+      return 'DB_UNREACHABLE';
+    case 'unknown':
+      return 'SERVICE_SCHEMA_UNREADABLE';
   }
-  if (
-    /unavailable|timed out|timeout|fetch failed|econnrefused|enotfound|socket hang up|network|did not answer|unreachable/i.test(
-      message,
-    )
-  ) {
-    return 'DB_UNREACHABLE';
-  }
-  return 'SERVICE_SCHEMA_UNREADABLE';
 }
 
 function isUnknownColumn(error: DbErrorShape): boolean {

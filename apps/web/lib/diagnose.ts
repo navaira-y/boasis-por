@@ -1,6 +1,7 @@
 import 'server-only';
 import { envPresence, readPublicEnv, readServiceKey, type EnvPresence } from './env';
 import { readKeyFacts, readUrlFacts, type KeyFormat } from './keys';
+import { classifyDbFailure } from './db-error';
 
 /**
  * The probe suite behind /api/health and behind every named signup failure.
@@ -30,6 +31,8 @@ export type HealthCode =
   | 'DB_UNREACHABLE'
   | 'ANON_KEY_REJECTED'
   | 'SERVICE_KEY_REJECTED'
+  | 'SERVICE_GRANTS_MISSING'
+  | 'ANON_GRANTS_MISSING'
   | 'LIST_TABLE_MISSING'
   | 'EVENTS_TABLE_MISSING'
   | 'ACTIVATION_FUNCTION_MISSING'
@@ -110,8 +113,18 @@ export const HEALTH_CODES: Record<HealthCode, CodeMeaning> = {
   },
   SERVICE_KEY_REJECTED: {
     severity: 'blocker',
-    title: 'Supabase rejected the service key.',
-    fix: 'It was rotated or revoked. Copy the current service_role key into Railway.',
+    title: 'Supabase rejected the service key (401).',
+    fix: 'The key was rotated or revoked, or it belongs to another project. Copy the current service_role key from Supabase, Settings, API keys into Railway, then redeploy.',
+  },
+  SERVICE_GRANTS_MISSING: {
+    severity: 'blocker',
+    title: 'The service key is real, but the database has not granted it access to the app tables.',
+    fix: 'This is a grant, not a key: Supabase answers 42501 permission denied. Supabase, SQL editor: run supabase/migrations/0009_service_role_grants.sql on this project, then reload this page. No key needs changing.',
+  },
+  ANON_GRANTS_MISSING: {
+    severity: 'blocker',
+    title: 'The public key cannot read public.plans, which every page needs.',
+    fix: 'Supabase, SQL editor: run supabase/migrations/0001_phase1_core.sql (it grants the public key what the pages read) and then 0009. This is a grant, not a key.',
   },
   LIST_TABLE_MISSING: {
     severity: 'blocker',
@@ -130,8 +143,8 @@ export const HEALTH_CODES: Record<HealthCode, CodeMeaning> = {
   },
   SERVICE_SCHEMA_UNREADABLE: {
     severity: 'note',
-    title: 'The database schema could not be inspected.',
-    fix: 'Usually a hiccup. Reload this page; if it repeats, check the service key.',
+    title: 'The database answered something this app does not recognise.',
+    fix: 'Usually a hiccup. Reload /api/health; if it repeats, read the probe notes below and send them on.',
   },
   LIST_EMPTY_UNVERIFIED: {
     severity: 'note',
@@ -153,9 +166,50 @@ const SENSITIVE_TABLES = [
   'webhook_events',
 ] as const;
 
-/** Tables that exist from migration 0001 and are invisible to a public key,
- * so seeing them proves the key really is a service key. */
-const PRIVILEGE_WITNESS_TABLES = ['/audit_log', '/webhook_events', '/early_access_emails'];
+/** Adds a code once, wherever a probe reports it. */
+function addCode(codes: HealthCode[], code: HealthCode): void {
+  if (!codes.includes(code)) codes.push(code);
+}
+
+/**
+ * The named problem behind one failed probe. `missingCode` is what a 404 means
+ * for THIS probe, because a missing table and a missing function are reported
+ * differently but look identical on the wire.
+ */
+function failureCode(raw: RawProbe, missingCode: HealthCode): HealthCode {
+  const verdict = classifyDbFailure({
+    status: raw.status,
+    code: errorCodeOf(raw.body),
+    message: raw.body,
+  });
+  switch (verdict) {
+    case 'key-rejected':
+      return 'SERVICE_KEY_REJECTED';
+    case 'grants-missing':
+      return 'SERVICE_GRANTS_MISSING';
+    case 'table-missing':
+    case 'function-missing':
+      return missingCode;
+    case 'unreachable':
+      return 'DB_UNREACHABLE';
+    case 'unknown':
+      return 'SERVICE_SCHEMA_UNREADABLE';
+  }
+}
+
+/** The PostgREST/Postgres error code inside a response body, if it carries one. */
+function errorCodeOf(body: string): string | null {
+  try {
+    const parsed: unknown = JSON.parse(body);
+    if (typeof parsed === 'object' && parsed !== null && 'code' in parsed) {
+      const code = (parsed as { code?: unknown }).code;
+      if (typeof code === 'string') return code;
+    }
+  } catch {
+    // A non-JSON body (an HTML proxy page, say): the classifier reads the text.
+  }
+  return null;
+}
 
 const PROBE_TIMEOUT_MS = 5000;
 const MAX_BODY_BYTES = 3_000_000;
@@ -192,10 +246,14 @@ export interface HealthReport {
   service: KeySummary;
   probes: {
     auth: Probe;
-    serviceSchema: Probe;
-    anonSchema: Probe;
+    /** early_access_emails read with the service key: the signup door's read. */
     list: Probe;
+    /** entry_events read with the service key: the entry trail. */
     events: Probe;
+    /** activate_free_year, called with the service key and no session. */
+    activation: Probe;
+    /** plans read with the PUBLIC key: what every visitor's page needs. */
+    plansAnon: Probe;
     publicLeak: { table: string; status: number } | null;
   };
   listRows: number | null;
@@ -316,81 +374,76 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
   const notAttempted: Probe = { status: 0, ok: false, note: 'not attempted' };
   const probes: HealthReport['probes'] = {
     auth: notAttempted,
-    serviceSchema: notAttempted,
-    anonSchema: notAttempted,
     list: notAttempted,
     events: notAttempted,
+    activation: notAttempted,
+    plansAnon: notAttempted,
     publicLeak: null,
   };
   let listRows: number | null = null;
   let operatorListed: boolean | null = null;
   let recentEvents: EntryEventView[] = [];
-  let schemaPaths: string[] = [];
-  let privileged = env.serviceKey;
 
   if (urlFacts.ok && env.anonKey) {
     const authRaw = await rawProbe(`${url}/auth/v1/health`, { headers: { apikey: anonKey ?? '' } });
     probes.auth = toProbe(authRaw);
-    if (authRaw.status === 0 || authRaw.status >= 500) codes.push('DB_UNREACHABLE');
-    else if (authRaw.status === 401 || authRaw.status === 403) codes.push('ANON_KEY_REJECTED');
+    if (authRaw.status === 0 || authRaw.status >= 500) addCode(codes, 'DB_UNREACHABLE');
+    else if (authRaw.status === 401 || authRaw.status === 403) addCode(codes, 'ANON_KEY_REJECTED');
 
-    const anonSchemaRaw = await rawProbe(`${url}/rest/v1/`, { headers: restHeaders(anonKey ?? '') });
-    probes.anonSchema = toProbe(anonSchemaRaw);
+    // What every visitor's page reads with the public key. If this is denied,
+    // the plan cards and the gate cannot work for anybody.
+    const plansRaw = await rawProbe(`${url}/rest/v1/plans?select=id&limit=1`, {
+      headers: restHeaders(anonKey ?? ''),
+    });
+    probes.plansAnon = toProbe(plansRaw);
+    if (!plansRaw.ok && (plansRaw.status === 401 || plansRaw.status === 403)) {
+      addCode(codes, 'ANON_GRANTS_MISSING');
+    }
   }
 
   if (urlFacts.ok && env.serviceKey) {
-    const schemaRaw = await rawProbe(`${url}/rest/v1/`, {
-      headers: restHeaders(serviceKeyValue ?? ''),
-    });
-    probes.serviceSchema = toProbe(schemaRaw);
-
-    if (schemaRaw.status === 0) {
-      if (!codes.includes('DB_UNREACHABLE')) codes.push('DB_UNREACHABLE');
-    } else if (schemaRaw.status === 401 || schemaRaw.status === 403) {
-      codes.push('SERVICE_KEY_REJECTED');
-    } else if (schemaRaw.status >= 500) {
-      if (!codes.includes('DB_UNREACHABLE')) codes.push('DB_UNREACHABLE');
-    } else if (schemaRaw.ok) {
-      schemaPaths = pathsOf(schemaRaw.body);
-      privileged = PRIVILEGE_WITNESS_TABLES.some((path) => schemaPaths.includes(path));
-      if (!privileged && !codes.includes('SERVICE_NOT_SERVICE')) codes.push('SERVICE_NOT_SERVICE');
-      if (!schemaPaths.includes('/early_access_emails')) codes.push('LIST_TABLE_MISSING');
-      if (!schemaPaths.includes('/entry_events')) codes.push('EVENTS_TABLE_MISSING');
-      if (!schemaPaths.includes('/rpc/activate_free_year')) codes.push('ACTIVATION_FUNCTION_MISSING');
+    // The signup door's own read, so the report describes the real thing.
+    const listRaw = await rawProbe(
+      `${url}/rest/v1/early_access_emails?select=id,status,email&order=created_at.desc&limit=200`,
+      { headers: restHeaders(serviceKeyValue ?? '') },
+    );
+    probes.list = toProbe(listRaw);
+    if (listRaw.ok) {
+      listRows = parseRows(listRaw.body)?.length ?? null;
+      if (listRows === 0) addCode(codes, 'LIST_EMPTY_UNVERIFIED');
     } else {
-      codes.push('SERVICE_SCHEMA_UNREADABLE');
+      addCode(codes, failureCode(listRaw, 'LIST_TABLE_MISSING'));
     }
 
-    if (privileged) {
-      const listRaw = await rawProbe(
-        `${url}/rest/v1/early_access_emails?select=id,status,email&order=created_at.desc&limit=200`,
+    if (options.withEvents !== false) {
+      const eventsRaw = await rawProbe(
+        `${url}/rest/v1/entry_events?select=at,kind,code,email&order=at.desc&limit=5`,
         { headers: restHeaders(serviceKeyValue ?? '') },
       );
-      probes.list = toProbe(listRaw);
-      if (listRaw.ok) {
-        listRows = parseRows(listRaw.body)?.length ?? null;
-        if (listRows === 0 && !codes.includes('LIST_EMPTY_UNVERIFIED')) {
-          // The key proved itself, so an empty list is a real answer: the
-          // founder's own row would show here if it had been imported.
-          codes.push('LIST_EMPTY_UNVERIFIED');
-        }
-      } else if (listRaw.status === 404) {
-        if (!codes.includes('LIST_TABLE_MISSING')) codes.push('LIST_TABLE_MISSING');
-      } else if (listRaw.status === 401 || listRaw.status === 403) {
-        if (!codes.includes('SERVICE_KEY_REJECTED')) codes.push('SERVICE_KEY_REJECTED');
+      probes.events = toProbe(eventsRaw);
+      if (eventsRaw.ok) {
+        recentEvents = parseEvents(eventsRaw.body);
+      } else {
+        addCode(codes, failureCode(eventsRaw, 'EVENTS_TABLE_MISSING'));
       }
-
-      if (options.withEvents !== false) {
-        const eventsRaw = await rawProbe(
-          `${url}/rest/v1/entry_events?select=at,kind,code,email&order=at.desc&limit=5`,
-          { headers: restHeaders(serviceKeyValue ?? '') },
-        );
-        probes.events = toProbe(eventsRaw);
-        if (eventsRaw.ok) recentEvents = parseEvents(eventsRaw.body);
-      }
-
-      operatorListed = await operatorOnList(url, serviceKeyValue ?? '');
     }
+
+    // Called with the service key and no session, the function itself raises
+    // "no session": any answer except a 404 proves the function is installed.
+    const activationRaw = await rawProbe(`${url}/rest/v1/rpc/activate_free_year`, {
+      method: 'POST',
+      headers: { ...restHeaders(serviceKeyValue ?? ''), 'content-type': 'application/json' },
+      body: '{}',
+    });
+    probes.activation = toProbe(activationRaw);
+    if (activationRaw.status === 404) addCode(codes, 'ACTIVATION_FUNCTION_MISSING');
+    else if (activationRaw.status === 401 || activationRaw.status === 403) {
+      addCode(codes, failureCode(activationRaw, 'ACTIVATION_FUNCTION_MISSING'));
+    }
+
+    // Only worth asking when the list itself answered: otherwise the report has
+    // already named the problem and this would only add noise.
+    if (listRaw.ok) operatorListed = await operatorOnList(url, serviceKeyValue ?? '');
   }
 
   // Public-key leak check: private tables must refuse an anonymous caller.
@@ -401,7 +454,7 @@ export async function runHealth(options: RunHealthOptions = {}): Promise<HealthR
       });
       if (attempt.ok) {
         probes.publicLeak = { table, status: attempt.status };
-        if (!codes.includes('SENSITIVE_TABLE_PUBLIC')) codes.push('SENSITIVE_TABLE_PUBLIC');
+        addCode(codes, 'SENSITIVE_TABLE_PUBLIC');
         break;
       }
     }
@@ -441,19 +494,6 @@ function summarizeKey(facts: ReturnType<typeof readKeyFacts>, urlRef: string | n
     role: facts.role,
     matchesUrl: facts.ref === null || urlRef === null ? null : facts.ref === urlRef,
   };
-}
-
-function pathsOf(body: string): string[] {
-  try {
-    const parsed: unknown = JSON.parse(body);
-    if (typeof parsed === 'object' && parsed !== null && 'paths' in parsed) {
-      const paths = (parsed as { paths?: unknown }).paths;
-      if (typeof paths === 'object' && paths !== null) return Object.keys(paths);
-    }
-  } catch {
-    // Not JSON (a proxy error page, say): the caller names it as unreadable.
-  }
-  return [];
 }
 
 function parseRows(body: string | null): unknown[] | null {
@@ -523,6 +563,20 @@ export type PrivilegeVerdict = 'privileged' | 'not-privileged' | 'unknown';
 let privilegeCache: { at: number; verdict: PrivilegeVerdict } | null = null;
 const PRIVILEGE_CACHE_MS = 30_000;
 
+/**
+ * Is the key in the service slot really allowed to read the private tables?
+ *
+ * This is the answer to the silent empty read: before grants existed, an
+ * unprivileged key got an EMPTY result from a private table rather than an
+ * error, so an unverified empty read could send a listed founder to the wrong
+ * door. entry_events is the witness because it is private by design (0008
+ * revoked it from anon and authenticated), so a 200 proves the caller is both
+ * the service key AND granted access to it.
+ *
+ * The project's REST root (OpenAPI) is deliberately NOT used for this: newer
+ * Supabase projects answer it with 403 even to a perfect service key, which is
+ * exactly how a healthy project got reported as "key rejected".
+ */
 export async function verifyServicePrivilege(): Promise<PrivilegeVerdict> {
   const now = Date.now();
   if (privilegeCache !== null && now - privilegeCache.at < PRIVILEGE_CACHE_MS) {
@@ -534,14 +588,22 @@ export async function verifyServicePrivilege(): Promise<PrivilegeVerdict> {
     const key = readServiceKey();
     const facts = readUrlFacts(url);
     if (facts.ok && key !== null) {
-      const raw = await rawProbe(`${url}/rest/v1/`, { headers: restHeaders(key) });
+      const raw = await rawProbe(`${url}/rest/v1/entry_events?select=at&limit=1`, {
+        headers: restHeaders(key),
+      });
       if (raw.ok) {
-        const paths = pathsOf(raw.body);
-        if (paths.length > 0) {
-          verdict = PRIVILEGE_WITNESS_TABLES.some((path) => paths.includes(path))
-            ? 'privileged'
-            : 'not-privileged';
-        }
+        verdict = 'privileged';
+      } else {
+        const failure = classifyDbFailure({
+          status: raw.status,
+          code: errorCodeOf(raw.body),
+          message: raw.body,
+        });
+        // A missing table is not a privilege answer either way.
+        verdict =
+          failure === 'grants-missing' || failure === 'key-rejected'
+            ? 'not-privileged'
+            : 'unknown';
       }
     }
   } catch {
@@ -572,6 +634,8 @@ export function entryBlockers(report: HealthReport): HealthCode[] {
     'SERVICE_URL_MISMATCH',
     'SERVICE_KEY_UNREADABLE',
     'SERVICE_KEY_REJECTED',
+    'SERVICE_GRANTS_MISSING',
+    'ANON_GRANTS_MISSING',
     'LIST_TABLE_MISSING',
     'SERVICE_SCHEMA_UNREADABLE',
     'LIST_EMPTY_UNVERIFIED',
@@ -589,6 +653,11 @@ const CONTINUE_ALLOWED: HealthCode[] = [
   'SERVICE_KEY_UNREADABLE',
   'SERVICE_URL_MISMATCH',
   'SERVICE_KEY_REJECTED',
+  // A grant problem does not stop signup: the inbox code still protects the
+  // account and the free year is granted inside the database by 0008's
+  // function, which does not depend on these grants. The visitor continues on
+  // the plans door while the operator runs 0009.
+  'SERVICE_GRANTS_MISSING',
   'LIST_TABLE_MISSING',
   'SERVICE_SCHEMA_UNREADABLE',
   'LIST_EMPTY_UNVERIFIED',

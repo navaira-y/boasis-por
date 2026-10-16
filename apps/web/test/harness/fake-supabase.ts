@@ -17,6 +17,7 @@ export type FakeMode =
   | 'anon-key-rejected'
   | 'list-empty'
   | 'list-missing'
+  | 'grants-missing'
   | 'anon-can-read-private'
   | 'privilege-not-proven'
   | 'privilege-unknown'
@@ -60,6 +61,18 @@ export interface FakeSupabase {
   close(): Promise<void>;
 }
 
+/**
+ * Supabase's real answer when the role has no GRANT on a table (this is the
+ * message a real project returned, verbatim): 42501 with its own hint naming
+ * the SQL to run. It is NOT a rejected key, and the app must not say it is.
+ */
+const GRANT_REFUSED = {
+  code: '42501',
+  details: null,
+  hint: 'Grant the required privileges to the current role with: GRANT SELECT ON public.early_access_emails TO service_role;',
+  message: 'permission denied for table early_access_emails',
+};
+
 const TOKEN_ACTIVE = 'e2e-access-active';
 const TOKEN_UNCONFIRMED = 'e2e-access-unconfirmed';
 
@@ -76,21 +89,6 @@ const DEFAULT_USER_UNCONFIRMED: FakeUser = {
   email: 'fresh.visitor@example.com',
   confirmed: false,
 };
-
-/** Tables that exist from 0001 and are granted to nobody but the service key. */
-const PRIVATE_TABLES = ['/early_access_emails', '/entry_events', '/audit_log', '/webhook_events'];
-const PUBLIC_TABLES = ['/plans', '/subscriptions', '/profiles', '/companies'];
-
-/** The schema document PostgREST serves, which only lists a table for a role
- * that may read it: the app uses it as the privilege witness. */
-function schemaDoc(role: 'anon' | 'service'): string {
-  const paths: Record<string, unknown> = {};
-  for (const table of role === 'service' ? [...PUBLIC_TABLES, ...PRIVATE_TABLES] : PUBLIC_TABLES) {
-    paths[table] = {};
-  }
-  if (role === 'service') paths['/rpc/activate_free_year'] = {};
-  return JSON.stringify({ swagger: '2.0', info: { title: 'fake' }, paths });
-}
 
 function send(response: ServerResponse, status: number, body: unknown): void {
   const text = typeof body === 'string' ? body : JSON.stringify(body);
@@ -245,12 +243,14 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
 
     // ---- REST -----------------------------------------------------------
     if (path === '/rest/v1/') {
-      if (keyRole === 'service') {
-        if (mode === 'privilege-not-proven') send(response, 200, schemaDoc('anon'));
-        else if (mode === 'privilege-unknown') send(response, 404, { message: 'not found' });
-        else send(response, 200, schemaDoc('service'));
-      } else if (keyRole === 'anon') send(response, 200, schemaDoc('anon'));
-      else send(response, 401, { message: 'No API key found in request' });
+      // Newer Supabase projects refuse this root endpoint even to a perfect
+      // service key, which is how a healthy project was reported as broken.
+      // The app must not depend on it; the fake models that refusal.
+      send(response, 403, {
+        code: '42501',
+        hint: 'Only the service_role API key can be used for this endpoint.',
+        message: 'The OpenAPI schema is not available on this project.',
+      });
       return;
     }
 
@@ -266,6 +266,14 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
       if (keyRole !== 'service' && mode !== 'anon-can-read-private') {
         // This is the leak check: the public key must be refused.
         send(response, 401, { message: 'permission denied for table early_access_emails' });
+        return;
+      }
+      if (mode === 'grants-missing') {
+        if (keyRole !== 'service') {
+          send(response, 401, { message: 'permission denied for table early_access_emails' });
+          return;
+        }
+        send(response, 403, GRANT_REFUSED);
         return;
       }
       if (mode === 'privilege-not-proven' || mode === 'privilege-unknown') {
@@ -304,6 +312,19 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
         send(response, 201, '');
         return;
       }
+      // entry_events is the app's privilege witness: it is private by design,
+      // so a 200 here proves the caller is a granted service key.
+      if (mode === 'privilege-not-proven') {
+        send(response, 403, { ...GRANT_REFUSED, message: 'permission denied for table entry_events' });
+        return;
+      }
+      if (mode === 'privilege-unknown') {
+        send(response, 404, {
+          code: 'PGRST205',
+          message: "Could not find the table 'public.entry_events' in the schema cache",
+        });
+        return;
+      }
       send(response, 200, events);
       return;
     }
@@ -314,6 +335,20 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
         return;
       }
       send(response, 200, []);
+      return;
+    }
+
+    if (path === '/rest/v1/plans') {
+      if (mode === 'grants-missing' && keyRole !== 'service') {
+        // A public-key grant problem: every visitor's page loses its plan list.
+        send(response, 403, { ...GRANT_REFUSED, message: 'permission denied for table plans' });
+        return;
+      }
+      send(response, 200, [
+        { id: 'solo', name: 'Solo', max_companies: 1, price_fils: 3000, free_months: 12, currency: 'AED' },
+        { id: 'trio', name: 'Trio', max_companies: 3, price_fils: 9000, free_months: 0, currency: 'AED' },
+        { id: 'enterprise', name: 'Enterprise', max_companies: null, price_fils: null, free_months: 0, currency: 'AED' },
+      ]);
       return;
     }
 

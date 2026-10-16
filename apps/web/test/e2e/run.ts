@@ -246,6 +246,11 @@ async function main(): Promise<void> {
     check('a configured project reports healthy', healthy.status === 200, `status ${String(healthy.status)}`);
     check('the report never contains a key', !healthyBody.includes(FAKE_SERVICE_KEY) && !healthyBody.includes(FAKE_ANON_KEY));
     check('the report names the project it checked', healthyBody.includes('fakee2eproject'));
+    check(
+      'the report confirms the visitor-facing plan read',
+      healthyBody.includes('"plansAnon":{"status":200'),
+      'plansAnon probe did not answer 200',
+    );
 
     fake.setMode('service-key-rejected');
     const rejected = await get('/api/health?fresh=1');
@@ -255,6 +260,20 @@ async function main(): Promise<void> {
       `status ${String(rejected.status)}`,
     );
     check('the rejected report never contains the key', !rejected.body.includes(FAKE_SERVICE_KEY));
+
+    // The real production fault: a valid key whose role has no GRANT. Supabase
+    // answers 42501 with its own GRANT hint; the report must name a grant, not
+    // a key, because the operator fixes those in different places.
+    fake.setMode('grants-missing');
+    const grants = await get('/api/health?fresh=1');
+    check(
+      'a missing GRANT is reported as a grant problem, not a rejected key',
+      grants.status === 503 &&
+        grants.body.includes('SERVICE_GRANTS_MISSING') &&
+        !grants.body.includes('SERVICE_KEY_REJECTED'),
+      `status ${String(grants.status)}`,
+    );
+    check('the grant report names the file to run', grants.body.includes('0009'), 'no 0009 in the report');
 
     fake.setMode('anon-can-read-private');
     const leak = await get('/api/health?fresh=1');

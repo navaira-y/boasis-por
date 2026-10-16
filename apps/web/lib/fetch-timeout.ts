@@ -57,7 +57,14 @@ export function fetchWithTimeout(
       init?.signal == null ? controller.signal : AbortSignal.any([init.signal, controller.signal]);
 
     try {
-      return await fetch(input, { ...init, signal });
+      const response = await fetch(input, { ...init, signal });
+      // A 5xx from the API layer (503 while the schema cache loads, a 520 from
+      // the edge) is retried by the client with backoff. One of those is
+      // enough: the cooldown makes the NEXT attempt of the same burst fail
+      // instantly and non-retryably, so a page load costs one round trip
+      // instead of the whole ladder.
+      if (response.status >= 500) downUntil = Date.now() + cooldownMs;
+      return response;
     } catch (error) {
       // A hang we aborted, a refused connection, a DNS failure: all of them
       // prove the project is not answering right now.

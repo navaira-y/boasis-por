@@ -121,6 +121,26 @@ describe('the failures that used to read "Could not check that email"', () => {
     expect(decision.problem?.fix.length).toBeGreaterThan(10);
   });
 
+  it('a missing GRANT is never reported as a rejected key', async () => {
+    // The live project answered 42501 "permission denied for table
+    // early_access_emails" with Supabase's own GRANT hint. The app said "the
+    // key was rotated or revoked", which was wrong and cost the operator an
+    // hour of rotating a key that was fine.
+    fake.setMode('grants-missing');
+    resetHealthCache();
+    const decision = await checkEntry(OPERATOR);
+
+    expect(decision.branch).toBe('plans');
+    expect(decision.listed).toBeNull();
+    expect(decision.problem?.code).toBe('SERVICE_GRANTS_MISSING');
+    expect(decision.problem?.code).not.toBe('SERVICE_KEY_REJECTED');
+    expect(decision.problem?.title).toContain('granted');
+    expect(decision.problem?.fix).toContain('0009');
+    // Signup still completes (the inbox code guards the account and the free
+    // year is granted inside the database), so the visitor may continue.
+    expect(decision.problem?.continueAllowed).toBe(true);
+  });
+
   it('a missing early-access table is named with the migration to run', async () => {
     fake.setMode('list-missing');
     resetHealthCache();
@@ -148,7 +168,7 @@ describe('the failures that used to read "Could not check that email"', () => {
     // "not on the list" and sent a listed founder to the plans door.
     expect(decision.branch).toBe('plans');
     expect(decision.listed).toBeNull();
-    expect(decision.problem?.code).toBe('SERVICE_NOT_SERVICE');
+    expect(decision.problem?.code).toBe('SERVICE_GRANTS_MISSING');
   });
 
   it('an empty list that could not be verified at all is reported, never guessed', async () => {
