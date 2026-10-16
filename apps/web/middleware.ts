@@ -1,8 +1,9 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
-import { decideGate, type SubscriptionStatus } from '@/lib/gate';
+import { decideGate, isPortalPath, type SubscriptionStatus } from '@/lib/gate';
 import { cleanEnvValue } from '@/lib/env-value';
 import { fetchWithTimeout } from '@/lib/fetch-timeout';
+import { portalCsp } from '@/lib/csp';
 
 /**
  * The gate in front of the portal.
@@ -94,7 +95,16 @@ export async function middleware(request: NextRequest) {
     status,
   });
 
-  if (action === 'allow') return response;
+  if (action === 'allow') {
+    // The portal bundle signs in with a session cookie its own JavaScript can
+    // read (that is how the team's portal is built), so the pages it is served
+    // on get a policy that allows only this site's scripts, the font hosts the
+    // shell links, and Supabase itself.
+    if (isPortalPath(request.nextUrl.pathname)) {
+      response.headers.set('Content-Security-Policy', portalCsp(url));
+    }
+    return response;
+  }
 
   const target = request.nextUrl.clone();
   target.search = '';

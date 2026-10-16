@@ -209,6 +209,27 @@ async function main(): Promise<void> {
       portalActive.headers.get('x-frame-options') !== null,
       String(portalActive.headers.get('x-frame-options')),
     );
+    const csp = portalActive.headers.get('content-security-policy') ?? '';
+    check('the portal is served under a Content Security Policy', csp.includes('script-src'), 'no CSP header');
+    check(
+      'the policy allows scripts from this origin only',
+      csp.includes("script-src 'self'") && !csp.includes('unsafe-eval'),
+      csp,
+    );
+    check(
+      'the policy reaches this project and nowhere else',
+      // The fake project is plain http, so the realtime scheme is ws; a real
+      // https project gets wss (covered by the unit test).
+      csp.includes(fake.url) && csp.includes('ws://127.0.0.1:5199') && !csp.includes('googleapis.com/api'),
+      csp,
+    );
+    const portalAsset = await get('/portal/index.html', { headers: { cookie: cookies } });
+    check(
+      'portal assets carry the policy too',
+      (portalAsset.headers.get('content-security-policy') ?? '').includes('script-src'),
+    );
+    const signupCsp = (await get('/signup')).headers.get('content-security-policy');
+    check('the entry pages are not given the portal policy by accident', signupCsp === null, String(signupCsp));
 
     console.log('\nThe same visitor when the subscription is not active');
     // A signed-up account has its profile row; a visitor between the inbox
