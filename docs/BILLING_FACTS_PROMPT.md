@@ -26,6 +26,16 @@ Same branch, next fix. The Billing screen shows "Standard — Free trial, 14 day
 
 Audit every user-visible fact in portal + web app — screens, copy files, plan names, prices, limits, trial copy, Billing (must show the REAL subscription: actual plan, free-year end date, live months+days remaining, one plain line on what happens after), paywalls/popups, notices, reminder copy — and correct EACH stale value to real subscription/plan data. Same screens, same theme — only facts become real and live. Real data only; honest empty states; never demo values. If any PDF paragraph contradicts the list above, the list above wins — note each such override in your report.
 
+## Header countdown (upper right corner, all plans and states)
+
+Add a small countdown chip in the portal header's upper right (inside the team's chrome, matching its theme exactly — additive element, no redesign): time left until the CURRENT period ends, from the real subscription (`current_period_end`, Asia/Dubai days).
+- Free year: months + days ("8 months, 12 days left") — same value as the Billing countdown.
+- Paid monthly period (e.g. Solo year 2): days only ("23 days left").
+- Trio/Enterprise: same rule by their own period (days only for monthly periods).
+- 7 days or less left: warn state within the existing theme (no new palette, no redesign).
+- Expired / past_due: "Plan ended — renew to unlock", linking to billing.
+- Never a hardcoded number; recompute from the subscription on load and at day rollover. No subscription row yet: show nothing, never a placeholder.
+
 Same proof bar: tests + real runs, security clean, visitor-side UX review of touched screens. Report per fix: where, what it said, what it says now, where the value comes from. Hold the senior bar throughout: if any shortcut would weaken security, data integrity, or UX, say so and do it properly instead.
 
 ---
