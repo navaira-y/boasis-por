@@ -1,17 +1,31 @@
-# BILLING FACTS FIX — continuation (paste into the SAME session on `arena/32c63c62-boasis-por`)
+# PLANS FACTS SWEEP — continuation (paste into the SAME session on `arena/32c63c62-boasis-por`)
 
 ---
 
 Act as a senior expert-level full-stack developer, security owner, and designer: security from every side, flag better long-term approaches, best-in-class UX, deliver exactly what is asked.
 
-Same branch, next fix. The Billing screen shows "Standard — Free trial, 14 days, no card required." That line is the team's hardcoded `PLAN.trialDays` + copy string, kept verbatim under the keep-exact rule — but it is FACTUALLY wrong for this product. Rule clarification, apply everywhere: **keep-exact covers layout, theme, and concept — never wrong facts. Facts always come from the docs + meetings (meetings first on conflict).**
+Same branch, next fix. The Billing screen shows "Standard — Free trial, 14 days" — the team's hardcoded `PLAN.trialDays` + copy string, kept verbatim under keep-exact. Rule clarification, apply EVERYWHERE: **keep-exact covers layout, theme, and concept — never wrong facts. Facts always come from the docs + meetings, meetings first on conflict.**
 
-## Fix
+## Current plans (source of truth — the PDF is outdated here)
 
-1. **Billing shows the REAL subscription:** actual plan (Solo/Trio/Enterprise, never "Standard"), the free-year end date, and a live remaining countdown in months + days until the free year ends ("8 months, 12 days left"), plus one plain line on what happens after (continues at AED 30/month, reminders before anything is charged). Same screen, same theme — only the facts become real and live.
-2. **Sweep every tiny detail:** audit the whole portal for hardcoded team facts that contradict the docs/meetings — trial lengths, plan names, prices, company limits, quota numbers, reminder copy, any "14 days"/"Standard"-style leftovers — and correct EACH to real subscription/plan data. Real data only; honest empty states where nothing exists yet; never demo values.
-3. **Plans reminder (source of truth):** Solo = 1 company, free 12 months, no card, then AED 30/month. Trio = up to 3 companies, AED 90/month, opens with the gateway. Enterprise = custom via contact. First company free year for everyone including early access.
+- **Solo** — 1 company. FREE for 12 months, no card. Then AED 30/month. This is the only live plan.
+- **Trio** — up to 3 companies. AED 90/month. Opens with the payment gateway ("opens soon" until then).
+- **Enterprise** — custom companies, custom price, via contact us.
+- **Early access** — waitlist emails enter free, Solo-level, no payment, no plan choice.
+- Triggers: card/payment is asked ONLY at the 2nd company or when the free year ends. No payment before verification, ever.
 
-Same proof bar: tests + real runs, security clean, visitor-side UX review of the touched screens. Report per fix: what was hardcoded, what it shows now and where the value comes from, and the exact test clicks. Hold the senior bar throughout: if any shortcut would weaken security, data integrity, or UX, say so and do it properly instead.
+## What changed vs `Boasis-Onboarding-v2.pdf` (do NOT follow the PDF on these)
+
+1. PDF: "1 company AED 30 a month" from day one → NOW: first year FREE, then AED 30.
+2. PDF: no plan names → NOW: Solo / Trio / Enterprise (never "Standard", never unnamed).
+3. PDF: charge at signup or step 8 → NOW: no card at the door at all; 2nd-company + expiry triggers only.
+4. PDF: no early access → NOW: waitlist door exists and is free.
+5. Team code: "Free trial, 14 days" → NOW: 12-month free year with a live months+days countdown.
+
+## Sweep (the whole product, not just Billing)
+
+Audit every user-visible fact in portal + web app — screens, copy files, plan names, prices, limits, trial copy, Billing (must show the REAL subscription: actual plan, free-year end date, live months+days remaining, one plain line on what happens after), paywalls/popups, notices, reminder copy — and correct EACH stale value to real subscription/plan data. Same screens, same theme — only facts become real and live. Real data only; honest empty states; never demo values. If any PDF paragraph contradicts the list above, the list above wins — note each such override in your report.
+
+Same proof bar: tests + real runs, security clean, visitor-side UX review of touched screens. Report per fix: where, what it said, what it says now, where the value comes from. Hold the senior bar throughout: if any shortcut would weaken security, data integrity, or UX, say so and do it properly instead.
 
 ---
