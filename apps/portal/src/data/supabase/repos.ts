@@ -1,4 +1,8 @@
 import {
+  BILLING_PLAN_COLUMNS,
+  SUBSCRIPTION_COLUMNS,
+  BillingPlanRow,
+  SubscriptionRow,
   AccessGrant,
   AuditEvent,
   Card,
@@ -960,6 +964,21 @@ export async function createSupabaseRepos(): Promise<Repos> {
     personOf: (record: Person) => record.id,
   });
   return {
+    billing: {
+      read: async () => {
+        const user = await requireUser();
+        const [subscription, plans] = await Promise.all([
+          supabase().from('subscriptions').select(SUBSCRIPTION_COLUMNS).eq('profile_id', user.id).abortSignal(AbortSignal.timeout(8000)).maybeSingle(),
+          supabase().from('plans').select(BILLING_PLAN_COLUMNS).eq('active', true).abortSignal(AbortSignal.timeout(8000)),
+        ]);
+        rethrow(subscription.error);
+        rethrow(plans.error);
+        return {
+          subscription: subscription.data === null ? null : SubscriptionRow.parse(subscription.data),
+          plans: BillingPlanRow.array().parse(plans.data),
+        };
+      },
+    },
     accounts,
     auth,
     passwords,

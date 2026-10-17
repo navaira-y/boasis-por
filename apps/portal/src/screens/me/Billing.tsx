@@ -1,118 +1,156 @@
+import { BILLING_COPY, PRODUCT_PLAN_NAMES } from '@boasis/schema';
+import {
+  afterPeriodLine,
+  countdownLabel,
+  isFreeYear,
+  subscriptionCountdown,
+  subscriptionStatusLabel,
+} from '@boasis/rules';
 import { me } from '../../copy/en';
-import { useAccessGrants, useHomeData } from '../../data';
-import { PLAN } from '../../lib/plan';
+import { useCompanyAllowance } from '../../data/company-allowance';
+import { useBilling } from '../../data/billing';
 import { MeHead } from './rows';
 import '../lite.css';
 import '../ReminderSettings.css';
 import '../Account.css';
 
-// Billing (screen 18): the plan, what is used of it, and the working model of spec 12.1 as
-// plain rows. Every figure is an example, and it says so; no payment is taken here.
-export function Billing() {
-  const home = useHomeData();
-  const grants = useAccessGrants();
-  const companies = home.companies.map((view) => view.bundle);
-  const members = (grants.data ?? []).filter((grant) => grant.companies.length > 0).length;
+function longDate(value: string): string {
+  return new Date(value).toLocaleDateString('en-GB', {
+    timeZone: 'Asia/Dubai',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
 
+// The team's existing boxes and rows, with the signed-in account's subscription.
+// Published offers below are not an entitlement or a fabricated subscription.
+export function Billing() {
+  const { query, now } = useBilling();
+  const allowance = useCompanyAllowance();
+  const subscription = query.data?.subscription ?? null;
+  const plan = query.data?.plans.find((item) => item.id === subscription?.planId);
+  const countdown = subscriptionCountdown(subscription, now);
   return (
     <div className="pg acct">
       <MeHead title={me.billing.title} sub={me.billing.sub} />
-
-      <div className="abox">
-        <div className="arow keep">
-          <span className="k">{me.billing.plan}</span>
-          <span className="v">
-            {me.billing.standard}
-            <small>{me.billing.trial(PLAN.trialDays)}</small>
-          </span>
+      {query.isPending ? (
+        <p role="status">Loading your subscription...</p>
+      ) : query.isError ? (
+        <div className="abox">
+          <p className="arow" role="alert">
+            Could not load your subscription. No plan details have been assumed.
+          </p>
+          <button
+            type="button"
+            className="add"
+            onClick={() => {
+              void query.refetch();
+            }}
+          >
+            Try again
+          </button>
         </div>
-      </div>
-
+      ) : subscription === null ? (
+        <div className="abox">
+          <p className="arow" role="status">
+            No subscription is set up for this account.
+          </p>
+          <a className="arow" href="/billing">
+            Review access
+          </a>
+        </div>
+      ) : (
+        <>
+          <div className="abox">
+            <div className="arow keep">
+              <span className="k">Plan</span>
+              <span className="v">
+                {PRODUCT_PLAN_NAMES[subscription.planId]}
+                {isFreeYear(subscription) ? <small>Free year, no card required</small> : null}
+              </span>
+            </div>
+            <div className="arow keep">
+              <span className="k">Status</span>
+              <span className="v">{subscriptionStatusLabel(subscription, now)}</span>
+            </div>
+            <div className="arow keep">
+              <span className="k">
+                {isFreeYear(subscription) ? 'Free year ends' : 'Current period ends'}
+              </span>
+              <span className="v">
+                {subscription.periodEnd === null
+                  ? 'Not available'
+                  : longDate(subscription.periodEnd)}
+                <small>Asia/Dubai</small>
+              </span>
+            </div>
+            <div className="arow keep">
+              <span className="k">Time remaining</span>
+              <span className="v" data-testid="billing-countdown">
+                {countdown === null ? 'Not available' : countdownLabel(countdown)}
+              </span>
+            </div>
+            <div className="arow keep">
+              <span className="k">After this period</span>
+              <span className="v">{afterPeriodLine(subscription, plan)}</span>
+            </div>
+          </div>
+          <div className="abox">
+            <div className="hd">
+              <h3>Company allowance</h3>
+            </div>
+            <div className="arow keep">
+              <span className="k">Owned companies</span>
+              <span className="v">
+                {allowance.isError || allowance.data === undefined
+                  ? 'Allowance unavailable'
+                  : `${String(allowance.data.ownedCompanies)} of ${String(allowance.data.companyLimit)} currently available`}
+              </span>
+            </div>
+            <div className="arow keep">
+              <span className="k">Adding a company</span>
+              <span className="v">
+                <small>
+                  Solo covers one company. Online payment opens soon to unlock a second company.
+                </small>
+              </span>
+            </div>
+          </div>
+        </>
+      )}
       <div className="abox">
         <div className="hd">
-          <h3>{me.billing.used}</h3>
+          <h3>Plans</h3>
         </div>
         <div className="arow keep">
-          <span className="k">{me.panel.companies}</span>
+          <span className="k">Solo</span>
           <span className="v">
-            {me.billing.companies(companies.length, PLAN.companiesIncluded)}
+            <small>{BILLING_COPY.solo}</small>
           </span>
         </div>
         <div className="arow keep">
-          <span className="k">{me.panel.access}</span>
-          <span className="v">{me.billing.members(members, PLAN.membersIncluded)}</span>
-        </div>
-        <div className="arow keep">
-          <span className="k">{me.billing.peopleLabel}</span>
+          <span className="k">Trio</span>
           <span className="v">
-            {me.billing.people(PLAN.peopleCapPerCompany)}
-            {companies.map((bundle) => (
-              <small key={bundle.facts.id}>
-                {me.billing.peopleUsed(
-                  bundle.facts.identity.tradeName,
-                  bundle.people.length,
-                  PLAN.peopleCapPerCompany,
-                )}
-              </small>
-            ))}
-          </span>
-        </div>
-      </div>
-
-      <div className="abox">
-        <div className="hd">
-          <h3>{me.billing.model}</h3>
-          <p>{me.billing.modelNote}</p>
-        </div>
-        <div className="arow keep">
-          <span className="k">{me.billing.owner}</span>
-          <span className="v">
-            {me.billing.perMonth(PLAN.ownerPriceAed)}
-            <small>{me.billing.ownerNote}</small>
+            <small>{BILLING_COPY.trio}</small>
           </span>
         </div>
         <div className="arow keep">
-          <span className="k">{me.billing.member}</span>
-          <span className="v">
-            {me.billing.perMonth(PLAN.memberPriceAed)}
-            <small>{me.billing.memberNote}</small>
-          </span>
-        </div>
-        <div className="arow keep">
-          <span className="k">{me.billing.addOns}</span>
-          <span className="v">
-            <small>{me.billing.addOnsNote(PLAN.peopleAddOnBlock)}</small>
-          </span>
-        </div>
-        <div className="arow keep">
-          <span className="k">{me.billing.notices}</span>
-          <span className="v">
-            <small>{me.billing.noticesNote}</small>
-          </span>
-        </div>
-        <div className="arow keep">
-          <span className="k">{me.billing.closed}</span>
-          <span className="v">
-            <small>{me.billing.closedNote}</small>
-          </span>
-        </div>
-        <div className="arow keep">
-          <span className="k">{me.billing.enterprise}</span>
-          <span className="v">
-            <small>{me.billing.enterpriseNote(PLAN.peopleHardLine)}</small>
-          </span>
-        </div>
-        <div className="arow keep">
-          <span className="k">{me.billing.nonPayment}</span>
+          <span className="k">Enterprise</span>
           <span className="v">
             <small>
-              {me.billing.nonPaymentNote(PLAN.graceDays, PLAN.readOnlyDays, PLAN.exportMonths)}
+              {BILLING_COPY.enterprise} <a href="mailto:support@boasis.ae">Contact us</a>
             </small>
           </span>
         </div>
+        <div className="arow keep">
+          <span className="k">Early access</span>
+          <span className="v">
+            <small>{BILLING_COPY.earlyAccess}</small>
+          </span>
+        </div>
       </div>
-
-      <div className="vers">{me.billing.noPayment}</div>
+      <div className="vers">{BILLING_COPY.payment}</div>
     </div>
   );
 }

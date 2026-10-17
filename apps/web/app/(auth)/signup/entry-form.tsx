@@ -4,9 +4,22 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { isValidEmail, normalizeEmail, suggestEmailFix } from '@/lib/email';
 import { CTA, ENTRY_COPY, TERMS_VERSION } from '@/lib/copy';
-import { codeDigits, growsOnTyping, isComplete, isSubmittable, pastedDigits, typedDigits } from '@/lib/code-length';
+import {
+  codeDigits,
+  growsOnTyping,
+  isComplete,
+  isSubmittable,
+  pastedDigits,
+  typedDigits,
+} from '@/lib/code-length';
 import { formatAED, type Plan, type PlanId } from '@/lib/plans';
-import { checkEntryAction, completeEntryAction, recordPlanWishAction, sendCodeAction, verifyCodeAction } from './actions';
+import {
+  checkEntryAction,
+  completeEntryAction,
+  recordPlanWishAction,
+  sendCodeAction,
+  verifyCodeAction,
+} from './actions';
 import type { EntryCheckResponse } from './actions';
 
 /**
@@ -92,8 +105,12 @@ export function EntryForm({
   // Resend ticker: only ever runs on the code step.
   useEffect(() => {
     if (phase !== 'code' || cooldown <= 0) return;
-    const timer = setTimeout(() => { setCooldown((value) => value - 1); }, 1000);
-    return () => { clearTimeout(timer); };
+    const timer = setTimeout(() => {
+      setCooldown((value) => value - 1);
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [phase, cooldown]);
 
   useEffect(() => {
@@ -323,7 +340,9 @@ export function EntryForm({
                 setEmail(event.target.value);
                 setEmailTouched(true);
               }}
-              onBlur={() => { setEmailTouched(true); }}
+              onBlur={() => {
+                setEmailTouched(true);
+              }}
             />
             {emailTouched && email.length > 0 && !emailLooksRight && (
               <p className="hint hint-warn">That does not look like an email address yet.</p>
@@ -334,7 +353,9 @@ export function EntryForm({
                 <button
                   type="button"
                   className="linkish"
-                  onClick={() => { setEmail(typoHint); }}
+                  onClick={() => {
+                    setEmail(typoHint);
+                  }}
                 >
                   {typoHint}
                 </button>
@@ -366,7 +387,9 @@ export function EntryForm({
                   type="button"
                   className="btn btn-ghost btn-small"
                   style={{ marginBlockStart: 12 }}
-                  onClick={() => { setAckedProblem(true); }}
+                  onClick={() => {
+                    setAckedProblem(true);
+                  }}
                 >
                   Continue anyway
                 </button>
@@ -378,7 +401,13 @@ export function EntryForm({
             <>
               <h1>{ENTRY_COPY.waitlistTitle}</h1>
               <div className="notice">{ENTRY_COPY.waitlistBody}</div>
-              <button className="btn" type="button" onClick={() => { setPhase('password'); }}>
+              <button
+                className="btn"
+                type="button"
+                onClick={() => {
+                  setPhase('password');
+                }}
+              >
                 {CTA.waitlistContinue}
               </button>
             </>
@@ -393,9 +422,7 @@ export function EntryForm({
                   const isLive = plan.live;
                   const isSelected = isLive && selected === plan.id;
                   const price =
-                    plan.priceFils === null
-                      ? 'Custom'
-                      : formatAED(plan.priceFils, plan.currency);
+                    plan.priceFils === null ? 'Custom' : formatAED(plan.priceFils, plan.currency);
                   return (
                     <button
                       key={plan.id}
@@ -403,22 +430,33 @@ export function EntryForm({
                       role="radio"
                       aria-checked={isSelected}
                       className={`plan ${isLive ? 'is-live' : 'is-soon'}`}
-                      onClick={() => { choosePlan(plan); }}
+                      onClick={() => {
+                        choosePlan(plan);
+                      }}
                     >
                       <h3>{plan.name}</h3>
                       <div className="price">
-                        {price}
-                        {plan.priceFils !== null && <span className="muted small"> /month</span>}
+                        {plan.id === 'solo' ? 'Free for 12 months' : price}
+                        {plan.id !== 'solo' && plan.priceFils !== null && (
+                          <span className="muted small"> /month</span>
+                        )}
                       </div>
                       <p className="small muted" style={{ margin: 0 }}>
                         {plan.maxCompanies === null
-                          ? 'Unlimited companies'
+                          ? 'Custom companies'
                           : plan.maxCompanies === 1
                             ? '1 company'
                             : `Up to ${String(plan.maxCompanies)} companies`}
                       </p>
+                      {plan.id === 'solo' ? (
+                        <p className="small muted">Then {price}/month. No card required.</p>
+                      ) : null}
                       <span className={`pill ${isLive ? 'live' : ''}`}>
-                        {isLive ? 'Available now' : 'Opens soon'}
+                        {isLive
+                          ? 'Available now'
+                          : plan.id === 'enterprise'
+                            ? 'Contact us'
+                            : 'Opens soon'}
                       </span>
                     </button>
                   );
@@ -426,8 +464,18 @@ export function EntryForm({
               </div>
               {wish !== null ? (
                 <p className="hint">
-                  Noted, we will email you the moment <strong>{wish}</strong> opens. Your access
-                  stays Solo for now.
+                  {wish === 'enterprise' ? (
+                    <>
+                      Enterprise has custom companies and pricing.{' '}
+                      <a href="mailto:support@boasis.ae">Contact us</a>. Your access stays Solo for
+                      now.
+                    </>
+                  ) : (
+                    <>
+                      <strong>Trio</strong> opens with online payment. Your access stays Solo for
+                      now.
+                    </>
+                  )}
                 </p>
               ) : (
                 <p className="hint">{ENTRY_COPY.soloFreeLine}</p>
@@ -436,7 +484,9 @@ export function EntryForm({
                 className="btn"
                 type="button"
                 style={{ marginBlockStart: 12 }}
-                onClick={() => { setPhase('password'); }}
+                onClick={() => {
+                  setPhase('password');
+                }}
                 disabled={selected !== 'solo'}
               >
                 {CTA.plansContinue}
@@ -460,9 +510,7 @@ export function EntryForm({
           noValidate
         >
           <h1>{ENTRY_COPY.passwordTitle}</h1>
-          <p className="lede">
-            Two fields and a tick, then a code to your inbox.
-          </p>
+          <p className="lede">Two fields and a tick, then a code to your inbox.</p>
           {resumeEmail !== null && (
             <div className="notice">
               Email verified: <strong>{cleanEmail}</strong>
@@ -567,8 +615,12 @@ export function EntryForm({
                     ? `Digit ${String(index + 1)}`
                     : `Digit ${String(index + 1)} of ${String(codeLength)}`
                 }
-                onChange={(event) => { onDigit(index, event.target.value); }}
-                onKeyDown={(event) => { onDigitKey(index, event); }}
+                onChange={(event) => {
+                  onDigit(index, event.target.value);
+                }}
+                onKeyDown={(event) => {
+                  onDigitKey(index, event);
+                }}
               />
             ))}
           </div>
@@ -606,7 +658,10 @@ export function EntryForm({
               </button>
             )}
             {codeSent && (
-              <p className="hint">Nothing in your inbox yet? Ask again below, and use the newest email: it is the only one that works.</p>
+              <p className="hint">
+                Nothing in your inbox yet? Ask again below, and use the newest email: it is the only
+                one that works.
+              </p>
             )}
             <p className="hint">
               Wrong address?{' '}
@@ -627,7 +682,13 @@ export function EntryForm({
       {phase === 'email' && (
         <p className="hint" style={{ marginBlockStart: 16 }}>
           Already have an account?{' '}
-          <button type="button" className="linkish" onClick={() => { router.push('/signin'); }}>
+          <button
+            type="button"
+            className="linkish"
+            onClick={() => {
+              router.push('/signin');
+            }}
+          >
             Sign in
           </button>
         </p>

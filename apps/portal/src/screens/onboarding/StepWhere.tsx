@@ -9,8 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { onboarding as copy } from '../../copy/en';
 import { useOnboardingRefresh, type OnboardingWorld } from '../../data/onboarding';
 import { useRepos } from '../../data/ReposProvider';
-import { LICENCE_PATH, planRoom } from '../../lib/onboarding/steps';
-import { PLANS } from '../../lib/plan';
+import { LICENCE_PATH } from '../../lib/onboarding/steps';
 import { today } from '../../lib/today';
 import { Choice } from './controls';
 import { Frame } from './Frame';
@@ -53,52 +52,7 @@ export function StepWhere({ world }: { world: OnboardingWorld }) {
   const [role, setRole] = useState<AccountRoleInCompany | ''>('');
   const [errors, setErrors] = useState<{ zone?: string; role?: string; jurisdiction?: string }>({});
   const [busy, setBusy] = useState(false);
-  const [upgraded, setUpgraded] = useState(false);
   const searchId = useId();
-
-  const room = planRoom(world.account, world.links);
-  if (room.kind === 'full') {
-    const one = world.account.plan === 'one-company';
-    return (
-      <div className="pg ob ob--narrow">
-        <h1 className="ob__title">{copy.where.title}</h1>
-        <div className="ob-note ob-note--warn" role="status" data-testid="plan-limit">
-          <div className="ob-note__text">
-            {one
-              ? copy.where.planFullOne(
-                  PLANS['up-to-three'].companies,
-                  PLANS['up-to-three'].priceAed,
-                )
-              : copy.where.planFull(room.covers)}
-          </div>
-        </div>
-        {one ? (
-          <div className="ob__actions">
-            <button
-              type="button"
-              className="ob-btn ob-btn--primary"
-              disabled={busy}
-              onClick={() => {
-                setBusy(true);
-                void repos.accounts
-                  .update(world.account.id, { plan: 'up-to-three' })
-                  .then(refresh)
-                  .then(() => {
-                    setBusy(false);
-                    setUpgraded(true);
-                  });
-              }}
-            >
-              {copy.where.upgrade}
-            </button>
-          </div>
-        ) : null}
-        {upgraded ? (
-          <p role="status">{copy.where.upgraded(PLANS['up-to-three'].companies)}</p>
-        ) : null}
-      </div>
-    );
-  }
 
   if (jurisdiction === 'mainland') {
     return (
@@ -220,12 +174,6 @@ export function StepWhere({ world }: { world: OnboardingWorld }) {
         onChange={setRole}
       />
       {role === 'adviser' ? <p className="ob-why">{copy.where.adviser}</p> : null}
-      <p className="ob-why">
-        {copy.account.planOption(
-          PLANS[world.account.plan].companies,
-          PLANS[world.account.plan].priceAed,
-        )}
-      </p>
     </Frame>
   );
 }

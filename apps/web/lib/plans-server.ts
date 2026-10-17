@@ -1,7 +1,8 @@
+import { BillingPlanRow } from '@boasis/schema';
 import 'server-only';
 import { serverSupabase } from './supabase';
-import { LIVE_PLAN_IDS, PLAN_FALLBACK, type Plan, type PlanId } from './plans';
-import { asNumberOrNull, asRecord, asRows, asText } from './shape';
+import { PLAN_FALLBACK, type Plan, type PlanId } from './plans';
+import { asRows } from './shape';
 
 /**
  * Reads the plans from the database (the source of truth) with the visitor's
@@ -28,26 +29,12 @@ export async function listPlans(): Promise<PlansResult> {
       console.warn(`plans: falling back to display copy (${error?.message ?? 'no rows'})`);
       return { plans: [...PLAN_FALLBACK], source: 'fallback' };
     }
-    const plans = asRows(data).map((row) => {
-      const record = asRecord(row);
-      const id = (asText(record.id) === '' ? 'solo' : asText(record.id)) as PlanId;
-      return {
-        id,
-        name: asText(record.name) === '' ? id : asText(record.name),
-        maxCompanies: asNumberOrNull(record.max_companies),
-        priceFils: asNumberOrNull(record.price_fils),
-        freeMonths: asNumberOrNull(record.free_months) ?? 0,
-        currency: asText(record.currency) === '' ? 'AED' : asText(record.currency),
-        live: LIVE_PLAN_IDS.includes(id),
-      } satisfies Plan;
-    });
+    const plans = BillingPlanRow.array().parse(data);
     plans.sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
     return { plans, source: 'database' };
   } catch (error) {
     console.warn(
-      `plans: falling back to display copy (${
-        error instanceof Error ? error.message : 'unknown'
-      })`,
+      `plans: falling back to display copy (${error instanceof Error ? error.message : 'unknown'})`,
     );
     return { plans: [...PLAN_FALLBACK], source: 'fallback' };
   }

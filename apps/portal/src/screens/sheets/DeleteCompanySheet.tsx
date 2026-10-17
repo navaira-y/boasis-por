@@ -7,7 +7,6 @@ import { useRefresh } from '../../data/bundles';
 import { useRepos } from '../../data/ReposProvider';
 import type { Bundle, Entry } from '../../lib/entries';
 import { plural } from '../../lib/format';
-import { PLAN } from '../../lib/plan';
 import './sheets.css';
 
 export interface DeleteCompanySheetProps {
@@ -139,7 +138,7 @@ export function DeleteCompanySheet({
         <div className="sheet-k">{en.deleteCompany.whatStays}</div>
         <p className="sheet-p">{en.deleteCompany.stays}</p>
         <p className="fq" style={{ marginBlockStart: 8 }}>
-          {en.deleteCompany.freesSlot.replace('{limit}', String(PLAN.companiesIncluded))}
+          {en.deleteCompany.freesSlot}
         </p>
       </div>
 

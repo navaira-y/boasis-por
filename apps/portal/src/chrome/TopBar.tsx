@@ -9,6 +9,7 @@ import { initialsOf, useSession } from '../lib/session';
 import { en } from '../copy/en';
 import { plural } from '../lib/format';
 import { cx } from '../components/shared/cx';
+import { SubscriptionChip } from './SubscriptionChip';
 import './TopBar.css';
 
 // Lite's header: the mark, then the bell and the account at the end. The count on the bell,
@@ -38,6 +39,7 @@ export function TopBar() {
         <span className="top-bar__name">{en.brand.name}</span>
       </NavLink>
       <div className="top-bar__right">
+        <SubscriptionChip />
         <NavLink
           to="/inbox"
           className="top-bar__icon-button"

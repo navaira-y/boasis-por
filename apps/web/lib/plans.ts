@@ -9,54 +9,15 @@
  * cards during a database hiccup; it is NEVER used for entitlements, which the
  * database trigger and the middleware gate enforce.
  *
- * Only Solo is purchasable until the Ziina gateway exists: the other two are
- * shown greyed out as "Opens soon" and a click is recorded as a wish.
+ * Only Solo is live. Trio opens with online payment; Enterprise is contact us.
  */
 
-export type PlanId = 'solo' | 'trio' | 'enterprise';
-
-export interface Plan {
-  id: PlanId;
-  name: string;
-  maxCompanies: number | null;
-  priceFils: number | null;
-  freeMonths: number;
-  currency: string;
-  live: boolean;
-}
-
+import { PRODUCT_PLANS, type ProductPlan, type ProductPlanId } from '@boasis/schema';
+export type PlanId = ProductPlanId;
+export type Plan = ProductPlan;
 export const LIVE_PLAN_IDS: readonly PlanId[] = ['solo'];
-
-/** Mirrors migration 0002 exactly. Display only. */
-export const PLAN_FALLBACK: readonly Plan[] = [
-  {
-    id: 'solo',
-    name: 'Solo',
-    maxCompanies: 1,
-    priceFils: 3000,
-    freeMonths: 12,
-    currency: 'AED',
-    live: true,
-  },
-  {
-    id: 'trio',
-    name: 'Trio',
-    maxCompanies: 3,
-    priceFils: 9000,
-    freeMonths: 0,
-    currency: 'AED',
-    live: false,
-  },
-  {
-    id: 'enterprise',
-    name: 'Enterprise',
-    maxCompanies: null,
-    priceFils: null,
-    freeMonths: 0,
-    currency: 'AED',
-    live: false,
-  },
-];
+// Published offer only, never used for a real subscription or access decision.
+export const PLAN_FALLBACK = PRODUCT_PLANS;
 
 export function formatAED(fils: number | null, currency: string): string {
   if (fils === null) return 'Custom';

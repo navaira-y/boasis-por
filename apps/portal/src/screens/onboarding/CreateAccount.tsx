@@ -1,11 +1,11 @@
-import { Plan } from '@boasis/schema';
+import { BILLING_COPY } from '@boasis/schema';
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { onboarding as copy } from '../../copy/en';
 import { useOnboardingRefresh } from '../../data/onboarding';
 import { useRepos } from '../../data/ReposProvider';
 import { isEmail } from '../../lib/onboarding/people';
-import { PLANS, TERMS_VERSION } from '../../lib/plan';
+import { TERMS_VERSION } from '../../lib/plan';
 import { formatLong } from '../../lib/format';
 import { signIn } from '../../lib/session';
 
@@ -58,7 +58,6 @@ export function CreateAccount() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [twoStep, setTwoStep] = useState(false);
-  const [plan, setPlan] = useState<Plan>('one-company');
   const [terms, setTerms] = useState(false);
   const [errors, setErrors] = useState<AccountErrors>({});
   const [failure, setFailure] = useState('');
@@ -90,7 +89,7 @@ export function CreateAccount() {
         fullName,
         email,
         password,
-        plan,
+        plan: 'one-company',
         termsVersion: TERMS_VERSION,
         twoStepOn: twoStep,
       });
@@ -179,22 +178,8 @@ export function CreateAccount() {
       </div>
       <fieldset className="gf acct__set">
         <legend className="gl">{copy.account.plan}</legend>
-        {Plan.options.map((option) => (
-          <label key={option} className="acct__radio">
-            <input
-              type="radio"
-              name="acct-plan"
-              value={option}
-              aria-label={copy.account.planOption(PLANS[option].companies, PLANS[option].priceAed)}
-              checked={plan === option}
-              onChange={() => {
-                setPlan(option);
-              }}
-            />
-            <span>{copy.account.planOption(PLANS[option].companies, PLANS[option].priceAed)}</span>
-          </label>
-        ))}
-        <span className="hint">{copy.account.planWhy}</span>
+        <p className="hint">{BILLING_COPY.solo}</p>
+        <span className="hint">{BILLING_COPY.earlyAccess}</span>
       </fieldset>
       <div className="gf">
         <label className="acct__radio">

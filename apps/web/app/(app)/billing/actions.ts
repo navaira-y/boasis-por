@@ -24,7 +24,7 @@ export async function startFreeYearAction(): Promise<BillingActionResponse> {
     return {
       ok: false,
       error:
-        'Your free year could not be started from here. Nothing is lost: please write to support@boasis.ae and we will finish it for you.',
+        'Your free year could not be started from here. Please try again or contact support@boasis.ae.',
     };
   }
   return { ok: true, periodEnd: result.periodEnd };

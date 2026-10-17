@@ -3,7 +3,7 @@ import { en } from '../copy/en';
 import { useHomeData } from '../data/bundles';
 import { upcomingOf } from '../lib/entries';
 import { IconPlus } from '../lib/icons';
-import { PLAN } from '../lib/plan';
+import { useCompanyAllowance } from '../data/company-allowance';
 import { CompanyCard, slotsLine } from './home/CompanyCards';
 import { useSheets } from './sheets/useSheets';
 import './home/home.css';
@@ -13,6 +13,7 @@ import './home/home.css';
 export function Companies() {
   const navigate = useNavigate();
   const home = useHomeData();
+  const allowance = useCompanyAllowance();
   const sheets = useSheets({
     onCompanySaved: (saved, wasNew) => {
       if (wasNew) {
@@ -40,7 +41,11 @@ export function Companies() {
               .replace('{licences}', String(views.length))
               .replace('{kinds}', String(kinds))}
           </p>
-          <p className="vhead__slots">{slotsLine(views.length, PLAN.companiesIncluded)}</p>
+          {!allowance.isError && allowance.data !== undefined ? (
+            <p className="vhead__slots">
+              {slotsLine(allowance.data.ownedCompanies, allowance.data.companyLimit)}
+            </p>
+          ) : null}
         </div>
         <button
           type="button"

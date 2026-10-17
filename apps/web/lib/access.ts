@@ -1,7 +1,8 @@
 import 'server-only';
 import type { VisitorDbClient } from './supabase';
 import type { SubscriptionStatus } from './gate';
-import { daysUntil } from './renewals';
+import { SUBSCRIPTION_COLUMNS, SubscriptionRow } from '@boasis/schema';
+import { canUseSubscription, dubaiDaysUntil, hasPeriodEnded, isFreeYear } from '@boasis/rules';
 
 /**
  * What this account may do right now, read with the USER'S OWN session so RLS
@@ -25,7 +26,7 @@ export async function accessForUser(
 ): Promise<AccessSummary> {
   const { data, error } = await client
     .from('subscriptions')
-    .select('status,plan_id,provider,current_period_end')
+    .select(SUBSCRIPTION_COLUMNS)
     .eq('profile_id', userId)
     .maybeSingle();
 
@@ -40,29 +41,30 @@ export async function accessForUser(
     };
   }
 
-  const row = data as Record<string, unknown>;
-  const status = (typeof row.status === 'string' ? row.status : null) as SubscriptionStatus | null;
-  const periodEnd = typeof row.current_period_end === 'string' ? row.current_period_end : null;
-  const provider = typeof row.provider === 'string' ? row.provider : null;
-  const daysLeft =
-    periodEnd === null ? null : daysUntil(new Date(periodEnd), now);
-
+  const parsed = SubscriptionRow.safeParse(data);
+  if (!parsed.success)
+    return {
+      status: null,
+      planId: null,
+      periodEnd: null,
+      freeYear: false,
+      daysLeft: null,
+      canEnterPortal: false,
+    };
+  const subscription = parsed.data;
+  const expired = hasPeriodEnded(subscription.periodEnd, now.getTime());
   return {
-    status,
-    planId: typeof row.plan_id === 'string' ? row.plan_id : null,
-    periodEnd,
-    freeYear: status === 'active' && provider === 'free',
-    daysLeft,
-    canEnterPortal: status === 'active',
+    status: subscription.status === 'active' && expired ? 'past_due' : subscription.status,
+    planId: subscription.planId,
+    periodEnd: subscription.periodEnd,
+    freeYear: isFreeYear(subscription),
+    daysLeft: subscription.periodEnd === null ? null : dubaiDaysUntil(subscription.periodEnd, now),
+    canEnterPortal: canUseSubscription(subscription, now.getTime()),
   };
 }
 
 export async function hasProfile(client: VisitorDbClient, userId: string): Promise<boolean> {
-  const { data, error } = await client
-    .from('profiles')
-    .select('id')
-    .eq('id', userId)
-    .maybeSingle();
+  const { data, error } = await client.from('profiles').select('id').eq('id', userId).maybeSingle();
   return error === null && data !== null;
 }
 

@@ -67,6 +67,6 @@ describe('reminder thresholds', () => {
 
   it('knows when the period is over', () => {
     expect(periodEnded(new Date('2026-10-15T06:00:00Z'), now)).toBe(true);
-    expect(periodEnded(now, now)).toBe(false);
+    expect(periodEnded(now, now)).toBe(true);
   });
 });

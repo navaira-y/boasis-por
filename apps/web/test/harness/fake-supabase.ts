@@ -26,6 +26,7 @@ export type FakeMode =
   | 'anon-can-read-private'
   | 'privilege-not-proven'
   | 'privilege-unknown'
+  | 'subscription-down'
   | 'creation-access-down'
   | 'db-down';
 
@@ -62,6 +63,7 @@ export interface FakeSupabase {
   requests: RecordedRequest[];
   setMode(mode: FakeMode): void;
   setSubscriptionStatus(status: string | null): void;
+  setSubscription(patch: Record<string, unknown>): void;
   setList(list: { id: string; email: string; status: string }[]): void;
   setHasProfile(value: boolean): void;
   setOwnedCompanyCount(value: number): void;
@@ -149,6 +151,7 @@ function sessionPayload(user: FakeUser): Record<string, unknown> {
 export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupabase> {
   let mode: FakeMode = options.mode ?? 'healthy';
   let subscriptionStatus: string | null = options.subscriptionStatus ?? 'active';
+  let subscriptionFields: Record<string, unknown> = { plan_id: 'solo', provider: 'free', current_period_start: '2026-10-17T09:00:00Z', current_period_end: '2027-10-17T09:00:00Z', free_year_used_at: '2026-10-17T09:00:00Z' };
   let list = options.list ?? [
     { id: 'row-1', email: 'navaira.builds@gmail.com', status: 'invited' },
   ];
@@ -396,6 +399,7 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     }
 
     if (path === '/rest/v1/subscriptions') {
+      if (mode === 'subscription-down') { send(response, 503, { message: 'Subscription read unavailable' }); return; }
       const filter = parsed.searchParams.get('profile_id');
       const wanted = filter?.startsWith('eq.') === true ? filter.slice(3) : null;
       if (wanted !== null && wanted !== DEFAULT_USER_ACTIVE.id) {
@@ -406,7 +410,7 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
         send(response, 200, []);
         return;
       }
-      send(response, 200, [{ status: subscriptionStatus }]);
+      send(response, 200, [{ ...subscriptionFields, status: subscriptionStatus }]);
       return;
     }
 
@@ -477,6 +481,7 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     setMode(next: FakeMode): void {
       mode = next;
     },
+    setSubscription(patch: Record<string, unknown>): void { subscriptionFields = { ...subscriptionFields, ...patch }; },
     setSubscriptionStatus(next: string | null): void {
       subscriptionStatus = next;
     },

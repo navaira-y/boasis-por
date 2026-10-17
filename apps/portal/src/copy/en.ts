@@ -546,7 +546,7 @@ export const en = {
     confirm: 'Delete permanently',
     deletingCompany: 'Deleting the company...',
     freesSlot:
-      'It frees one of the {limit} companies on your plan. People who only had access to this company stop counting as seats.',
+      'It removes this company from your account. Your company allowance will be checked again when you add a company.',
   },
 
   documents: {
@@ -684,44 +684,7 @@ export const me = {
   },
   billing: {
     title: 'Billing',
-    sub: 'Your plan, what you use of it, and the working model behind the price',
-    plan: 'Plan',
-    standard: 'Standard',
-    trial: (days: number) => `Free trial, ${String(days)} days, no card required`,
-    used: 'What you use',
-    companies: (used: number, included: number) =>
-      `${String(used)} of ${String(included)} companies included`,
-    members: (used: number, included: number) =>
-      `${String(used)} of ${String(included)} member included`,
-    peopleLabel: 'People',
-    people: (cap: number) => `Up to ${String(cap)} people on visas per company`,
-    peopleUsed: (company: string, used: number, cap: number) =>
-      `${company}: ${String(used)} of ${String(cap)}`,
-    model: 'The working model',
-    modelNote:
-      'Every figure is an example under discussion, not a price. Nothing is charged today. The unit is the person, not the company.',
-    owner: 'Owner',
-    ownerNote:
-      'Paid by the person who creates the account. Covers your own full access and one more person, set up however you like.',
-    member: 'Each further person',
-    memberNote:
-      'One price for any invited person, whatever their role or how many of your companies they are added to.',
-    addOns: 'Add-ons',
-    addOnsNote: (block: number) =>
-      `One more company, or a block of ${String(block)} more people on one company. Add-ons instead of tiers.`,
-    notices: 'Notices',
-    noticesNote:
-      'Reminders and notices to anyone who does not log in (employees, a landlord, a partner) are unlimited and free.',
-    closed: 'Closed companies',
-    closedNote: 'Do not count. Their records stay.',
-    enterprise: 'Enterprise',
-    enterpriseNote: (line: number) =>
-      `Above ${String(line)} people in any one company, above a set number of companies, or for custom work.`,
-    nonPayment: 'If a payment fails',
-    nonPaymentNote: (grace: number, readOnly: number, months: number) =>
-      `${String(grace)} days of grace, then read-only for ${String(readOnly)} days with reminders still firing, then reminders stop. Data kept and exportable for ${String(months)} months.`,
-    perMonth: (aed: number) => `AED ${String(aed)} a month, example`,
-    noPayment: 'No payment is taken here. This page describes the plan; it does not charge.',
+    sub: 'Your plan, its current period, and what happens next',
   },
   companies: {
     title: 'Managed companies',
@@ -1096,11 +1059,6 @@ export const onboarding = {
     twoStep: 'Two-step sign-in with an authenticator app',
     twoStepWhy: 'Extra protection for your documents. You can turn it on later in settings.',
     plan: 'Plan',
-    planWhy: 'Sets how many companies you can add',
-    planOption: (companies: number, priceAed: number) =>
-      companies === 1
-        ? `1 company, AED ${String(priceAed)} a month`
-        : `Up to ${String(companies)} companies, AED ${String(priceAed)} a month`,
     terms: 'I accept the terms and privacy notice',
     termsVersion: (version: string) => `Version of ${version}`,
     termsError: 'Tick to accept the terms and privacy notice.',
@@ -1142,11 +1100,6 @@ export const onboarding = {
     },
     roleError: 'Choose your role in this company.',
     adviser: 'You can add the company now. Its owner can be invited later.',
-    planFullOne: (companies: number, priceAed: number) =>
-      `Your plan covers 1 company. Upgrade to up to ${String(companies)} companies for AED ${String(priceAed)} a month.`,
-    planFull: (covers: number) => `Your plan covers ${String(covers)} companies.`,
-    upgrade: 'Upgrade',
-    upgraded: (companies: number) => `Your plan now covers up to ${String(companies)} companies.`,
   },
   mainland: {
     title: 'Mainland is coming soon',

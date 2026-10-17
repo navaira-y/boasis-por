@@ -1,3 +1,4 @@
+import { checkBilling } from './billing-browser.ts';
 import { checkCompanyCreation } from './company-creation-browser.ts';
 import { mkdir } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
@@ -29,9 +30,24 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
         const errors: string[] = [];
         page.on('pageerror', (error) => errors.push(error.message));
         await page.goto(`${origin}/signup`);
+        // A fresh email sees named current offers; the listed founder still skips
+        // all plan choice below. Neither door collects card details.
+        await page.locator('#email').fill('fresh.subscription.check@example.com');
+        await page.getByRole('button', { name: 'Continue', exact: true }).click();
+        await expect(page.getByRole('radiogroup', { name: 'Choose a plan' })).toBeVisible();
+        await expect(page.locator('.plan.is-live .price')).toHaveText('Free for 12 months');
+        await expect(page.locator('.plan.is-live')).toContainText('Then AED 30/month. No card required.');
+        await page.getByRole('radio').filter({ has: page.getByRole('heading', { name: 'Enterprise', exact: true }) }).click();
+        await expect(page.getByRole('link', { name: 'Contact us', exact: true })).toHaveAttribute('href', 'mailto:support@boasis.ae');
+        await page.getByRole('radio').filter({ has: page.getByRole('heading', { name: 'Trio', exact: true }) }).click();
+        await expect(page.getByText(/Trio opens with online payment/)).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        await page.screenshot({ path: `test-results/plans-${String(width)}-${colorScheme}.png`, fullPage: true });
+        await page.getByRole('button', { name: 'Use a different one', exact: true }).click();
         await page.locator('#email').fill('navaira.builds@gmail.com');
         await page.getByRole('button', { name: 'Continue', exact: true }).click();
         await page.getByRole('button', { name: 'Continue →', exact: true }).click();
+        await expect(page.getByRole('radiogroup', { name: 'Choose a plan' })).toHaveCount(0);
         await page.locator('#fullName').fill('Test Owner');
         await page.locator('#password').fill('A-test-password-not-used-live');
         await page.locator('input[name="terms"]').check();
@@ -85,9 +101,10 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
           await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible();
         }
         await checkCompanyCreation(page, origin, fake);
+        await checkBilling(page, origin, fake, `${String(width)}-${colorScheme}`);
         expect(errors).toEqual([]);
         expect(missing).toEqual([]);
-        console.log(`  PASS  browser ${String(width)}px ${colorScheme}: code layout, typing, portal screens plus all company-limit doors, modal focus, retry and first-company recovery`);
+        console.log(`  PASS  browser ${String(width)}px ${colorScheme}: code layout, typing, portal screens plus company guards and real Billing/header states, Dubai midnight rollover, paid plans, missing/error/retry`);
         await context.close();
       }
     }

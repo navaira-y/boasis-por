@@ -11,14 +11,7 @@ import { colourSlotOf, colourVar } from '../../lib/companyColours';
 import { formatLong } from '../../lib/format';
 import { companyPeople, snapshotOf } from '../../lib/onboarding/snapshot';
 import { isEmail } from '../../lib/onboarding/people';
-import {
-  ADD_COMPANY_PATH,
-  planRoom,
-  STEP_COUNT,
-  stepNumber,
-  stepPath,
-} from '../../lib/onboarding/steps';
-import { PLANS } from '../../lib/plan';
+import { ADD_COMPANY_PATH, STEP_COUNT, stepNumber, stepPath } from '../../lib/onboarding/steps';
 import { today } from '../../lib/today';
 import { GradeChip, Sources, StatusChip } from './controls';
 import type { StepProps } from './Onboarding';
@@ -336,7 +329,6 @@ export function StepYear({ world, facts }: StepProps) {
   useEffect(() => {
     heading.current?.focus();
   }, []);
-  const room = planRoom(world.account, world.links);
   const sponsorNotOnBoasis = world.people.some(
     (person) => person.residenceVisa.sponsor.kind === 'own-company-not-on-boasis',
   );
@@ -350,21 +342,10 @@ export function StepYear({ world, facts }: StepProps) {
       <YearView world={world} />
       <Reminders world={world} />
       <section className="ob-block-section" aria-label={copy.year.dashboard}>
-        {room.kind === 'full' && world.account.plan === 'one-company' ? (
-          <p className="ob-note ob-note--info">
-            {copy.where.planFullOne(PLANS['up-to-three'].companies, PLANS['up-to-three'].priceAed)}
-          </p>
-        ) : null}
         <div className="ob__actions">
-          {room.kind === 'room' || world.account.plan === 'one-company' ? (
-            <button
-              type="button"
-              className="ob-btn"
-              onClick={() => void navigate(ADD_COMPANY_PATH)}
-            >
-              {sponsorNotOnBoasis ? copy.people.addThatNext : copy.year.addCompany}
-            </button>
-          ) : null}
+          <button type="button" className="ob-btn" onClick={() => void navigate(ADD_COMPANY_PATH)}>
+            {sponsorNotOnBoasis ? copy.people.addThatNext : copy.year.addCompany}
+          </button>
           <button
             type="button"
             className="ob-btn"

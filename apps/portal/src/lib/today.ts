@@ -39,3 +39,5 @@ export function nowStamp(now: Date = new Date()): string {
     parts.find((part) => part.type === type)?.value ?? '00';
   return `${today(now)}T${pick('hour')}:${pick('minute')}:${pick('second')}+04:00`;
 }
+
+export function clockNow(): number { return Date.now(); }

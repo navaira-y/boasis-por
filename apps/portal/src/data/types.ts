@@ -1,3 +1,4 @@
+import type { BillingSnapshot } from '@boasis/schema';
 import type {
   AccessGrant,
   Account,
@@ -219,6 +220,7 @@ export interface OnboardingRepo {
 }
 
 export interface Repos {
+  billing?: { read(): Promise<BillingSnapshot> };
   accounts: AccountsRepo;
   auth: AuthAdapter;
   passwords: BreachedPasswordCheck;

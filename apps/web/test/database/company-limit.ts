@@ -71,6 +71,15 @@ try {
     await admin.query("insert into public.subscriptions (profile_id, plan_id, status, current_period_end) values ($1, 'solo', 'active', now() + interval '1 day')", [id]);
   }
   const owner = await connect(user(0));
+  const ownSubscription = await owner.query<{ profile_id: string; plan_id: string }>('select profile_id, plan_id, provider, current_period_start, current_period_end, free_year_used_at from public.subscriptions');
+  assert.equal(ownSubscription.rowCount, 1);
+  assert.equal(ownSubscription.rows[0]?.profile_id, user(0));
+  assert.equal(ownSubscription.rows[0].plan_id, 'solo');
+  pass('Billing subscription columns are readable only for the authenticated owner');
+  assert.equal((await owner.query('select * from public.subscriptions where profile_id = $1', [user(1)])).rowCount, 0);
+  pass('another tenant cannot read a subscription even with its exact profile id');
+  await denied(() => owner.query("update public.subscriptions set current_period_end = now() + interval '10 years' where profile_id = $1", [user(0)]), '42501');
+  pass('the browser cannot extend a free period or forge its countdown source');
   const access = await owner.query<{ access: { canCreate: boolean; companyLimit: number } }>('select public.company_creation_access() as access');
   assert.deepEqual(access.rows[0]?.access, { canCreate: true, reason: 'allowed', ownedCompanies: 0, companyLimit: 1 });
   await insert(owner, user(0), 'first');
@@ -90,6 +99,8 @@ try {
   pass('UPDATE ownership cannot bypass the one-company guard');
   const anonymous = await connect();
   await anonymous.query('set role anon');
+  await denied(() => anonymous.query('select * from public.subscriptions'), '42501');
+  pass('anonymous callers cannot read subscription dates or plan assignments');
   await denied(() => anonymous.query('select public.company_creation_access()'), '42501');
   const noIdentity = await connect();
   await noIdentity.query('set role authenticated');

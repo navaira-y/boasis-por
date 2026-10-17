@@ -1,3 +1,5 @@
+import { SUBSCRIPTION_COLUMNS, SubscriptionRow } from '@boasis/schema';
+import { canUseSubscription } from '@boasis/rules';
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { decideGate, isPortalPath, type SubscriptionStatus } from '@/lib/gate';
@@ -77,11 +79,16 @@ export async function middleware(request: NextRequest) {
     if (user !== null && user.email_confirmed_at !== null) {
       const { data } = await supabase
         .from('subscriptions')
-        .select('status')
+        .select(SUBSCRIPTION_COLUMNS)
         .eq('profile_id', user.id)
         .maybeSingle();
-      const raw = (data as { status?: unknown } | null)?.status;
-      status = typeof raw === 'string' ? (raw as SubscriptionStatus) : null;
+      const parsed = SubscriptionRow.safeParse(data);
+      if (parsed.success) {
+        status =
+          parsed.data.status === 'active' && !canUseSubscription(parsed.data, Date.now())
+            ? 'past_due'
+            : parsed.data.status;
+      }
     }
   } catch {
     user = null;

@@ -319,6 +319,28 @@ async function main(): Promise<void> {
     const portalBack = await get('/portal', { headers: { cookie: cookies } });
     check('the portal reopens when the subscription is active again', portalBack.status === 200);
 
+    console.log('\nSubscription facts and period-aware gate');
+    fake.setSubscription({ current_period_end: '2020-01-01T00:00:00Z' });
+    const expiredActive = await get('/portal', { headers: { cookie: cookies } });
+    check('expired-active is blocked before the renewal job changes its status', expiredActive.status === 307 && String(expiredActive.location).includes('/billing'));
+    const expiredBilling = await get('/billing', { headers: { cookie: cookies } });
+    check('expired-active Billing says ended, not free access', expiredBilling.status === 200 && expiredBilling.body.includes('Plan ended') && !expiredBilling.body.includes('Your first year is free'));
+    fake.setSubscription({ current_period_end: null });
+    const unknownPeriod = await get('/portal', { headers: { cookie: cookies } });
+    check('an active row without a verifiable period fails closed', unknownPeriod.status === 307 && String(unknownPeriod.location).includes('/billing'));
+    fake.setSubscription({ plan_id: 'trio', provider: 'ziina', current_period_start: '2026-10-01T08:00:00Z', current_period_end: '2027-01-01T08:00:00Z' });
+    const paidBilling = await get('/billing', { headers: { cookie: cookies } });
+    check('paid Trio Billing uses its name and price, not the free Solo headline', paidBilling.status === 200 && paidBilling.body.includes('Your Trio plan') && paidBilling.body.includes('AED 90/month, up to 3 companies') && !paidBilling.body.includes('Your first year is free'));
+    fake.setSubscriptionStatus(null);
+    const missingSubscription = await get('/billing', { headers: { cookie: cookies } });
+    check('a missing subscription has an honest setup state, not an invented Solo assignment', missingSubscription.status === 200 && missingSubscription.body.includes('No subscription is set up for this account'));
+    fake.setSubscriptionStatus('active');
+    fake.setMode('subscription-down');
+    const subscriptionError = await get('/billing', { headers: { cookie: cookies } });
+    check('a subscription read failure is a retry state, not a missing row', subscriptionError.status === 200 && subscriptionError.body.includes('Could not load your subscription') && !subscriptionError.body.includes('No subscription is set up for this account'));
+    fake.setMode('healthy');
+    fake.setSubscription({ plan_id: 'solo', provider: 'free', current_period_start: '2026-10-17T09:00:00Z', current_period_end: '2027-10-17T09:00:00Z', free_year_used_at: '2026-10-17T09:00:00Z' });
+
     console.log('\nA session whose inbox is not confirmed');
     const unconfirmed = await get('/auth/callback?token_hash=e2e-unconfirmed&type=email');
     const unconfirmedCookies = cookieHeader(unconfirmed.setCookies);

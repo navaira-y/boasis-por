@@ -18,3 +18,5 @@ export * from './passport';
 export * from './company-profile';
 export * from './zone-facts';
 export * from './onboarding';
+
+export * from './subscription';

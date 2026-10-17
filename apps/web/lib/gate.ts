@@ -13,7 +13,8 @@
  *   /portal, verified     -> only with an ACTIVE subscription, else /billing
  */
 
-export type SubscriptionStatus = 'pending' | 'incomplete' | 'active' | 'past_due' | 'canceled';
+import type { BillingStatus } from '@boasis/schema';
+export type SubscriptionStatus = BillingStatus;
 
 export interface GateFacts {
   path: string;

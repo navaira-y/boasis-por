@@ -190,3 +190,52 @@
     display: none;
   }
 }
+
+/* Additive subscription status: the existing surface, ink and warning tokens. */
+.top-bar__subscription {
+  display: flex;
+  align-items: center;
+  min-block-size: 32px;
+  max-inline-size: 220px;
+  padding: 5px 10px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-pill);
+  background: var(--surface-tint);
+  color: var(--ink-2);
+  font-size: var(--text-xs);
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+}
+
+.top-bar__subscription--warn {
+  color: var(--ink-1);
+  border-color: var(--state-expiring);
+  background: var(--sand-soft);
+}
+
+.top-bar__subscription:hover {
+  background: var(--line-2);
+}
+.top-bar__subscription:focus-visible {
+  outline: 2px solid var(--ink-1);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .top-bar:has(.top-bar__subscription) {
+    gap: 8px;
+  }
+  .top-bar:has(.top-bar__subscription) .top-bar__name {
+    display: none;
+  }
+  .top-bar:has(.top-bar__subscription) .top-bar__right {
+    min-inline-size: 0;
+    flex-shrink: 1;
+    gap: 6px;
+  }
+  .top-bar__subscription {
+    max-inline-size: 164px;
+    padding-inline: 8px;
+  }
+}
