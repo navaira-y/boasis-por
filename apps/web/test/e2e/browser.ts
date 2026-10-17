@@ -1,3 +1,4 @@
+import { checkCompanyCreation } from './company-creation-browser.ts';
 import { mkdir } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
 import type { FakeSupabase } from '../harness/fake-supabase.ts';
@@ -83,9 +84,10 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
           await page.goto(`${origin}/portal#${path}`);
           await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible();
         }
+        await checkCompanyCreation(page, origin, fake);
         expect(errors).toEqual([]);
         expect(missing).toEqual([]);
-        console.log(`  PASS  browser ${String(width)}px ${colorScheme}: code layout, typing, portal home, add-company, companies, library, compliance and services`);
+        console.log(`  PASS  browser ${String(width)}px ${colorScheme}: code layout, typing, portal screens plus all company-limit doors, modal focus, retry and first-company recovery`);
         await context.close();
       }
     }

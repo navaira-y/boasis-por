@@ -3,6 +3,7 @@ import {
   AuditEvent,
   Card,
   CompanyFacts,
+  CompanyCreationAccess,
   Document,
   DocumentVersion,
   HistoryEntry,
@@ -282,6 +283,13 @@ function extractedOf(record: CompanyFacts) {
 }
 
 const companies: CompaniesRepo = {
+  creationAccess: async () => {
+    const result = await supabase().rpc('company_creation_access')
+      .abortSignal(AbortSignal.timeout(8_000));
+    rethrow(result.error as PostgrestError | null);
+    const data: unknown = result.data;
+    return CompanyCreationAccess.parse(data);
+  },
   get: (id) => readCompany(id),
   list: async () => {
     const { data, error } = await supabase()

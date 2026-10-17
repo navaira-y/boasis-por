@@ -26,6 +26,7 @@ export type FakeMode =
   | 'anon-can-read-private'
   | 'privilege-not-proven'
   | 'privilege-unknown'
+  | 'creation-access-down'
   | 'db-down';
 
 export interface FakeUser {
@@ -63,6 +64,7 @@ export interface FakeSupabase {
   setSubscriptionStatus(status: string | null): void;
   setList(list: { id: string; email: string; status: string }[]): void;
   setHasProfile(value: boolean): void;
+  setOwnedCompanyCount(value: number): void;
   setEvents(events: { at: string; kind: string; code: string | null; email: string | null }[]): void;
   close(): Promise<void>;
 }
@@ -152,6 +154,7 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
   ];
   let events = options.events ?? [];
   let hasProfile = options.hasProfile ?? false;
+  let ownedCompanyCount = 0;
   const users: Record<string, FakeUser> = options.users ?? {
     [TOKEN_ACTIVE]: DEFAULT_USER_ACTIVE,
     [TOKEN_UNCONFIRMED]: DEFAULT_USER_UNCONFIRMED,
@@ -425,6 +428,20 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
       return;
     }
 
+    if (path === '/rest/v1/rpc/company_creation_access') {
+      if (mode === 'creation-access-down') {
+        send(response, 503, { message: 'Company allowance is unavailable.' });
+        return;
+      }
+      const active = subscriptionStatus === 'active';
+      send(response, 200, {
+        canCreate: active && ownedCompanyCount === 0,
+        reason: !active ? 'subscription-inactive' : ownedCompanyCount > 0 ? 'payment-coming-soon' : 'allowed',
+        ownedCompanies: ownedCompanyCount, companyLimit: 1,
+      });
+      return;
+    }
+
     if (path.startsWith('/rest/v1/rpc/')) {
       // activate_free_year is called with the service key and no session, so
       // auth.uid() is null and the real function raises P0002 "no session".
@@ -465,6 +482,9 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     },
     setList(next: { id: string; email: string; status: string }[]): void {
       list = next;
+    },
+    setOwnedCompanyCount(value: number): void {
+      ownedCompanyCount = value;
     },
     setHasProfile(value: boolean): void {
       hasProfile = value;

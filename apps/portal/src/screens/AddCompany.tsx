@@ -1,3 +1,4 @@
+import { CompanyCreationBoundary } from '../components/CompanyCreation/CompanyCreationBoundary';
 import { Link } from 'react-router-dom';
 import { en } from '../copy/en';
 import { IconChevron } from '../lib/icons';
@@ -8,6 +9,10 @@ import './AddCompany.css';
 // Screen 19 (spec 14): two doors, in lite's card language. A new company hands over to the
 // Brain (the guided setup); one you already hold is brought in with its licence.
 export function AddCompany() {
+  return <CompanyCreationBoundary><AddCompanyContent /></CompanyCreationBoundary>;
+}
+
+function AddCompanyContent() {
   const doors = [
     {
       to: '/add-company/new',

@@ -14,3 +14,4 @@ export * from './company-profile';
 export * from './account-person';
 export * from './onboarding';
 export * from './federal';
+export * from './company-creation';

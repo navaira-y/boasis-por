@@ -17,6 +17,7 @@ import type {
   AuditEvent,
   Card,
   CompanyFacts,
+  CompanyCreationAccess,
   Document,
   DocumentReplacement,
   DocumentVersion,
@@ -52,6 +53,8 @@ export interface HistoryFilter {
 }
 
 export interface CompaniesRepo {
+  // Production implementations must provide the database-backed allowance.
+  creationAccess?(): Promise<CompanyCreationAccess>;
   list(): Promise<CompanyFacts[]>;
   get(id: string): Promise<CompanyFacts | null>;
   create(input: NewRecord<CompanyFacts>): Promise<CompanyFacts>;

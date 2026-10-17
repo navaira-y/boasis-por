@@ -1,3 +1,4 @@
+import { CompanyCreationBoundary } from '../../components/CompanyCreation/CompanyCreationBoundary';
 import type { CompanyFacts } from '@boasis/schema';
 import { useRef, useState } from 'react';
 import { Button } from '../../components/Button/Button';
@@ -20,7 +21,15 @@ export interface CompanySheetProps {
   readonly typed?: boolean;
 }
 
-export function CompanySheet({ open, facts, onClose, onSaved, typed = false }: CompanySheetProps) {
+export function CompanySheet(props: CompanySheetProps) {
+  return props.facts === null ? (
+    <CompanyCreationBoundary enabled={props.open} onClose={props.onClose}>
+      <CompanySheetContent {...props} />
+    </CompanyCreationBoundary>
+  ) : <CompanySheetContent {...props} />;
+}
+
+function CompanySheetContent({ open, facts, onClose, onSaved, typed = false }: CompanySheetProps) {
   const state = useCompanyForm(facts);
   const { editing, ready, busy } = state;
   // 'how' asks the route; 'form' is the only step that can save.

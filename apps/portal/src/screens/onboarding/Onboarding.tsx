@@ -1,3 +1,4 @@
+import { CompanyCreationBoundary } from '../../components/CompanyCreation/CompanyCreationBoundary';
 import type {
   AuthorityFile,
   AuthorityIndexEntry,
@@ -108,7 +109,7 @@ export function OnboardingEntry() {
   if (unfinished !== undefined) {
     return <Navigate to={stepPath(unfinished.companyId, unfinished.lastStep)} replace />;
   }
-  return <StepWhere world={world} />;
+  return <CompanyCreationBoundary><StepWhere world={world} /></CompanyCreationBoundary>;
 }
 
 // Route /add-company/existing/licence: step 2 before the company exists.
@@ -132,13 +133,15 @@ export function OnboardingLicence() {
   }
   const entry = zones.data?.find((zone) => zone.id === start.authority);
   return (
-    <StepLicence
-      world={state.world}
-      facts={null}
-      authorityId={start.authority}
-      authority={authority.data ?? null}
-      zone={entry}
-    />
+    <CompanyCreationBoundary>
+      <StepLicence
+        world={state.world}
+        facts={null}
+        authorityId={start.authority}
+        authority={authority.data ?? null}
+        zone={entry}
+      />
+    </CompanyCreationBoundary>
   );
 }
 

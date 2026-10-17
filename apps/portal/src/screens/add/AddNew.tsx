@@ -1,3 +1,4 @@
+import { CompanyCreationBoundary } from '../../components/CompanyCreation/CompanyCreationBoundary';
 import { notAvailableJourney } from '@boasis/assistant';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +12,10 @@ import '../AddCompany.css';
 // available, so the screen says in plain words what will be here. When the Brain lands behind
 // the same interface, the journey returns a company and the screen opens it.
 export function AddNew() {
+  return <CompanyCreationBoundary><AddNewContent /></CompanyCreationBoundary>;
+}
+
+function AddNewContent() {
   const navigate = useNavigate();
   const refresh = useRefresh();
   const [state, setState] = useState<'asking' | 'soon'>('asking');

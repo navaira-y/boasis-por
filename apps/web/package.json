@@ -10,6 +10,7 @@
     "start": "next start -p 3000",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:database": "node --experimental-strip-types test/database/company-limit.ts",
     "test:e2e": "node --experimental-strip-types test/e2e/run.ts"
   },
   "dependencies": {
@@ -23,8 +24,10 @@
   },
   "devDependencies": {
     "@types/node": "^22.20.2",
+    "@types/pg": "^8.23.1",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
+    "pg": "^8.23.1",
     "typescript": "^5.9.3",
     "vitest": "^5.0.0"
   }
