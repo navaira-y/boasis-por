@@ -4,7 +4,7 @@
 
 Act as a senior expert-level full-stack developer, security owner, and designer: security from every side, flag better long-term approaches, best-in-class UX, deliver exactly what is asked.
 
-Next phase on this same branch. Signup/entry and the portal boot fix (258db0c) are done and verified — portal opens with real empty states, no demo data. Now build the portal interior phase below, same proof bar as before (tests + HTTP checks + real browser runs, nothing handed over red).
+Next phase on this same branch. Signup/entry and the portal boot fix (258db0c) are done and verified — portal opens with real empty states, no demo data. Now build the portal interior phase below, same proof bar as before (tests + HTTP checks + real browser runs, nothing handed over red). Precedence on conflicts (same as before): the Oct 3 meeting decisions first, then the PDFs on `main`, then the team's code.
 
 ## Locked baseline (verified 2026-10-17 — do not regress)
 
