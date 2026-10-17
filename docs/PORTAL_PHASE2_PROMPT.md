@@ -2,6 +2,8 @@
 
 ---
 
+Act as a senior expert-level full-stack developer, security owner, and designer: security from every side, flag better long-term approaches, best-in-class UX, deliver exactly what is asked.
+
 Next phase on this same branch. Signup/entry and the portal boot fix (258db0c) are done and verified — portal opens with real empty states, no demo data. Now build the portal interior phase below, same proof bar as before (tests + HTTP checks + real browser runs, nothing handed over red).
 
 ## Locked baseline (verified 2026-10-17 — do not regress)
@@ -27,6 +29,6 @@ Gateway (Ziina later), SMTP sending (records only), doc scanning, home/guide ext
 
 No service key in browser bundles; RLS everywhere; invite reuse/expiry/foreign-email and 2FA bypass and escalation attempts all tested and documented; HIBP; rate limits; no secrets in logs; `npm audit` clean. Then the usual: security pass, functional + edge cases, non-functional, visitor-side UX review per touched screen.
 
-**Do §-Build in order (1→5) on real Supabase data behind the existing gate. Report per item: built, proof results, exact test clicks.**
+**Do §-Build in order (1→5) on real Supabase data behind the existing gate. Report per item: built, proof results, exact test clicks. Hold the senior bar throughout: if any shortcut would weaken security, data integrity, or UX, say so and do it properly instead.**
 
 ---
