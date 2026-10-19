@@ -51,6 +51,7 @@ export const LIMITS = {
   otpSendIp: { limit: 20, windowMs: 3_600_000 },
   otpVerify: { limit: 10, windowMs: 600_000 },
   signInIp: { limit: 20, windowMs: 600_000 },
+  mfaManage: { limit: 20, windowMs: 600_000 },
   activateIp: { limit: 10, windowMs: 60_000 },
   wishEmail: { limit: 20, windowMs: 3_600_000 },
   healthIp: { limit: 30, windowMs: 60_000 },

@@ -1,3 +1,4 @@
+import { readMfaState } from './mfa';
 import 'server-only';
 import { adminSupabaseOrNull, serverSupabase } from './supabase';
 import { freeYearEnd } from './renewals';
@@ -38,6 +39,13 @@ export async function activateFreeYearForCurrentUser(): Promise<ActivationResult
     return { ok: false, code: 'ACTIVATION_FAILED', periodEnd: null };
   }
 
+  try {
+    if ((await readMfaState(supabase)).requiresVerification)
+      return { ok: false, code: 'ACTIVATION_FAILED', periodEnd: null };
+  } catch {
+    return { ok: false, code: 'ACTIVATION_FAILED', periodEnd: null };
+  }
+
   const viaFunction = await supabase.rpc('activate_free_year');
   if (viaFunction.error === null) {
     const payload = asRecord(viaFunction.data);
@@ -56,6 +64,7 @@ export async function activateFreeYearForCurrentUser(): Promise<ActivationResult
   );
   if (!missingFunction) {
     console.error(`activation: database function failed: ${message}`);
+    return { ok: false, code: 'ACTIVATION_FAILED', periodEnd: null };
   }
 
   const admin = adminSupabaseOrNull();

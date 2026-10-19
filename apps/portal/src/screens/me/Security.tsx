@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Toggle } from '../../components';
+import { Authenticator } from './Authenticator';
 import { ChevronIcon } from '../../components/shared/icons';
 import { me, screens } from '../../copy/en';
 import { formatLong } from '../../lib/format';
@@ -12,7 +12,7 @@ import '../Account.css';
 import './Security.css';
 
 // Security and passwords (screen 18): change the password, the two-step switch, and where you
-// are signed in. Everything writes to the mock session, and each placeholder says so in words.
+// are signed in. Authenticator state comes only from the verified Auth provider.
 export function Security() {
   const session = useSession();
   const [changing, setChanging] = useState(false);
@@ -119,6 +119,7 @@ export function Security() {
           <button
             type="button"
             className="arow keep"
+            disabled={!import.meta.env.DEV || import.meta.env.VITE_DATA_MODE === 'supabase'}
             onClick={() => {
               setDone(false);
               setChanging(true);
@@ -140,25 +141,7 @@ export function Security() {
         )}
       </div>
 
-      <div className="abox">
-        <div className="hd">
-          <h3>{me.security.twoStep}</h3>
-          <p>{me.security.twoStepPlaceholder}</p>
-        </div>
-        <div className="arow keep">
-          <span className="k">{me.security.twoStep}</span>
-          <span className="v">
-            <small>{me.security.twoStepNote}</small>
-          </span>
-          <Toggle
-            label={me.security.twoStep}
-            checked={session.twoStepOn}
-            onChange={(twoStepOn) => {
-              updateSession({ twoStepOn });
-            }}
-          />
-        </div>
-      </div>
+      <Authenticator />
 
       <div className="abox">
         <div className="hd">

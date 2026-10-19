@@ -1,3 +1,4 @@
+import { checkMfa } from './mfa-browser.ts';
 import { checkBilling } from './billing-browser.ts';
 import { checkCompanyCreation } from './company-creation-browser.ts';
 import { mkdir } from 'node:fs/promises';
@@ -21,11 +22,15 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
     for (const width of [320, 1280]) {
       for (const colorScheme of ['light', 'dark'] as const) {
         const context = await browser.newContext({
-          viewport: { width, height: 900 }, colorScheme, serviceWorkers: 'block',
+          viewport: { width, height: 900 },
+          colorScheme,
+          serviceWorkers: 'block',
         });
         // This sandbox cannot reach the font CDN. Layout is still exercised in
         // both themes with real CSS and the browser's fallback font.
-        await context.route('https://fonts.googleapis.com/**', (route) => route.fulfill({ contentType: 'text/css', body: '' }));
+        await context.route('https://fonts.googleapis.com/**', (route) =>
+          route.fulfill({ contentType: 'text/css', body: '' }),
+        );
         const page = await context.newPage();
         const errors: string[] = [];
         page.on('pageerror', (error) => errors.push(error.message));
@@ -36,13 +41,29 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
         await page.getByRole('button', { name: 'Continue', exact: true }).click();
         await expect(page.getByRole('radiogroup', { name: 'Choose a plan' })).toBeVisible();
         await expect(page.locator('.plan.is-live .price')).toHaveText('Free for 12 months');
-        await expect(page.locator('.plan.is-live')).toContainText('Then AED 30/month. No card required.');
-        await page.getByRole('radio').filter({ has: page.getByRole('heading', { name: 'Enterprise', exact: true }) }).click();
-        await expect(page.getByRole('link', { name: 'Contact us', exact: true })).toHaveAttribute('href', 'mailto:support@boasis.ae');
-        await page.getByRole('radio').filter({ has: page.getByRole('heading', { name: 'Trio', exact: true }) }).click();
+        await expect(page.locator('.plan.is-live')).toContainText(
+          'Then AED 30/month. No card required.',
+        );
+        await page
+          .getByRole('radio')
+          .filter({ has: page.getByRole('heading', { name: 'Enterprise', exact: true }) })
+          .click();
+        await expect(page.getByRole('link', { name: 'Contact us', exact: true })).toHaveAttribute(
+          'href',
+          'mailto:support@boasis.ae',
+        );
+        await page
+          .getByRole('radio')
+          .filter({ has: page.getByRole('heading', { name: 'Trio', exact: true }) })
+          .click();
         await expect(page.getByText(/Trio opens with online payment/)).toBeVisible();
-        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-        await page.screenshot({ path: `test-results/plans-${String(width)}-${colorScheme}.png`, fullPage: true });
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+          true,
+        );
+        await page.screenshot({
+          path: `test-results/plans-${String(width)}-${colorScheme}.png`,
+          fullPage: true,
+        });
         await page.getByRole('button', { name: 'Use a different one', exact: true }).click();
         await page.locator('#email').fill('navaira.builds@gmail.com');
         await page.getByRole('button', { name: 'Continue', exact: true }).click();
@@ -56,24 +77,39 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
         const layout = await page.evaluate(() => {
           const guide = document.querySelector('.guide');
           const panel = document.querySelector('.panel');
-          const rows = Array.from(document.querySelectorAll('.guide li')).map((li) => li.getBoundingClientRect());
+          const rows = Array.from(document.querySelectorAll('.guide li')).map((li) =>
+            li.getBoundingClientRect(),
+          );
           const next = guide?.nextElementSibling?.getBoundingClientRect();
-          const boxes = Array.from(document.querySelectorAll('.code-boxes input')).map((input) => input.getBoundingClientRect());
+          const boxes = Array.from(document.querySelectorAll('.code-boxes input')).map((input) =>
+            input.getBoundingClientRect(),
+          );
           const card = panel?.getBoundingClientRect();
           return {
-            noOverlap: rows.every((row, i) => i === 0 || row.top >= (rows[i - 1]?.bottom ?? 0)) &&
+            noOverlap:
+              rows.every((row, i) => i === 0 || row.top >= (rows[i - 1]?.bottom ?? 0)) &&
               (next?.top ?? 0) >= (rows.at(-1)?.bottom ?? 0),
-            boxesContained: card !== undefined && boxes.every((box) => box.left >= card.left && box.right <= card.right),
+            boxesContained:
+              card !== undefined &&
+              boxes.every((box) => box.left >= card.left && box.right <= card.right),
             noHorizontalScroll: document.documentElement.scrollWidth <= innerWidth,
           };
         });
         expect(layout).toEqual({ noOverlap: true, boxesContained: true, noHorizontalScroll: true });
-        await page.screenshot({ path: `test-results/inbox-${String(width)}-${colorScheme}.png`, fullPage: true });
+        await page.screenshot({
+          path: `test-results/inbox-${String(width)}-${colorScheme}.png`,
+          fullPage: true,
+        });
         // Unknown length: an eight-digit code can still be entered, never cut
         // off or auto-submitted at the guessed sixth digit.
-        await page.getByRole('textbox', { name: 'Digit 1', exact: true }).pressSequentially('12345678');
-        const digits = await page.locator('.code-boxes input').evaluateAll((inputs) =>
-          inputs.map((input) => (input as HTMLInputElement).value).join(''));
+        await page
+          .getByRole('textbox', { name: 'Digit 1', exact: true })
+          .pressSequentially('12345678');
+        const digits = await page
+          .locator('.code-boxes input')
+          .evaluateAll((inputs) =>
+            inputs.map((input) => (input as HTMLInputElement).value).join(''),
+          );
         expect(digits).toBe('12345678');
         await expect(page.getByRole('button', { name: 'Verify code', exact: true })).toBeEnabled();
 
@@ -82,7 +118,8 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
         await context.request.get(`${origin}/auth/callback?token_hash=e2e-ok&type=email`);
         const missing: string[] = [];
         page.on('response', (response) => {
-          if (response.url().startsWith(`${origin}/portal/`) && response.status() >= 400) missing.push(response.url());
+          if (response.url().startsWith(`${origin}/portal/`) && response.status() >= 400)
+            missing.push(response.url());
         });
         await page.goto(`${origin}/portal`);
         await expect(page.locator('.firstrun')).toBeVisible();
@@ -92,10 +129,17 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
         await expect(page).toHaveURL(/#\/add-company$/);
         await page.goto(`${origin}/portal#/companies`);
         await expect(page.locator('.shell')).toBeVisible();
-        await expect(page.getByRole('heading', { name: 'Your companies', exact: true })).toBeVisible();
-        await page.screenshot({ path: `test-results/portal-${String(width)}-${colorScheme}.png`, fullPage: true });
+        await expect(
+          page.getByRole('heading', { name: 'Your companies', exact: true }),
+        ).toBeVisible();
+        await page.screenshot({
+          path: `test-results/portal-${String(width)}-${colorScheme}.png`,
+          fullPage: true,
+        });
         for (const [path, heading] of [
-          ['/library', 'Library'], ['/compliance', 'Your compliance status'], ['/services', 'Services'],
+          ['/library', 'Library'],
+          ['/compliance', 'Your compliance status'],
+          ['/services', 'Services'],
         ] as const) {
           await page.goto(`${origin}/portal#${path}`);
           await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible();
@@ -104,10 +148,13 @@ export async function checkInBrowser(origin: string, fake: FakeSupabase): Promis
         await checkBilling(page, origin, fake, `${String(width)}-${colorScheme}`);
         expect(errors).toEqual([]);
         expect(missing).toEqual([]);
-        console.log(`  PASS  browser ${String(width)}px ${colorScheme}: code layout, typing, portal screens plus company guards and real Billing/header states, Dubai midnight rollover, paid plans, missing/error/retry`);
+        console.log(
+          `  PASS  browser ${String(width)}px ${colorScheme}: code layout, typing, portal screens plus company guards and real Billing/header states, Dubai midnight rollover, paid plans, missing/error/retry`,
+        );
         await context.close();
       }
     }
+    await checkMfa(browser, origin, fake);
   } finally {
     await browser.close();
   }

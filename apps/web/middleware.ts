@@ -1,4 +1,5 @@
-import { SUBSCRIPTION_COLUMNS, SubscriptionRow } from '@boasis/schema';
+import { mfaForVerifiedUser } from '@/lib/mfa';
+import { SUBSCRIPTION_COLUMNS, SubscriptionRow, type MfaGate } from '@boasis/schema';
 import { canUseSubscription } from '@boasis/rules';
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
@@ -68,6 +69,7 @@ export async function middleware(request: NextRequest) {
   // means the gate keeps working when the service key is misconfigured.
   let user: { id: string; email_confirmed_at?: string | null } | null = null;
   let status: SubscriptionStatus | null = null;
+  let mfa: MfaGate = 'unavailable';
   try {
     const result = await supabase.auth.getUser();
     const value = result.data.user;
@@ -76,18 +78,26 @@ export async function middleware(request: NextRequest) {
         ? null
         : { id: value.id, email_confirmed_at: value.email_confirmed_at ?? null };
 
-    if (user !== null && user.email_confirmed_at !== null) {
-      const { data } = await supabase
-        .from('subscriptions')
-        .select(SUBSCRIPTION_COLUMNS)
-        .eq('profile_id', user.id)
-        .maybeSingle();
-      const parsed = SubscriptionRow.safeParse(data);
-      if (parsed.success) {
-        status =
-          parsed.data.status === 'active' && !canUseSubscription(parsed.data, Date.now())
-            ? 'past_due'
-            : parsed.data.status;
+    if (value?.email_confirmed_at != null) {
+      try {
+        const state = await mfaForVerifiedUser(supabase, value);
+        mfa = state.requiresVerification ? 'required' : state.enabled ? 'verified' : 'not-required';
+      } catch {
+        mfa = 'unavailable';
+      }
+      if (mfa === 'verified' || mfa === 'not-required') {
+        const { data } = await supabase
+          .from('subscriptions')
+          .select(SUBSCRIPTION_COLUMNS)
+          .eq('profile_id', value.id)
+          .maybeSingle();
+        const parsed = SubscriptionRow.safeParse(data);
+        if (parsed.success) {
+          status =
+            parsed.data.status === 'active' && !canUseSubscription(parsed.data, Date.now())
+              ? 'past_due'
+              : parsed.data.status;
+        }
       }
     }
   } catch {
@@ -100,6 +110,7 @@ export async function middleware(request: NextRequest) {
     signedIn: user !== null,
     emailConfirmed: user !== null && user.email_confirmed_at !== null,
     status,
+    mfa,
   });
 
   if (action === 'allow') {
@@ -118,6 +129,8 @@ export async function middleware(request: NextRequest) {
   if (action === 'to-signin') {
     target.pathname = '/signin';
     target.searchParams.set('next', request.nextUrl.pathname);
+  } else if (action === 'to-mfa') {
+    target.pathname = '/mfa';
   } else if (action === 'to-signup') {
     target.pathname = '/signup';
   } else {

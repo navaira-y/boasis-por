@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import {
+  FAKE_FACTOR_ID,
   FAKE_ANON_KEY,
   FAKE_SERVICE_KEY,
   startFakeSupabase,
@@ -152,21 +153,29 @@ async function main(): Promise<void> {
     const billing = await get('/billing');
     check(
       '/billing is refused and sent to sign in',
-      (billing.status === 307 || billing.status === 308) && (billing.location ?? '').includes('/signin'),
+      (billing.status === 307 || billing.status === 308) &&
+        (billing.location ?? '').includes('/signin'),
       `status ${String(billing.status)} location ${String(billing.location)}`,
     );
 
     console.log('\nThe public pages');
     const root = await get('/');
     check('/', root.status === 200, `status ${String(root.status)}`);
-    check('the root opens straight at the entry screen', root.body.includes('Start your company file'));
+    check(
+      'the root opens straight at the entry screen',
+      root.body.includes('Start your company file'),
+    );
     const signup = await get('/signup');
     check('/signup answers 200', signup.status === 200, `status ${String(signup.status)}`);
     const signin = await get('/signin');
     check('/signin answers 200', signin.status === 200, `status ${String(signin.status)}`);
     const signOutGet = await get('/auth/signout');
-    check('sign-out refuses anything but a POST', signOutGet.status === 405, `status ${String(signOutGet.status)}`);
-    const signOutPost = await get('/auth/signout', { method: 'POST' });
+    check(
+      'sign-out refuses anything but a POST',
+      signOutGet.status === 405,
+      `status ${String(signOutGet.status)}`,
+    );
+    const signOutPost = await get('/auth/signout', { method: 'POST', headers: { origin: ORIGIN } });
     check(
       'sign-out by POST returns the visitor to sign-in',
       signOutPost.status === 303 && String(signOutPost.location).includes('/signin'),
@@ -244,7 +253,11 @@ async function main(): Promise<void> {
 
     console.log('\nA signed-in, confirmed visitor with an active subscription');
     const portalActive = await get('/portal', { headers: { cookie: cookies } });
-    check('the portal file is served', portalActive.status === 200, `status ${String(portalActive.status)}`);
+    check(
+      'the portal file is served',
+      portalActive.status === 200,
+      `status ${String(portalActive.status)}`,
+    );
     check(
       'the portal file is the bundle, not a page shell',
       portalActive.body.includes('id="root"') || portalActive.body.includes('<div id="root">'),
@@ -260,7 +273,11 @@ async function main(): Promise<void> {
       String(portalActive.headers.get('x-frame-options')),
     );
     const csp = portalActive.headers.get('content-security-policy') ?? '';
-    check('the portal is served under a Content Security Policy', csp.includes('script-src'), 'no CSP header');
+    check(
+      'the portal is served under a Content Security Policy',
+      csp.includes('script-src'),
+      'no CSP header',
+    );
     check(
       'the policy allows scripts from this origin only',
       csp.includes("script-src 'self'") && !csp.includes('unsafe-eval'),
@@ -270,7 +287,9 @@ async function main(): Promise<void> {
       'the policy reaches this project and nowhere else',
       // The fake project is plain http, so the realtime scheme is ws; a real
       // https project gets wss (covered by the unit test).
-      csp.includes(fake.url) && csp.includes('ws://127.0.0.1:5199') && !csp.includes('googleapis.com/api'),
+      csp.includes(fake.url) &&
+        csp.includes('ws://127.0.0.1:5199') &&
+        !csp.includes('googleapis.com/api'),
       csp,
     );
     const portalAsset = await get('/portal/index.html', { headers: { cookie: cookies } });
@@ -281,7 +300,11 @@ async function main(): Promise<void> {
     // A root div alone proved nothing: /portal used to return HTML whose
     // relative scripts resolved to /assets and 404ed in a real browser.
     const baseHref = /<base\s+href="([^"]+)"/.exec(portalActive.body)?.[1];
-    check('the portal pins relative references under /portal/', baseHref === '/portal/', String(baseHref));
+    check(
+      'the portal pins relative references under /portal/',
+      baseHref === '/portal/',
+      String(baseHref),
+    );
     const documentBase = new URL(baseHref ?? '.', `${ORIGIN}/portal`);
     const refs = [...portalActive.body.matchAll(/(?:src|href)="(\.\/[^"]+)"/g)];
     check('the served portal names scripts and styles', refs.length >= 3);
@@ -289,17 +312,28 @@ async function main(): Promise<void> {
       const assetUrl = new URL(match[1] ?? '', documentBase);
       const asset = await get(assetUrl.pathname, { headers: { cookie: cookies } });
       const contentType = asset.headers.get('content-type') ?? '';
-      check(`the browser can load ${assetUrl.pathname}`, assetUrl.pathname.startsWith('/portal/') && asset.status === 200,
-        `status ${String(asset.status)}`);
+      check(
+        `the browser can load ${assetUrl.pathname}`,
+        assetUrl.pathname.startsWith('/portal/') && asset.status === 200,
+        `status ${String(asset.status)}`,
+      );
       if (assetUrl.pathname.endsWith('.js')) {
-        check('the script is JavaScript, not a redirected HTML page', contentType.includes('javascript'), contentType);
+        check(
+          'the script is JavaScript, not a redirected HTML page',
+          contentType.includes('javascript'),
+          contentType,
+        );
       }
       if (assetUrl.pathname.endsWith('.css')) {
         check('the stylesheet is CSS', contentType.includes('text/css'), contentType);
       }
     }
     const signupCsp = (await get('/signup')).headers.get('content-security-policy');
-    check('the entry pages are not given the portal policy by accident', signupCsp === null, String(signupCsp));
+    check(
+      'the entry pages are not given the portal policy by accident',
+      signupCsp === null,
+      String(signupCsp),
+    );
 
     console.log('\nThe same visitor when the subscription is not active');
     // A signed-up account has its profile row; a visitor between the inbox
@@ -314,7 +348,11 @@ async function main(): Promise<void> {
       `status ${String(portalLocked.status)} location ${String(portalLocked.location)}`,
     );
     const billingPage = await get('/billing', { headers: { cookie: cookies } });
-    check('billing opens for that visitor', billingPage.status === 200, `status ${String(billingPage.status)}`);
+    check(
+      'billing opens for that visitor',
+      billingPage.status === 200,
+      `status ${String(billingPage.status)}`,
+    );
     fake.setSubscriptionStatus('active');
     const portalBack = await get('/portal', { headers: { cookie: cookies } });
     check('the portal reopens when the subscription is active again', portalBack.status === 200);
@@ -322,24 +360,61 @@ async function main(): Promise<void> {
     console.log('\nSubscription facts and period-aware gate');
     fake.setSubscription({ current_period_end: '2020-01-01T00:00:00Z' });
     const expiredActive = await get('/portal', { headers: { cookie: cookies } });
-    check('expired-active is blocked before the renewal job changes its status', expiredActive.status === 307 && String(expiredActive.location).includes('/billing'));
+    check(
+      'expired-active is blocked before the renewal job changes its status',
+      expiredActive.status === 307 && String(expiredActive.location).includes('/billing'),
+    );
     const expiredBilling = await get('/billing', { headers: { cookie: cookies } });
-    check('expired-active Billing says ended, not free access', expiredBilling.status === 200 && expiredBilling.body.includes('Plan ended') && !expiredBilling.body.includes('Your first year is free'));
+    check(
+      'expired-active Billing says ended, not free access',
+      expiredBilling.status === 200 &&
+        expiredBilling.body.includes('Plan ended') &&
+        !expiredBilling.body.includes('Your first year is free'),
+    );
     fake.setSubscription({ current_period_end: null });
     const unknownPeriod = await get('/portal', { headers: { cookie: cookies } });
-    check('an active row without a verifiable period fails closed', unknownPeriod.status === 307 && String(unknownPeriod.location).includes('/billing'));
-    fake.setSubscription({ plan_id: 'trio', provider: 'ziina', current_period_start: '2026-10-01T08:00:00Z', current_period_end: '2027-01-01T08:00:00Z' });
+    check(
+      'an active row without a verifiable period fails closed',
+      unknownPeriod.status === 307 && String(unknownPeriod.location).includes('/billing'),
+    );
+    fake.setSubscription({
+      plan_id: 'trio',
+      provider: 'ziina',
+      current_period_start: '2026-10-01T08:00:00Z',
+      current_period_end: '2027-01-01T08:00:00Z',
+    });
     const paidBilling = await get('/billing', { headers: { cookie: cookies } });
-    check('paid Trio Billing uses its name and price, not the free Solo headline', paidBilling.status === 200 && paidBilling.body.includes('Your Trio plan') && paidBilling.body.includes('AED 90/month, up to 3 companies') && !paidBilling.body.includes('Your first year is free'));
+    check(
+      'paid Trio Billing uses its name and price, not the free Solo headline',
+      paidBilling.status === 200 &&
+        paidBilling.body.includes('Your Trio plan') &&
+        paidBilling.body.includes('AED 90/month, up to 3 companies') &&
+        !paidBilling.body.includes('Your first year is free'),
+    );
     fake.setSubscriptionStatus(null);
     const missingSubscription = await get('/billing', { headers: { cookie: cookies } });
-    check('a missing subscription has an honest setup state, not an invented Solo assignment', missingSubscription.status === 200 && missingSubscription.body.includes('No subscription is set up for this account'));
+    check(
+      'a missing subscription has an honest setup state, not an invented Solo assignment',
+      missingSubscription.status === 200 &&
+        missingSubscription.body.includes('No subscription is set up for this account'),
+    );
     fake.setSubscriptionStatus('active');
     fake.setMode('subscription-down');
     const subscriptionError = await get('/billing', { headers: { cookie: cookies } });
-    check('a subscription read failure is a retry state, not a missing row', subscriptionError.status === 200 && subscriptionError.body.includes('Could not load your subscription') && !subscriptionError.body.includes('No subscription is set up for this account'));
+    check(
+      'a subscription read failure is a retry state, not a missing row',
+      subscriptionError.status === 200 &&
+        subscriptionError.body.includes('Could not load your subscription') &&
+        !subscriptionError.body.includes('No subscription is set up for this account'),
+    );
     fake.setMode('healthy');
-    fake.setSubscription({ plan_id: 'solo', provider: 'free', current_period_start: '2026-10-17T09:00:00Z', current_period_end: '2027-10-17T09:00:00Z', free_year_used_at: '2026-10-17T09:00:00Z' });
+    fake.setSubscription({
+      plan_id: 'solo',
+      provider: 'free',
+      current_period_start: '2026-10-17T09:00:00Z',
+      current_period_end: '2027-10-17T09:00:00Z',
+      free_year_used_at: '2026-10-17T09:00:00Z',
+    });
 
     console.log('\nA session whose inbox is not confirmed');
     const unconfirmed = await get('/auth/callback?token_hash=e2e-unconfirmed&type=email');
@@ -355,9 +430,20 @@ async function main(): Promise<void> {
     console.log('\nThe health report');
     const healthy = await get('/api/health?fresh=1');
     const healthyBody = healthy.body;
-    check('/api/health answers', healthy.status === 200 || healthy.status === 503, `status ${String(healthy.status)}`);
-    check('a configured project reports healthy', healthy.status === 200, `status ${String(healthy.status)}`);
-    check('the report never contains a key', !healthyBody.includes(FAKE_SERVICE_KEY) && !healthyBody.includes(FAKE_ANON_KEY));
+    check(
+      '/api/health answers',
+      healthy.status === 200 || healthy.status === 503,
+      `status ${String(healthy.status)}`,
+    );
+    check(
+      'a configured project reports healthy',
+      healthy.status === 200,
+      `status ${String(healthy.status)}`,
+    );
+    check(
+      'the report never contains a key',
+      !healthyBody.includes(FAKE_SERVICE_KEY) && !healthyBody.includes(FAKE_ANON_KEY),
+    );
     check('the report names the project it checked', healthyBody.includes('fakee2eproject'));
     check(
       'the report confirms the visitor-facing plan read',
@@ -413,7 +499,11 @@ async function main(): Promise<void> {
         !grants.body.includes('SERVICE_KEY_REJECTED'),
       `status ${String(grants.status)}`,
     );
-    check('the grant report names the file to run', grants.body.includes('0009'), 'no 0009 in the report');
+    check(
+      'the grant report names the file to run',
+      grants.body.includes('0009'),
+      'no 0009 in the report',
+    );
 
     fake.setMode('anon-can-read-private');
     const leak = await get('/api/health?fresh=1');
@@ -425,20 +515,149 @@ async function main(): Promise<void> {
 
     fake.setMode('healthy');
     const recovered = await get('/api/health?fresh=1');
-    check('the report recovers when the project does', recovered.status === 200, `status ${String(recovered.status)}`);
+    check(
+      'the report recovers when the project does',
+      recovered.status === 200,
+      `status ${String(recovered.status)}`,
+    );
 
     console.log('\nThe renewal job');
     const cron = await get('/api/cron/renewals');
-    check('the renewal job refuses an unauthenticated caller', cron.status === 404, `status ${String(cron.status)}`);
+    check(
+      'the renewal job refuses an unauthenticated caller',
+      cron.status === 404,
+      `status ${String(cron.status)}`,
+    );
     const cronOk = await get('/api/cron/renewals', {
       headers: { authorization: `Bearer ${FAKE_SERVICE_KEY}` },
     });
-    check('the renewal job runs for the service key', cronOk.status === 200, `status ${String(cronOk.status)}`);
+    check(
+      'the renewal job runs for the service key',
+      cronOk.status === 200,
+      `status ${String(cronOk.status)}`,
+    );
+    console.log('\nAuthenticator routing and API boundaries (provider-shaped fixture)');
+    fake.setMfa([
+      { id: FAKE_FACTOR_ID, factor_type: 'totp', status: 'verified', friendly_name: 'My app' },
+    ]);
+    const mfaLink = await get('/auth/callback?token_hash=e2e-ok&type=email');
+    let mfaCookies = cookieHeader(mfaLink.setCookies);
+    check(
+      'email-link sign-in lands at MFA, not the portal',
+      String(mfaLink.location).endsWith('/mfa'),
+    );
+    for (const path of [
+      '/portal',
+      '/portal/',
+      '/portal/index.html',
+      '/billing',
+      '/signup',
+      '/signin',
+      '/',
+    ]) {
+      const before = fake.requests.length;
+      const initial = await get(path, { headers: { cookie: mfaCookies } });
+      const locked =
+        path === '/portal/' &&
+        initial.status === 308 &&
+        String(initial.location).endsWith('/portal')
+          ? await get('/portal', { headers: { cookie: mfaCookies } })
+          : initial;
+      check(
+        path + ' cannot bypass MFA',
+        String(locked.location).endsWith('/mfa') ||
+          (locked.body.includes('NEXT_REDIRECT') && locked.body.includes('/mfa')),
+      );
+      check(
+        path + ' does not read private data at AAL1',
+        !fake.requests.slice(before).some((request) => request.path.startsWith('/rest/')),
+      );
+    }
+    const challenge = await get('/mfa', { headers: { cookie: mfaCookies } });
+    check(
+      'the real challenge page renders a six-digit authenticator field',
+      challenge.status === 200 && challenge.body.includes('authenticator-code'),
+    );
+    const status = await get('/api/security/mfa', { headers: { cookie: mfaCookies } });
+    check(
+      'status reports that the verified authenticator still needs proof',
+      status.status === 200 &&
+        status.body.includes('"requiresVerification":true') &&
+        status.headers.get('cache-control')?.includes('no-store') === true,
+    );
+    const operation = JSON.stringify({
+      operation: 'verify',
+      factorId: FAKE_FACTOR_ID,
+      code: '123456',
+    });
+    for (const origin of ['', 'https://attacker.example.com']) {
+      const refused = await get('/api/security/mfa', {
+        method: 'POST',
+        headers: { cookie: mfaCookies, origin, 'content-type': 'application/json' },
+        body: operation,
+      });
+      check(
+        'security mutations refuse missing/cross-site Origin: ' + origin,
+        refused.status === 403,
+      );
+    }
+    const headers = { cookie: mfaCookies, origin: ORIGIN, 'content-type': 'application/json' };
+    const malformed = await get('/api/security/mfa', { method: 'POST', headers, body: '{' });
+    check('malformed JSON is refused as a bad request', malformed.status === 400);
+    const large = await get('/api/security/mfa', {
+      method: 'POST',
+      headers,
+      body: 'x'.repeat(2049),
+    });
+    check('large security bodies are refused before provider calls', large.status === 413);
+    const invalidCode = await get('/api/security/mfa', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ operation: 'verify', factorId: FAKE_FACTOR_ID, code: '12345' }),
+    });
+    check('a non-six-digit code is refused', invalidCode.status === 400);
+    const wrongCode = await get('/api/security/mfa', {
+      method: 'POST',
+      headers,
+      body: operation.replace('123456', '000000'),
+    });
+    check(
+      'a rejected provider code does not sign the visitor in',
+      wrongCode.status === 400 && wrongCode.body.includes('not accepted'),
+    );
+    const correct = await get('/api/security/mfa', { method: 'POST', headers, body: operation });
+    mfaCookies = cookieHeader(correct.setCookies);
+    check(
+      'accepted provider proof updates the session cookie',
+      correct.status === 200 &&
+        correct.body.includes('"requiresVerification":false') &&
+        mfaCookies !== '',
+    );
+    const unlocked = await get('/portal', { headers: { cookie: mfaCookies } });
+    check(
+      'only the upgraded session opens the actual portal file',
+      unlocked.status === 200 && unlocked.body.includes('<div id="root">'),
+    );
+    const csrfSignout = await get('/auth/signout', {
+      method: 'POST',
+      headers: { cookie: mfaCookies, origin: 'https://attacker.example.com' },
+    });
+    check('cross-site sign-out is refused', csrfSignout.status === 403);
+    const signedOut = await get('/auth/signout', {
+      method: 'POST',
+      headers: { cookie: mfaCookies, origin: ORIGIN },
+    });
+    check(
+      'same-origin sign-out clears the real auth cookie',
+      signedOut.status === 303 &&
+        signedOut.setCookies.some((cookie) => cookie.includes('Max-Age=0')),
+    );
+    fake.setMfa([]);
+
     if (process.env.BROWSER_EXECUTABLE_PATH !== undefined) {
       const { checkInBrowser } = await import('./browser.ts');
       await checkInBrowser(ORIGIN, fake);
     }
-
   } finally {
     stop();
     await fake.close();

@@ -1,3 +1,4 @@
+import { signOutOfServer } from './mfa-client';
 import { useSyncExternalStore } from 'react';
 import { z } from 'zod';
 import { storage } from './storage';
@@ -105,6 +106,7 @@ export function signIn(email: string, names?: { firstName: string; lastName: str
 
 export function signOut(): void {
   writeSession(null);
+  if (!import.meta.env.DEV || import.meta.env.VITE_DATA_MODE === 'supabase') signOutOfServer();
 }
 
 export function updateSession(patch: Partial<Session>): Session | null {

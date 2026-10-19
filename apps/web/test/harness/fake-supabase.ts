@@ -1,3 +1,4 @@
+import type { AuthFactorRecord } from '@boasis/schema';
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 
 /**
@@ -12,6 +13,7 @@ import { createServer, type IncomingMessage, type Server, type ServerResponse } 
  */
 
 export type FakeMode =
+  | 'mfa-not-ready'
   | 'healthy'
   | 'service-key-rejected'
   | 'anon-key-rejected'
@@ -62,12 +64,15 @@ export interface FakeSupabase {
   url: string;
   requests: RecordedRequest[];
   setMode(mode: FakeMode): void;
+  setMfa(factors: AuthFactorRecord[]): void;
   setSubscriptionStatus(status: string | null): void;
   setSubscription(patch: Record<string, unknown>): void;
   setList(list: { id: string; email: string; status: string }[]): void;
   setHasProfile(value: boolean): void;
   setOwnedCompanyCount(value: number): void;
-  setEvents(events: { at: string; kind: string; code: string | null; email: string | null }[]): void;
+  setEvents(
+    events: { at: string; kind: string; code: string | null; email: string | null }[],
+  ): void;
   close(): Promise<void>;
 }
 
@@ -86,7 +91,25 @@ const GRANT_REFUSED = {
 const TOKEN_ACTIVE = 'e2e-access-active';
 const TOKEN_UNCONFIRMED = 'e2e-access-unconfirmed';
 
-export const FAKE_TOKENS = { active: TOKEN_ACTIVE, unconfirmed: TOKEN_UNCONFIRMED };
+const TOKEN_MFA = fakeJwt({
+  sub: '11111111-1111-4111-8111-111111111111',
+  aal: 'aal1',
+  exp: 4070908800,
+  amr: [{ method: 'password', timestamp: 1792231200 }],
+});
+const TOKEN_MFA_VERIFIED = fakeJwt({
+  sub: '11111111-1111-4111-8111-111111111111',
+  aal: 'aal2',
+  exp: 4070908800,
+  amr: [{ method: 'totp', timestamp: 1792231200 }],
+});
+export const FAKE_TOKENS = {
+  active: TOKEN_ACTIVE,
+  unconfirmed: TOKEN_UNCONFIRMED,
+  mfa: TOKEN_MFA,
+  mfaVerified: TOKEN_MFA_VERIFIED,
+};
+export const FAKE_FACTOR_ID = '33333333-3333-4333-8333-333333333333';
 
 const DEFAULT_USER_ACTIVE: FakeUser = {
   id: '11111111-1111-4111-8111-111111111111',
@@ -105,7 +128,8 @@ function send(response: ServerResponse, status: number, body: unknown): void {
   response.writeHead(status, {
     'content-type': 'application/json',
     'access-control-allow-origin': '*',
-    'access-control-allow-headers': 'authorization, apikey, content-type, x-client-info, x-supabase-api-version, prefer',
+    'access-control-allow-headers':
+      'authorization, apikey, content-type, x-client-info, x-supabase-api-version, prefer',
     'access-control-allow-methods': 'GET, POST, PATCH, DELETE, OPTIONS',
   });
   response.end(text);
@@ -151,15 +175,24 @@ function sessionPayload(user: FakeUser): Record<string, unknown> {
 export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupabase> {
   let mode: FakeMode = options.mode ?? 'healthy';
   let subscriptionStatus: string | null = options.subscriptionStatus ?? 'active';
-  let subscriptionFields: Record<string, unknown> = { plan_id: 'solo', provider: 'free', current_period_start: '2026-10-17T09:00:00Z', current_period_end: '2027-10-17T09:00:00Z', free_year_used_at: '2026-10-17T09:00:00Z' };
+  let subscriptionFields: Record<string, unknown> = {
+    plan_id: 'solo',
+    provider: 'free',
+    current_period_start: '2026-10-17T09:00:00Z',
+    current_period_end: '2027-10-17T09:00:00Z',
+    free_year_used_at: '2026-10-17T09:00:00Z',
+  };
   let list = options.list ?? [
     { id: 'row-1', email: 'navaira.builds@gmail.com', status: 'invited' },
   ];
   let events = options.events ?? [];
   let hasProfile = options.hasProfile ?? false;
   let ownedCompanyCount = 0;
+  let mfaFactors: AuthFactorRecord[] = [];
   const users: Record<string, FakeUser> = options.users ?? {
     [TOKEN_ACTIVE]: DEFAULT_USER_ACTIVE,
+    [TOKEN_MFA]: DEFAULT_USER_ACTIVE,
+    [TOKEN_MFA_VERIFIED]: DEFAULT_USER_ACTIVE,
     [TOKEN_UNCONFIRMED]: DEFAULT_USER_UNCONFIRMED,
   };
   let lastSessionUser: FakeUser = DEFAULT_USER_ACTIVE;
@@ -224,7 +257,10 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
         return;
       }
       lastSessionUser = DEFAULT_USER_ACTIVE;
-      send(response, 200, sessionPayload(DEFAULT_USER_ACTIVE));
+      send(response, 200, {
+        ...sessionPayload(DEFAULT_USER_ACTIVE),
+        ...(mfaFactors.length > 0 ? { access_token: TOKEN_MFA } : {}),
+      });
       return;
     }
 
@@ -246,7 +282,11 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
       send(response, 200, {
         external: { email: true },
         mailer_autoconfirm: false,
-        mailer_otp_length: eightDigits ? 8 : smtp && mode !== 'settings-only-sender-fields' ? 6 : null,
+        mailer_otp_length: eightDigits
+          ? 8
+          : smtp && mode !== 'settings-only-sender-fields'
+            ? 6
+            : null,
         smtp_admin_email: smtp ? 'support@boasis.ae' : '',
         smtp_host: smtp ? 'smtp.gmail.com' : '',
       });
@@ -254,7 +294,10 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     }
 
     if (path === '/auth/v1/token') {
-      send(response, 200, sessionPayload(lastSessionUser));
+      send(response, 200, {
+        ...sessionPayload(lastSessionUser),
+        ...(mfaFactors.length > 0 ? { access_token: TOKEN_MFA } : {}),
+      });
       return;
     }
 
@@ -272,6 +315,7 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
         role: 'authenticated',
         email: user.email,
         email_confirmed_at: user.confirmed ? new Date().toISOString() : null,
+        factors: mfaFactors,
       });
       return;
     }
@@ -285,6 +329,68 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
       // Signup step 1 and step 3 (send the inbox code).
       send(response, 200, {});
       return;
+    }
+
+    // Provider-shape fixtures only, not proof of the real Auth service.
+    if (path === '/rest/v1/rpc/mfa_guard_ready') {
+      send(response, 200, mode !== 'mfa-not-ready');
+      return;
+    }
+    if (path === '/auth/v1/factors' && request.method === 'POST') {
+      const body = JSON.parse(await readBody(request)) as { friendly_name: string };
+      const factorId = mfaFactors.some((factor) => factor.id === FAKE_FACTOR_ID)
+        ? '55555555-5555-4555-8555-555555555555'
+        : FAKE_FACTOR_ID;
+      mfaFactors.push({
+        id: factorId,
+        factor_type: 'totp',
+        status: 'unverified',
+        friendly_name: body.friendly_name,
+      });
+      send(response, 200, {
+        id: factorId,
+        type: 'totp',
+        totp: {
+          qr_code: '<svg xmlns="http://www.w3.org/2000/svg"/>',
+          secret: 'JBSWY3DPEHPK3PXP',
+          uri: 'otpauth://totp/Boasis:test?secret=JBSWY3DPEHPK3PXP&issuer=Boasis',
+        },
+      });
+      return;
+    }
+    if (path.startsWith('/auth/v1/factors/')) {
+      const id = path.split('/')[4];
+      const factor = mfaFactors.find((entry) => entry.id === id);
+      if (factor === undefined) {
+        send(response, 404, { msg: 'Factor not found' });
+        return;
+      }
+      if (request.method === 'DELETE') {
+        mfaFactors = mfaFactors.filter((entry) => entry.id !== id);
+        send(response, 200, { id });
+        return;
+      }
+      if (path.endsWith('/challenge')) {
+        send(response, 200, {
+          id: '44444444-4444-4444-8444-444444444444',
+          type: 'totp',
+          expires_at: 4070908800,
+        });
+        return;
+      }
+      if (path.endsWith('/verify')) {
+        const body = JSON.parse(await readBody(request)) as { code: string };
+        if (body.code !== '123456') {
+          send(response, 422, { msg: 'Invalid TOTP code', code: 'mfa_verification_failed' });
+          return;
+        }
+        factor.status = 'verified';
+        send(response, 200, {
+          ...sessionPayload(DEFAULT_USER_ACTIVE),
+          access_token: TOKEN_MFA_VERIFIED,
+        });
+        return;
+      }
     }
 
     // ---- REST -----------------------------------------------------------
@@ -361,7 +467,10 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
       // entry_events is the app's privilege witness: it is private by design,
       // so a 200 here proves the caller is a granted service key.
       if (mode === 'privilege-not-proven') {
-        send(response, 403, { ...GRANT_REFUSED, message: 'permission denied for table entry_events' });
+        send(response, 403, {
+          ...GRANT_REFUSED,
+          message: 'permission denied for table entry_events',
+        });
         return;
       }
       if (mode === 'privilege-unknown') {
@@ -391,15 +500,39 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
         return;
       }
       send(response, 200, [
-        { id: 'solo', name: 'Solo', max_companies: 1, price_fils: 3000, free_months: 12, currency: 'AED' },
-        { id: 'trio', name: 'Trio', max_companies: 3, price_fils: 9000, free_months: 0, currency: 'AED' },
-        { id: 'enterprise', name: 'Enterprise', max_companies: null, price_fils: null, free_months: 0, currency: 'AED' },
+        {
+          id: 'solo',
+          name: 'Solo',
+          max_companies: 1,
+          price_fils: 3000,
+          free_months: 12,
+          currency: 'AED',
+        },
+        {
+          id: 'trio',
+          name: 'Trio',
+          max_companies: 3,
+          price_fils: 9000,
+          free_months: 0,
+          currency: 'AED',
+        },
+        {
+          id: 'enterprise',
+          name: 'Enterprise',
+          max_companies: null,
+          price_fils: null,
+          free_months: 0,
+          currency: 'AED',
+        },
       ]);
       return;
     }
 
     if (path === '/rest/v1/subscriptions') {
-      if (mode === 'subscription-down') { send(response, 503, { message: 'Subscription read unavailable' }); return; }
+      if (mode === 'subscription-down') {
+        send(response, 503, { message: 'Subscription read unavailable' });
+        return;
+      }
       const filter = parsed.searchParams.get('profile_id');
       const wanted = filter?.startsWith('eq.') === true ? filter.slice(3) : null;
       if (wanted !== null && wanted !== DEFAULT_USER_ACTIVE.id) {
@@ -415,19 +548,36 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     }
 
     if (path === '/rest/v1/profiles') {
-      send(response, 200, hasProfile ? [{
-        id: DEFAULT_USER_ACTIVE.id, full_name: 'Test Owner', terms_version: 'test',
-        terms_accepted_at: '2026-10-17T00:00:00Z', created_at: '2026-10-17T00:00:00Z',
-        email_reminders_on: true,
-      }] : []);
+      send(
+        response,
+        200,
+        hasProfile
+          ? [
+              {
+                id: DEFAULT_USER_ACTIVE.id,
+                full_name: 'Test Owner',
+                terms_version: 'test',
+                terms_accepted_at: '2026-10-17T00:00:00Z',
+                created_at: '2026-10-17T00:00:00Z',
+                email_reminders_on: true,
+              },
+            ]
+          : [],
+      );
       return;
     }
 
     // A fresh account has no company data. Browser proof uses the real adapter,
     // not the mock adapter or seeded companies.
-    if (['/rest/v1/companies', '/rest/v1/portal_account_companies',
-      '/rest/v1/portal_onboarding_starts', '/rest/v1/portal_access_grants',
-      '/rest/v1/portal_account_people'].includes(path)) {
+    if (
+      [
+        '/rest/v1/companies',
+        '/rest/v1/portal_account_companies',
+        '/rest/v1/portal_onboarding_starts',
+        '/rest/v1/portal_access_grants',
+        '/rest/v1/portal_account_people',
+      ].includes(path)
+    ) {
       send(response, 200, []);
       return;
     }
@@ -440,8 +590,13 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
       const active = subscriptionStatus === 'active';
       send(response, 200, {
         canCreate: active && ownedCompanyCount === 0,
-        reason: !active ? 'subscription-inactive' : ownedCompanyCount > 0 ? 'payment-coming-soon' : 'allowed',
-        ownedCompanies: ownedCompanyCount, companyLimit: 1,
+        reason: !active
+          ? 'subscription-inactive'
+          : ownedCompanyCount > 0
+            ? 'payment-coming-soon'
+            : 'allowed',
+        ownedCompanies: ownedCompanyCount,
+        companyLimit: 1,
       });
       return;
     }
@@ -455,33 +610,44 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
         if (mode === 'activation-missing') {
           send(response, 404, {
             code: 'PGRST202',
-            message: "Could not find the function public.activate_free_year in the schema cache",
+            message: 'Could not find the function public.activate_free_year in the schema cache',
           });
           return;
         }
         send(response, 500, { code: 'P0002', details: null, hint: null, message: 'no session' });
         return;
       }
-      send(response, 200, { source: 'free-year', period_end: new Date(Date.now() + 31_536_000_000).toISOString() });
+      send(response, 200, {
+        source: 'free-year',
+        period_end: new Date(Date.now() + 31_536_000_000).toISOString(),
+      });
       return;
     }
 
-    send(response, 404, { message: `fake supabase has no route for ${request.method ?? 'GET'} ${path}` });
+    send(response, 404, {
+      message: `fake supabase has no route for ${request.method ?? 'GET'} ${path}`,
+    });
   }
 
   await new Promise<void>((resolve) => {
     server.listen(options.port ?? 0, '127.0.0.1', resolve);
   });
   const address = server.address();
-  if (address === null || typeof address === 'string') throw new Error('fake supabase did not bind a port');
+  if (address === null || typeof address === 'string')
+    throw new Error('fake supabase did not bind a port');
 
   return {
     url: `http://127.0.0.1:${String(address.port)}`,
     requests,
+    setMfa(factors: AuthFactorRecord[]): void {
+      mfaFactors = factors.map((factor) => ({ ...factor }));
+    },
     setMode(next: FakeMode): void {
       mode = next;
     },
-    setSubscription(patch: Record<string, unknown>): void { subscriptionFields = { ...subscriptionFields, ...patch }; },
+    setSubscription(patch: Record<string, unknown>): void {
+      subscriptionFields = { ...subscriptionFields, ...patch };
+    },
     setSubscriptionStatus(next: string | null): void {
       subscriptionStatus = next;
     },
@@ -494,7 +660,9 @@ export async function startFakeSupabase(options: FakeOptions): Promise<FakeSupab
     setHasProfile(value: boolean): void {
       hasProfile = value;
     },
-    setEvents(next: { at: string; kind: string; code: string | null; email: string | null }[]): void {
+    setEvents(
+      next: { at: string; kind: string; code: string | null; email: string | null }[],
+    ): void {
       events = next;
     },
     close(): Promise<void> {
@@ -516,4 +684,8 @@ export function fakeJwt(payload: Record<string, unknown>): string {
 }
 
 export const FAKE_ANON_KEY = fakeJwt({ ref: 'fakee2eproject', role: 'anon', iss: 'supabase' });
-export const FAKE_SERVICE_KEY = fakeJwt({ ref: 'fakee2eproject', role: 'service_role', iss: 'supabase' });
+export const FAKE_SERVICE_KEY = fakeJwt({
+  ref: 'fakee2eproject',
+  role: 'service_role',
+  iss: 'supabase',
+});

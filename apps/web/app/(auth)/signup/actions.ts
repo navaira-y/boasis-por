@@ -1,5 +1,6 @@
 'use server';
 
+import { readMfaState } from '@/lib/mfa';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { isValidEmail, normalizeEmail } from '@/lib/email';
@@ -171,7 +172,8 @@ export async function verifyCodeAction(emailRaw: string, code: string): Promise<
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (user === null) return { ok: false, error: 'Could not finish signing you in. Please try again.' };
+  if (user === null)
+    return { ok: false, error: 'Could not finish signing you in. Please try again.' };
   return { ok: true, next: await routeOrFinish(supabase, user.id) };
 }
 
@@ -213,6 +215,14 @@ export async function completeEntryAction(input: CompleteEntryInput): Promise<Si
     // The code step cannot be skipped: no verified inbox, no account.
     return { ok: false, error: 'Please verify your email code first.' };
   }
+
+  let needsMfa: boolean;
+  try {
+    needsMfa = (await readMfaState(supabase)).requiresVerification;
+  } catch {
+    return { ok: false, error: 'Could not confirm your security status. Please sign in again.' };
+  }
+  if (needsMfa) redirect('/mfa');
 
   const breach = await checkPasswordBreach(input.password);
   if (breach.breached) {
@@ -286,7 +296,10 @@ export async function routeAfterSignInAction(): Promise<SimpleResponse> {
 }
 
 /** A plan click while the plan is closed: recorded, never granted. */
-export async function recordPlanWishAction(emailRaw: string, planId: PlanId): Promise<SimpleResponse> {
+export async function recordPlanWishAction(
+  emailRaw: string,
+  planId: PlanId,
+): Promise<SimpleResponse> {
   if (planId === 'solo') return { ok: true };
   const email = normalizeEmail(emailRaw);
   if (!isValidEmail(email)) return { ok: true };
@@ -318,12 +331,16 @@ async function writeProfile(
   };
   const own = await supabase.from('profiles').insert(row);
   if (own.error === null) return true;
-  console.error(`completeEntry: profile insert with the owner session failed: ${own.error.message}`);
+  console.error(
+    `completeEntry: profile insert with the owner session failed: ${own.error.message}`,
+  );
   const admin = adminSupabaseOrNull();
   if (admin === null) return false;
   const fallback = await admin.from('profiles').insert(row);
   if (fallback.error !== null) {
-    console.error(`completeEntry: profile insert with the service key failed: ${fallback.error.message}`);
+    console.error(
+      `completeEntry: profile insert with the service key failed: ${fallback.error.message}`,
+    );
     return false;
   }
   return true;
@@ -347,7 +364,11 @@ async function listedEmail(email: string): Promise<boolean | null> {
 }
 
 /** Records interest in a plan that is not open yet. Grants nothing, ever. */
-async function recordWish(email: string, planId: PlanId, profileId: string | null = null): Promise<void> {
+async function recordWish(
+  email: string,
+  planId: PlanId,
+  profileId: string | null = null,
+): Promise<void> {
   await logEntryEvent({ kind: 'plan_wish', email, code: 'OK', meta: { plan: planId } });
   const admin = adminSupabaseOrNull();
   if (admin === null || profileId === null) return;
@@ -361,5 +382,3 @@ async function recordWish(email: string, planId: PlanId, profileId: string | nul
     // The wish is already in the entry trail; the column is a nicety.
   }
 }
-
-

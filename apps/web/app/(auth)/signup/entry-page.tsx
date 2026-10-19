@@ -1,3 +1,4 @@
+import { readMfaState } from '@/lib/mfa';
 import { redirect } from 'next/navigation';
 import { serverSupabase } from '@/lib/supabase';
 import { hasProfile, routeForUser } from '@/lib/access';
@@ -20,6 +21,15 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
 
   let resumeEmail: string | null = null;
   if (user?.email != null) {
+    if (user.email_confirmed_at != null) {
+      let needsMfa = true;
+      try {
+        needsMfa = (await readMfaState(supabase)).requiresVerification;
+      } catch {
+        /* Unknown security state stays locked. */
+      }
+      if (needsMfa) redirect('/mfa');
+    }
     if (await hasProfile(supabase, user.id)) {
       redirect(await routeForUser(supabase, user.id));
     }
@@ -48,8 +58,8 @@ export async function EntryPage({ linkExpired = false }: { linkExpired?: boolean
       <aside className="aside">
         <h2>Know, tell, guide, keep.</h2>
         <p>
-          Boasis Portal holds one company file for a founder running a free zone company in the
-          UAE, and uses it to tell you what is due, in time, by email.
+          Boasis Portal holds one company file for a founder running a free zone company in the UAE,
+          and uses it to tell you what is due, in time, by email.
         </p>
         <ul className="bullets">
           <li>

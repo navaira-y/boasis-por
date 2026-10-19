@@ -57,7 +57,6 @@ export function CreateAccount() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [twoStep, setTwoStep] = useState(false);
   const [terms, setTerms] = useState(false);
   const [errors, setErrors] = useState<AccountErrors>({});
   const [failure, setFailure] = useState('');
@@ -91,7 +90,7 @@ export function CreateAccount() {
         password,
         plan: 'one-company',
         termsVersion: TERMS_VERSION,
-        twoStepOn: twoStep,
+        twoStepOn: false,
       });
       signIn(account.email, splitName(account.fullName));
       await refresh();
@@ -181,23 +180,10 @@ export function CreateAccount() {
         <p className="hint">{BILLING_COPY.solo}</p>
         <span className="hint">{BILLING_COPY.earlyAccess}</span>
       </fieldset>
-      <div className="gf">
-        <label className="acct__radio">
-          <input
-            type="checkbox"
-            aria-label={copy.account.twoStep}
-            checked={twoStep}
-            aria-describedby="acct-two-why"
-            onChange={(event) => {
-              setTwoStep(event.currentTarget.checked);
-            }}
-          />
-          <span>{copy.account.twoStep}</span>
-        </label>
-        <span className="hint" id="acct-two-why">
-          {copy.account.twoStepWhy}
-        </span>
-      </div>
+      <p className="hint">
+        Set up an authenticator in Security after verifying your email. It is not enabled by this
+        signup form.
+      </p>
       <div className="gf">
         <label className="acct__radio">
           <input

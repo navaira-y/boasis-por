@@ -17,24 +17,44 @@ describe('decideGate', () => {
   it('sends a visitor with no session to sign in', () => {
     for (const path of [...paths, '/billing']) {
       expect(
-        decideGate({ path, signedIn: false, emailConfirmed: false, status: null }),
+        decideGate({
+          mfa: 'not-required',
+          path,
+          signedIn: false,
+          emailConfirmed: false,
+          status: null,
+        }),
       ).toBe('to-signin');
     }
   });
 
   it('sends an unverified session back to finish the entry flow', () => {
     expect(
-      decideGate({ path: '/portal', signedIn: true, emailConfirmed: false, status: 'active' }),
+      decideGate({
+        mfa: 'not-required',
+        path: '/portal',
+        signedIn: true,
+        emailConfirmed: false,
+        status: 'active',
+      }),
     ).toBe('to-signup');
   });
 
   it('opens the portal only for an active subscription', () => {
     for (const path of paths) {
       expect(
-        decideGate({ path, signedIn: true, emailConfirmed: true, status: 'active' }),
+        decideGate({
+          mfa: 'not-required',
+          path,
+          signedIn: true,
+          emailConfirmed: true,
+          status: 'active',
+        }),
       ).toBe('allow');
       for (const status of ['pending', 'incomplete', 'past_due', 'canceled', null] as const) {
-        expect(decideGate({ path, signedIn: true, emailConfirmed: true, status })).toBe('to-billing');
+        expect(
+          decideGate({ mfa: 'not-required', path, signedIn: true, emailConfirmed: true, status }),
+        ).toBe('to-billing');
       }
     }
   });
@@ -42,8 +62,47 @@ describe('decideGate', () => {
   it('lets a verified account reach the billing page whatever its status', () => {
     for (const status of ['active', 'past_due', 'canceled', null] as const) {
       expect(
-        decideGate({ path: '/billing', signedIn: true, emailConfirmed: true, status }),
+        decideGate({
+          mfa: 'not-required',
+          path: '/billing',
+          signedIn: true,
+          emailConfirmed: true,
+          status,
+        }),
       ).toBe('allow');
     }
+  });
+});
+
+describe('authenticator gate', () => {
+  it.each(['required', 'unavailable'] as const)(
+    'blocks %s assurance on every private route',
+    (mfa) => {
+      for (const path of [...paths, '/billing', '/billing/success']) {
+        expect(
+          decideGate({ path, signedIn: true, emailConfirmed: true, status: 'active', mfa }),
+        ).toBe('to-mfa');
+      }
+    },
+  );
+  it('allows a verified second factor without bypassing the subscription gate', () => {
+    expect(
+      decideGate({
+        path: '/portal',
+        signedIn: true,
+        emailConfirmed: true,
+        status: 'active',
+        mfa: 'verified',
+      }),
+    ).toBe('allow');
+    expect(
+      decideGate({
+        path: '/portal',
+        signedIn: true,
+        emailConfirmed: true,
+        status: 'past_due',
+        mfa: 'verified',
+      }),
+    ).toBe('to-billing');
   });
 });

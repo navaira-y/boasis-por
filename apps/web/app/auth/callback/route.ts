@@ -11,6 +11,15 @@ import { logEntryEvent } from '@/lib/log';
  * there by itself). Both link shapes Supabase can send are handled, and an
  * already-used or expired link gets a clear sentence instead of an error page.
  */
+function redirectLocally(path: string): NextResponse {
+  // Relative redirects preserve the public origin and its host-only session
+  // cookie, even when Next runs behind an internal-host reverse proxy.
+  return new NextResponse(null, {
+    status: 307,
+    headers: { Location: path, 'Cache-Control': 'no-store' },
+  });
+}
+
 export async function GET(request: NextRequest) {
   const supabase = await serverSupabase();
   const url = new URL(request.url);
@@ -23,7 +32,7 @@ export async function GET(request: NextRequest) {
 
   if (failure !== null) {
     console.error(`auth callback refused the link: ${failure}`);
-    return NextResponse.redirect(new URL('/signup?link=expired', request.url));
+    return redirectLocally('/signup?link=expired');
   }
 
   let verified = false;
@@ -41,18 +50,18 @@ export async function GET(request: NextRequest) {
   }
 
   if (!verified) {
-    return NextResponse.redirect(new URL('/signup?link=expired', request.url));
+    return redirectLocally('/signup?link=expired');
   }
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
   if (user?.email == null) {
-    return NextResponse.redirect(new URL('/signup?link=expired', request.url));
+    return redirectLocally('/signup?link=expired');
   }
   await logEntryEvent({ kind: 'code_verified', email: user.email, code: 'LINK' });
 
   // No profile yet: finish the entry flow at the password step.
   const next = await routeForUser(supabase, user.id);
-  return NextResponse.redirect(new URL(next, request.url));
+  return redirectLocally(next);
 }

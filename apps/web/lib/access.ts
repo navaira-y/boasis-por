@@ -1,3 +1,4 @@
+import { readMfaState } from './mfa';
 import 'server-only';
 import type { VisitorDbClient } from './supabase';
 import type { SubscriptionStatus } from './gate';
@@ -78,7 +79,12 @@ export async function hasProfile(client: VisitorDbClient, userId: string): Promi
 export async function routeForUser(
   client: VisitorDbClient,
   userId: string,
-): Promise<'/signup' | '/portal' | '/billing'> {
+): Promise<'/signup' | '/portal' | '/billing' | '/mfa'> {
+  try {
+    if ((await readMfaState(client)).requiresVerification) return '/mfa';
+  } catch {
+    return '/mfa';
+  }
   if (!(await hasProfile(client, userId))) return '/signup';
   const access = await accessForUser(client, userId);
   return access.canEnterPortal ? '/portal' : '/billing';

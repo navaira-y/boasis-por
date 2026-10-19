@@ -1,9 +1,5 @@
 import { Account, AccountCompany } from '@boasis/schema';
-import type {
-  AccountsRepo,
-  AuthAdapter,
-  BreachedPasswordCheck,
-} from '../types';
+import type { AccountsRepo, AuthAdapter, BreachedPasswordCheck } from '../types';
 import { requireUser } from './actor';
 import { supabase } from './client';
 import { rethrow, type PostgrestError } from './util';
@@ -48,7 +44,7 @@ async function readOwnAccount(userId: string, email: string): Promise<Account | 
   let twoStepOn = false;
   try {
     const { data: factors } = await supabase().auth.mfa.listFactors();
-    twoStepOn = ((factors?.totp?.length ?? 0) as number) > 0;
+    twoStepOn = factors?.totp?.some((factor) => factor.status === 'verified') === true;
   } catch {
     twoStepOn = false;
   }
@@ -93,7 +89,7 @@ export const accounts: AccountsRepo = {
     // Two-step is enforced by the auth provider, not a flag: refusing loudly
     // beats storing a badge that protects nothing.
     if (patch.twoStepOn !== undefined && patch.twoStepOn !== current.twoStepOn) {
-      throw new Error('Two-step sign-in is not available yet.');
+      throw new Error('Use authenticator setup in Security to change two-step verification.');
     }
     // Screens save whole forms, so unmanaged fields (plan, email, terms,
     // verification) are ignored; only owned fields write through.
@@ -174,10 +170,8 @@ export const auth: AuthAdapter = {
     Promise.reject(
       new Error('Accounts are created on the main site. Sign up there, then open the portal.'),
     ),
-  resendVerification: () =>
-    Promise.reject(new Error('Email verification lives on the main site.')),
-  verifyEmail: () =>
-    Promise.reject(new Error('Email verification lives on the main site.')),
+  resendVerification: () => Promise.reject(new Error('Email verification lives on the main site.')),
+  verifyEmail: () => Promise.reject(new Error('Email verification lives on the main site.')),
 };
 
 // Step 0: the real leaked-password check the seam was built for — a

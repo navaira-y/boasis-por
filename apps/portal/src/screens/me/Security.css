@@ -52,3 +52,46 @@
     padding-inline: 17px;
   }
 }
+
+/* Functional additions use the account form's existing theme and spacing. */
+.sec .mfa-qr {
+  inline-size: 200px;
+  max-inline-size: 100%;
+  block-size: auto;
+  background: white;
+  padding: 8px;
+}
+.sec .mfa-secret {
+  display: block;
+  overflow-wrap: anywhere;
+  user-select: all;
+  color: var(--ink-1);
+}
+.sec .pwform p {
+  margin-block: 0;
+}
+.sec .pwform details {
+  color: var(--ink-2);
+}
+.sec .pwform summary {
+  cursor: pointer;
+}
+.sec .pwform select {
+  max-inline-size: 100%;
+  background: var(--bg);
+  color: var(--ink-1);
+  border: 1px solid var(--line-1);
+  border-radius: var(--field-radius);
+  padding: 10px;
+}
+.sec .arow button.g {
+  padding: 8px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink-1);
+}
+.sec .arow button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

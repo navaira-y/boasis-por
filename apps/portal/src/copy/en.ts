@@ -670,14 +670,12 @@ export const me = {
     saved: 'Password changed on this device.',
     save: 'Change it',
     placeholderNote:
-      'Kept on this device only. Your sign-in still accepts any password until accounts move to the server.',
+      'Password changes are not connected on this screen yet. This control cannot change your sign-in password.',
     twoStep: 'Two-step verification',
-    twoStepNote: 'A code from your phone, asked at every sign in',
-    twoStepPlaceholder:
-      'A placeholder: the switch is remembered on this device and nothing asks for a code yet.',
+    twoStepNote: 'A verified code from your authenticator app at sign in',
+    twoStepPlaceholder: 'Only a verified authenticator enables two-step protection.',
     sessions: 'Where you are signed in',
-    sessionsNote:
-      'A placeholder: only this device is listed, because sessions are not kept on a server yet.',
+    sessionsNote: 'This screen shows the current account only. Other devices are not listed here.',
     thisDevice: 'This device',
     signedIn: (date: string) => `Signed in ${date}`,
     signedInUnknown: 'Signed in before this was recorded',

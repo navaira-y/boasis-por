@@ -13,7 +13,7 @@
  *   /portal, verified     -> only with an ACTIVE subscription, else /billing
  */
 
-import type { BillingStatus } from '@boasis/schema';
+import type { BillingStatus, MfaGate } from '@boasis/schema';
 export type SubscriptionStatus = BillingStatus;
 
 export interface GateFacts {
@@ -22,9 +22,10 @@ export interface GateFacts {
   emailConfirmed: boolean;
   /** null when the account has no subscription row at all. */
   status: SubscriptionStatus | null;
+  mfa: MfaGate;
 }
 
-export type GateAction = 'allow' | 'to-signin' | 'to-signup' | 'to-billing';
+export type GateAction = 'allow' | 'to-signin' | 'to-signup' | 'to-billing' | 'to-mfa';
 
 export function isBillingPath(path: string): boolean {
   return path === '/billing' || path.startsWith('/billing/');
@@ -37,6 +38,7 @@ export function isPortalPath(path: string): boolean {
 export function decideGate(facts: GateFacts): GateAction {
   if (!facts.signedIn) return 'to-signin';
   if (!facts.emailConfirmed) return 'to-signup';
+  if (facts.mfa !== 'verified' && facts.mfa !== 'not-required') return 'to-mfa';
   if (isBillingPath(facts.path)) return 'allow';
   if (isPortalPath(facts.path)) return facts.status === 'active' ? 'allow' : 'to-billing';
   return 'allow';
